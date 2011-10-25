@@ -1,0 +1,173 @@
+<HTML>
+<HEAD>
+<TITLE>CDT</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<!--<SCRIPT SRC="conf.js"></SCRIPT>-->
+<SCRIPT>
+var current_topic;
+var current_count;
+var alltopics=4;
+var lesson_number;
+var total_lessons;
+var topic_number;
+
+function setBGK()
+{
+x=1;
+  while (x<=alltopics)
+  {
+  eval("top.toc.document.all.r"+x+".style.background=\"#FFFFFF\"");
+  //eval("top.toc.document.rimg"+x+".src=\"images/spcr2.gif\"");
+  x++;
+  }
+  eval("top.toc.document.all.r"+current_topic+".style.background=\"#cccccc\"");
+  eval("top.toc.document.rimg"+current_topic+".src=\"images/ch1.gif\"");
+  eval("top.toc.document.rimg"+current_topic+".alt=\"Topic Completed\"");
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+------------------------------------------------------
+Navigation functions
+------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+Turn on Last button
+--------------------------------------------------------------------------------------------------
+*/
+function onLast()
+{
+	top.nav.document.last.src="images/arrow_l.gif";
+	nav_last="on";
+	return nav_last;
+}
+
+
+/*
+--------------------------------------------------------------------------------------------------
+Turn off last button
+--------------------------------------------------------------------------------------------------
+*/
+function offLast()
+{
+	top.nav.document.last.src="images/arrow_l_off.gif";
+	nav_last="off";
+	onNext();
+	return nav_last;
+}
+/*
+--------------------------------------------------------------------------------------------------
+Turn on next button
+--------------------------------------------------------------------------------------------------
+*/
+function onNext()
+{
+	top.nav.document.next.src="images/arrow_r.gif";
+	nav_next="on";
+	return nav_next;
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Turn off next button
+--------------------------------------------------------------------------------------------------
+*/
+function offNext()
+{
+	top.nav.document.next.src="images/arrow_r_off.gif";
+	nav_next="off";
+	onLast();
+	return nav_next;
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Turn on NAV (both buttons)
+--------------------------------------------------------------------------------------------------
+*/
+function navOn()
+{
+
+  top.nav.document.last.src="images/arrow_l.gif";
+  top.nav.document.next.src="images/arrow_r.gif";
+  nav_next="on";
+  nav_last="on";
+  return nav_next;  
+  return nav_last;
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Sets the navigation buttons to the correct states
+--------------------------------------------------------------------------------------------------
+*/
+function navState()
+{
+	if(current_topic==1||current_topic=null)
+	{
+	offLast();
+	}
+	else if(current_topic==total_topics)
+	{
+	offNext();
+	}
+	else
+	{
+	navOn();
+	}
+	return nav_next;
+	return nav_last;
+}
+//navState();
+/*
+
+/*
+--------------------------------------------------------------------------------------------------
+Next function for navigation
+--------------------------------------------------------------------------------------------------
+*/
+
+function next()
+{
+		if(lesson_number<=total_lessons && current_topic<alltopics)
+		{
+			if(topic_number<lessons[lesson_number].length-1)
+			{
+			topic_number++;		
+			current_topic++;
+			}
+			else if(topic_number==lessons[lesson_number].length-1)
+			{
+				if(lesson_number!=total_lessons)
+				{
+				lesson_number++;
+				topic_number=1;			
+				current_topic++;			
+				}
+			}
+		
+		}
+	setLessonLoc();
+	setBGK;
+	navState();
+	return false;
+}
+
+}
+
+
+</SCRIPT>
+</HEAD>
+
+<FRAMESET ROWS="0,*,40" FRAMEBORDER="NO" BORDER="0" FRAMESPACING="0" COLS="*"> 
+  <FRAME NAME="data" SCROLLING="NO" noresize SRC="blank.html" FRAMEBORDER="NO" BORDER="0" FRAMESPACING="0">
+    <FRAMESET ROWS="*" COLS="250,*" FRAMEBORDER="NO" BORDER="0" FRAMESPACING="0">	
+	<FRAME NAME="toc" SCROLLING="AUTO" noresize SRC="toc.html" FRAMEBORDER="YES" BORDER="1" FRAMESPACING="0">
+	<FRAME NAME="content" SCROLLING="AUTO" SRC="content.html" FRAMEBORDER="YES" BORDER="1" FRAMESPACING="0">
+   </FRAMESET>
+  <FRAME NAME="nav" SCROLLING="NO" noresize SRC="nav.html" FRAMEBORDER="YES" BORDER="0" FRAMESPACING="0">    
+</FRAMESET>
+<NOFRAMES><BODY BGCOLOR="#FFFFFF"  TOPMARGIN="0" LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0"></NOFRAMES>
+
+</BODY>
+</HTML>

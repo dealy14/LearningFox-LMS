@@ -1,0 +1,9 @@
+&t_content=<FONT SIZE="16" COLOR="#990000">Can an establishment include more than one physical location? </FONT>
+Yes, but only under certain conditions. An employer may combine two or more physical locations into a single establishment only when:
+<FONT SIZE="20">- </FONT>The employer operates the locations as a single business operation under common<BR><FONT COLOR="#FFFFFF">. . </FONT>management;
+<FONT SIZE="20">- </FONT>The locations are all located in close proximity to each other; and
+<FONT SIZE="20">- </FONT>No one industry description in the Standard Industrial Classification (SIC) Manual applies to<BR><FONT COLOR="#FFFFFF">. . </FONT>the joint activities of the establishments; and
+<FONT SIZE="20">- </FONT>The employer keeps one set of business records for the locations, such as records on the<BR><FONT COLOR="#FFFFFF">. . </FONT>number of employees, their wages and salaries, sales or receipts, and other kinds of<BR><FONT COLOR="#FFFFFF">. . </FONT>business information. For example, one manufacturing establishment might include the main<BR><FONT COLOR="#FFFFFF">. . </FONT>plant, a warehouse a few blocks away, and an administrative services building across the<BR><FONT COLOR="#FFFFFF">. . </FONT>street.
+When you're ready to continue, click the <FONT COLOR="#990000">NEXT button</FONT>.
+&
+&content_status=loaded&

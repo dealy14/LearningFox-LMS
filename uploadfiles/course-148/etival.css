@@ -1,0 +1,31 @@
+
+
+a.defpopup{position:relative;
+	z-index:24;
+
+	font-weight: bold;
+	color: #069;
+	border-bottom:thin dotted #000000;
+	text-decoration:none;
+font-size:13px;
+font-family:"Verdana", sans serif
+}
+a.defpopup:hover{z-index:25; background-color:#FF0}
+a.defpopup span{display: none}
+a.defpopup:hover span{ /*DISPLAYS ONLY ON HOVER*/
+	display:block;
+	position:absolute;
+	top:2em; left:0; width:22em;
+	padding:.3em;
+	border:2px outset #BBB;
+	color:#000; background:#FF9;
+	text-align:center;
+	font-weight: bold;}
+
+span.text29411Font1 { font-size:13px; font-family:"Verdana", sans serif; color:#010101;}
+span.text29413Font1 { font-size:12px; font-family:"Verdana", sans serif; color:#010101;}
+
+span.text29412Font1 { 
+font-size:10px; font-family:"Verdana", sans serif; color:#010101;
+
+}

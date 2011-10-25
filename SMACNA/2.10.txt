@@ -1,0 +1,9 @@
+&total_questions=1&
+&question_1=All employers covered by the OSHA act must continue to report any workplace incident resulting in a fatality or the hospitalization of three or more employees.
+A) True<BR>B) False&
+&question_1_correct=t&
+&question_1_type=tf&
+
+&correct_message=GOOD JOB,\nclick the NEXT button to continue to Lesson 2&
+&incorrect_message=Sorry the correct answer was True.\nClick the NEXT button to continue to Lesson 2&
+&content_status=loaded&

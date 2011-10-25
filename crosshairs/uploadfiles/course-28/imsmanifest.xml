@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest identifier="HunterStoneSCOManifest" version="1.1"
+          xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" 
+          xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd 
+                              http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+	<metadata><schema>ADL SCORM</schema><schemaversion>1.2</schemaversion><adlcp:location>ISD System/ISD System.xml</adlcp:location></metadata>
+	<organizations default="ORG_1">
+		<organization identifier="ORG_1">
+			<title>ISD Workflow</title>
+			<item identifier="ITEM_1" identifierref="Main" isvisible="true">
+				<title>ISD Workflow</title>
+				<adlcp:masteryscore>90</adlcp:masteryscore>
+			</item>
+		</organization>
+	</organizations>
+	<resources>
+		<resource identifier="Main" type="webcontent" adlcp:scormtype="sco" href="ISD System/ISD System_SCO.htm">
+			<metadata>
+				<schema>ADL SCORM</schema>
+				<schemaversion>1.2</schemaversion>
+				<adlcp:location>ISD System/ISD System.xml</adlcp:location>
+				<adlcp:datafromlms></adlcp:datafromlms>
+			</metadata>
+			<file href="ISD System/ISD System.htm"/>
+			<dependency identifierref="ResDep"/>
+		</resource>
+		<resource identifier="ResDep" type="webcontent" adlcp:scormtype="asset">
+			<file href="ISD System/APIWrapper.js"/><file href="ISD System/Done.htm"/><file href="ISD System/ISD System_buttons.gif"/><file href="ISD System/ISD System_filelist.xml"/><file href="ISD System/ISD System_frame.htm"/><file href="ISD System/ISD System_fullscreen.htm"/><file href="ISD System/ISD System_master01.htm"/><file href="ISD System/ISD System_master03.htm"/><file href="ISD System/ISD System_master03.xml"/><file href="ISD System/ISD System_master03_stylesheet.css"/><file href="ISD System/ISD System_oledata.mso"/><file href="ISD System/ISD System_outline.htm"/><file href="ISD System/ISD System_pres.xml"/><file href="ISD System/ISD System_preview.wmf"/><file href="ISD System/ISD System_SCO.htm"/><file href="ISD System/ISD System_script.js"/><file href="ISD System/ISD System_slide0001.htm"/><file href="ISD System/ISD System_slide0002.htm"/><file href="ISD System/ISD System_slide0002_image008.gif"/><file href="ISD System/ISD System_slide0002_image009.gif"/><file href="ISD System/ISD System_slide0002_image010.gif"/><file href="ISD System/ISD System_slide0002_image011.gif"/><file href="ISD System/ISD System_slide0002_image012.gif"/><file href="ISD System/ISD System_slide0002_image013.gif"/><file href="ISD System/ISD System_slide0002_image014.gif"/><file href="ISD System/ISD System_slide0002_image015.gif"/><file href="ISD System/ISD System_slide0002_image016.gif"/><file href="ISD System/ISD System_slide0002_image017.gif"/><file href="ISD System/ISD System_slide0002_image018.gif"/><file href="ISD System/ISD System_slide0002_image019.gif"/><file href="ISD System/ISD System_slide0002_image020.gif"/><file href="ISD System/ISD System_slide0002_image021.gif"/><file href="ISD System/ISD System_slide0002_image022.gif"/><file href="ISD System/ISD System_slide0002_image023.gif"/><file href="ISD System/ISD System_slide0003.htm"/><file href="ISD System/ISD System_slide0003_image001.gif"/><file href="ISD System/ISD System_slide0003_image002.gif"/><file href="ISD System/ISD System_slide0003_image003.gif"/><file href="ISD System/ISD System_slide0003_image004.gif"/><file href="ISD System/ISD System_slide0003_image005.gif"/><file href="ISD System/ISD System_slide0003_image006.gif"/><file href="ISD System/ISD System_slide0003_image007.gif"/><file href="ISD System/ISD System_slide0004.htm"/><file href="ISD System/ISD System_slide0004_image058.gif"/><file href="ISD System/ISD System_slide0004_image059.gif"/><file href="ISD System/ISD System_slide0004_image060.gif"/><file href="ISD System/ISD System_slide0004_image061.gif"/><file href="ISD System/ISD System_slide0005.htm"/><file href="ISD System/ISD System_slide0006.htm"/><file href="ISD System/ISD System_slide0006_image024.gif"/><file href="ISD System/ISD System_slide0006_image025.gif"/><file href="ISD System/ISD System_slide0006_image026.gif"/><file href="ISD System/ISD System_slide0006_image027.gif"/><file href="ISD System/ISD System_slide0006_image028.gif"/><file href="ISD System/ISD System_slide0006_image029.gif"/><file href="ISD System/ISD System_slide0006_image030.gif"/><file href="ISD System/ISD System_slide0006_image031.gif"/><file href="ISD System/ISD System_slide0006_image032.gif"/><file href="ISD System/ISD System_slide0006_image033.gif"/><file href="ISD System/ISD System_slide0006_image034.gif"/><file href="ISD System/ISD System_slide0006_image035.gif"/><file href="ISD System/ISD System_slide0006_image036.gif"/><file href="ISD System/ISD System_slide0006_image037.gif"/><file href="ISD System/ISD System_slide0006_image038.gif"/><file href="ISD System/ISD System_slide0006_image039.gif"/><file href="ISD System/ISD System_slide0007.htm"/><file href="ISD System/ISD System_slide0007_image040.gif"/><file href="ISD System/ISD System_slide0007_image041.gif"/><file href="ISD System/ISD System_slide0007_image042.gif"/><file href="ISD System/ISD System_slide0007_image043.gif"/><file href="ISD System/ISD System_slide0007_image044.gif"/><file href="ISD System/ISD System_slide0007_image045.gif"/><file href="ISD System/ISD System_slide0007_image046.gif"/><file href="ISD System/ISD System_slide0007_image047.gif"/><file href="ISD System/ISD System_slide0007_image048.gif"/><file href="ISD System/ISD System_slide0007_image049.gif"/><file href="ISD System/ISD System_slide0007_image050.gif"/><file href="ISD System/ISD System_slide0007_image051.gif"/><file href="ISD System/ISD System_slide0007_image052.gif"/><file href="ISD System/ISD System_slide0007_image053.gif"/><file href="ISD System/ISD System_slide0007_image054.gif"/><file href="ISD System/ISD System_slide0007_image055.gif"/><file href="ISD System/ISD System_slide0007_image056.gif"/><file href="ISD System/ISD System_slide0007_image057.gif"/><file href="ISD System/ISD System_slide0008.htm"/><file href="ISD System/ISD System_slide0010.htm"/><file href="ISD System/ISD System_slide0010_image062.gif"/><file href="ISD System/ISD System_slide0010_image063.gif"/><file href="ISD System/ISD System_slide0010_image064.gif"/><file href="ISD System/ISD System_slide0011.htm"/><file href="ISD System/ISD System_slide0011_image065.gif"/><file href="ISD System/ISD System_slide0011_image066.gif"/><file href="ISD System/SCOFunctions.js"/></resource>
+	</resources>
+</manifest>
+

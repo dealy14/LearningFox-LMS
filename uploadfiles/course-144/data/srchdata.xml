@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document-metadata version="1.0" xmlns="http://breeze.macromedia.com/">
+	<document-info>
+		<title></title>
+		<summary></summary>
+		<author/>
+		<keywords/>
+		<thumbnail href="data/thumb/thumb_slide_000001.jpg"/>
+		<view-link href="/Viewer.swf?slide={position}"/>
+	</document-info>
+	<section type="slide" position="1" xmlns="">
+		<title>Can This Hospital Refuse? CASE STUDY #4</title>
+		<content> Can This Hospital Refuse?
+CASE STUDY #4 Advanced EMTALA Training </content>
+		<related-content>&lt;br&gt;</related-content>
+		<thumbnail href="data/thumb/thumb_slide_000001.jpg"/>
+	</section>
+	<section type="slide" position="2" xmlns="">
+		<title></title>
+		<content>
+		</content>
+		<related-content>A 911 call was placed for a 33 year old male. His friend told emergency personnel that he was unresponsive on his couch for 24 hours. &lt;br&gt;The 33 year old male patient was brought into the ED at Hospital C by ambulance. &lt;br&gt;&lt;br&gt;</related-content>
+		<thumbnail href="data/thumb/thumb_slide_000002.jpg"/>
+	</section>
+	<section type="slide" position="3" xmlns="">
+		<title></title>
+		<content>
+		</content>
+		<related-content>At 12:01am, his BP was noted at 160/101 with a respiratory rate of 36 to 50 breaths per minute. &lt;br&gt;Flight arrangements were made.  &lt;br&gt;At 12:20am, the nursing notes documented that the diagnosis included:&lt;br&gt; sepsis&lt;br&gt; multi-system organ failure&lt;br&gt; pneumonia&lt;br&gt; and gastrointestinal (GI) bleeding.   &lt;br&gt;&lt;br&gt;</related-content>
+		<thumbnail href="data/thumb/thumb_slide_000003.jpg"/>
+	</section>
+	<section type="slide" position="4" xmlns="">
+		<title></title>
+		<content>
+		</content>
+		<related-content>Hospital C contacted Hospital D at 11:16pm. &lt;br&gt;Hospital D indicated that they did not have the capability to accept this patient as he required intubation and they did not have the personnel available to handle a newly ventilated patient with multi-system organ failure.  &lt;br&gt;&lt;br&gt;</related-content>
+		<thumbnail href="data/thumb/thumb_slide_000004.jpg"/>
+	</section>
+	<section type="slide" position="5" xmlns="">
+		<title></title>
+		<content>
+		</content>
+		<related-content>Hospital C then contacted Hospital E, who accepted the patient.  &lt;br&gt;&lt;br&gt;Hospital E filed an EMTALA complaint on Hospital D for failure to accept an appropriate transfer. &lt;br&gt;</related-content>
+		<thumbnail href="data/thumb/thumb_slide_000005.jpg"/>
+	</section>
+	<section type="slide" position="6" xmlns="">
+		<title></title>
+		<content>
+		</content>
+		<related-content>It turns out Hospital D had a policy stipulating the types of patients that they could not accept, including:&lt;br&gt; critical care patients (ventilator dependent, multisystem organ failure, severe sepsis), &lt;br&gt; pulmonary medicine, &lt;br&gt; and “specialties with no assigned physician on call or the physician unable and unavailable for treatment at the time of transfer”.  &lt;br&gt;</related-content>
+		<thumbnail href="data/thumb/thumb_slide_000006.jpg"/>
+	</section>
+	<section type="slide" position="7" xmlns="">
+		<title></title>
+		<content>
+		</content>
+		<related-content>According to interviews done during the investigation, the hospitalist who was working that night was a Family Medicine physician and did not have privileges to take care of ventilated or critically ill patients.  &lt;br&gt;&lt;br&gt; There were intubated patients in the ICU there, but they had been seen by the intensivists during the day and had a plan.  &lt;br&gt;&lt;br&gt; Pulmonologists only accepted consults on inpatients during the day and did not admit patients from the ED or to the ICU.  &lt;br&gt;&lt;br&gt;</related-content>
+		<thumbnail href="data/thumb/thumb_slide_000007.jpg"/>
+	</section>
+</document-metadata>

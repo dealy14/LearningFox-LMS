@@ -1,0 +1,410 @@
+<?xml version="1.0"?>
+<manifest identifier="PhoneSkillsCourseManifest" version="1.1"
+          xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2" 
+          xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd 
+                              http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+   <metadata/>
+
+   <organizations default = "Course001">
+      <organization identifier = "Course001">
+         <title>Dodge - Durango Course</title>
+		<item identifier="I_SCO1" identifierref="R_A1">
+		   <title>Phone Skills Opening Splash</title>
+		</item>
+		<item identifier="I_SCO2" identifierref="R_A2">
+		   <title>Phone Skills Getting Started</title>
+		</item>
+		<item identifier="I_SCO3" identifierref="R_A3">
+		   <title>Phone Skills Practice Session 1</title>
+		</item>
+		<item identifier="I_SCO4" identifierref="R_A4">
+		   <title>Phone Skills Practice Session 2</title>
+		</item>
+		<item identifier="I_SCO5" identifierref="R_A5">
+		   <title>Phone Skills Practice Session 3</title>
+		</item>
+		<item identifier="I_SCO6" identifierref="R_A6">
+		   <title>Phone Skills Practice Session 4</title>
+		</item>
+       </organization>
+   </organizations>
+
+   <resources>
+	   
+     <!-- SCO Resource -->
+     <resource identifier="R_A1" type="webcontent" 
+		adlcp:scormtype="sco" href="sco00/sco00.htm">
+
+         <!-- Context independent SCO Meta-data describing the SCO -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco00/sco00.xml</adlcp:location>
+         </metadata>
+
+         <file href="sco00/sco00.htm" />
+
+	 <!-- Multiple Assets that the SCO is dependent on -->
+         <dependency identifierref="R_A7" />
+         <dependency identifierref="R_A8" />
+         <dependency identifierref="R_A19" />  
+     </resource>
+
+	 <!-- SCO Resource -->
+     <resource identifier="R_A2" type="webcontent" 
+		adlcp:scormtype="sco" href="sco01/sco01.htm">
+
+         <!-- Context independent SCO Meta-data describing the SCO -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco01/sco01.xml</adlcp:location>
+         </metadata>
+
+         <file href="sco01/sco01.htm" />
+
+	 <!-- Multiple Assets that the SCO is dependent on -->
+         <dependency identifierref="R_A9" />
+         <dependency identifierref="R_A10" />
+         <dependency identifierref="R_A19" /> 
+     </resource>
+      
+     <!-- SCO Resource -->
+     <resource identifier="R_A3" type="webcontent" 
+		adlcp:scormtype="sco" href="sco02/sco02.htm">
+
+         <!-- Context independent SCO Meta-data describing the SCO -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco02/sco02.xml</adlcp:location>
+         </metadata>
+
+         <file href="sco02/sco02.htm" />
+
+	 <!-- Multiple Assets that the SCO is dependent on -->
+         <dependency identifierref="R_A11" />
+         <dependency identifierref="R_A12" /> 
+         <dependency identifierref="R_A19" />
+         <dependency identifierref="R_A20" />
+         <dependency identifierref="R_A21" />
+     </resource>
+
+     <!-- SCO Resource -->
+     <resource identifier="R_A4" type="webcontent" 
+		adlcp:scormtype="sco" href="sco03/sco03.htm">
+
+         <!-- Context independent SCO Meta-data describing the SCO -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco03/sco03.xml</adlcp:location>
+         </metadata>
+
+         <file href="sco03/sco03.htm" />
+
+	 <!-- Multiple Assets that the SCO is dependent on -->
+         <dependency identifierref="R_A13" />
+         <dependency identifierref="R_A14" /> 
+         <dependency identifierref="R_A19" />
+         <dependency identifierref="R_A22" />
+         <dependency identifierref="R_A23" />
+     </resource>
+
+     <!-- SCO Resource -->
+     <resource identifier="R_A5" type="webcontent" 
+		adlcp:scormtype="sco" href="sco04/sco04.htm">
+
+         <!-- Context independent SCO Meta-data describing the SCO -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco04/sco04.xml</adlcp:location>
+         </metadata>
+
+         <file href="sco04/sco04.htm" />
+
+	 <!-- Multiple Assets that the SCO is dependent on -->
+         <dependency identifierref="R_A15" />
+         <dependency identifierref="R_A16" /> 
+         <dependency identifierref="R_A19" />
+         <dependency identifierref="R_A24" />
+         <dependency identifierref="R_A25" />
+     </resource>
+     
+     <!-- SCO Resource -->
+     <resource identifier="R_A6" type="webcontent" 
+		adlcp:scormtype="sco" href="sco05/sco05.htm">
+
+         <!-- Context independent SCO Meta-data describing the SCO -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco05/sco05.xml</adlcp:location>
+         </metadata>
+
+         <file href="sco05/sco05.htm" />
+
+	 <!-- Multiple Assets that the SCO is dependent on -->
+         <dependency identifierref="R_A17" />
+         <dependency identifierref="R_A18" /> 
+         <dependency identifierref="R_A19" />
+         <dependency identifierref="R_A26" />
+         <dependency identifierref="R_A27" />
+     </resource>
+     
+      <!-- Asset -->
+      <resource identifier="R_A7" type="webcontent" 
+		adlcp:scormtype="asset" href="sco00/loader.swf">
+
+	 <!-- Context independent Asset Meta-data describing the Asset -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco00/loader.xml</adlcp:location>
+         </metadata>
+         <file href="sco00/loader.swf" />
+      </resource>
+
+      <!-- Asset -->
+      <resource identifier="R_A8" type="webcontent" 
+		adlcp:scormtype="asset" href="sco00/MM.swf">
+
+	 <!-- Context independent Asset Meta-data describing the Asset -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco00/MM.xml</adlcp:location>
+         </metadata>
+         <file href="sco00/MM.swf" />
+      </resource>
+      
+
+      <!-- Asset -->
+      <resource identifier="R_A9" type="webcontent" 
+		adlcp:scormtype="asset" href="sco01/loader.swf">
+
+	 <!-- Context independent Asset Meta-data describing the Asset -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco01/loader.xml</adlcp:location>
+         </metadata>
+         <file href="sco01/loader.swf" />
+      </resource>
+
+      <!-- Asset -->
+      <resource identifier="R_A10" type="webcontent" 
+		adlcp:scormtype="asset" href="sco01/getting_started.swf">
+
+	 <!-- Context independent Asset Meta-data describing the Asset -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco01/getting_started.xml</adlcp:location>
+         </metadata>
+         <file href="sco01/getting_started.swf" />
+      </resource>
+
+      <!-- Asset -->
+      <resource identifier="R_A11" type="webcontent" 
+		adlcp:scormtype="asset" href="sco02/loader.swf">
+
+	 <!-- Context independent Asset Meta-data describing the Asset -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco02/loader.xml</adlcp:location>
+         </metadata>
+         <file href="sco02/loader.swf" />
+      </resource>
+
+      <!-- Asset -->
+      <resource identifier="R_A12" type="webcontent" 
+		adlcp:scormtype="asset" href="sco02/PracticeSessions.swf">
+
+	 <!-- Context independent Asset Meta-data describing the Asset -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco02/PracticeSessions.xml</adlcp:location>
+         </metadata>
+         <file href="sco02/PracticeSessions.swf" />
+      </resource>
+
+      <!-- Asset -->
+      <resource identifier="R_A13" type="webcontent" 
+		adlcp:scormtype="asset" href="sco03/loader.swf">
+
+	 <!-- Context independent Asset Meta-data describing the Asset -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco03/loader.xml</adlcp:location>
+         </metadata>
+         <file href="sco03/loader.swf" />
+      </resource>
+
+      <!-- Asset -->
+      <resource identifier="R_A14" type="webcontent" 
+		adlcp:scormtype="asset" href="sco03/PracticeSessions.swf">
+
+	 <!-- Context independent Asset Meta-data describing the Asset -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco03/PracticeSessions.xml</adlcp:location>
+         </metadata>
+         <file href="sco03/PracticeSessions.swf" />
+      </resource>
+
+      <!-- Asset -->
+      <resource identifier="R_A15" type="webcontent" 
+		adlcp:scormtype="asset" href="sco04/loader.swf">
+
+	 <!-- Context independent Asset Meta-data describing the Asset -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco04/loader.xml</adlcp:location>
+         </metadata>
+         <file href="sco04/loader.swf" />
+      </resource>
+
+      <!-- Asset -->
+      <resource identifier="R_A16" type="webcontent" 
+		adlcp:scormtype="asset" href="sco04/PracticeSessions.swf">
+
+	 <!-- Context independent Asset Meta-data describing the Asset -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco04/PracticeSessions.xml</adlcp:location>
+         </metadata>
+         <file href="sco04/PracticeSessions.swf" />
+      </resource>
+
+      <!-- Asset -->
+      <resource identifier="R_A17" type="webcontent" 
+		adlcp:scormtype="asset" href="sco05/loader.swf">
+
+	 <!-- Context independent Asset Meta-data describing the Asset -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco05/loader.xml</adlcp:location>
+         </metadata>
+         <file href="sco05/loader.swf" />
+      </resource>
+
+      <!-- Asset -->
+      <resource identifier="R_A18" type="webcontent" 
+		adlcp:scormtype="asset" href="sco05/PracticeSessions.swf">
+
+	 <!-- Context independent Asset Meta-data describing the Asset -->
+         <metadata>
+            <schema>ADL SCORM</schema>
+            <schemaversion>1.2</schemaversion>
+            <adlcp:location>sco05/PracticeSessions.xml</adlcp:location>
+         </metadata>
+         <file href="sco05/PracticeSessions.swf" />
+      </resource>
+                                    
+      <resource identifier="R_A19" type="webcontent" adlcp:scormtype="asset">
+         <file href="SCORM_API.js"/>
+      </resource>
+
+      <resource identifier="R_A20" type="webcontent" adlcp:scormtype="asset">
+         <file href="sco02/chrysler.xml"/>
+         <file href="sco02/dodge.xml"/>
+         <file href="sco02/jeep.xml"/>
+      </resource>
+      
+      <resource identifier="R_A21" type="webcontent" adlcp:scormtype="asset">
+         <file href="sco02/mp3/PS1_10.mp3"/>
+		 <file href="sco02/mp3/PS1_11.mp3"/>
+		 <file href="sco02/mp3/PS1_2.mp3"/>
+		 <file href="sco02/mp3/PS1_3.mp3"/>
+		 <file href="sco02/mp3/PS1_4.mp3"/>
+		 <file href="sco02/mp3/PS1_5.mp3"/>
+		 <file href="sco02/mp3/PS1_6.mp3"/>
+		 <file href="sco02/mp3/PS1_7.mp3"/>
+		 <file href="sco02/mp3/PS1_8.mp3"/>
+		 <file href="sco02/mp3/PS1_9.mp3"/>
+		 <file href="sco02/mp3/PS1_LIBERTY.mp3"/>
+		 <file href="sco02/mp3/PS1_PT_CRUISER.mp3"/>
+		 <file href="sco02/mp3/PS1_RAM_TRUCK.mp3"/>
+		 <file href="sco02/mp3/Setup Screen Text.mp3"/>
+      </resource>
+      
+      <resource identifier="R_A22" type="webcontent" adlcp:scormtype="asset">
+         <file href="sco03/chrysler.xml"/>
+         <file href="sco03/dodge.xml"/>
+         <file href="sco03/jeep.xml"/>
+      </resource>
+
+      <resource identifier="R_A23" type="webcontent" adlcp:scormtype="asset">
+         <file href="sco03/mp3/PS2_2.mp3"/>
+		 <file href="sco03/mp3/PS2_3.mp3"/>
+		 <file href="sco03/mp3/PS2_4.mp3"/>
+		 <file href="sco03/mp3/PS2_5.mp3"/>
+		 <file href="sco03/mp3/PS2_6.mp3"/>
+		 <file href="sco03/mp3/PS2_7.mp3"/>
+		 <file href="sco03/mp3/PS2_8.mp3"/>
+		 <file href="sco03/mp3/PS2_9.mp3"/>
+		 <file href="sco03/mp3/PS2_DURANGO.mp3"/>
+		 <file href="sco03/mp3/PS2_LIBERTY.mp3"/>
+		 <file href="sco03/mp3/PS2_PT_CRUISER.mp3"/>
+		 <file href="sco03/mp3/Setup Screen Text.mp3"/>
+      </resource>
+
+      <resource identifier="R_A24" type="webcontent" adlcp:scormtype="asset">
+         <file href="sco04/chrysler.xml"/>
+         <file href="sco04/dodge.xml"/>
+         <file href="sco04/jeep.xml"/>
+      </resource>
+
+      <resource identifier="R_A25" type="webcontent" adlcp:scormtype="asset">
+		 <file href="sco04/mp3/PS3_10.mp3"/>
+		 <file href="sco04/mp3/PS3_11.mp3"/>
+		 <file href="sco04/mp3/PS3_2.mp3"/>
+		 <file href="sco04/mp3/PS3_3.mp3"/>
+		 <file href="sco04/mp3/PS3_4.mp3"/>
+		 <file href="sco04/mp3/PS3_5.mp3"/>
+		 <file href="sco04/mp3/PS3_6.mp3"/>
+		 <file href="sco04/mp3/PS3_7.mp3"/>
+		 <file href="sco04/mp3/PS3_8.mp3"/>
+		 <file href="sco04/mp3/PS3_9.mp3"/>
+		 <file href="sco04/mp3/PS3_DURANGO.mp3"/>
+		 <file href="sco04/mp3/PS3_LIBERTY.mp3"/>
+		 <file href="sco04/mp3/PS3_PT_CRUISER.mp3"/>
+		 <file href="sco04/mp3/Setup Screen Text.mp3"/>
+      </resource>
+      
+      <resource identifier="R_A26" type="webcontent" adlcp:scormtype="asset">
+         <file href="sco05/chrysler.xml"/>
+         <file href="sco05/dodge.xml"/>
+         <file href="sco05/jeep.xml"/>
+      </resource>
+
+      <resource identifier="R_A27" type="webcontent" adlcp:scormtype="asset">
+		 <file href="sco05/mp3/PS4_10.mp3"/>
+		 <file href="sco05/mp3/PS4_11.mp3"/>
+		 <file href="sco05/mp3/PS4_2.mp3"/>
+		 <file href="sco05/mp3/PS4_3.mp3"/>
+		 <file href="sco05/mp3/PS4_4.mp3"/>
+		 <file href="sco05/mp3/PS4_5.mp3"/>
+		 <file href="sco05/mp3/PS4_6.mp3"/>
+		 <file href="sco05/mp3/PS4_7.mp3"/>
+		 <file href="sco05/mp3/PS4_8.mp3"/>
+		 <file href="sco05/mp3/PS4_9.mp3"/>
+		 <file href="sco05/mp3/PS4_LIBERTY.mp3"/>
+		 <file href="sco05/mp3/PS4_PT_CRUISER.mp3"/>
+		 <file href="sco05/mp3/PS4_RAM_TRUCK.mp3"/>
+		 <file href="sco05/mp3/Setup Screen Text.mp3"/>
+      </resource>
+                              
+   </resources>
+</manifest>

@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
+	<general>
+		<title>
+			<langstring>ISD Workflow</langstring>
+		</title>
+		<catalogentry>
+			<catalog>Default</catalog>
+			<entry>
+				<langstring>Default catalog entry</langstring>
+			</entry>
+		</catalogentry>
+		<language>en</language>
+		<description>
+			<langstring>Default</langstring>
+		</description>
+		<keyword><langstring>Default keyword</langstring></keyword></general>
+	<lifecycle>
+		<version>
+			<langstring>1.1</langstring>
+		</version>
+		<status>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none">Final</langstring>
+			</value>
+		</status>
+	</lifecycle>
+	<metametadata>
+		<metadatascheme>ADL SCORM 1.2</metadatascheme>
+	</metametadata>
+	<technical>
+		<format>text/html</format>
+		<location>ISD System.htm</location>
+	</technical>
+	<educational>
+		<learningresourcetype>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none">Exercise</langstring>
+			</value>
+		</learningresourcetype>
+	</educational>
+	<rights>
+		<cost>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none">no</langstring>
+			</value>
+		</cost>
+		<copyrightandotherrestrictions>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none">no</langstring>
+			</value>
+		</copyrightandotherrestrictions>
+	</rights>
+	<classification>
+		<purpose>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none">Educational Objective</langstring>
+			</value>
+		</purpose>
+		<description>
+			<langstring>Example Description</langstring>
+		</description>
+		<keyword><langstring>Example Keyword</langstring></keyword></classification>
+</lom>
+

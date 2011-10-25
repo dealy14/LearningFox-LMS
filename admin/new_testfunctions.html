@@ -1,0 +1,439 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<title>Untitled</title>
+<SCRIPT></SCRIPT>
+<SCRIPT		
+			
+/*
+--------------------------------------------------------------------------------------------------
+Define root-level properties for lesson count
+--------------------------------------------------------------------------------------------------
+*/	
+//Root-Level properties (do not change!!);
+var bName = navigator.appName;		
+var lesson_number=1;
+var topic_number=1;
+var t_cnt=1;
+var Alltopics=0;
+var past_t_cnt;
+var nav_last;
+var nav_next;
+var bType;
+var tocLink="";
+var total_lessons=lessons.length-1;	
+
+/*
+--------------------------------------------------------------------------------------------------
+return browser type on root level
+--------------------------------------------------------------------------------------------------
+*/
+function getBrowser()
+{
+	if(bName=="Netscape")
+	{
+	bType="NE";
+	}
+	else if(bName=="Microsoft Internet Explorer")
+	{
+	bType="IE";
+	}
+    return this.bType;
+}
+//now call the function;
+getBrowser();
+/*
+--------------------------------------------------------------------------------------------------
+Retrieve lesson location (URL), pushes the location out via variable
+--------------------------------------------------------------------------------------------------
+*/
+function getLessonLoc(ln,tn)
+{
+var curlesson = lessons[ln][tn].split("|");
+this.lesson_location = curlesson[1];
+return lesson_location;
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Catches the location variable from getLessonLoc() and sets the content frame with it
+--------------------------------------------------------------------------------------------------
+*/
+function setLessonLoc()
+{
+top.content.location=getLessonLoc(lesson_number,topic_number);
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Function to build dynamic TOC menu in toc frame
+--------------------------------------------------------------------------------------------------
+*/
+
+function getToc()
+{
+	//function properties;
+	var qs;
+	var x = 1;
+	var cs = 1;
+	var mz = 1;
+	var m = 1;
+	var css_cnt=1;
+	var imgalt;
+	var spvar1=" ";
+	var spvar2=" ";
+
+	//get the count of total topics for entire course;
+	while(mz<=total_lessons)
+	{
+	Alltopics+=(lessons[mz].length-1);
+	mz++;
+	}
+	
+	//Begin writting HTML;
+	var toc="<HTML>\n";
+	toc+="<HEAD>\n";
+	toc+="<STYLE TYPE='text/css'>\n";
+
+	//Loop through and create styles in HTML;
+	while(cs<=Alltopics)
+	{
+	toc+="#mybg"+cs+" {background:#FFFFFF}\n";
+	toc+="#rlink"+cs+" {color:"+normalText+";text-decoration:none}\n";
+	toc+="#limg"+cs+" {list-style-image: url(images/spcr2.gif)}";
+	cs++;
+	}	
+	
+	//Write more HTML;
+	toc+="</STYLE>\n";
+	toc+="</HEAD>\n";
+	toc+="<BODY BGCOLOR='#FFFFFF' leftmargin=0 topmargin=0 rightmargin=0 bottommargin=0 onUnload='top.functions.Alltopics=0;'>\n";
+	toc+="<TABLE BORDER='0' CELLPADDING='0' CELLSPACING='0' WIDTH='100%'><TR><TD BGCOLOR='#c7c7c7'>\n";
+	toc+="<TABLE BORDER='0' CELLPADDING='0' CELLSPACING='1' WIDTH='100%'>\n";	
+	toc+="<TR><TD COLSPAN='2' ALIGN='CENTER' BGCOLOR='#000000'><FONT FACE='VERDANA' SIZE='1' COLOR='#FFFFFF'><B>Table of Contents</TD></TR>\n";
+	toc+="<TR><TD BGCOLOR='#FFFFFF'><IMG SRC='images/spcr2.gif' WIDTH='1' HEIGHT='1'></TD><TD ALIGN='CENTER' BGCOLOR='#FFFFFF'><IMG SRC='images/spcr2.gif' WIDTH='230' HEIGHT='1'></TD></TR>\n";
+	
+	//Begin outer loop: loop through lessons and write HTML;
+	while(x<=total_lessons)
+	{
+	toc+="<TR><TD COLSPAN='2' BGCOLOR='#b9bcdd' NOWRAP><IMG SRC='images/crv.GIF'><B><FONT FACE='VERDANA' SIZE='1'>"+lesson_names[x]+"</B></TD></TR>\n";
+		var m = 1;
+		
+		//Begin inner-loop: loop through topics for each lesson and write HTML;
+		while(m<=lessons[x].length-1)
+		{
+		toc+="<TR ID=trbg"+css_cnt+">\n";
+		var qs = lessons[x][m].split("|");
+		
+		  //Do not add these CSS ref. if the browser is not IE;
+		  if(bType=="IE")
+		  {
+		  var spvar1=" onMouseOver=\"top.tocs.document.all.rlink"+css_cnt+".style.color='"+rolloverText+"'\;\"";
+		  var spvar2=" onMouseOut=\"top.tocs.document.all.rlink"+css_cnt+".style.color='"+normalText+"'\;\"";		  
+		  }
+		  
+		  //Only try to set BKG color for current topic w/ css is browser=IE, otherwise use BGCOLOR;
+		  if(bType!="IE" && lesson_number==x && topic_number==m)
+		  {
+		  var current_neBkg="BGCOLOR="+highLight;
+		  }
+		  else
+		  {
+		  var current_neBkg="ID=mybg"+css_cnt;
+		  }
+		  
+		  //If the browser is IE, don't reload the page, otherwise reload;
+		  if(bType!="IE")
+		  {
+		  return_val="top.tocs.location=\'toc.html\';";
+		  }
+		  else
+		  {
+		  return_val="return false;";
+		  }
+		  
+		  if(linkToc==0)
+		  {
+		  tocLink="</A>";
+		  }
+
+		  
+		var spvar3=" onClick=\"top.functions.t_cnt="+css_cnt+";top.functions.setBG(top.functions.t_cnt);top.functions.lesson_number="+x+";top.functions.topic_number="+m+";top.content.location=\'content.html\';top.functions.navState();top.functions.setLessonLoc();top.functions.pushToArray();"+return_val+"\"";
+		toc+="\t<TD BGCOLOR='#FFFFFF' WIDTH='20' HALIGN='RIGHT'><B><FONT FACE='VERDANA' SIZE='1'><IMG SRC='images/spcr2.gif' NAME='img"+css_cnt+"' HEGHT='18' WIDTH='18' ALT='Topic not completed'></TD>\n";		
+		toc+="\t<TD NOWRAP "+current_neBkg+"><FONT FACE='VERDANA' SIZE='1'><A HREF='toc.html' "+spvar1+spvar2+spvar3+" ID=rlink"+css_cnt+">"+tocLink+qs[0]+"</TD>\n";
+		
+		m++;
+		css_cnt++;
+		}
+		toc+="</TR>\n";	
+		
+	x++;
+	}
+	
+	//Write final HTML;
+	toc+="</TABLE>\n";
+	toc+="</TD></TR></TABLE>\n";
+	toc+="</BODY>";
+	toc+="</HTML>\n";
+	//return toc;
+	//Write toc variable containing everything to TOC frame;
+	top.tocs.document.write(toc);
+	//return total topic count for later use;
+	return Alltopics;
+
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Turn on the Checkmark for visited topics
+--------------------------------------------------------------------------------------------------
+*/
+function setState(t_cnt)
+{
+	eval("top.tocs.document.img"+t_cnt+".src=\""+visImage+"\";")
+	eval("top.tocs.document.img"+t_cnt+".alt=\"Checkmark showing that this topic has been visited.\"");
+}
+/*
+--------------------------------------------------------------------------------------------------
+Some memory functions for Netscape users - enabling them to mark current topics
+--------------------------------------------------------------------------------------------------
+*/
+function neRemeber()
+{
+    this.visited= new Array();
+    this.visited[0]="start";
+	
+	return visited;
+}
+
+
+function pushToArray()
+{
+top.functions.visited.push(top.functions.t_cnt);
+}
+
+function checkReset()
+{
+var rq = 1;
+  while(rq<top.functions.visited.length)
+  {
+  eval("top.tocs.document.img"+visited[rq]+".src=\""+visImage+"\";")
+  rq++;
+  }
+}
+
+function tellMe()
+{
+  this.theArray = top.functions.visited.join("|");
+  alert(this.theArray);
+}
+
+//now initialize the memory;
+neRemeber();
+pushToArray();
+/*
+--------------------------------------------------------------------------------------------------
+Sets highlight color of current topic in TOC menu
+--------------------------------------------------------------------------------------------------
+*/
+function setBG(t_cnt)
+{
+	//return current bg display to white;
+	    if(bType=="IE")
+		{
+			myx = 1;
+			while(myx<=Alltopics)
+			{
+			eval("top.tocs.document.all.mybg"+myx+".style.background=\"#FFFFFF\";");
+			myx++;
+			}
+			//now set a new one;
+			eval("top.tocs.document.all.mybg"+t_cnt+".style.background=\""+highLight+"\";");		
+		}	
+
+	setState(t_cnt);	
+	var past_t_cnt = t_cnt;
+	return past_t_cnt;
+	return false;
+}
+
+
+/*
+--------------------------------------------------------------------------------------------------
+------------------------------------------------------
+Navigation functions
+------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+*/
+function onNext()
+{
+	top.nav.document.next.src="images/arrow_r.gif";
+	nav_next="on";
+	return nav_next;
+}
+
+
+/*
+--------------------------------------------------------------------------------------------------
+Turn on Last button
+--------------------------------------------------------------------------------------------------
+*/
+function onLast()
+{
+	top.nav.document.last.src="images/arrow_l.gif";
+	nav_last="on";
+	return nav_last;
+}
+
+
+/*
+--------------------------------------------------------------------------------------------------
+Turn off last button
+--------------------------------------------------------------------------------------------------
+*/
+function offLast()
+{
+	top.nav.document.last.src="images/arrow_l_off.gif";
+	nav_last="off";
+	onNext();
+	return nav_last;
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Turn off next button
+--------------------------------------------------------------------------------------------------
+*/
+function offNext()
+{
+	top.nav.document.next.src="images/arrow_r_off.gif";
+	nav_next="off";
+	onLast();
+	return nav_next;
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Turn on NAV (both buttons)
+--------------------------------------------------------------------------------------------------
+*/
+function navOn()
+{
+
+  top.nav.document.last.src="images/arrow_l.gif";
+  top.nav.document.next.src="images/arrow_r.gif";
+  nav_next="on";
+  nav_last="on";
+  return nav_next;  
+  return nav_last;
+  
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Sets the navigation buttons to the correct states
+--------------------------------------------------------------------------------------------------
+*/
+function navState()
+{
+	if(topic_number==1 && lesson_number==1)
+	{
+	offLast();
+	}
+	else if(t_cnt==Alltopics)
+	{
+	offNext();
+	}
+	else
+	{
+	navOn();
+	}
+	return nav_next;
+	return nav_last;
+	alert(Alltopics+" --- "+nav_last+" -- "+nav_next);
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Next function for navigation
+--------------------------------------------------------------------------------------------------
+*/
+function next()
+{
+		if(lesson_number<=total_lessons && t_cnt<Alltopics)
+		{
+			if(topic_number<lessons[lesson_number].length-1)
+			{
+			topic_number++;		
+			t_cnt++;
+			pushToArray();
+				  if(bType!="IE")
+				  {
+				  top.tocs.location="toc.html";
+				  }
+			}
+			else if(topic_number==lessons[lesson_number].length-1)
+			{
+				if(lesson_number!=total_lessons)
+				{
+				lesson_number++;
+				topic_number=1;			
+				t_cnt++;
+				pushToArray();
+					  if(bType!="IE")
+					  {
+					  top.tocs.location="toc.html";
+					  }				
+				}
+			}
+		
+		}
+	setLessonLoc();
+	setBG(t_cnt);
+	navState();
+	return false;
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Back function for navigation
+--------------------------------------------------------------------------------------------------
+*/
+function last()
+{
+		if(topic_number>1)
+		{
+		topic_number--;
+		t_cnt--;
+		pushToArray();
+			  if(bType!="IE")
+			  {
+			  top.tocs.location="toc.html";
+			  }		
+		}
+		else if(topic_number==1&&lesson_number>1)
+		{
+		lesson_number--;
+		topic_number=lessons[lesson_number].length-1;
+		t_cnt--;
+		pushToArray();
+			  if(bType!="IE")
+			  {
+			  top.tocs.location="toc.html";
+			  }		
+		}
+
+	setLessonLoc();
+	setBG(t_cnt);
+	navState();
+	return false;	
+}
+
+setLessonLoc();
+</SCRIPT>	
+</head>
+
+<body>
+
+</body>
+</html>

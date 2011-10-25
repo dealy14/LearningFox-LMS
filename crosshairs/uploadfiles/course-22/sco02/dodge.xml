@@ -1,0 +1,68 @@
+<test>
+<question text="I'm calling about the Ram Truck." sound="PS1_Ram_Truck.mp3" >
+<option number="A" answerText="Yes, that's a great vehicle."/>
+<option number="B" answerText="Would you like to drive it?"/>
+<option number="C" answerText="Yes, sir."/>
+<answer correctAnswer="C" incorrectText="The correct response is 'C,' 'Yes, sir.' The best approach is to simply respond to the caller-not volunteer an opinion or ask another question."/>
+</question>
+<question text="What package comes with power windows and locks?" sound="PS1_2.mp3" >
+<option number="A" answerText="We have many great packages available."/>
+<option number="B" answerText="All models."/>
+<option number="C" answerText="What other options are you interested in?"/>
+<answer correctAnswer="B" incorrectText = "The correct response is 'B,' 'All models.' By simply answering the caller's question, you are building good will and continuing the dialogue."/>
+</question>
+<question text="What colors does it come in?" sound="PS1_3.mp3" >
+<option number="A" answerText="We have all available colors."/>
+<option number="B" answerText="What color are you looking for?"/>
+<option number="C" answerText="The green is nice."/>
+<answer correctAnswer="A" incorrectText = "The correct response is 'A,' 'We have all available colors.' Remember that the caller is looking for answers-not questions, and not your opinion."/>
+</question>
+<question text="I'm thinking about leasing. What kind of payment am I looking at?" sound="PS1_4.mp3" >
+<option number="A" answerText="What do you want to spend?"/>
+<option number="B" answerText="That vehicle is a great value!"/>
+<option number="C" answerText="Your payment on a 36-month lease would be around $425 a month."/>
+<answer correctAnswer="C" incorrectText = "The correct response is 'C,' 'Your payment on a 36-month lease would be around $425 a month.' This response provides the caller with the information he is seeking."/>
+</question>
+<question text="Thanks." sound="PS1_5.mp3" >
+<option number="A" answerText="You're welcome."/>
+<option number="B" answerText="When can you come in?"/>
+<option number="C" answerText="Ah, sir?"/>
+<answer correctAnswer="C" incorrectText = "The correct response is 'C,' 'Ah, sir?' This is the appropriate time in the call to use the FREEZE technique-to slow the conversation down so that you can move toward getting the appointment."/>
+</question>
+<question text="Yes?" sound="PS1_6.mp3" >
+<option number="A" answerText="My name's _________; what's yours?"/>
+<option number="B" answerText="When would you like to drive one?"/>
+<option number="C" answerText="That vehicle's selling fast!"/>
+<answer correctAnswer="B" incorrectText = "That's incorrect. The correct response is 'B,' 'When would you like to drive one?' This is the CLOSE step, during which you invite the customer to visit the showroom."/>
+</question>
+<question text="I don't want or need a demo drive." sound="PS1_7.mp3" >
+<option number="A" answerText="I'd be happy to bring it to you so you can see it. When would be a good time?"/>
+<option number="B" answerText="But you really have to drive it to appreciate it!"/>
+<option number="C" answerText="Okay. Thanks for calling."/>
+<answer correctAnswer="A" incorrectText = "The correct response is 'A,' 'I'd be happy to bring it to you so you can see it. When would be a good time?' By offering to accommodate the caller, you're best able to overcome the objection and get the appointment."/>
+</question>
+<question text="Uh ... Saturday would work." sound="PS1_8.mp3" >
+<option number="A" answerText="How about Sunday?"/>
+<option number="B" answerText="Sure. Just let me get your name and address ..."/>
+<option number="C" answerText="That's not convenient for me."/>
+<answer correctAnswer="B" incorrectText = "The correct response is 'B,' 'Sure. Just let me get your name and address ...' This is a continuation of the CLOSE step, during which you make arrangements to show the caller the vehicle."/>
+</question>
+<question text="Okay. My name is Blake Brown. My address is 123 Any Street, in Anytown." sound="PS1_9.mp3" >
+<option number="A" answerText="Okay, see you at your house on Saturday, say around 2 p.m. If something comes up, will you call me?"/>
+<option number="B" answerText="Can I bring my kids with me?"/>
+<option number="C" answerText="The dealership is open from 10 until 3 Saturday."/>
+<answer correctAnswer="A" incorrectText = "The correct response is 'A,' 'Okay, see you at your house on Saturday, say around 2 p.m. If something comes up, will you call me?' During the CONFIRM step, you finalize plans with the caller and obtain relevant contact information."/>
+</question>
+<question text="Sure." sound="PS1_10.mp3" >
+<option number="A" answerText="Are you sold on this vehicle?"/>
+<option number="B" answerText="And, of course, if anything changes here, I'll return the courtesy. Your number?"/>
+<option number="C" answerText="You know, the dealership isn't far from your house."/>
+<answer correctAnswer="B" incorrectText = "The correct response is 'B,' 'And, of course, if anything changes here, I'll return the courtesy. Your number?' During the CONFIRM step, you finalize plans with the caller and obtain relevant contact information."/>
+</question>
+<question text="It's 555-1234." sound="PS1_11.mp3" >
+<option number="A" answerText="Do you have any friends who might be in the market for a vehicle?"/>
+<option number="B" answerText="How about if I just call you next week?"/>
+<option number="C" answerText="Thanks for calling. I'll see you Saturday at 2 p.m. with the vehicle. By the way, my name is __________ and my direct line is ____________."/>
+<answer correctAnswer="C" incorrectText = "The correct response is 'C,' 'Thanks for calling. I'll see you Saturday at 2 p.m. with the vehicle. By the way, my name is __________ and my direct line is ____________.' During the CONFIRM step, you finalize plans with the caller and end the call on a pleasant, positive note."/>
+</question>
+</test>

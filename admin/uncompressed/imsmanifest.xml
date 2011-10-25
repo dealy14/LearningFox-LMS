@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This is a Reload version 2.5.2 SCORM 2004 Content Package document-->
+<!--Spawned from the Reload Content Package Generator - http://www.reload.ac.uk-->
+<manifest xmlns="http://www.imsglobal.org/xsd/imscp_v1p1" xmlns:imsmd="http://ltsc.ieee.org/xsd/LOM" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3" xmlns:imsss="http://www.imsglobal.org/xsd/imsss" xmlns:adlseq="http://www.adlnet.org/xsd/adlseq_v1p3" xmlns:adlnav="http://www.adlnet.org/xsd/adlnav_v1p3" identifier="MANIFEST-6D6943B435EA01DEEA52854DF24C90ED" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd http://ltsc.ieee.org/xsd/LOM lom.xsd http://www.adlnet.org/xsd/adlcp_v1p3 adlcp_v1p3.xsd http://www.imsglobal.org/xsd/imsss imsss_v1p0.xsd http://www.adlnet.org/xsd/adlseq_v1p3 adlseq_v1p3.xsd http://www.adlnet.org/xsd/adlnav_v1p3 adlnav_v1p3.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>2004 3rd Edition</schemaversion>
+  </metadata>
+  <organizations default="ORG-3115A0B18463C92708BD0D78E0AA19AC">
+    <organization identifier="ORG-3115A0B18463C92708BD0D78E0AA19AC" structure="hierarchical">
+      <title>Organization</title>
+      <item identifier="ITEM-CBE02740F3BD43AAE6107E2F0C4FD799" isvisible="true" identifierref="RES-8B7F174D7026D9DA27A78D60B5A31A16">
+        <title>Untitled Document</title>
+      </item>
+      <item identifier="ITEM-3DEBBBC9589C3C51F730DEFD3DBBFA84" isvisible="true" identifierref="RES-8877C704C2C15A44D47C7AC44EA64DF3">
+        <title>Untitled Document</title>
+      </item>
+      <item identifier="ITEM-4A79864604D6787176FEF356EA02E527" isvisible="true" identifierref="RES-CA74CFFB73DBA0D7D2FAFED204DF79DE">
+        <title>Untitled Document</title>
+      </item>
+      <item identifier="ITEM-4C0A0F2ED07132B69E5C7C86495937E2" isvisible="true" identifierref="RES-9E74B1A9068FEA17AE893DD05D6C32B2">
+        <title>Untitled Document</title>
+      </item>
+      <item identifier="ITEM-617B80C1A9757EF7A7F6EC106D71CA21" isvisible="true" identifierref="RES-32E5B9204642295B5133F6F27058C23E">
+        <title>Untitled Document</title>
+      </item>
+      <item identifier="ITEM-89EB27218215FAC2FC6AACE5AA957CF4" isvisible="true" identifierref="RES-26294A296C2392BF5E8E55433368CBAC">
+        <title>Sabertooth</title>
+      </item>
+      <item identifier="ITEM-64B348DC730781E6414A255BBDEB2701" isvisible="true" identifierref="RES-717D4DFD6EF880EDB5B2F7FE90D0D081">
+        <title>tazhas_large_image_1100.img</title>
+      </item>
+      <item identifier="ITEM-2CFEB32B134A446C846275EDDFD8625C" isvisible="true" identifierref="RES-C23E2129464B30E7714B4CFCADB41248">
+        <title>tazhas_large_image_1104.img</title>
+      </item>
+      <item identifier="ITEM-EB5A7526F8934BA9738488D9B1D279DA" isvisible="true" identifierref="RES-B821C43B3038283984B82749BED4CFA3">
+        <title>tazhas_large_image_1105.img</title>
+      </item>
+      <item identifier="ITEM-69581769CCAF1A0DF7BDE735409BD2F2" isvisible="true" identifierref="RES-AF0DA71827C596D33170FE67968C509C">
+        <title>tazhas_large_image_1106.img</title>
+      </item>
+      <item identifier="ITEM-402CFC009124A3D74FD9C27025DA69F9" isvisible="true" identifierref="RES-6789C07B4D9B634D16361A8B4B813E14">
+        <title>tazhas_large_image_1134.img</title>
+      </item>
+      <item identifier="ITEM-8F5D5FA1C4E851BE087998346668802E" isvisible="true" identifierref="RES-6E9BBC1988A9756578914844EFEF7818">
+        <title>tazhas_large_image_1138.img</title>
+      </item>
+      <item identifier="ITEM-C002A32FEC4FBD7CD33EB1D1067C3ECB" isvisible="true" identifierref="RES-4102AF6A4D5C590867213B713DBAA101">
+        <title>tazhas_large_image_1140.img</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="RES-8B7F174D7026D9DA27A78D60B5A31A16" adlcp:scormType="asset" type="webcontent" href="page1.htm">
+      <file href="page1.htm" />
+      <file href="images/tazhas_large_image_1100.img.jpg" />
+    </resource>
+    <resource identifier="RES-8877C704C2C15A44D47C7AC44EA64DF3" adlcp:scormType="asset" type="webcontent" href="page2.htm">
+      <file href="page2.htm" />
+      <file href="images/tazhas_large_image_1105.img.jpg" />
+    </resource>
+    <resource identifier="RES-CA74CFFB73DBA0D7D2FAFED204DF79DE" adlcp:scormType="asset" type="webcontent" href="page3.htm">
+      <file href="page3.htm" />
+      <file href="images/tazhas_large_image_1134.img.jpg" />
+    </resource>
+    <resource identifier="RES-9E74B1A9068FEA17AE893DD05D6C32B2" adlcp:scormType="asset" type="webcontent" href="page4.htm">
+      <file href="page4.htm" />
+      <file href="images/tazhas_large_image_1140.img.jpg" />
+    </resource>
+    <resource identifier="RES-32E5B9204642295B5133F6F27058C23E" adlcp:scormType="asset" type="webcontent" href="page5.htm">
+      <file href="page5.htm" />
+      <file href="images/tazhas_large_image_1152.img.jpg" />
+    </resource>
+    <resource identifier="RES-26294A296C2392BF5E8E55433368CBAC" adlcp:scormType="asset" type="webcontent" href="images/Sabertooth.jpg">
+      <file href="images/Sabertooth.jpg" />
+    </resource>
+    <resource identifier="RES-717D4DFD6EF880EDB5B2F7FE90D0D081" adlcp:scormType="asset" type="webcontent" href="images/tazhas_large_image_1100.img.jpg">
+      <file href="images/tazhas_large_image_1100.img.jpg" />
+    </resource>
+    <resource identifier="RES-C23E2129464B30E7714B4CFCADB41248" adlcp:scormType="asset" type="webcontent" href="images/tazhas_large_image_1104.img.jpg">
+      <file href="images/tazhas_large_image_1104.img.jpg" />
+    </resource>
+    <resource identifier="RES-B821C43B3038283984B82749BED4CFA3" adlcp:scormType="asset" type="webcontent" href="images/tazhas_large_image_1105.img.jpg">
+      <file href="images/tazhas_large_image_1105.img.jpg" />
+    </resource>
+    <resource identifier="RES-AF0DA71827C596D33170FE67968C509C" adlcp:scormType="asset" type="webcontent" href="images/tazhas_large_image_1106.img.jpg">
+      <file href="images/tazhas_large_image_1106.img.jpg" />
+    </resource>
+    <resource identifier="RES-6789C07B4D9B634D16361A8B4B813E14" adlcp:scormType="asset" type="webcontent" href="images/tazhas_large_image_1134.img.jpg">
+      <file href="images/tazhas_large_image_1134.img.jpg" />
+    </resource>
+    <resource identifier="RES-6E9BBC1988A9756578914844EFEF7818" adlcp:scormType="asset" type="webcontent" href="images/tazhas_large_image_1138.img.jpg">
+      <file href="images/tazhas_large_image_1138.img.jpg" />
+    </resource>
+    <resource identifier="RES-4102AF6A4D5C590867213B713DBAA101" adlcp:scormType="asset" type="webcontent" href="images/tazhas_large_image_1140.img.jpg">
+      <file href="images/tazhas_large_image_1140.img.jpg" />
+    </resource>
+    <resource identifier="RES-7F728E82911B4AB22C919883F98A57E8" adlcp:scormType="asset" type="webcontent" href="images/tazhas_large_image_1151.img.jpg">
+      <file href="images/tazhas_large_image_1151.img.jpg" />
+    </resource>
+    <resource identifier="RES-47EE82239870E30D654DBF882A022040" adlcp:scormType="asset" type="webcontent" href="images/tazhas_large_image_1152.img.jpg">
+      <file href="images/tazhas_large_image_1152.img.jpg" />
+    </resource>
+  </resources>
+</manifest>
+

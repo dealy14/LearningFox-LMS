@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<lom version="1.1" xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 http://www.imsglobal.org/xsd/imsmd_rootv1p2p1.xsd">
+  <general>
+    <title>
+      <langstring>PPV_Chrysler_PTCruiser</langstring>
+    </title>
+    <identifier>
+      <langstring>PPV_Chrysler_PTCruiser</langstring>
+    </identifier>
+    <catalogentry>
+      <catalog>PPV_Chrysler_PTCruiser</catalog>
+      <entry>
+        <langstring xml:lang="en">PPV_Chrysler_PTCruiser</langstring>
+        <langstring xml:lang="en"></langstring>
+      </entry>
+    </catalogentry>
+    <language>de</language>
+    <description>
+      <langstring>Basic introduction to Java programming</langstring>
+    </description>
+    <keyword>
+      <langstring>Undergraguate</langstring>
+    </keyword>
+    <aggregationlevel>
+      <source>
+        <langstring xml:lang="x-none">LOMv1.0</langstring>
+      </source>
+      <value>
+        <langstring xml:lang="x-none">4</langstring>
+      </value>
+    </aggregationlevel>
+  </general>
+  <lifecycle>
+    <version>
+      <langstring>1.1</langstring>
+    </version>
+    <status>
+      <source>
+        <langstring xml:lang="x-none">LOMv1.0</langstring>
+      </source>
+      <value>
+        <langstring xml:lang="x-none">Final</langstring>
+      </value>
+    </status>
+    <contribute>
+      <role>
+        <source>
+          <langstring xml:lang="x-none">LOMv1.0</langstring>
+        </source>
+        <value>
+          <langstring xml:lang="x-none">Author</langstring>
+        </value>
+      </role>
+      <centity>
+        <vcard></vcard>
+      </centity>
+      <date>
+        <datetime>2000-6-28</datetime>
+      </date>
+    </contribute>
+  </lifecycle>
+  <metametadata>
+    <contribute>
+      <role>
+        <source>
+          <langstring xml:lang="x-none">LOMv1.0</langstring>
+        </source>
+        <value>
+          <langstring xml:lang="x-none">Creator</langstring>
+        </value>
+      </role>
+      <centity>
+        <vcard></vcard>
+      </centity>
+      <date>
+        <datetime>2001-10-20</datetime>
+      </date>
+    </contribute>
+    <metadataschema>PPV_Chrysler_PTCruiser</metadataschema>
+    <language>en</language>
+  </metametadata>
+  <technical>
+    <format>text/html</format>
+    <location type="URI">Course_Info1/</location>
+    <requirement>
+      <type>
+        <source>
+          <langstring xml:lang="x-none">LOMv1.0</langstring>
+        </source>
+        <value>
+          <langstring xml:lang="x-none">Browser</langstring>
+        </value>
+      </type>
+      <name>
+        <source>
+          <langstring xml:lang="x-none">LOMv1.0</langstring>
+        </source>
+        <value>
+          <langstring xml:lang="x-none">Netscape Navigator</langstring>
+        </value>
+      </name>
+      <minimumversion>4.5</minimumversion>
+    </requirement>
+  </technical>
+  <educational>
+    <learningresourcetype>
+      <source>
+        <langString xml:lang="x-none">LOMv1.0</langString>
+      </source>
+      <value>
+        <langString xml:lang="x-none"></langString>
+      </value>
+    </learningresourcetype>
+    <elcontext>
+      <source>
+        <langString xml:lang="x-none">LOMv1.0</langString>
+      </source>
+      <value>
+        <langString xml:lang="x-none"></langString>
+      </value>
+    </elcontext>
+  </educational>
+  <rights>
+    <cost>
+      <source>
+        <langString xml:lang="x-none">LOMv1.0</langString>
+      </source>
+      <value>
+        <langString xml:lang="x-none">PPV_Chrysler_PTCruiser</langString>
+      </value>
+    </cost>
+    <copyrightandotherrestrictions>
+      <source>
+        <langString xml:lang="x-none">LOMv1.0</langString>
+      </source>
+      <value>
+        <langString xml:lang="x-none">no</langString>
+      </value>
+    </copyrightandotherrestrictions>
+    <description>
+      <langString xml:lang="en"></langString>
+    </description>
+  </rights>
+  <relation>
+    <kind>
+      <source>
+        <langString xml:lang="x-none">LOMv1.0</langString>
+      </source>
+      <value>
+        <langString xml:lang="x-none">hasPart</langString>
+      </value>
+    </kind>
+    <resource>
+      <descrription>
+        <langString></langString>
+      </descrription>
+    </resource>
+  </relation>
+  <classification>
+    <purpose>
+      <source>
+        <langString xml:lang="x-none">LOMv1.0</langString>
+      </source>
+      <value>
+        <langString xml:lang="x-none">Discipline</langString>
+      </value>
+    </purpose>
+    <taxonpath>
+      <source>
+        <langString xml:lang="en"></langString>
+      </source>
+      <taxon>
+        <id>D</id>
+        <entry/>
+        <taxon>
+          <id>D</id>
+          <entry>
+            <langstring xml:lang="en"></langstring>
+          </entry>
+        </taxon>
+      </taxon>
+    </taxonpath>
+    <keyword>
+      <langstring xml:lang="en">Java</langstring>
+    </keyword>
+  </classification>
+</lom>

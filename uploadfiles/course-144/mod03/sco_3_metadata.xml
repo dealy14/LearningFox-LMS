@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
+
+   <general>
+      <title>
+         <langstring xml:lang="en-US">Overview of CAGRIS</langstring>
+      </title>
+      <catalogentry>
+         <catalog>DCA Learning Resource</catalog>
+         <entry>
+            <langstring xml:lang="en-US">DCACAGRIS.SCO3</langstring>
+         </entry>
+      </catalogentry>
+      <language>en-US</language>
+      <description>
+         <langstring xml:lang="en-US">Provides participants with a basic understanding of how to log into CAGRIS and understand its features.</langstring>
+      </description>
+  <keyword>
+    <langstring xml:lang="en-US">Overview of CAGRIS</langstring>
+  </keyword>
+  <keyword>
+    <langstring xml:lang="en-US">Logging On</langstring>
+  </keyword>
+  <keyword>
+    <langstring xml:lang="en-US">Screen</langstring>
+  </keyword>
+    <keyword>
+    <langstring xml:lang="en-US">Layout</langstring>
+  </keyword>
+  <keyword>
+    <langstring xml:lang="en-US">User Info</langstring>
+  </keyword>
+  <keyword>
+    <langstring xml:lang="en-US">New Issue</langstring>
+  </keyword>
+  <keyword>
+    <langstring xml:lang="en-US">Directory</langstring>
+  </keyword>
+   <keyword>
+    <langstring xml:lang="en-US">Help</langstring>
+  </keyword>
+  <keyword>
+    <langstring xml:lang="en-US">Transmit</langstring>
+  </keyword>
+    <keyword>
+    <langstring xml:lang="en-US">Sorting</langstring>
+  </keyword>
+    <keyword>
+    <langstring xml:lang="en-US">Filters</langstring>
+  </keyword>
+    <keyword>
+    <langstring xml:lang="en-US">Close</langstring>
+  </keyword>
+    <keyword>
+    <langstring xml:lang="en-US">Viewing</langstring>
+  </keyword>
+    <keyword>
+    <langstring xml:lang="en-US">Updating</langstring>
+  </keyword>
+    <keyword>
+    <langstring xml:lang="en-US">Existing issues</langstring>
+  </keyword>
+    </general>
+
+   <lifecycle>
+      <version>
+         <langstring xml:lang="x-none">1.0</langstring>
+      </version>
+      <status>
+         <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+         </source>
+         <value>
+            <langstring xml:lang="x-none">Draft</langstring>
+         </value>
+      </status>
+    </lifecycle>
+
+   <metametadata>
+      <metadatascheme>ADL SCORM 1.2</metadatascheme>
+   </metametadata>
+  
+   <technical>
+      <format>text/html</format>
+      <location type="URI">mod03/frame.htm</location>
+   </technical>
+
+
+ <educational>
+<description>
+<langstring xml:lang="en-US">After completing this segment the user should be able to log into CAGRIS.</langstring>
+</description>
+ <typicallearningtime>
+ <datetime>00:20:00</datetime>
+   <description>
+  <langstring xml:lang="en-US">Most learners should take only 20 minutes to work through this segment.</langstring>
+  </description>
+  </typicallearningtime>
+      <learningresourcetype>
+         <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+         </source>
+         <value>
+            <langstring xml:lang="x-none">Narrative Text</langstring>
+         </value>
+      </learningresourcetype>
+ </educational>
+
+   <rights>
+     
+	  <cost>
+         <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+         </source>
+         <value>
+            <langstring xml:lang="x-none">no</langstring>
+         </value>
+      </cost>
+     
+	  <copyrightandotherrestrictions>
+         <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+         </source>
+         <value>
+            <langstring xml:lang="x-none">no</langstring>
+         </value>
+      </copyrightandotherrestrictions>
+	  
+    </rights>
+   
+   <classification>
+     <purpose>
+        <source>
+           <langstring xml:lang="x-none">LOMv1.0</langstring>
+        </source>
+        <value>
+           <langstring xml:lang="x-none">Discipline</langstring>
+        </value>
+     </purpose>
+    
+     <description>
+         <langstring xml:lang="en-US">Provides participants with a basic understanding of how to log into CAGRIS and understand its features.</langstring>
+      </description>
+     <keyword>
+        <langstring>Overview of CAGRIS</langstring>
+     </keyword>
+   </classification>
+  
+</lom>

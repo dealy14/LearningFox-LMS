@@ -1,0 +1,10 @@
+&t_content=Recordkeeping is a critical part of an employer's safety and health efforts for several reasons:
+<FONT SIZE="20">- </FONT>Keeping track of work-related injuries and illnesses can help you prevent them in the future.
+<FONT SIZE="20">- </FONT>Using injury and illness data helps identify problem areas. The more you know, the better <FONT COLOR="#FFFFFF">. . . . . </FONT>you can identify and correct hazardous workplace conditions.
+<FONT SIZE="20">- </FONT>You can better administer company safety and health programs with accurate records.
+<FONT SIZE="20">- </FONT>As employee awareness about injuries, illnesses, and hazards in the workplace improves,<FONT COLOR="#FFFFFF">. . . . </FONT>workers are more likely to follow safe work practices and report workplace hazards. 
+<FONT SIZE="20">- </FONT>OSHA compliance officers can rely on the data to help them properly identify and focus on<FONT COLOR="#FFFFFF">. . . . </FONT>injuries and illnesses in a particular area. 
+<FONT SIZE="20">- </FONT>The Bureau of Labor Statistics (BLS) also uses injury and illness records as the source data<FONT COLOR="#FFFFFF">. . . </FONT>for the Annual Survey of Occupational Injuries and Illnesses that shows safety and health<FONT COLOR="#FFFFFF">. . . . . </FONT>trends nationwide and industry wide.
+When you're ready continue, click the <FONT COLOR="#990000">NEXT button</FONT>.
+&
+&content_status=loaded&

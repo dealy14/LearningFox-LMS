@@ -1,0 +1,5 @@
+&extra_movie=em2.swf&
+&t_content=This section of the SMACNA Recordkeeping Lesson provides general guidance about OSHA's revised recordkeeping rule.  The questions and answers in the Additional Guidance portion of this document are divided into the specific sections of the regulation but do not themselves impose enforceable recordkeeping or reporting obligations; such obligations are imposed only by the regulation.
+<FONT COLOR="#990000" SIZE="14"><A HREF="JavaScript:getFaqs();">Click here</A></FONT> to access the Frequently Asked Questions.
+Contact OSHA if you have a question that is not answered here.
+&content_status=loaded&

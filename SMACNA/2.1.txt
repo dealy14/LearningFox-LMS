@@ -1,0 +1,4 @@
+&t_content=The Occupational Safety and Health Administration (OSHA) has a new and improved set of rules for recordkeeping. This lesson presents a summary of some of the key provisions of the new rule. It also highlights the major changes from OSHA's former recordkeeping regulation. The good news is OSHA's new recordkeeping log is easier to understand and to use.
+<FONT COLOR="#990000" SIZE="14">Goal of this course:</FONT><BR>When you complete this course, you will be able to accurately complete OSHA's Log and the Summary of Work-Related Injuries and Illnesses.
+<FONT COLOR="#990000" SIZE="14">Time to complete:</FONT><BR>It should take approximately 20-30 minutes to complete this course.&
+&content_status=loaded&

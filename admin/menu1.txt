@@ -1,0 +1,11 @@
+  {Course Objects,_,_,images/new2.gif}
+  {|View Object Library,javascript:3,_self}
+  {Test Objects,javascript:6,_self,images/test_new.gif}  
+  {-}    
+  {Groups,javascript:5,_self,images/group.gif}  
+  {Student Profiles,javascript:4,_self,images/student_2.gif}
+  {-}   
+  {LMS Tools,images/lms_tools.gif}
+  {|LMS Properties,frame_edit_lms.php,rmain}         
+
+  

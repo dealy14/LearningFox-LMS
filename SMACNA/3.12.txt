@@ -1,0 +1,12 @@
+&total_questions=1&
+&question_1=Greater consequences means:
+A) The pre-existing condition requires more medical treatment than what would otherwise have been provided (more restrictions, more days away from work, etc).
+B) The pre-existing condition requires less medical treatment than what would otherwise have been provided (more restrictions, more days away from work, etc).
+C) The pre-existing condition is classified as hearing loss only.
+D) All of the above&
+&question_1_correct=a&
+&question_1_type=mc&
+
+&correct_message=GOOD JOB\nclick the NEXT button to continue to Lesson 3&
+&incorrect_message=Sorry the correct answer was A.\nClick the NEXT button to continue to Lesson 3&
+&content_status=loaded&

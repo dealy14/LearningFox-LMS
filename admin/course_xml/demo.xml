@@ -1,0 +1,11 @@
+<tree>
+	<imageList>
+		<image name="lesson2" file="images/lesson_sm.gif"/>
+		<image name="home" file="images/course_tree.gif"/>
+	</imageList>
+	<root name=" " oImage="home" cImage="home">
+	<folder name=" Video Sample 1" auto="yes">
+		<leaf name=" Video Sample 1" image="" link="javascript:top.top1.getEdit(top.top1.topicItemSelect,'33','topic');"/>
+	</folder>
+	</root>
+</tree>

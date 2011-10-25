@@ -1,0 +1,10 @@
+We met with the client yesterday afternoon.  They were very pleased with the
+application design and functionality...  I only have two things:
+(1)  The bullet text needs to be able to wrap... some bullet information can
+be long at times.
+(2)  It looks like the app loses the autorun flag if a user selects a bullet
+after the slide autorun is complete (i.e., play slide using autorun, revisit
+bullet 1, click next... the next slide is in manual mode, when it should be
+autorun)
+
+ 

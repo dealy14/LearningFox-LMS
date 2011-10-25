@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<breeze-manifest version="1.0" xmlns="http://breeze.macromedia.com/">
+	<document type="slide-presentation" icon="presentation" duration="5.233333333333333" section-count="8"/>
+	<assets>
+		<asset type="document-view">
+			<entry href="viewer.swf" width="900" height="550"/>
+			<file href="*"/>
+		</asset>
+		<asset type="document-metadata" location="file">
+			<file href="data/srchdata.xml"/>
+		</asset>
+		<asset type="tracking-metadata" location="file">
+			<file href="data/trackdta.xml"/>
+		</asset>
+	</assets>
+</breeze-manifest>

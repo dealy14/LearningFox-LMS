@@ -1,0 +1,9 @@
+&extra_movie=em1.swf&
+&t_content=You must record the following conditions when they are work-related: 
+<FONT SIZE="20">- </FONT>any needlestick injury or cut from a sharp object that is contaminated with<BR><FONT COLOR="#FFFFFF">. . </FONT>another person's blood or other potentially infectious material
+<FONT SIZE="20">- </FONT>any case requiring an employee to be medically removed under the<BR><FONT COLOR="#FFFFFF">. . </FONT>requirements of an OSHA health standard
+<FONT SIZE="20">- </FONT>tuberculosis infection as evidenced by a positive skin test or diagnosis by a<BR><FONT COLOR="#FFFFFF">. . </FONT>physician or other licensed health care professional after exposure to a<BR><FONT COLOR="#FFFFFF">. . </FONT>known case of active tuberculosis.
+Once it's determined to meet the recording criteria, in Step 4, then record the injury or illness. 
+
+Click <FONT COLOR="#990000">Next</FONT> to continue to <FONT COLOR="#990000" SIZE="14">Step 5</FONT>&
+&content_status=loaded&

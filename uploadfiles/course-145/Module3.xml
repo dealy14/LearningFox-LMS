@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!--This is a Reload version 1.2 RC2 Metadata document-->
+<!--Spawned from the Reload Metadata Generator - http://www.reload.ac.uk-->
+<lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
+  <general>
+    <identifier>war101test:03</identifier>
+    <title>
+      <langstring xml:lang="en">Warranty 101 - Module 3</langstring>
+    </title>
+    <catalogentry>
+      <catalog>DCA Learning Resource</catalog>
+      <entry>
+        <langstring xml:lang="en">war101test:03</langstring>
+      </entry>
+    </catalogentry>
+    <language>en</language>
+    <description>
+      <langstring xml:lang="en">This is the third module in the Warranty 101 Course.</langstring>
+    </description>
+    <keyword>
+      <langstring xml:lang="en">warranty</langstring>
+      <langstring xml:lang="en">Dealership</langstring>
+      <langstring xml:lang="en">DCX</langstring>
+    </keyword>
+  </general>
+  <lifecycle>
+    <version>
+      <langstring xml:lang="en">1</langstring>
+    </version>
+    <status>
+      <source>
+        <langstring xml:lang="en">LOMv1.0</langstring>
+      </source>
+      <value>
+        <langstring xml:lang="x-none">Draft</langstring>
+      </value>
+    </status>
+    <contribute>
+      <role>
+        <source>
+          <langstring xml:lang="en">LOMv1.0</langstring>
+        </source>
+        <value>
+          <langstring xml:lang="x-none">Editor</langstring>
+        </value>
+      </role>
+      <centity>
+        <vcard>Gord Mackenzie</vcard>
+      </centity>
+      <date>
+        <datetime>November 11, 2004</datetime>
+      </date>
+    </contribute>
+  </lifecycle>
+  <metametadata>
+    <identifier />
+    <metadatascheme>LOMv1.0</metadatascheme>
+  </metametadata>
+  <technical>
+    <format>text/html</format>
+    <format>application/x-shockwave-flash</format>
+    <requirement>
+      <type>
+        <source>
+          <langstring xml:lang="en">LOMv1.0</langstring>
+        </source>
+        <value>
+          <langstring xml:lang="x-none">Browser</langstring>
+        </value>
+      </type>
+      <name>
+        <source>
+          <langstring xml:lang="en">LOMv1.0</langstring>
+        </source>
+        <value>
+          <langstring xml:lang="x-none">Microsoft Internet Explorer</langstring>
+        </value>
+      </name>
+      <minimumversion>5.5</minimumversion>
+      <maximumversion>6.0</maximumversion>
+    </requirement>
+    <installationremarks>
+      <langstring xml:lang="en" />
+    </installationremarks>
+    <otherplatformrequirements>
+      <langstring xml:lang="en">Flash Player 6 required</langstring>
+    </otherplatformrequirements>
+  </technical>
+  <educational>
+    <learningresourcetype>
+      <source>
+        <langstring xml:lang="en">LOMv1.0</langstring>
+      </source>
+      <value>
+        <langstring xml:lang="x-none">Web-based</langstring>
+      </value>
+    </learningresourcetype>
+    <typicallearningtime>
+      <datetime>01:00:00</datetime>
+    </typicallearningtime>
+    <description>
+      <langstring xml:lang="en">Could take longer for new hires</langstring>
+    </description>
+    <language>en</language>
+  </educational>
+  <rights>
+    <copyrightandotherrestrictions>
+      <source>
+        <langstring xml:lang="en">LOMv1.0</langstring>
+      </source>
+      <value>
+        <langstring xml:lang="x-none">yes</langstring>
+      </value>
+    </copyrightandotherrestrictions>
+    <description>
+      <langstring xml:lang="en">Copyright DaimlerChrysler DCA 2004</langstring>
+    </description>
+  </rights>
+</lom>
+

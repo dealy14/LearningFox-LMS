@@ -1,0 +1,105 @@
+.contentBox {
+	font-family: "Century Gothic";
+	font-size: 11pt;
+	top: 2px;
+
+
+
+}
+.Titlebar {
+	font-family: "Century Gothic";
+	font-size: 18px;
+	font-weight: bold;
+	color: #FFFFFF;
+
+}
+.Table {
+	font-family: "Century Gothic";
+	font-size: 12px;
+	font-weight: normal;
+	color: #000000;
+	font-style: normal;
+	text-align: left;
+
+
+}
+.TableHeader {
+	font-family: "Century Gothic";
+	font-size: 16px;
+	font-weight: bold;
+	color: #000000;
+	font-style: normal;
+	background-color: #FFFFFF;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #000000;
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;
+
+
+
+}
+.TableCaption {
+	font-family: "Century Gothic";
+	font-size: 13px;
+	font-weight: normal;
+	color: #000000;
+	font-style: normal;
+	background-color: #D1DBD6;
+	border: thin none #000000;
+
+
+
+}
+.TableCaptionSM {
+	font-family: "Century Gothic";
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+	font-style: normal;
+	background-color: #D1DBD6;
+	border: thin none #000000;
+	background-position: center;
+	text-align: center;
+
+
+}
+.TableSM {
+
+	font-family: "Century Gothic";
+	font-size: 8px;
+	font-weight: normal;
+	color: #000000;
+	font-style: normal;
+	text-align: left;
+}
+.contentBoxSpecial {
+
+	font-family: "Century Gothic";
+	font-size: 10pt;
+	top: 0px;
+}
+.Term {
+   font-family: "Century Gothic"; 
+   font-size: 14px; 
+   font-weight: bold; 
+   margin-top: 0px; 
+   margin-bottom: 0px; 
+   padding-top: 0px; 
+   padding-bottom: 0px; 
+   border-top-width: 0px; 
+   border-bottom-width: 0px
+   }
+
+.TermText {
+  font-family: "Century Gothic"; 
+  font-size: 12px
+  }
+   .MenuLink {
+	font-family: "Century Gothic";
+	font-size: 10pt;
+	font-style: normal;
+	text-indent: 10px;
+	list-style : disc;
+}

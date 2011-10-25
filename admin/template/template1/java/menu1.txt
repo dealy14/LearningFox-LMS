@@ -1,0 +1,38 @@
+  {Courses,images/lesson_folder2.gif}
+  {|View Courses,frame_side.php,left}
+  {|Add Course}    
+  {||Add WBT Course,add_courses.php,main}
+  {||Add ILT Course,_,_}
+  {||Add Course as Test,_,_}    
+  {|-}
+  {|Add Lesson,add_lessons.php,main}
+  {|Add Topic,add_topics.php,main}
+  {Learning Paths,images/lp.gif}
+  {|View Learning Paths,side_lp.php,left}
+  {|-}
+  {|Create Learning Path,add_lp.php,main}
+  {Test Objects,images/test_small.gif}
+  {|View Test,side_quiz.php,left}
+  {|-}  
+  {|Add Test,add_quizes.php,main}
+  {-}    
+  {Groups,images/groups.gif}
+  {|View Groups,frame_groups.php?load=yes,left}  
+  {|Create Groups,add_group.php?load=yes,main}
+  {|Create Sub-Groups,add_subgroup.php?load=yes,main}    
+  {|Link Courses to Groups,_,_}    
+  {Student Profiles,images/student1.gif}
+  {|View Students,student_side.php,left}
+  {|Add Students,_,_}  
+  {-}   
+  {Edit Configuration,images/config_sm.gif}
+  {|LMS Configuration File,lmsconfig.php,main}
+  {|Course.ini Files,config.php,left}          
+  {Security,images/security.gif}
+  {|Security Options,_,_}  
+  {|-}        
+  {|Session Data}   
+  {||View Session Data,sessions_side.php,left}     
+  {||Purge Session Data,purge_sessions.php,main}     
+
+  

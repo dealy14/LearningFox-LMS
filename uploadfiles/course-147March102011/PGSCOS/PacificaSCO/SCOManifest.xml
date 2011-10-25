@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../templates/walkaround.xslt"?>
+<scomanifest xmlns:pg="../SCOManifest.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../SCOManifest.xsd" outputMode="html" sident="1">
+	<orgs>
+		<org title="default">
+			<page refPageID="1" template="walkaround.xslt">
+				<refasset refAssetID="1"/>
+				<refasset refAssetID="2"/>
+			</page>
+		</org>
+	</orgs>
+	<srcassets>
+		<srcasset title="Content XML" assetID="1" xref="SCOContent.xml" type="text"/>
+		<srcasset title="Station 2 Demo" assetID="2" xref="stations.swf" type="swf"/>
+	</srcassets>
+	<srcpages>
+		<pageText pageID="1" title="Pacifica Walkaround Stations">
+			<sectLevel1 sectID="1">
+				<sectitle>
+					<textBit textType="title">Station List</textBit>
+				</sectitle>
+				<contBit>
+					<contStruct>
+						<dtable>
+							<row>
+								<cell>
+									<textBit textType="title">Station 1</textBit>
+									<textBit textType="normal">Rear of Vehicle</textBit>
+								</cell>
+							</row>
+							<row>
+								<cell>
+									<textBit textType="title">Station 2</textBit>
+									<textBit textType="normal">Driver Side</textBit>
+								</cell>
+							</row>
+							<row>
+								<cell>
+									<textBit textType="title">Station 3</textBit>
+									<textBit textType="normal">Interior - Rear</textBit>
+								</cell>
+							</row>
+							<row>
+								<cell>
+									<textBit textType="title">Station 4</textBit>
+									<textBit textType="normal">Interior - Front</textBit>
+								</cell>
+							</row>
+							<row>
+								<cell>
+									<textBit textType="title">Station 5</textBit>
+									<textBit textType="normal">Front of Vehicle</textBit>
+								</cell>
+							</row>
+						</dtable>
+					</contStruct>
+				</contBit>
+			</sectLevel1>
+			<sectLevel1 sectID="2">
+				<notitle/>
+				<contBit>
+					<contStruct>
+						<dtable>
+							<tblTitle>
+								<textBit textType="title">Pacifica Station Benefits</textBit>
+							</tblTitle>
+							<row>
+								<cell>
+									<textBit textType="title"></textBit>
+									<textBit textType="normal">Move the mouse cursor over a Station to reveal a description.</textBit>
+								</cell>
+							</row>
+							<row>
+								<cell>
+									<textBit textType="title"></textBit>
+									<textBit textType="normal">Station #1 is also known as the Rear of the Vehicle station. Many of the features covered at this station include such utility features as cargo space. </textBit>
+								</cell>
+							</row>
+							<row>
+								<cell>
+									<textBit textType="title"></textBit>
+									<textBit textType="normal">Station #2 is also known as the Driver Side station. The main items of focus here are exterior items related to side of the vehicle and other general vehicle attributes.</textBit>
+								</cell>
+							</row>
+							<row>
+								<cell>
+									<textBit textType="title"></textBit>
+									<textBit textType="normal">Station #3 is also known as the Interior - Rear station. Many of the features covered at this station include comfort and convenience features, plus utility features specific to the rear seat.</textBit>
+								</cell>
+							</row>
+							<row>
+								<cell>
+									<textBit textType="title"></textBit>
+									<textBit textType="normal"> Station #4 is also known as the Interior - Front station. Many of the items covered at this station focus on comfort and convenience features that apply to the front seat area. </textBit>
+								</cell>
+							</row>
+							<row>
+								<cell>
+									<textBit textType="title"></textBit>
+									<textBit textType="normal">Station #5 is also known as the Front of the Vehicle station. Because this is the first station to be covered, the presentation usually starts out with a general comment about vehicle styling.</textBit>
+								</cell>
+							</row>
+						</dtable>
+					</contStruct>
+				</contBit>
+			</sectLevel1>
+		</pageText>
+		<pageText pageID="2" title="Page Two Title">		
+			<contBit>
+				<contUnStruct>
+					<para>
+						<textBit textType="normal">This is some more page text on another page.</textBit>
+					</para>
+				</contUnStruct>
+			</contBit>
+		</pageText>
+	</srcpages>
+</scomanifest>

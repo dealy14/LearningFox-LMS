@@ -1,0 +1,15 @@
+<tree>
+
+	<imageList>
+  		<image name="lesson2" file="images/lesson_sm.gif" /> 
+  		<image name="home" file="images/course_tree.gif" /> 
+  	</imageList>
+
+  <root name=" A Test Course" oImage="home" cImage="home">
+	<folder name=" Downloads" auto="yes">
+   	   <leaf name=" ATC" link="javascript:alert('test!')"/> 
+    	   <leaf name=" AutoList" image="lesson2" link="javascript:loadList('atc4/alistdownloads.xml')"/> 
+	</folder>
+  </root>
+
+</tree>

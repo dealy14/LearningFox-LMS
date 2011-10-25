@@ -1,0 +1,110 @@
+<?xml version="1.0" standalone="no" ?>
+<!-- created with "Manifest Maker for ADL SCORM 1.2 Version 2.0.0" for Dreamweaver,
+ on Tue May 29 2007 11:49:49 GMT-0400 (Eastern Daylight Time) -->
+
+<manifest identifier="ITST-MANIFEST" version="1.0"
+  xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                        http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd
+                        http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd" >
+
+<metadata>
+<schema>ADL SCORM</schema>
+<schemaversion>1.2</schemaversion>
+<adlcp:location>imsmetadata.xml</adlcp:location>
+</metadata>
+ 
+<organizations default="COURSE_IT_SEC">	
+	<organization identifier="COURSE_IT_SEC" structure="hierarchial">
+		<title>USPTO IT Security Awareness</title>
+		<item identifier="SCO_IT_SEC_1" identifierref="R_SCO_IT_SEC_1">
+			<title>USPTO IT Security Awareness</title></item>
+	</organization>	
+</organizations>
+
+<resources>
+<resource identifier="R_SCO_IT_SEC_1" type="webcontent" adlcp:scormtype="sco" href="index.html">
+<file href="index.html" />
+<dependency identifierref="ALLRESOURCES" />
+</resource>
+
+<resource identifier="ALLRESOURCES" type="webcontent" adlcp:scormtype="asset">
+<file href="APIWrapper.js" />
+<file href="CSC_SCO_bestprac.js" />
+<file href="NewSlide-01.html" />
+<file href="NewSlide-02.html" />
+<file href="NewSlide-03.html" />
+<file href="NewSlide-04.html" />
+<file href="Secure01.html" />
+<file href="Secure02.html" />
+<file href="Secure03.html" />
+<file href="Secure04.html" />
+<file href="Secure05.html" />
+<file href="Secure06.html" />
+<file href="Secure07.html" />
+<file href="Secure08.html" />
+<file href="Secure09.html" />
+<file href="Secure10.html" />
+<file href="Secure11.html" />
+<file href="Secure12.html" />
+<file href="Secure13.html" />
+<file href="Secure14.html" />
+<file href="Secure15.html" />
+<file href="Secure16.html" />
+<file href="Secure17.html" />
+<file href="Secure18.html" />
+<file href="Secure19.html" />
+<file href="Secure20.html" />
+<file href="Secure21.html" />
+<file href="Secure22.html" />
+<file href="Secure23.html" />
+<file href="Secure24.html" />
+<file href="Secure25.html" />
+<file href="Secure26.html" />
+<file href="Secure27.html" />
+<file href="Secure28.html" />
+<file href="Secure29.html" />
+<file href="Secure30.html" />
+<file href="Secure31.html" />
+<file href="Secure32.html" />
+<file href="Secure33.html" />
+<file href="Secure34.html" />
+<file href="Secure35.html" />
+<file href="SecureA1.html" />
+<file href="SecureA2.html" />
+<file href="SecureA3.html" />
+<file href="SecureA4.html" />
+<file href="SecureA5.html" />
+<file href="SecureQ1.html" />
+<file href="SecureQ2.html" />
+<file href="SecureQ3.html" />
+<file href="SecureQ4.html" />
+<file href="SecureQ5.html" />
+<file href="Validate.html" />
+<file href="images/USPTO Seal.jpg" />
+<file href="images/USPTOHomePage.jpg" />
+<file href="images/border_bottom.gif" />
+<file href="images/border_bottomleftcorner.gif" />
+<file href="images/border_bottomrightcorner.gif" />
+<file href="images/border_left.gif" />
+<file href="images/border_right.gif" />
+<file href="images/border_top.gif" />
+<file href="images/border_topleftcorner.gif" />
+<file href="images/border_toprightcorner.gif" />
+<file href="images/business.JPG" />
+<file href="images/email.JPG" />
+<file href="images/emergency.jpg" />
+<file href="images/null.JPG" />
+<file href="images/transmission.JPG" />
+<file href="images/trojanhorse.jpg" />
+<file href="index.html" />
+<file href="scostart.html" />
+<file href="storage.html" />
+<file href="welcome.html" />
+</resource>
+
+</resources>
+
+</manifest>

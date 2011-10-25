@@ -1,0 +1,15 @@
+<SCRIPT>
+top.use_LMS=1;
+function checkTest()
+{
+	if(top.use_LMS==0)
+	{
+	var myresults=window.open('test_results.html','nothing','width=700,height=600');
+	return false;
+	}
+	else
+	{
+	return;
+	}
+}
+</SCRIPT>

@@ -1,0 +1,6 @@
+&t_content=OHSA requires employers to record each fatality, injury or illness that is work-related, is a new case and meets one or more of the criteria listed by the regulation. The old rule had different criteria for the recording of occupational injuries and occupational illnesses. Now the system is simpler because both injury and illness cases are analyzed using the same criteria.  This is a significant change from the old rule.
+The old rule required that work-related illness cases be recorded automatically, so every illness was recordable. Under the new system, illness cases are recorded only if they meet the same criteria as injury cases. 
+<FONT COLOR="#990000">For example</FONT>, under the old rule, if an employee was working with cleaning chemicals and got a rash on their hands, the case was automatically recordable regardless of outcome. Under the new rule, the case would only be recordable if it resulted in medical treatment, restricted work or one of the other recording criteria.
+
+Click the <FONT COLOR="#990000">NEXT button</FONT> when you're ready to continue.&
+&content_status=loaded&

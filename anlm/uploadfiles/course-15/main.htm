@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script language="javascript" src="APIWrapper.js" >
+</script>
+<script language="javascript" src="SCOFunctions.js" >
+</script>
+<script language="javascript" type="text/javascript">
+<!--
+var bookmark = "";
+var sname = "";
+function myload()
+{
+	LMSInitialize();
+	var status = LMSGetValue( "cmi.core.lesson_status" );
+	if (status == "not attempted")
+	{
+		// the student is now attempting the lesson
+		LMSSetValue( "cmi.core.lesson_status", "incomplete" );
+	}
+	bookmark = getBookMark();
+	alert( "-"+bookmark );
+	sname = LMSGetValue( "cmi.core.student_name" );
+	document.getElementById('pretxt').innerHTML = "Student="+sname+"<br> saved data="+bookmark+"<br>";
+}
+function savedata()
+{
+	alert( document.getElementById("txt1").value+"\n is being saved.");
+	setBookMark( document.getElementById("txt1").value );
+}
+-->
+</script>
+
+</head>
+
+<body onload="myload();" onUnload="LMSFinish();" >
+Simple data saving SCORM 1.2 compliant. It will keep the text you input inside the textbox information on the LMS.<br />
+<div id="pretxt"></div>
+<form action="" method="get">
+<label>data to save:<input name="txt1" id="txt1" type="text" /></label>
+<input type="button" onclick="savedata();"  value="save data"/>
+</form>
+</body>
+</html>

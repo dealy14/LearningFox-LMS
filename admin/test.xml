@@ -1,0 +1,17 @@
+<tree>
+	<imageList>
+		<image name="lesson2" file="images/lesson_sm.gif"/>
+		<image name="home" file="images/course_tree.gif"/>
+	</imageList>
+	<root name=" A Test Course" oImage="home" cImage="home">
+	<folder name=" My Intro" auto="yes">
+		<leaf name=" Intro to Work Saftey" image="" link="javascript:top.top1.getEdit(top.top1.topicItemSelect,'1','topic');"/>
+		<leaf name=" ws_2" image="" link="javascript:top.top1.getEdit(top.top1.topicItemSelect,'2','topic');"/>
+		<leaf name=" ws_3" image="" link="javascript:top.top1.getEdit(top.top1.topicItemSelect,'3','topic');"/>
+		<leaf name=" ws_4" image="" link="javascript:top.top1.getEdit(top.top1.topicItemSelect,'4','topic');"/>
+	</folder>
+	<folder name=" Repeat" auto="yes">
+		<leaf name=" 3rd intro" image="" link="javascript:top.top1.getEdit(top.top1.topicItemSelect,'1','topic');"/>
+	</folder>
+	</root>
+</tree>

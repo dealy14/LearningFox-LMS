@@ -1,0 +1,8 @@
+&extra_movie=em1.swf&
+&t_content=Rather than "lost workdays," days away from work or days of restricted work activity or job transfer are required to be recorded. As before, the day of injury or illness is not counted.
+A major change is that calendar days are now counted instead of the previous use of scheduled workdays. Counting calendar days provides a more accurate and consistent measure of disability duration and will generate more reliable data.
+Under this system, a special case arises when an employee is injured on a Friday or right before a vacation, and returns on the next scheduled day. If a PLHCP gives information that the employee should not have worked during those days off, then the days should be counted.
+The employer may stop counting days when they reach 180 days away from work or days of restricted work or both. We then know that this was a serious case. The employer may also stop counting days if the employee leaves the company for some reason not related to the injury or illness -- for example, a plant shutdown.
+If the employee is away from work for an extended time, the employer must record the case within 7 days with an estimate of the days away and then must update the day count when the actual number of days away or restricted becomes known.
+Click <FONT COLOR="#990000">Next</FONT> to continue.&
+&content_status=loaded&

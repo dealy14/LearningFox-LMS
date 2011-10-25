@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE lom SYSTEM "imsmd_rootv1p2p1.dtd"> -->
+<lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 http://www.imsglobal.org/xsd/imsmd_rootv1p2p1.xsd">
+	<general>
+		<title>
+			<langstring xml:lang="de">Lesson 1:DCX</langstring>
+		</title>
+		<catalogentry>
+			<catalog>KBS Courseware Catalogue</catalog>
+			<entry>
+				<langstring xml:lang="en">Info1_Lesson01</langstring>
+			</entry>
+		</catalogentry>
+		<catalogentry>
+			<catalog>KBS Courseware Configuration System </catalog>
+			<entry>
+				<langstring xml:lang="en"> Mason:/SCORM_Courses/course_info1/lesson_01/</langstring>
+			</entry>
+		</catalogentry>
+		<language>de</language>
+		<description>
+			<langstring xml:lang="de">The purpose of this lesson is to give students a general introduction to Bingo project and basic OO knowledgey</langstring>
+		</description>
+		<keyword>
+			<langstring xml:lang="en">OO</langstring>
+			<langstring xml:lang="en">OO attribut</langstring>
+			<langstring xml:lang="en">OO method</langstring>
+			<langstring xml:lang="de">Bingo</langstring>
+			<langstring xml:lang="de">Spiel</langstring>
+			<langstring xml:lang="de">Beschreibung</langstring>
+			<langstring xml:lang="de">Objektorientierte Softwareentwicklung</langstring>
+			<langstring xml:lang="en">Object-oriented programming concepts</langstring>
+			<langstring xml:lang="de">Klassen</langstring>
+			<langstring xml:lang="de">Attribute</langstring>
+			<langstring xml:lang="de">Variablen</langstring>
+			<langstring xml:lang="de">Datentypen</langstring>
+			<langstring xml:lang="de">Method</langstring>
+			<langstring xml:lang="de">String</langstring>
+			<langstring xml:lang="de">Konstruktor</langstring>
+			<langstring xml:lang="de">Kontrollanweisung</langstring>
+			<langstring xml:lang="de">Arrays</langstring>
+			<langstring xml:lang="de">StringBuffer</langstring>
+		</keyword>
+		<aggregationlevel>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none">3</langstring>
+			</value>
+		</aggregationlevel>
+	</general>
+	<lifecycle>
+		<contribute>
+			<role>
+				<source>
+					<langstring xml:lang="x-none">LOMv1.0</langstring>
+				</source>
+				<value>
+					<langstring xml:lang="x-none">Author</langstring>
+				</value>
+			</role>
+			<centity>
+				<vcard> BEGIN: vCard ORG: KBS, University of Hannover END: vCard </vcard>
+			</centity>
+			<date>
+				<datetime>2000-06-21</datetime>
+			</date>
+		</contribute>
+	</lifecycle>
+	<metametadata>
+		<contribute>
+			<role>
+				<source>
+					<langstring xml:lang="x-none">LOMv1.0</langstring>
+				</source>
+				<value>
+					<langstring xml:lang="x-none">Creator</langstring>
+				</value>
+			</role>
+			<centity>
+				<vcard> BEGIN:vCard Quang Chinh Than Vu END:vCard </vcard>
+			</centity>
+			<date>
+				<datetime>2001-10-2</datetime>
+			</date>
+		</contribute>
+		<metadatascheme>IEEELOM:1.0</metadatascheme>
+		<language>en</language>
+	</metametadata>
+	<technical>
+		<location type="URI">lesson_01/</location>
+		<requirement>
+			<type>
+				<source>
+					<langstring xml:lang="x-none">LOMv1.0</langstring>
+				</source>
+				<value>
+					<langstring xml:lang="x-none">Browser</langstring>
+				</value>
+			</type>
+			<name>
+				<source>
+					<langstring xml:lang="x-none">LOMv1.0</langstring>
+				</source>
+				<value>
+					<langstring xml:lang="x-none">Netscape Navigator</langstring>
+				</value>
+			</name>
+			<minimumversion>4.7</minimumversion>
+		</requirement>
+		<requirement>
+			<type>
+				<source>
+					<langstring xml:lang="x-none">LOMv1.0</langstring>
+				</source>
+				<value>
+					<langstring xml:lang="x-none">Browser</langstring>
+				</value>
+			</type>
+			<name>
+				<source>
+					<langstring xml:lang="x-none">LOMv1.0</langstring>
+				</source>
+				<value>
+					<langstring xml:lang="x-none">Microsoft Internet Explorer</langstring>
+				</value>
+			</name>
+			<minimumversion>5.0</minimumversion>
+		</requirement>
+	</technical>
+	<educational>
+		<learningresourcetype>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none">Narrative Text</langstring>
+			</value>
+		</learningresourcetype>
+		<learningresourcetype>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none">Figure</langstring>
+			</value>
+		</learningresourcetype>
+		<learningresourcetype>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none">Table</langstring>
+			</value>
+		</learningresourcetype>
+		<typicallearningtime>
+			<datetime>3:00:00</datetime>
+		</typicallearningtime>
+		<context>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none">University First Cycle</langstring>
+			</value>
+		</context>
+	</educational>
+	<rights>
+		<cost>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none">no</langstring>
+			</value>
+		</cost>
+		<copyrightandotherrestrictions>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none">no</langstring>
+			</value>
+		</copyrightandotherrestrictions>
+		<description>
+			<langstring xml:lang="en">Copyright 2001-2002, KBS, University of Hannover. </langstring>
+		</description>
+	</rights>
+	<relation>
+		<kind>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none">isPartOf</langstring>
+			</value>
+		</kind>
+		<resource>
+			<description>
+				<langstring>KBS_Info1</langstring>
+			</description>
+		</resource>
+		<kind>
+			<source>
+				<langstring xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none">hasPart</langstring>
+			</value>
+		</kind>
+		<resource>
+			<description>
+				<langstring>Info1_Lesson01_sco01</langstring>
+				<langstring>Info1_Lesson01_sco02</langstring>
+				<langstring>Info1_Lesson01_sco02</langstring>
+				<langstring>Info1_Lesson01_sco03</langstring>
+				<langstring>Info1_Lesson01_sco04</langstring>
+			</description>
+		</resource>
+	</relation>
+	<classification>
+		<purpose>
+			<source>
+				<langstring
+				xml:lang="x-none">LOMv1.0</langstring>
+			</source>
+			<value>
+				<langstring xml:lang="x-none">Discipline</langstring>
+			</value>
+		</purpose>
+		<taxonpath>
+
+
+			<source>
+
+
+				<langstring xml:lang="en">ACM Computing Classification System</langstring>
+
+
+			</source>
+
+
+			<taxon>
+
+
+				<id>D</id>
+
+
+				<entry>
+
+
+					<langstring xml:lang="en">Software</langstring>
+
+
+				</entry>
+
+
+				<taxon>
+
+
+					<id>3</id>
+
+
+					<entry>
+
+
+						<langstring xml:lang="en">Programming Language</langstring>
+
+
+					</entry>
+
+
+					<taxon>
+
+
+						<id>3</id>
+
+
+						<entry>
+
+
+							<langstring xml:lang="en">Language Constructs and Features</langstring>
+
+
+						</entry>
+
+
+						<taxon>
+
+
+							<entry>
+
+
+								<langstring xml:lang="en">Classes and Objects</langstring>
+
+
+							</entry>
+
+
+						</taxon>
+
+
+					</taxon>
+
+
+				</taxon>
+
+
+			</taxon>
+
+
+		</taxonpath>
+
+
+		<taxonpath>
+			<source>
+				<langstring xml:lang="en">ACM Computing Classification System</langstring>
+			</source>
+			<taxon>
+				<id>D</id>
+				<entry>
+					<langstring xml:lang="en">Software</langstring>
+				</entry>
+				<taxon>
+					<id>3</id>
+					<entry>
+						<langstring xml:lang="en">Programming Language</langstring>
+					</entry>
+					<taxon>
+						<id>3</id>
+						<entry>
+							<langstring xml:lang="en">Abstract data types</langstring>
+						</entry>
+
+					</taxon>
+				</taxon>
+			</taxon>
+		</taxonpath>
+		<taxonpath>
+			<source>
+				<langstring xml:lang="en">ACM Computing Classification System</langstring>
+			</source>
+			<taxon>
+				<id>D</id>
+				<entry>
+					<langstring xml:lang="en">Software</langstring>
+				</entry>
+				<taxon>
+					<id>3</id>
+					<entry>
+						<langstring xml:lang="en">Programming Language</langstring>
+					</entry>
+					<taxon>
+						<id>3</id>
+						<entry>
+							<langstring xml:lang="en">Language Constructs and Features</langstring>
+						</entry>
+						<taxon>
+							<entry>
+								<langstring xml:lang="en">Control structures</langstring>
+							</entry>
+						</taxon>
+					</taxon>
+				</taxon>
+			</taxon>
+		</taxonpath>
+	</classification>
+</lom>

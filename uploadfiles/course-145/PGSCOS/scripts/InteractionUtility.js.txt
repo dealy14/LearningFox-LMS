@@ -1,0 +1,79 @@
+// JavaScript Document
+var tempTitle;
+var tempText;
+var tempSta;
+var InternetExplorer = navigator.appName.indexOf("Microsoft") != -1;
+
+function onMenu(id)                                                                                                                                                            							{
+	var curMenu = document.getElementById(id);
+	curMenu.style.visibility = 'visible';
+}
+				
+function objChangeText(txt){
+	this.txt=txt;
+}
+
+function objStation(label){
+	this.label=label;
+}
+
+function go(theFrame){
+	var arStation = new Array();
+		arStation[0] = new objStation("tempEnd");
+		arStation[1] = new objStation("sta2");
+		arStation[2] = new objStation("tempEnd");
+		arStation[3] = new objStation("tempEnd");
+		arStation[4] = new objStation("tempEnd");
+		
+	var theFlashObj = InternetExplorer ? walkaround : document.walkaround;
+	theFlashObj.setVariable("whichFrame", arStation[theFrame-1].label);
+	theFlashObj.TGotoLabel("/",arStation[theFrame-1].label); 
+	var test = theFlashObj.GetVariable("whichFrame");
+	returnText();
+
+}
+
+function walkaround_DoFSCommand(command, args) 
+{
+var sargs = args.substring(1);
+if(command=="showText"){showText(sargs, args);}
+if(command=="returnText"){returnText(args);}
+}
+if (navigator.appName && navigator.appName.indexOf("Microsoft") != -1 && 
+
+navigator.userAgent.indexOf("Windows") != -1 && navigator.userAgent.indexOf("Windows 3.1") == -1) {
+
+document.write('<SCRIPT LANGUAGE=VBScript\> \n');
+
+document.write('on error resume next \n');
+
+document.write('Sub walkaround_FSCommand(ByVal command, ByVal args)\n');
+
+document.write(' call walkaround_DoFSCommand(command, args)\n');
+
+document.write('end sub\n');
+
+document.write('</SCRIPT\> \n');
+
+}
+				
+function showText(id, tid){					
+	elemFormat = document.getElementById(tid);
+	elemFormat.style.cursor='hand';
+	elemFormat.className="menuRightover";
+	elemTitle = document.getElementById("titleContainer");
+	elemText = document.getElementById("textContainer");
+	tempTitle=elemTitle.innerHTML;
+	tempText=elemText.innerHTML;
+	elemTitle.innerHTML = changeTitle[id].txt;
+	elemText.innerHTML = changeText[id].txt;
+}
+	
+function returnText(tid){
+	elemFormat = document.getElementById(tid);
+	elemFormat.className="menuRight";
+	elemTitle = document.getElementById("titleContainer");
+	elemText = document.getElementById("textContainer");
+	elemTitle.innerHTML = tempTitle;
+	elemText.innerHTML = tempText;
+}

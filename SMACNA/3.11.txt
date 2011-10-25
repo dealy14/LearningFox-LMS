@@ -1,0 +1,7 @@
+&extra_movie=em1.swf&
+&t_content=<FONT SIZE="10">(No Audio)</FONT><BR>In this lesson we've covered each step of the OSHA flowchart.
+We've also found that one of the major changes of the new rule is the requirement regarding work relatedness and the issue of aggravation of a non-work injury or illness and the addition of new exceptions to this presumption of work relatedness.
+<FONT COLOR="#990000" SIZE="14"><U>The new rule requires that only significantly aggravated pre-existing conditions be considered work related and, therefore, potentially recordable!!!</U></FONT>
+Click <FONT COLOR="#990000">NEXT</FONT> to continue to a quick quiz.  .
+&
+&content_status=loaded&

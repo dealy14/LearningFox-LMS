@@ -1,0 +1,426 @@
+/*
+--------------------------------------------------------------------------------------------------
+LMS Functions [set lesson/topic locations in hidden form]
+--------------------------------------------------------------------------------------------------
+*/
+window.moveTo(0,0);
+function setLocations()
+{
+top.data.document.userdata.lesson.value=top.lesson_number;
+top.data.document.userdata.topic.value=top.topic_number;
+top.data.document.userdata.last_au.value=top.t_cnt;
+incVal=top.data.document.userdata.completed_aus.value;
+    if(incVal.indexOf(top.t_cnt)<0)
+    {
+    top.data.document.userdata.completed_aus.value+=","+top.t_cnt;
+    }
+
+checkInc=incVal.split(",");
+    if(checkInc.length>=(top.Alltopics))
+    {
+    top.data.document.userdata.course_status.value="Complete";
+    top.lms_PUSH();
+    }
+}
+
+
+/*
+--------------------------------------------------------------------------------------------------
+LMS Functions [set lesson/topic locations for special custom courses]
+--------------------------------------------------------------------------------------------------
+*/
+function setLocationsSp(lesson,topic,au_cnt,lLocation,ctype)
+{
+top.data.document.userdata.lesson.value=lesson;
+top.data.document.userdata.topic.value=topic;
+top.data.document.userdata.last_au.value=au_cnt;
+incVal=top.data.document.userdata.completed_aus.value;
+cinf=top.data.document.userdata.custom_inf.value;
+    if(incVal.indexOf(au_cnt)<0)
+    {
+    top.data.document.userdata.completed_aus.value+=","+au_cnt;
+    }
+
+  if(ctype=="flash")
+  {
+    if(cinf.indexOf(lLocation+"-")<0)
+    {
+    top.data.document.userdata.custom_inf.value+=","+lLocation+"-";
+    }
+  }
+
+checkInc=incVal.split(",");
+    if(checkInc.length>=(top.Alltopics))
+    {
+    top.data.document.userdata.course_status.value="Complete";
+    top.lms_PUSH();
+    }
+
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+LMS Functions [GET and PUSH functions]
+--------------------------------------------------------------------------------------------------
+*/
+function lms_GET()
+{
+top.data.document.userdata.formAction.value='GET';
+top.data.document.userdata.submit();
+}
+
+function lms_PUSH()
+{
+top.data.document.userdata.formAction.value='PUSH';
+top.data.document.userdata.submit();
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+return browser type on root level
+--------------------------------------------------------------------------------------------------
+*/
+function getBrowser()
+{
+	if(bName=="Netscape")
+	{
+	bType="NE";
+	}
+	else if(bName=="Microsoft Internet Explorer")
+	{
+	bType="IE";
+	}
+    return this.bType;
+}
+//now call the function;
+getBrowser();
+/*
+--------------------------------------------------------------------------------------------------
+Retrieve lesson location (URL), pushes the location out via variable
+--------------------------------------------------------------------------------------------------
+*/
+function getLessonLoc(ln,tn)
+{
+var curlesson = lessons[ln][tn].split("|");
+this.lesson_location = "course/"+curlesson[1];
+return lesson_location;
+}
+
+
+/*
+--------------------------------------------------------------------------------------------------
+Retrieve lesson location (URL), pushes the location out via variable (For user coontrol)
+--------------------------------------------------------------------------------------------------
+*/
+function getLessonLocSp(ln,tn)
+{
+var curlesson = lessons[ln][tn].split("|");
+this.lesson_location = curlesson[1];
+return lesson_location;
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Catches the location variable from getLessonLoc() and sets the content frame with it
+--------------------------------------------------------------------------------------------------
+*/
+function setLessonLoc()
+{
+
+top.content.location=getLessonLoc(lesson_number,topic_number);
+}
+/*
+--------------------------------------------------------------------------------------------------
+Catches the location variable from getLessonLoc() and sets the content frame with it (user control)
+--------------------------------------------------------------------------------------------------
+*/
+function setLessonLocSp()
+{
+
+top.content.location=getLessonLocSp(lesson_number,topic_number);
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Turn on the Checkmark for visited topics
+--------------------------------------------------------------------------------------------------
+*/
+function setState(t_cnt)
+{
+	eval("top.tocs.document.rimg"+t_cnt+".src=\""+visImage+"\";")
+	eval("top.tocs.document.rimg"+t_cnt+".alt=\"Checkmark showing that this topic has been visited.\"");
+}
+/*
+--------------------------------------------------------------------------------------------------
+Some memory functions for Netscape users - enabling them to mark current topics
+--------------------------------------------------------------------------------------------------
+*/
+function neRemeber()
+{
+    this.visited= new Array();
+    this.visited[0]="start";
+	
+	return visited;
+}
+
+
+function pushToArray()
+{
+//top.visited.push(top.t_cnt);
+/*
+tempArray = top.visited.join("|");
+tempArray = tempArray+"|"+top.t_cnt;
+top.visited=tempArray.split("|");
+return top.visited;
+*/
+}
+
+function checkReset()
+{
+var rq = 0;
+top.visited = top.data.document.userdata.completed_aus.value.split(",");
+  if(top.useToc==1)
+  {
+	  while(rq<top.visited.length)
+	  {
+	  eval("top.tocs.document.rimg"+visited[rq]+".src=\""+visImage+"\";")
+	  rq++;
+	  }
+  }
+}
+
+function tellMe()
+{
+  this.theArray = top.visited.join("|");
+  alert(this.theArray);
+}
+
+//now initialize the memory;
+neRemeber();
+pushToArray();
+/*
+--------------------------------------------------------------------------------------------------
+Sets highlight color of current topic in TOC menu
+--------------------------------------------------------------------------------------------------
+*/
+function setBG(t_cnt)
+{
+	//return current bg display to white;
+	    if(bType=="IE")
+		{
+			myx = 1;
+			while(myx<=Alltopics)
+			{
+			eval("top.tocs.document.all.r"+myx+".style.background=\"#FFFFFF\";");
+			myx++;
+			}
+			//now set a new one;
+			eval("top.tocs.document.all.r"+t_cnt+".style.background=\""+highLight+"\";");		
+		}	
+
+	setState(t_cnt);	
+	var past_t_cnt = t_cnt;
+	return past_t_cnt;
+	return false;
+}
+
+
+/*
+--------------------------------------------------------------------------------------------------
+------------------------------------------------------
+Navigation functions
+------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+*/
+function onNext()
+{
+	top.nav.document.next.src="images/arrow_r.gif";
+	nav_next="on";
+	return nav_next;
+}
+
+
+/*
+--------------------------------------------------------------------------------------------------
+Turn on Last button
+--------------------------------------------------------------------------------------------------
+*/
+function onLast()
+{
+	top.nav.document.last.src="images/arrow_l.gif";
+	nav_last="on";
+	return nav_last;
+}
+
+
+/*
+--------------------------------------------------------------------------------------------------
+Turn off last button
+--------------------------------------------------------------------------------------------------
+*/
+function offLast()
+{
+	top.nav.document.last.src="images/arrow_l_off.gif";
+	nav_last="off";
+	onNext();
+	return nav_last;
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Turn off next button
+--------------------------------------------------------------------------------------------------
+*/
+function offNext()
+{
+	top.nav.document.next.src="images/arrow_r_off.gif";
+	nav_next="off";
+	onLast();
+	return nav_next;
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Turn on NAV (both buttons)
+--------------------------------------------------------------------------------------------------
+*/
+function navOn()
+{
+
+  top.nav.document.last.src="images/arrow_l.gif";
+  top.nav.document.next.src="images/arrow_r.gif";
+  nav_next="on";
+  nav_last="on";
+  return nav_next;  
+  return nav_last;
+  
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Sets the navigation buttons to the correct states
+--------------------------------------------------------------------------------------------------
+*/
+function navState()
+{
+	if(topic_number==1 && lesson_number==1)
+	{
+	offLast();
+	}
+	else if(t_cnt==Alltopics)
+	{
+	offNext();
+	}
+	else
+	{
+	navOn();
+	}
+	return nav_next;
+	return nav_last;
+	alert(Alltopics+" --- "+nav_last+" -- "+nav_next);
+}
+//navState();
+/*
+--------------------------------------------------------------------------------------------------
+Next function for navigation
+--------------------------------------------------------------------------------------------------
+*/
+function next()
+{
+		if(lesson_number<=total_lessons && t_cnt<Alltopics)
+		{
+			if(topic_number<lessons[lesson_number].length-1)
+			{
+			topic_number++;		
+			t_cnt++;
+			pushToArray();
+				  if(bType!="IE")
+				  {
+				  //top.tocs.location="toc.html";
+				  }
+			}
+			else if(topic_number==lessons[lesson_number].length-1)
+			{
+				if(lesson_number!=total_lessons)
+				{
+				lesson_number++;
+				topic_number=1;			
+				t_cnt++;
+				pushToArray();
+					  if(bType!="IE")
+					  {
+					  //top.tocs.location="toc.html";
+					  }				
+				}
+			}
+		
+		}
+	if(useNav==1)
+	{
+	setLessonLoc();
+	navState();
+	}
+	else
+	{
+	setLessonLocSp();	
+	}
+
+	if(useToc==1)
+	{
+	setBG(t_cnt);
+	}
+        top.setLocations();
+	return false;
+}
+
+/*
+--------------------------------------------------------------------------------------------------
+Back function for navigation
+--------------------------------------------------------------------------------------------------
+*/
+function last()
+{
+		if(topic_number>1)
+		{
+		topic_number--;
+		t_cnt--;
+		pushToArray();
+			  if(bType!="IE")
+			  {
+			  //top.tocs.location="toc.html";
+			  }		
+		}
+		else if(topic_number==1&&lesson_number>1)
+		{
+		lesson_number--;
+		topic_number=lessons[lesson_number].length-1;
+		t_cnt--;
+		pushToArray();
+			  if(bType!="IE")
+			  {
+			  //top.tocs.location="toc.html";
+			  }		
+		}
+
+	if(useNav==1)
+	{
+	setLessonLoc();
+	navState();
+	}
+	else
+	{
+	setLessonLocSp();	
+	}
+
+	if(useToc==1)
+	{
+	setBG(t_cnt);
+	}
+        top.setLocations();
+	return false;
+}
+
+
+</SCRIPT>	
+
+</HEAD>

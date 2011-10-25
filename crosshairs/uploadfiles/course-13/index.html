@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>SCORM test: SCORM API Wrapper and SCORM ActionScript 2 class</title>
+<link href="http://www.pipwerks.com/css/simpleStyling.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+<!--
+
+#courseSWF {
+	width: 650px;
+	height: 400px;
+	margin: 0 auto;
+}
+
+#debugText {
+	font-size: small;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+}
+
+span.flashmessage {
+	color: #66CCFF;
+}
+
+-->
+</style>
+
+<script type="text/javascript" src="swfobject.js"></script>
+<script type="text/javascript" src="SCORM_API_wrapper.js"></script>
+<script type="text/javascript">
+
+function addSwf(){
+	var so = new SWFObject("interface.swf", "courseInterface", "650", "400", "8", "#F5F5F5");
+	so.write("courseSWF");
+}
+
+window.onload = function(){
+	addSwf();
+}
+
+window.onunload = function (){
+	if(SCORM.connection.isActive){
+		SCORM.connection.terminate();
+	}
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h1>Flash AS2 Demonstration</h1>
+<p>This is a simple demonstration of the pipwerks SCORM API wrapper class (ActionScript 2) used in conjunction with the pipwerks SCORM API JavaScript wrapper.</p>
+
+<div id="courseSWF">This demonstration requires Flash Player version 8 or higher.</div>
+
+<div id="debugText"></div>
+
+<p class="pipwerks">This example created by Philip Hutchison, February 2008. <a href="http://pipwerks.com/lab/scorm">http://pipwerks.com/lab/scorm</a></p>
+
+<p class="creativeCommons">This work is licensed under the Creative Commons Attribution 3.0 Unported License.<br />
+To view a copy of this license, visit http://creativecommons.org/licenses/by/3.0/ or send a letter to <br />
+Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.</p>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>SimpleQuiz</title>
+		<!-- this needs to be present for height="100%" to work properly in some browsers -->
+		<style type="text/css">
+			<!--
+				body,html {
+					margin:0px; 
+					padding:0px;
+					height:100%;
+					overflow:hidden;
+				}
+			-->
+		</style>
+		<script type="text/vbscript" language="VBScript">
+			<!--
+				Sub SlideContent_FSCommand(ByVal command, ByVal args)
+					select case command
+						case "putHREF" location.href = args
+						case "putTitle" document.title = args
+						case else call SlideContent_DoFSCommand(command, args)
+					end select
+				end sub
+			-->
+		</script>
+		<script type="text/javascript" language="JavaScript">
+			<!--
+				function flashPutHref(href) { location.href = href; }
+				function flashPutTitle(title) { document.title = title; }
+				function showFlash(swf, w, h, loop)
+				{
+					var isMSIE = navigator.appName.indexOf("Microsoft") != -1;
+					var s = '';
+					s += '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,65,0" width="'+w+'" height="'+h+'" id="SlideContent" align="" VIEWASTEXT>'
+					s += '<param name="movie" value="'+swf+'" />'
+					s += '<param name="menu" value="false" />'
+					s += '<param name="quality" value="best" />'
+					s += '<param name="loop" value="'+loop+'" />'
+					s += '<param name="FlashVars" value="initialURL='+document.location+'&isMSIE='+isMSIE+'&useBSM=false" />'
+					s += '<embed src="'+swf+'" FlashVars="initialURL='+document.location+'&isMSIE='+isMSIE+'&useBSM=false" menu="false" quality="best" width="'+w+'" height="'+h+'" loop="'+loop+'" name="SlideContent" align="" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" swLiveConnect="true"></embed>'
+					s += '</object>'
+					// in theory, we should always embed in a table, but in practice, IE6 malfunctions
+					// when width & height = 100%, but in that case, we don't really need the table anyway.
+					if ((w.toString().indexOf('%') == -1) && (h.toString().indexOf('%') == -1))
+					{
+						s = '<table border=0 width="100%" height="100%"><tr valign="middle"><td align="center">' +
+							s +
+							'</td></tr></table>';
+					}
+					document.write(s);
+				}
+			-->
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript" language="JavaScript">
+			showFlash("viewer.swf", "100%", "100%", false);
+		</script>
+	</body>
+</html>

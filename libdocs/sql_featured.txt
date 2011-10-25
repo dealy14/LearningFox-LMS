@@ -1,0 +1,113 @@
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `efiles`
+--
+
+CREATE TABLE IF NOT EXISTS `efiles` (
+  `ID` int(255) NOT NULL auto_increment,
+  `assetnum` varchar(5) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `filename` varchar(150) NOT NULL,
+  `created` datetime NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `course_type` varchar(255) NOT NULL default '',
+  `folder_name` varchar(255) NOT NULL default '',
+  `course_id` varchar(255) NOT NULL default '',
+  `status` enum('active','not active') default 'active',
+  `description` blob,
+  `cmi_credit` varchar(255) NOT NULL default '',
+  `link` varchar(255) default 'http://davidealytechnologies.com',
+  `sco_version` varchar(255) default NULL,
+  `description2` varchar(255) default NULL,
+  `keyword` varchar(255) default NULL,
+  `catalog_name` varchar(255) default NULL,
+  `catalog_entry` varchar(255) default NULL,
+  `c_description` varchar(255) NOT NULL,
+  `purpose` varchar(255) NOT NULL,
+  `contribute` varchar(255) NOT NULL,
+  `entity` varchar(255) NOT NULL,
+  `classifiedkeyword` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL,
+  `date` varchar(100) NOT NULL,
+  `structure` varchar(255) NOT NULL,
+  `format` varchar(255) NOT NULL,
+  `size` varchar(255) NOT NULL,
+  `md_scheme` varchar(255) NOT NULL,
+  `md_catalog` varchar(255) NOT NULL,
+  `md_entry` varchar(255) NOT NULL,
+  `learning_resource_type` varchar(255) NOT NULL,
+  `cost` varchar(100) NOT NULL,
+  `copyright` varchar(150) NOT NULL,
+  `right_description` varchar(255) NOT NULL,
+  `interactive_type` varchar(255) NOT NULL,
+  `interactive_level` varchar(100) NOT NULL,
+  `typical_learning_time` varchar(100) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  PRIMARY KEY  (`ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `library`
+--
+
+CREATE TABLE IF NOT EXISTS `library` (
+  `libdocID` int(11) NOT NULL auto_increment,
+  `userID` varchar(255) NOT NULL,
+  `filename` varchar(255) NOT NULL,
+  `filetype` varchar(255) NOT NULL,
+  `img_type` varchar(20) NOT NULL,
+  `datetime` datetime NOT NULL,
+  PRIMARY KEY  (`libdocID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `library_link`
+--
+
+CREATE TABLE IF NOT EXISTS `library_link` (
+  `linkID` int(11) NOT NULL auto_increment,
+  `userID` varchar(150) NOT NULL,
+  `links` varchar(255) NOT NULL,
+  `datetime` datetime NOT NULL,
+  PRIMARY KEY  (`linkID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE IF NOT EXISTS `news` (
+  `id` int(255) NOT NULL auto_increment,
+  `sid` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `uid` varchar(255) NOT NULL,
+  `datetime` datetime NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reg_form`
+--
+
+CREATE TABLE IF NOT EXISTS `reg_form` (
+  `field_name` varchar(50) NOT NULL default '',
+  `status` varchar(10) NOT NULL default '',
+  `forder` int(5) NOT NULL default '0',
+  `stored` enum('y','n') NOT NULL default 'n',
+  `ID` int(11) NOT NULL auto_increment,
+  `display` varchar(50) NOT NULL default '',
+  PRIMARY KEY  (`ID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+

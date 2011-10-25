@@ -1,0 +1,68 @@
+<html>
+<head>
+<script src="../SCORM_API.js" language="JavaScript" type="text/javascript"></script>
+
+<SCRIPT LANGUAGE=JavaScript>
+function myFlash_DoFSCommand(command, args) { 
+	if (!APIOK()) return;
+	switch (command){
+        case "SCOInitialize":
+			err = (APIOK() + "");
+			break;
+			
+		case "SCOFinish":
+			LMS_SCOFinish();  
+			break;
+		
+		case "SCOSetValue":
+			err = LMS_SCOSetValue(arg1,arg2);
+			break;
+		
+		case "SCOFinish":
+			err = LMS_SCOFinish();
+			break;
+		
+		case "SCOGetValue":
+			if (args == "lesson_status")
+			{
+				var strState = LMS_SCOGetValue("cmi.core.lesson_status");
+				window.document.myFlash.setVariable("commState", strState);
+			}
+			break;
+ 
+	}
+
+}
+//-->
+</SCRIPT> 
+
+<SCRIPT LANGUAGE="VBScript">
+<!-- 
+
+Sub myFlash_FSCommand(ByVal command, ByVal args)
+   call myFlash_DoFSCommand(command, args)
+end sub
+
+// -->
+</SCRIPT> 
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="LMS_SCOInitialize()" onunload="LMS_SCOFinish()" onbeforeunload="LMS_SCOFinish()">
+
+<script type="text/javascript" language="JavaScript" name="earlyInit">
+<!--
+  // Attempt to initialize API before loading the movie in case
+  // there is some ActionScript that fires off before the rest
+  // of the HTML page has finished loading.
+LMS_SCOInitialize()
+//-->
+</script>
+
+<OBJECT id="myFlash" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" WIDTH="748" HEIGHT="470" ALIGN="">
+    <PARAM NAME=movie VALUE="loader.swf">
+    <PARAM NAME=quality VALUE=high>
+    <EMBED src="loader.swf" quality=high  WIDTH="748" HEIGHT="470" ALIGN="" TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer" name="myFlash" swLiveConnect="true"></EMBED>
+</OBJECT>
+</body>
+</html>

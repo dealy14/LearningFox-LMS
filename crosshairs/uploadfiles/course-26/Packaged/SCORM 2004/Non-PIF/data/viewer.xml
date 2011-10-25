@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<presentation width="720" height="540" start="play" buildNum="5.1.243.243">
+	<presentationTitle>SimpleQuiz</presentationTitle>
+	<speakers></speakers>
+	<backgrounds>
+		<background url="Master80000002.swf"/>
+		<background url="Master80000001.swf"/>
+	</backgrounds>
+	<search url="srchdata.xml"/>
+	<slides>
+		<slide id="256" frameRate="30" totalFrames="150" advance="auto" type="normal">
+			<content url="Slide1.swf"/>
+			<slideBackground index="0" frameToPlay="1" duration="2" showAfterFrame="0"/>
+			<slideTitle>A Simple Quiz </slideTitle>
+			<notes isHTML="false">
+			</notes>
+			<slideThumbnail url="thumb.swf" frame="1"/>
+		</slide>
+		<slide id="257" frameRate="30" totalFrames="1" advance="never" type="quiz" quiz=" 10004 " showInTOC="false">
+			<questions><question index=" 20086 " weight="10"/></questions>
+			<audioFeedbacks></audioFeedbacks>
+			<content url="Slide2.swf"/>
+			<slideBackground index="1" frameToPlay="1" duration="2" showAfterFrame="0"/>
+			<slideTitle>What is 1 + 1? </slideTitle>
+			<notes isHTML="false">
+			</notes>
+			<slideThumbnail url="thumb.swf" frame="2"/>
+		</slide>
+		<slide id="259" frameRate="30" totalFrames="1" advance="never" type="quiz" quiz=" 10004 " showInTOC="false">
+			<questions><question index=" 20097 " weight="10"/></questions>
+			<audioFeedbacks></audioFeedbacks>
+			<content url="Slide3.swf"/>
+			<slideBackground index="1" frameToPlay="3" duration="2" showAfterFrame="0"/>
+			<slideTitle>True or False, a Robin is a type of bird. </slideTitle>
+			<notes isHTML="false">
+			</notes>
+			<slideThumbnail url="thumb.swf" frame="3"/>
+		</slide>
+		<slide id="260" frameRate="30" totalFrames="1" advance="never" type="quiz" quiz=" 10004 " showInTOC="false">
+			<questions><question index=" 20106 " weight="10"/></questions>
+			<audioFeedbacks></audioFeedbacks>
+			<content url="Slide4.swf"/>
+			<slideBackground index="1" frameToPlay="5" duration="2" showAfterFrame="0"/>
+			<slideTitle>Complete the sentence below by filling in the blank. </slideTitle>
+			<notes isHTML="false">
+			</notes>
+			<slideThumbnail url="thumb.swf" frame="4"/>
+		</slide>
+		<slide id="261" frameRate="30" totalFrames="1" advance="never" type="quiz" quiz=" 10004 " showInTOC="false">
+			<questions><question index=" 20115 " weight="10"/></questions>
+			<audioFeedbacks></audioFeedbacks>
+			<content url="Slide5.swf"/>
+			<slideBackground index="1" frameToPlay="7" duration="2" showAfterFrame="0"/>
+			<slideTitle>Match the color to the fruit. </slideTitle>
+			<notes isHTML="false">
+			</notes>
+			<slideThumbnail url="thumb.swf" frame="5"/>
+		</slide>
+		<slide id="262" frameRate="30" totalFrames="1" advance="never" type="quiz" quiz=" 10004 " showInTOC="false">
+			<questions><question index=" 20130 " weight="0"/></questions>
+			<audioFeedbacks></audioFeedbacks>
+			<content url="Slide6.swf"/>
+			<slideBackground index="1" frameToPlay="9" duration="2" showAfterFrame="0"/>
+			<slideTitle>Indicate how strongly you agree or disagree with the following statements. </slideTitle>
+			<notes isHTML="false">
+			</notes>
+			<slideThumbnail url="thumb.swf" frame="6"/>
+		</slide>
+		<slide id="263" frameRate="30" totalFrames="1" advance="never" type="quiz" quiz=" 10004 " showInTOC="false">
+			<questions><question index=" 20150 " weight="0"/></questions>
+			<audioFeedbacks></audioFeedbacks>
+			<content url="Slide7.swf"/>
+			<slideBackground index="1" frameToPlay="11" duration="2" showAfterFrame="0"/>
+			<slideTitle>Is there anything else you'd like to let us know? </slideTitle>
+			<notes isHTML="false">
+			</notes>
+			<slideThumbnail url="thumb.swf" frame="7"/>
+		</slide>
+		<slide id="258" frameRate="30" totalFrames="1" advance="never" type="scoring" quiz=" 10004 " showInTOC="false">
+			<content url="Slide8.swf"/>
+			<slideBackground index="1" frameToPlay="13" duration="2" showAfterFrame="0"/>
+			<slideTitle>Quiz </slideTitle>
+			<notes isHTML="false">
+			</notes>
+			<slideThumbnail url="thumb.swf" frame="8"/>
+		</slide>
+	</slides>
+	<quizzes>
+		<reportingOptions isTracked="true" LMSType="SCORM_1_3" AuthorwareDelimeter="," trackingLevel="score" completionValueToSend="default" completionTrigger="breeze" trackingURLEncodeVersionAndSession="true" trackingCharsToNotUrlEncode="" completionSlideViewPercentage="100" trackingSendResumeData="true" sendScoreAsPercent="true"></reportingOptions>
+		<quiz quizID="10004" numQuizAttemptsAllowed="1" minScore="0" passingScore="80" percent="true" passingGradeAction="nextSlide" passingGradeActionArg1="" passingGradeActionArg2="" failingGradeAction="nextSlide" failingGradeActionArg1="" failingGradeActionArg2="" questionAdvance="optional" quizAdvance="optional" showProgress="minimal" allowBackwardMovementInQuiz="true" allowReviewMode="true" passedScoreFeedback="Passed" failedScoreFeedback="Failed"/>
+	</quizzes>
+</presentation>

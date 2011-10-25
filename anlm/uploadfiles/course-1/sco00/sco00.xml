@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+
+<lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
+
+   <general>
+      <title>
+         <langstring>Warranty Opening Splash</langstring>
+      </title>
+      <catalogentry>
+         <catalog>Warranty</catalog>
+         <entry>
+            <langstring>WAFUNDCD</langstring>
+         </entry>
+      </catalogentry>
+      <language>en</language>
+      <description>
+         <langstring>Warranty Opening Splash</langstring>
+      </description>
+      <keyword>
+         <langstring>Warranty</langstring>
+      </keyword>
+      <keyword>
+         <langstring>Opening</langstring>
+      </keyword>
+      <aggregationlevel>
+         <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+         </source>
+         <value>
+            <langstring xml:lang="x-none">1</langstring>
+         </value>
+      </aggregationlevel>
+   </general>
+   
+   <lifecycle>
+      <version>
+         <langstring>1.1</langstring>
+      </version>
+      <status>
+         <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+         </source>
+         <value>
+            <langstring xml:lang="x-none">Final</langstring>
+         </value>
+      </status>
+      <contribute>
+         <role>
+            <source>
+               <langstring xml:lang="x-none">LOMv1.0</langstring>
+            </source>
+            <value>
+               <langstring xml:lang="x-none">Author</langstring>
+            </value>
+         </role>
+         <centity>
+            <vcard>
+               BEGIN:vCard
+               ORG:McGill Digital Solutions
+               END:vCard
+            </vcard>
+         </centity>
+         <date>
+            <datetime>2003-11-11</datetime>
+         </date>
+      </contribute>
+   </lifecycle>
+   
+   <metametadata>
+      <metadatascheme>ADL SCORM 1.1</metadatascheme>
+   </metametadata>
+   
+   <technical>
+      <format>text/html</format>
+      <location>sco00.htm</location>
+      <requirement>
+         <type>
+            <source>
+               <langstring xml:lang="x-none">LOMv1.0</langstring>
+            </source>
+            <value>
+               <langstring xml:lang="x-none">Browser</langstring>
+            </value>
+         </type>
+         <name>
+            <source>
+               <langstring xml:lang="x-none">LOMv1.0</langstring>
+            </source>
+            <value>
+               <langstring xml:lang="x-none">Microsoft Internet Explorer</langstring>
+            </value>
+         </name>
+         <minimumversion>5.5</minimumversion>
+      </requirement>
+   </technical>
+   
+   <educational>
+      <learningresourcetype>
+         <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+         </source>
+         <value>
+            <langstring xml:lang="x-none">Slide</langstring>
+         </value>
+      </learningresourcetype>
+   </educational>
+   
+   <rights>
+      <cost>
+         <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+         </source>
+         <value>
+            <langstring xml:lang="x-none">no</langstring>
+         </value>
+      </cost>
+      <copyrightandotherrestrictions>
+         <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+         </source>
+         <value>
+            <langstring xml:lang="x-none">no</langstring>
+         </value>
+      </copyrightandotherrestrictions>
+   </rights>
+   
+   <classification>
+      <purpose>
+         <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+         </source>
+         <value>
+            <langstring xml:lang="x-none">Educational Objective</langstring>
+         </value>
+      </purpose>
+      <description>
+         <langstring>This Sharable Content Object contains the main opening animation for Warranty.</langstring>
+      </description>
+      <keyword>
+         <langstring>Warranty</langstring>
+      </keyword>
+      <keyword>
+         <langstring>Opening</langstring>
+      </keyword>
+   </classification>
+
+</lom>

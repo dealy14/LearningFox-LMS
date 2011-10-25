@@ -1,0 +1,52 @@
+<html>
+<head>
+<script src="../SCORM_API.js" language="JavaScript" type="text/javascript"></script>
+
+<SCRIPT LANGUAGE=JavaScript>
+function SCOInitialize (p_strParam){
+	if (!APIOK()) return;
+	
+	err = (APIOK() + "");
+}
+
+function SCOFinish (p_strParam){
+	if (!APIOK()) return;
+	
+	err = LMS_SCOSetValue("cmi.core.lesson_status", "completed");
+	err = LMS_SCOFinish();
+}
+
+function SCOGetValue (p_strParam){
+	if (!APIOK()) return;
+	switch (p_strParam){
+       case "lesson_status":
+			var strState = LMS_SCOGetValue("cmi.core.lesson_status");
+			window.document.myFlash.setVariable("commState", strState);
+			break;
+	}
+}
+
+
+//-->
+</SCRIPT> 
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="LMS_SCOInitialize()" onunload="LMS_SCOFinish()">
+
+<script type="text/javascript" language="JavaScript" name="earlyInit">
+<!--
+  // Attempt to initialize API before loading the movie in case
+  // there is some ActionScript that fires off before the rest
+  // of the HTML page has finished loading.
+LMS_SCOInitialize()
+//-->
+</script>
+
+<OBJECT id="myFlash" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" WIDTH="748" HEIGHT="470" ALIGN="">
+    <PARAM NAME=movie VALUE="120000.swf">
+    <PARAM NAME=quality VALUE=high>
+    <EMBED src="120000.swf" quality=high  WIDTH="748" HEIGHT="470" ALIGN="" TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer" name="myFlash" swLiveConnect="true"></EMBED>
+</OBJECT>
+</body>
+</html>

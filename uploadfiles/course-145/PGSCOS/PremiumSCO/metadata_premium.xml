@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+
+<lom xmlns="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+     xsi:schemaLocation="http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd">
+
+   <general>
+      <title>
+         <langstring>
+            Path to Premium
+         </langstring>
+      </title>
+      <catalogentry>
+         <catalog>Path to Premium</catalog>
+         <entry>
+            <langstring>Premium.1.0</langstring>
+         </entry>
+      </catalogentry>
+      <language>en-US</language>
+      <description>
+         <langstring>
+            Path to Premium: Determine the desired path to premium optimization.
+         </langstring>
+      </description>
+      <keyword>
+         <langstring>Path to Premium</langstring>
+      </keyword>
+      <keyword>
+         <langstring>Vechile Launch</langstring>
+      </keyword>
+      <keyword>
+         <langstring>Pacifica</langstring>
+      </keyword>
+      <keyword>
+         <langstring>SUVPS</langstring>
+      </keyword>
+      <keyword>
+         <langstring>DaimlerChrysler</langstring>
+      </keyword>
+      <keyword>
+         <langstring>Walkaround</langstring>
+      </keyword>
+   </general>
+   
+   <lifecycle>
+      <version>
+         <langstring>1.0</langstring>
+      </version>
+      <status>
+         <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+         </source>
+         <value>
+            <langstring xml:lang="x-none">Final</langstring>
+         </value>
+      </status>
+   </lifecycle>
+   
+   <metametadata>
+      <metadatascheme>ADL SCORM(TM) 1.2</metadatascheme>
+   </metametadata>
+   
+   <technical>
+      <format>text/html</format>
+      <location type="URI">premium.htm</location>
+   </technical>
+   
+   <rights>
+      <cost>
+         <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+         </source>
+         <value>
+            <langstring xml:lang="x-none">no</langstring>
+         </value>
+      </cost>
+      <copyrightandotherrestrictions>
+         <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+         </source>
+         <value>
+            <langstring xml:lang="x-none">no</langstring>
+         </value>
+      </copyrightandotherrestrictions>
+   </rights>
+   
+   <classification>
+      <purpose>
+         <source>
+            <langstring xml:lang="x-none">LOMv1.0</langstring>
+         </source>
+         <value>
+            <langstring xml:lang="x-none">Educational Objective</langstring>
+         </value>
+      </purpose>
+      <description>
+         <langstring>
+            Path to Premium: Determine the desired path to premium optimization. test
+         </langstring>
+      </description>
+      <keyword>
+         <langstring>
+            Path to Premium: Determine the desired path to premium optimization.
+         </langstring>
+      </keyword>
+      <keyword>
+         <langstring>test</langstring>
+      </keyword>
+   </classification>
+</lom>

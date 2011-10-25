@@ -1,0 +1,83 @@
+<html>
+<head>
+<script src="../SCORM_API.js" language="JavaScript" type="text/javascript"></script>
+
+<SCRIPT LANGUAGE=JavaScript>
+function SCOInitialize (p_strParam){
+	if (!APIOK()) return;
+	
+	var retVal = (APIOK() + "");
+}
+
+
+function SCOFinish (p_strParam){
+	if (!APIOK()) return;
+
+	if (("" + p_strParam) == "undefined" || p_strParam == null)
+		LMS_SCOSetValue("cmi.core.lesson_status", "completed");
+		
+	var retVal = LMS_SCOFinish();
+}
+
+
+function SCOGetValue (p_strParam){
+	if (!APIOK()) return;
+	
+	switch (p_strParam){
+       case "lesson_status":
+			var strState = LMS_SCOGetValue("cmi.core.lesson_status");
+			//set the internal value of commState inside the flash movie
+			window.document.FlashSCO.setVariable("commState", strState);
+			break;
+		
+		case "score":
+			var intScore = LMS_SCOGetValue("cmi.core.score.raw");
+			if (intScore == "" || intScore == null || ("" + intScore) == "undefined")
+				intScore = 0
+			//set the internal value of bestScore inside the flash movie		
+			window.document.FlashSCO.setVariable("bestScore", intScore);
+			break;
+	}
+}
+
+
+function SCOSetValue (p_strParam, p_strValue){
+	if (!APIOK()) return;
+	
+	switch (p_strParam){
+		case "score":
+			LMS_SCOSetValue("cmi.core.score.raw", p_strValue);
+			break;
+	}
+}
+
+
+function SCOGetURL(p_strFileName){
+	window.open(p_strFileName,"winPop")
+}
+
+
+//-->
+</SCRIPT> 
+
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onload="LMS_SCOInitialize()" onunload="LMS_SCOFinish()">
+
+<script type="text/javascript" language="JavaScript" name="earlyInit">
+<!--
+  // Attempt to initialize API before loading the movie in case
+  // there is some ActionScript that fires off before the rest
+  // of the HTML page has finished loading.
+LMS_SCOInitialize()
+//-->
+</script>
+
+<OBJECT id="FlashSCO" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" WIDTH="748" HEIGHT="470" ALIGN="">
+    <PARAM NAME=movie VALUE="100000.swf">
+    <PARAM NAME=quality VALUE=high>
+    <EMBED src="100000.swf" quality=high  WIDTH="748" HEIGHT="470" ALIGN="" TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer" name="FlashSCO" swLiveConnect="true"></EMBED>
+</OBJECT>
+</body>
+</html>

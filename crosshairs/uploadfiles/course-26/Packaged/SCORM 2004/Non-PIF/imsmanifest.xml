@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest identifier="BP_SimpleCourse" version="1.3" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd http://www.adlnet.org/xsd/adlcp_v1p3 adlcp_v1p3.xsd http://www.imsglobal.org/xsd/imsss imsss_v1p0.xsd http://ltsc.ieee.org/xsd/LOM lomStrict.xsd" xmlns="http://www.imsglobal.org/xsd/imscp_v1p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:imscp="http://www.imsglobal.org/xsd/imscp_v1p1" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3" xmlns:imsss="http://www.imsglobal.org/xsd/imsss">
+	<metadata>
+		<schema>ADL SCORM</schema>
+		<schemaversion>CAM 1.3</schemaversion>
+		<lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+			<general>
+				<identifier>
+					<catalog>Macromedia Breeze Presenter Course</catalog>
+					<entry>BP_SimpleCourse</entry>
+				</identifier>
+				<title>
+					<string language="x-none">Breeze Presenter - Simple Course</string>
+				</title>
+				<description>
+					<string language="x-none">This is a simple course developed in Breeze Presenter.</string>
+				</description>
+			</general>
+			<lifeCycle>
+				<version>
+					<string language="x-none">1.0</string>
+				</version>
+				<status>
+					<source>LOMv1.0</source>
+					<value>final</value>
+				</status>
+			</lifeCycle>
+			<metaMetadata>
+				<identifier>
+					<catalog>test</catalog>
+					<entry>test 1000</entry>
+				</identifier>
+				<metadataSchema>LOMv1.0</metadataSchema>
+				<metadataSchema>SCORM_CAM_v1.3</metadataSchema>
+			</metaMetadata>
+			<technical>
+				<format>text/html</format>
+				<location>.</location>
+			</technical>
+			<rights>
+				<cost>
+					<source>LOMv1.0</source>
+					<value>no</value>
+				</cost>
+				<copyrightAndOtherRestrictions>
+					<source>LOMv1.0</source>
+					<value>no</value>
+				</copyrightAndOtherRestrictions>
+			</rights>
+			<classification>
+				<purpose>
+					<source>LOMv1.0</source>
+					<value>idea</value>
+				</purpose>
+				<description>
+					<string language="x-none">This is a simple course developed in Breeze Presenter.</string>
+				</description>
+				<keyword>
+					<string language="x-none">Macromedia Breeze Presenter</string>
+				</keyword>
+			</classification>
+		</lom>
+	</metadata>
+	<organizations default="BP_SimpleCourse_ORG">
+		<organization identifier="BP_SimpleCourse_ORG">
+			<title>Breeze Presenter - Simple Course</title>
+			<item identifier="BP_SimpleSCO_Quiz" isvisible="true" identifierref="BP_SimpleSCO_Quiz_RES">
+				<title>Breeze Presenter - Simple SCO (Quiz)</title>
+				<imsss:sequencing>
+					<imsss:objectives>
+						<imsss:primaryObjective objectiveID="PRIMARYOBJ" satisfiedByMeasure="true">
+							<imsss:minNormalizedMeasure></imsss:minNormalizedMeasure>
+						</imsss:primaryObjective>
+					</imsss:objectives>
+				</imsss:sequencing>
+			</item>
+		</organization>
+	</organizations>
+	<resources>
+		<resource adlcp:scormType="sco" identifier="BP_SimpleSCO_Quiz_RES" type="webcontent" href="SCORM.htm">
+			<file href="breeze-manifest.xml"/>
+			<file href="components.swf"/>
+			<file href="data/Master80000001.swf"/>
+			<file href="data/Master80000002.swf"/>
+			<file href="data/Slide1.swf"/>
+			<file href="data/Slide2.swf"/>
+			<file href="data/Slide3.swf"/>
+			<file href="data/Slide4.swf"/>
+			<file href="data/Slide5.swf"/>
+			<file href="data/Slide6.swf"/>
+			<file href="data/Slide7.swf"/>
+			<file href="data/Slide8.swf"/>
+			<file href="data/srchdata.xml"/>
+			<file href="data/thumb.swf"/>
+			<file href="data/timings.xml"/>
+			<file href="data/trackdta.xml"/>
+			<file href="data/vconfig.xml"/>
+			<file href="data/viewer.xml"/>
+			<file href="datatypes.dtd"/>
+			<file href="SCORM.htm"/>
+			<file href="scorm_support/scorm_support.htm"/>
+			<file href="scorm_support/scorm_support.js"/>
+			<file href="scorm_support/scorm_support.swf"/>
+			<file href="viewer.swf"/>
+			<file href="XMLSchema.dtd"/>
+		</resource>
+	</resources>
+</manifest>

@@ -1,0 +1,7 @@
+&extra_movie=em1.swf&
+&t_content=<FONT SIZE="16" COLOR="#990000">If an employee telecommutes from home, is his or her home considered a separate establishment? </FONT>
+No, for employees who telecommute from home, the employee's home is not a business establishment and a separate 300 Log is not required. Employees who telecommute must be linked to one of your establishments.
+
+When you're ready to continue, click the <FONT COLOR="#990000">NEXT button</FONT>.
+&
+&content_status=loaded&

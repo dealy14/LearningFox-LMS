@@ -1,0 +1,4 @@
+&extra_movie=e2.swf&
+&t_content=When the employer has more than one establishment, a separate log needs to be kept for each establishment expected to be in operation for more than a year. For the short term establishments, those that are going to be in operation less than a year, the employer can keep one log that includes all of the injuries or illnesses for all of the short-term establishments combined or they can keep several logs, by state or district or whatever makes sense for them. An employer with multiple lines of business, of course, may have some exempt and some covered establishments. And each employee must be linked to an employer's establishment for record keeping purposes.
+Click <FONT COLOR="#990000">NEXT</FONT> to continue.
+&content_status=loaded&
