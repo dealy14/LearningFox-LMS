@@ -4,7 +4,7 @@
 #############################################################################################
 
 //exit;
-if($section!=""&&$section!="login"&&$section!="register")
+if($section!=""&&$section!="login"&&$section!="register"&&$section!="messageboard"&&$section!="msg")
 {
 require_once($dir_components."session_check.php");
 }
@@ -56,7 +56,7 @@ switch($section)
   break; 
   
   case 'msg':
-  $mysection=$dir_components."board/msg/".$_GET['count'].".html";
+  $mysection=$dir_components."board/msg/".$_GET['count'].".php";
   break; 
   
   case 'library':
@@ -78,23 +78,7 @@ switch($section)
   case 'message':
   $mysection=$dir_components."content_message.php";
   break;  
-  
-  case 'newsletter':
-  $mysection=$dir_components."content_newsletter.php";
-  break;
-  
-  case 'faqs':
-  $mysection=$dir_components."content_faqs.php";
-  break;
-  
-  case 'additional_resources':
-  $mysection=$dir_components."content_additional_resources.php";
-  break;
-  
-  case 'business_requirements':
-  $mysection=$dir_components."content_business_requirements.php";
-  break;
-  
+  	
   default:
   $mysection=$dir_components."content_$section.php";
 }

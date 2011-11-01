@@ -1,8 +1,0 @@
-&t_content=The second important definition is <U><FONT COLOR="#990000" SIZE="14">injury or illness</FONT></U>
-An <FONT COLOR="#990000">injury or illness</FONT> is an abnormal condition or disorder. <FONT COLOR="#990000">Injuries</FONT> include cases such as, but not limited to, a cut, fracture, sprain, or amputation. <FONT COLOR="#990000">Illnesses</FONT> include both acute and chronic illnesses, such as, but not limited to, a skin disease, respiratory disorder, or poisoning. It's important to note that injuries and illnesses are only recordable if they are new, work-related cases that meet one or more of the recording criteria.
-The third definition highlighted by OSHA in the new recordkeeping rule is <BR><U><FONT COLOR="#990000" SIZE="14">Physician or Other Licensed Health Care Professional</FONT></U>
-A <FONT COLOR="#990000">physician or other licensed health care professional</FONT> is an individual whose legally permitted scope of practice (i.e., license, registration, or certification) allows him or her to independently perform, or be delegated the responsibility to perform, the activities described by this regulation.
-
-When you're ready to continue, click the <FONT COLOR="#990000">NEXT button</FONT>.
-&
-&content_status=loaded&

@@ -311,7 +311,7 @@ $objective = $db->row("objective");
 <INPUT TYPE="HIDDEN" NAME="oID" VALUE="<?php echo $oID;?>">
 	  <TR>
 	    <TD VALIGN="TOP"><SPAN CLASS=ttl>Objective  #<?php echo $ox;?>:</SPAN></TD>
-	    <TD NOWRAP VALIGN="TOP" colspan="2"><TEXTAREA ROWS="2" COLS="40" id="objective" NAME="objective" WRAP="virtual" CLASS="input"><?php echo $objective;?></TEXTAREA> &nbsp;&nbsp;<A HREF="#" onClick="document.thisObjective_<?php echo $ox;?>.formAction.value='SAVE';document.thisObjective_<?php echo $ox;?>.submit();return false;"><IMG SRC="images/save.gif" BORDER="0" ALIGN="ABSMIDDLE"></A> &nbsp;&nbsp;<A HREF="#" onClick="document.thisObjective_<?php echo $ox;?>.formAction.value='DELETE';document.thisObjective_<?php echo $ox;?>.submit();return false;"><IMG SRC="images/delete.gif" BORDER="0" ALIGN="ABSMIDDLE"></A></TD>		
+	    <TD NOWRAP VALIGN="TOP" colspan="2"><TEXTAREA ROWS="2" COLS="40" NAME="objective" WRAP="virtual" CLASS="input"><?php echo $objective;?></TEXTAREA> &nbsp;&nbsp;<A HREF="#" onClick="document.thisObjective_<?php echo $ox;?>.formAction.value='SAVE';document.thisObjective_<?php echo $ox;?>.submit();return false;"><IMG SRC="images/save.gif" BORDER="0" ALIGN="ABSMIDDLE"></A> &nbsp;&nbsp;<A HREF="#" onClick="document.thisObjective_<?php echo $ox;?>.formAction.value='DELETE';document.thisObjective_<?php echo $ox;?>.submit();return false;"><IMG SRC="images/delete.gif" BORDER="0" ALIGN="ABSMIDDLE"></A></TD>		
 	  </TR>
 </FORM>
 <?php
@@ -348,15 +348,15 @@ $description = $db->row("description");
 <INPUT TYPE="HIDDEN" NAME="oID" VALUE="<?php echo $oID;?>">
 	  <TR>
 	    <TD VALIGN="TOP"><SPAN CLASS=ttl>Reference  #<?php echo $rx;?>:</SPAN></TD>
-		<TD VALIGN="TOP" colspan="2"><INPUT TYPE="TEXT" NAME="rname" id="rname"  VALUE="<?php echo $rfname;?>" CLASS="input"></TD>
+		<TD VALIGN="TOP" colspan="2"><INPUT TYPE="TEXT" NAME="rname" VALUE="<?php echo $rfname;?>" CLASS="input"></TD>
 	  </TR>	
 	  <TR>
 	    <TD VALIGN="TOP"><SPAN CLASS=ttl>&nbsp;</SPAN></TD>
-		<TD VALIGN="TOP" colspan="2"> <INPUT TYPE="file" VALUE="upload" CLASS="input" NAME="thefile" id="thefile">&nbsp;</TD>
+		<TD VALIGN="TOP" colspan="2"> <INPUT TYPE="file" VALUE="upload" CLASS="input" NAME="thefile">&nbsp;</TD>
 	  </TR>	  
 	  <TR>
 	    <TD VALIGN="TOP"><SPAN CLASS=ttl>&nbsp;</SPAN></TD>
-	    <TD NOWRAP VALIGN="TOP" colspan="2"><TEXTAREA ROWS="2" COLS="40" NAME="description" id="description" WRAP="virtual" CLASS="input"><?php echo $description;?></TEXTAREA> &nbsp;&nbsp;<A HREF="#" onClick="document.thisRef_<?php echo $rx;?>.formAction.value='SAVE';document.thisRef_<?php echo $rx;?>.fname.value=document.thisRef_<?php echo $rx;?>.thefile.value;document.thisRef_<?php echo $rx;?>.submit();return false;"><input type="button"  name="button1" id="button1" value="Submit"  /></A> &nbsp;&nbsp;<A HREF="#" onClick="document.thisRef_<?php echo $rx;?>.formAction.value='DELETE';document.thisRef_<?php echo $rx;?>.submit();return false;"><IMG SRC="images/delete.gif" BORDER="0" ALIGN="ABSMIDDLE"></A></TD>		
+	    <TD NOWRAP VALIGN="TOP" colspan="2"><TEXTAREA ROWS="2" COLS="40" NAME="description" WRAP="virtual" CLASS="input"><?php echo $description;?></TEXTAREA> &nbsp;&nbsp;<A HREF="#" onClick="document.thisRef_<?php echo $rx;?>.formAction.value='SAVE';document.thisRef_<?php echo $rx;?>.fname.value=document.thisRef_<?php echo $rx;?>.thefile.value;document.thisRef_<?php echo $rx;?>.submit();return false;"><input type="button"  name="button1" id="button1" value="Submit"  /></A> &nbsp;&nbsp;<A HREF="#" onClick="document.thisRef_<?php echo $rx;?>.formAction.value='DELETE';document.thisRef_<?php echo $rx;?>.submit();return false;"><IMG SRC="images/delete.gif" BORDER="0" ALIGN="ABSMIDDLE"></A></TD>		
 	  </TR>
 </FORM>
 

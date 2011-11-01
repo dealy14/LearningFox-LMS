@@ -10,19 +10,16 @@ $settings['apass']='admin';
 $settings['website_title']="Message Board";
 
 // Website URL
-/*$settings['website_url']='http://localhost/v1/';*/
+$settings['website_url']='http://localhost/LMS/';
 
-$settings['website_url']='http://learningfox.com/v1/';
+
 // Message board title
 $settings['mboard_title']="Message Board";
 
 // URL to folder where message board is installed
 // DO NOT a trailing "/" !
-/*$settings['mboard_url']='http://localhost/v1/index.php?section=messageboard&sid='.$_SESSION['lms_userID'].'';
-$settings['mboard_url2']='http://localhost/v1/';*/
-
-$settings['mboard_url']='http://learningfox.com/v1/index.php?section=messageboard&sid='.$_SESSION['lms_userID'].'';
-$settings['mboard_url2']='http://learningfox.com/v1/';
+$settings['mboard_url']='http://localhost/LMS/index.php?section=messageboard&sid='.$_SESSION['lms_userID'].'';
+$settings['mboard_url2']='http://localhost/LMS/';
 
 /* Prevent automated submissions (recommended YES)? 0 = NO, 1 = YES, GRAPHICAL, 2 = YES, TEXT */  
 $settings['autosubmit']=1;
@@ -43,7 +40,7 @@ $settings['smileys']=1;
 $settings['notify']=1;
 
 // Your e-mail. Only required if $settings['notify'] is set to 1.
-$settings['admin_email']='dealy@davidealytechnologies.com';
+$settings['admin_email']='you@yourdomain.com';
 
 // Display IP number of members posting? 1 = YES, 0 = NO
 $settings['display_IP']=1;

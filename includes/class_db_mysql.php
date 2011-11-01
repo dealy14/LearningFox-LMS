@@ -11,10 +11,10 @@ class db
 	var $mydb="lms"; 
 */
 
-	var $user="lmsv1db";
-	var $pass = "Technologies14";
-	var $host="p50mysql107.secureserver.net";
-	var $mydb="lmsv1db";
+	var $user="lmscecdb";
+	var $pass = "Davey14";
+	var $host="p50mysql89.secureserver.net";
+	var $mydb="lmscecdb";
 
 	function connect()
 	{

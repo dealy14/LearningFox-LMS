@@ -20,13 +20,9 @@ print_r($_POST);
 exit();
 */
 
-$action = $_REQUEST['action'];
-$formAction = $_REQUEST['formAction'];
 ###############################################################################
 # actions for updating topic properties
 ###############################################################################
-
-
 if($action=="topic1" && $formAction=="UPDATE")
 {
 insertAction($object_sql["topic_update1"]);
@@ -250,18 +246,14 @@ echo"<SCRIPT>top.rmain.edit_main.location='blank.php';</SCRIPT>";
 
 if($action=="objective" && $formAction=="SAVE")
 {
-//insertAction($object_sql["objective_save"]);
- $objective = $_REQUEST['objective'];
-    $oID = $_REQUEST['oID'];
-    insertAction("UPDATE objectives SET objective='$objective',link='$link' WHERE ID=$oID");
+insertAction($object_sql["objective_save"]);
 /*echo"<SCRIPT>alert('Obective Saved'); top.rmain.edit_main.location.reload();</SCRIPT>"; jayant*/
 echo"<SCRIPT>alert('Obective Saved'); top.rmain.edit_main.location.reload();</SCRIPT>";
 }
 
 if($action=="objective" && $formAction=="DELETE")
 {
-$oID = $_REQUEST['oID'];
-insertAction("DELETE FROM objectives WHERE ID=$oID");
+insertAction($object_sql["objective_delete"]);
 /*echo"<SCRIPT>top.rmain.edit_main.location.reload();</SCRIPT>"; jayant*/
 echo"<SCRIPT>alert('Objective Deleted');top.rmain.edit_main.location.reload();</SCRIPT>";
 }
@@ -272,29 +264,21 @@ echo"<SCRIPT>alert('Objective Deleted');top.rmain.edit_main.location.reload();</
 
 if($action=="ref" && $formAction=="SAVE")
 {
-    $description=$_REQUEST['description'];
-	$rname=$_REQUEST['rname'];
-	$oID = $_REQUEST['oID'];
-    insertAction("UPDATE ref SET description='$description',rname='$rname' WHERE ID=$oID");
-	$thefile = $_FILES["thefile"]["name"];
-	/*echo "<SCRIPT>alert('".$dir_references.$thefile."');</SCRIPT>";*/
-    if($thefile!="")
-    {
-    //upload file;
-	  // copy("$thefile", $dir_references.$rthefile);
-	   move_uploaded_file($_FILES["thefile"]["tmp_name"],$dir_references.$thefile);
-	   insertAction("UPDATE ref SET filename='$thefile' WHERE ID=$oID");
-	   //unlink($thefile);
-    }
-    /*echo"<SCRIPT>top.rmain.edit_main.location.reload();</SCRIPT>"; jayant*/
-    echo "<SCRIPT>alert('Reference Saved');top.rmain.edit_main.location.reload();</SCRIPT>";
+insertAction($object_sql["ref_save"]);
+   if($thefile!="")
+   {
+   //upload file;
+	  copy("$thefile", $dir_references.$rthefile);
+	  unlink($thefile);
+   }
+/*echo"<SCRIPT>top.rmain.edit_main.location.reload();</SCRIPT>"; jayant*/
+echo"<SCRIPT>alert('Reference Saved');top.rmain.edit_main.location.reload();</SCRIPT>";
 }
 
 if($action=="ref" && $formAction=="DELETE")
 {
-    $oID = $_REQUEST['oID'];
-    insertAction("DELETE FROM ref WHERE ID=$oID");
-    echo "<SCRIPT>alert('Reference Deleted'); top.rmain.edit_main.location.reload();</SCRIPT>";
+insertAction($object_sql["ref_delete"]);
+echo"<SCRIPT>top.rmain.edit_main.location.reload();</SCRIPT>";
 }
 
 ###############################################################################
@@ -396,28 +380,18 @@ echo"<SCRIPT>top.rmain.edit_main.location.reload();</SCRIPT>";
 ###############################################################################
 if($action=="group1" && $formAction=="UPDATE")
 {
-    $name = $_REQUEST['name'];
-    $sname = $_REQUEST['sname'];
-	$ID= $_REQUEST['ID'];
-    insertAction("update groups set name='$name',sname='$sname' WHERE ID=$ID");
-    echo"<SCRIPT>top.rmain.group_list.location.reload();</SCRIPT>";
+insertAction("update groups set name='$name',sname='$sname' WHERE ID=$ID");
+echo"<SCRIPT>top.rmain.group_list.location.reload();</SCRIPT>";
 }
 
 if($action=="group1" && $formAction=="DELETE")
 {
-    $ID = $_REQUEST['ID'];
-    insertAction("DELETE FROM groups WHERE ID=$ID");
-    echo"<SCRIPT>top.rmain.group_list.location.reload();top.rmain.details.edit_main.location='blank.php';</SCRIPT>";
+insertAction("DELETE FROM groups WHERE ID=$ID");
+echo"<SCRIPT>top.rmain.group_list.location.reload();top.rmain.details.edit_main.location='blank.php';</SCRIPT>";
 }
-if($action=="group2" && $formAction=="DELETE")
-{
-    $ID = $_REQUEST['ID'];
-	insertAction("DELETE FROM groups WHERE ID=$ID");
-    echo"<SCRIPT>top.rmain.group_list.location.reload();top.rmain.details.edit_main.location='blank.php';</SCRIPT>";
-}
+
 if($action=="group2" && $formAction=="UPDATE")
 {
-    $group_ID = $_REQUEST['group_ID'];
 	$db = new db;
 	$db->connect();
 	$db->query("SELECT ID FROM subgroups WHERE group_ID=$group_ID");
@@ -441,16 +415,12 @@ if($action=="group2" && $formAction=="UPDATE")
 ###############################################################################
 if($action=="subgroup" && $formAction=="SAVE")
 {
-    $sub_name = $_REQUEST['sub_name'];
-    $sub_sname = $_REQUEST['sub_sname'];
-	$ID = $_REQUEST['ID'];
-    insertAction("update subgroups set sub_name='$sub_name',sub_sname='$sub_sname' WHERE ID=$ID");
+insertAction("update subgroups set sub_name='$sub_name',sub_sname='$sub_sname' WHERE ID=$ID");
 }
 if($action=="subgroup" && $formAction=="DELETE")
 {
-    $ID = $_REQUEST['ID'];
-    insertAction("DELETE FROM subgroups WHERE ID=$ID");
-    echo"<SCRIPT>top.rmain.details.edit_main.location.reload();</SCRIPT>";
+insertAction("DELETE FROM subgroups WHERE ID=$ID");
+echo"<SCRIPT>top.rmain.details.edit_main.location.reload();</SCRIPT>";
 }
 
 ###############################################################################

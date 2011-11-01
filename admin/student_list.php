@@ -91,6 +91,7 @@ function setBKG(sRow)
 
 function openDetails(rID)
 {
+//alert('open details');
 top.rmain.student_details.location="frame_student_details.php?ID="+rID;
 parent.document.all.smanager.cols="450,*";
 }

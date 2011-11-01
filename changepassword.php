@@ -1,7 +1,3 @@
-<?php session_start();
-//echo "username = ".ucfirst($_SESSION['lms_username']);
-//echo "ID = ".$_SESSION['lms_userID'];
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -47,10 +43,11 @@ include("conf.php");
 		$db = new db();
 		$db->connect();
 		
-      $sql="select * from students where password ='".addslashes($_POST["oldpassword"])."' AND ID='".$_SESSION['lms_userID']."'";
-	    echo mysql_num_rows($sql)."<br/>";
+        $sql="select * from students where password ='".addslashes($_POST["oldpassword"])."'";
+	    
 		
-		  $db->query($sql);
+		  $result = $db->query($sql);
+		  echo "rows = ".mysql_num_rows($result)."<br/>";
 		  while($db->getrows())
 		  {             
 		    $pass = $db->row("password");
@@ -58,7 +55,7 @@ include("conf.php");
 			 // echo $pass; 
 			  $db = new db();
 		$db->connect();  
-		 $sql="UPDATE students set password ='".addslashes($_POST["password"])."' where password ='".$pass."' AND ID='".$_SESSION['lms_userID']."'";
+		 $sql="UPDATE students set password ='".addslashes($_POST["password"])."' where password ='".$pass."'";
 		  $db->query($sql);          
 		  echo "<script>alert('Your password has been changed.'); window.close();</script>";
 /*          $result=mysql_query($sql) or die(mysql_error());

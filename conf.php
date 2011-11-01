@@ -6,9 +6,9 @@ error_reporting(0);
 //$ID       = $_REQUEST["ID"];
 
 // 
-$web_dir="http://learningfox.com/v1/";
+$web_dir="http://learningfox.com/CEC/";
 //$web_dir="http://localhost/";
-$main_dir= $_SERVER['DOCUMENT_ROOT']."/v1/"; 
+$main_dir= $_SERVER['DOCUMENT_ROOT']."/CEC/"; 
 
 
 $dir_includes = $main_dir."includes/";

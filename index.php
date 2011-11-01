@@ -1,10 +1,30 @@
 <?php
 session_start();
+//error_reporting(E_ALL);
+
 $myconf="demo_site";
 
 
 require_once("conf.php");
 $buttombanner="<img src=\"images/buttombanner.gif\" />";
+/*
+print '<br /><br />index section here<br />';
+print $_SESSION['lms_username'].'<br />';
+print $_GET['section'];
+print '<br />';
+print $_GET['sid'].'<br />';
+
+if($_GET['section'] == 'messageboard'){
+	$sid = $_GET['sid'];
+	$session_error = 'none';
+}
+
+
+print '<br /><br />';
+print $sid.'<br />';
+print $session_error.'<br />';
+*/
+
 ?>
 <html>
 <head>
@@ -33,94 +53,101 @@ border:#FFFFFF;
 }
 -->
 </style>
-<script type="text/javascript">
-function openWindow(winName)
-{
-    window.open(winName,"FAQs", "width=950,height=650,resizable=no,scrollbars=no,toolbar=no,status=no,menubar=no,copyhistory=no,left=100,top=100,screenX=100,location=no,screenY=100");
-}
-</script>
 </head>
 <link href="style.css" rel="stylesheet" type="text/css">
 <body bgcolor="#FFFFFF" TOPMARGIN="0" LEFTMARGIN="0" RIGHTMARGIN="0">
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
-   <tr>
-       <td align="center">
-         <table width="800" height="600" border="0" cellspacing="0" cellpadding="0" class="leftborder">
-              <tr bgcolor="#FFFFFF">
-              <td colspan="2"  style="background-image:url('site_conf/images/det_banner.jpg'); background-repeat:no-repeat; background-position:center;" width="100%" height="100" align="right">
-	          <?php
-	          if(!is_null($sid)&&$session_error=="none")
-	          {
-		            $_SESSION['lms_username']=$lms_username;
-					?><TABLE BORDER="0" CELLPADDING="2" CELLSPACING="0" WIDTH="190" >
-					<TR>
-						<TD><FONT FACE="VERDANA" SIZE="1" COLOR="#000000">Logged in as: <B><?php echo $lms_username; ?></B></TD>
-					</TR>
-						<?php
-						if($lms_groups=="on" && $lms_user_group!=""){
-						?>
-						<TR>
-							<TD><FONT FACE="VERDANA" SIZE="1" COLOR="#000000"><?php echo"$lms_gtitle: "; if($lms_groups=="on"){echo"<B>$lms_user_group</B>";}?></TD>		
-						</TR>	
-						<TR>
-							<TD><FONT FACE="VERDANA" SIZE="1" COLOR="#000000"><?php echo "$lms_sgtitle: "; if($lms_groups=="on"){echo"<B>$lms_user_subgroup</B>";}?></TD>
-								
-						</TR>	
-						<tr>
-							<TD><FONT FACE="VERDANA" SIZE="1" COLOR="#000000"><?php if($section=="reports" && $report){echo"<A HREF='index.php?section=reports&sid=$sid'>Back to Detailed Reports Section";}?></FONT></TD>
-						</tr>
-						<?php }?>
+<tr>
+<td align="center">
+<table width="800" height="600" border="0" cellspacing="0" cellpadding="0" class="leftborder">
+	<tr height="100" >
+<!--    <td colspan="2"  style="background-image:url('site_conf/images/det_banner.jpg'); background-repeat:no-repeat; background-position:center;" width="100%" height="100" align="right">
+-->	<td colspan="2"><img src="site_conf/images/det_banner.png" /></td></tr>
+	<?php //}?>
+	<tr><td colspan="2" align="right">
+	<?php
+	if(!is_null($sid)&&$session_error=="none")
+	{
+		$_SESSION['lms_username']=$lms_username;
+	?><TABLE BORDER="0" CELLPADDING="2" CELLSPACING="0" align="right">
+	<TR>
+		<TD ><FONT FACE="VERDANA" SIZE="1" COLOR="#000000">Logged in as: <B><?php echo $lms_username; ?></B></TD>
+	</TR>
+		<?php
+		if($lms_groups=="on" && $lms_user_group!=""){
+		?>
+		<TR>
+			<TD><FONT FACE="VERDANA" SIZE="1" COLOR="#000000"><?php echo"$lms_gtitle: "; if($lms_groups=="on"){echo"<B>$lms_user_group</B>";}?></TD>		
+		</TR>	
+		<TR>
+			<TD><FONT FACE="VERDANA" SIZE="1" COLOR="#000000"><?php echo "$lms_sgtitle: "; if($lms_groups=="on"){echo"<B>$lms_user_subgroup</B>";}?></TD>
 				
-					</TABLE>
-					<?php	
-	           }
-	          ?></td>
-              </tr>
-			  <tr>
-				  <td colspan="2" height="20" background="images/bg.gif">
-				      <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
-						 <tr>
-							<td>&nbsp;</td>
-							<TD align="right"><?php
+		</TR>	
+		<tr>
+			<TD><FONT FACE="VERDANA" SIZE="1" COLOR="#000000"><?php if($section=="reports" && $report){echo"<A HREF='index.php?section=reports&sid=$sid'>Back to Detailed Reports Section";}?></FONT></TD>
+		</tr>
+		<?php }?>
+
+	</TABLE>
+	<?php
+	
+	}
+	?></td>
+  </tr>
+  <tr>
+  	<td colspan="2" height="20" background="images/menu-bg.gif"><table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td>&nbsp;</td>
+				<TD align="right"><?php
+	if(!is_null($sid)&&$session_error=="none")
+	{
+	?><a style=""  href="index.php?section=<?php echo $section; ?>&logout=YES&sid=<?php echo $sid; ?>"><img src="images/logout.gif" border="0" align="ABSMIDDLE" alt="Click here to Log Out"></a><?php
+	}
+	?></TD>
+			</tr>
+		</table></td>
+  </tr>
+  <tr>
+    <td valign="top" width="198"><!---------BEGIN SIDE NAV TABLE-------------><table width="198" border="0" cellspacing="0" cellpadding="0">
+        <tr valign="top" bordercolor="#FFFFFF"> 
+          <td width="198" bordercolor="#FFFFFF"><?php
+		  
+				if((!is_null($sid)&&$session_error=="none") || $_GET['section']=="messageboard" || $_GET['section']=="msg")
+				{
+					include($dir_components."navbar2.php");
+				}
+              else
+				{
+				
+				?>
+				<img src="images/cec_logo.jpg" style="margin-top:150px; margin-left:30px;">
+				<?php } 
+				?></td>
+        </tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr>
+			<td><?php
+			/*
 				if(!is_null($sid)&&$session_error=="none")
 				{
-				?><a style=""  href="index.php?section=<?php echo $section; ?>&logout=YES&sid=<?php echo $sid; ?>"><img src="images/logout.gif" border="0" align="ABSMIDDLE" alt="Click here to Log Out"></a><?php
+					include($dir_components."tech.php");
 				}
-				?></TD>
-						</tr>
-					</table></td>
-			  </tr>
-             <tr>
-			    <?php
-			    if(is_null($sid)||$session_error!="none")
-				{
-				    $nav_display = 'display: none';
-				}
-			    ?>
-                <td valign="top" style=" <?php echo $nav_display; ?> ">
-				<!---------BEGIN SIDE NAV TABLE------------->
-				<table width="198" border="0" cellspacing="0" cellpadding="0" >
-                  <tr valign="top" bordercolor="#FFFFFF"> 
-                     <td width="198" bordercolor="#FFFFFF"><?php		  
-					 if((!is_null($sid)&&$session_error=="none"))
-					 {
-						include($dir_components."navbar2.php");
-					 }
-					 ?></td>
-				</tr>
-				<tr><td>&nbsp;</td></tr>
-				<tr>
-				<td></td>
-		    </tr>
-      </table>
-	</td>
+			*/
+				?></td>
+		</tr>
+      </table></td>
+    <!--<td class="boxcontent" VALIGN="TOP" width="602" style="border:1px solid red;">-->
 	<td class="boxcontent" VALIGN="TOP" >
 	<?php 
 	include($mysection);
 	?></td>
   </tr>
-</table>
+<!--  <tr>
+    <td colspan="2" align="center" valign="bottom" id="copyright"><hr>
+     </td>
+  </tr>
+--></table>
 </td>
 </tr>
 </table>

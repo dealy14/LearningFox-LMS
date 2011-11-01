@@ -29,43 +29,7 @@ $sub_name[] = $db->row("sub_name");
 <SCRIPT>
 //top.top1.lessonItemSelect=1;
 </SCRIPT>
-<SCRIPT LANGUAGE="JavaScript">
 
-function Check(check_array, check_all)
-{
-    if(check_all.value=="Check All")
-	{
-	    if(check_array.length > 0)
-		{
-            for (i = 0; i < check_array.length; i++)
-		    {		    
-                check_array[i].checked = true;
-             }
-		}
-		else
-		{
-		    check_array.checked = true;
-		}
-		check_all.value="UnCheck All";
-    }
-	else
-	{
-        if(check_array.length > 0)
-		{
-            for (i = 0; i < check_array.length; i++)
-		    {		    
-                check_array[i].checked = false;
-             }
-		}
-		else
-		{
-		    check_array.checked = false;
-		}
-        check_all.value="Check All";
-    }
-}
-
-</script>
 <STYLE TYPE="text/css">
 <?php include("admin_css.php");?>
 </STYLE>
@@ -92,7 +56,30 @@ function Check(check_array, check_all)
 	
     <FORM NAME="editForm" METHOD="POST" ACTION="update_objects_sql.php?action=group2" TARGET="edit_post">
 	<INPUT TYPE="HIDDEN" NAME="formAction">
-    <INPUT TYPE="HIDDEN" NAME="ID" VALUE="<?php echo $gID;?>">
+	<?php
+	/*
+	  	<applet Code="apPopupMenu" Archive="apPopupMenu.jar" Width = 300" Height = "22" MAYSCRIPT>   
+		<param name="Copyright" value="Apycom Software - www.apycom.com">
+		<param name="isHorizontal" value="true">
+		<param name="3DBorder" value="false">
+		<param name="systemSubFont" value="true">
+		<param name="solidArrows" value="false">
+		<param name="buttonType" value="1">	         	
+		<param name="status" value="link">
+		<param name="alignText" value="left">		         		
+		<param name="backColor" value="EFF7FF">
+		<param name="backHighColor" value="EFF7FF">
+		<param name="fontColor" value="000000">
+		<param name="fontHighColor" value="000000">
+		<param name="font" value="VERDANA,10,1">
+		<param name="menuItems" value="
+		  {Edit This Group,frame_group_details.php?ID=<?php echo $gID; ?>&psname=<?php echo $group_name; ?>&sel_item=1,_parent,images/import.gif}    		
+		  {Manage Subgroups,frame_group_details.php?ID=<?php echo $gID; ?>&psname=<?php echo $group_name; ?>&sel_item=2,_parent,images/import.gif}    				  
+		">
+		<param name="javascript:1" value="opentAdd();">
+		</applet>		
+		*/
+		?>
 	<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" width="1%">
   <TR><TD VALIGN="MIDDLE" nowrap="nowrap" width="1%"><a href="frame_group_details.php?ID=<?php echo $gID;?>&psname=<?php echo $group_name;?>&sel_item=1" target="_parent" class="thebutton"><img border="0" src="images/import.gif" alt="Edit This Group"> Edit This Group</a> 
 </TD>
@@ -104,14 +91,8 @@ function Check(check_array, check_all)
 	<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"><TR><TD BGCOLOR="#93BEE2">
 	<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="3" WIDTH="100%">
 		  <TR>
-		    <TD BGCOLOR="#FFFFFF" VALOGN="TOP"><SPAN CLASS="ttl"><FONT SIZE=1><B><IMG SRC="images/groups.gif" ALIGN="ABSMIDDLE"> <?php echo $group_name;?></SPAN></TD>
-			 <?php
-			 if(count($sub_name) > 0)
-			 {
-			 ?>
-			 <TD BGCOLOR="#FFFFFF" ALIGN="CENTER"><SPAN CLASS="ttg"><BR></SPAN></TD>
-			 <?php
-			 }
+		    <TD BGCOLOR="#FFFFFF" VALOGN="TOP"><SPAN CLASS="ttl"><FONT SIZE=1><B><IMG SRC="images/groups.gif" ALIGN="ABSMIDDLE"> <?php echo $group_name;?></SPAN></TD>	
+			<?php
 			$xn=0;
 			while($xn<count($sub_name))
 			{
@@ -146,12 +127,6 @@ function Check(check_array, check_all)
 		  <TR BGCOLOR="#FFFFFF">
 		    <TD NOWRAP><IMG SRC="images/<?php echo $img; ?>" ALIGN="ABSMIDDLE"> <SPAN CLASS="ttg"><?php echo $course_name;?> </SPAN><IMG SRC="images/find_sm2.gif" BORDER="0" ALIGN="TEXTTOP" ALT="Click here for more course info."></TD>	
 			<?php
-			 if(count($sub_name) > 0)
-			 {
-			 ?>
-			<TD NOWRAP ALIGN="CENTER"><input type="button" name="check_all_<?php echo $course_ID; ?>" value="Check All" onClick="Check(document.editForm.check_list_<?php echo $course_ID; ?>, document.editForm.check_all_<?php echo $course_ID; ?>)" ></TD>	
-			<?php
-			}
 			$xn=0;	
 			while($xn<count($sub_name))
 			{
@@ -169,7 +144,7 @@ function Check(check_array, check_all)
 				  }
 				}					
 			?>
-		    <TD NOWRAP ALIGN="CENTER"><INPUT TYPE="CHECKBOX" NAME="check_list_<?php echo $course_ID; ?>" ID="check_list_<?php echo $course_ID; ?>" VALUE="<?php echo $course_ID.$ch;?>"></TD>	
+		    <TD NOWRAP ALIGN="CENTER"><INPUT TYPE="CHECKBOX" NAME="rgroup[SG_<?php echo $sub_ID[$xn];?>][]" VALUE="<?php echo $course_ID.$ch;?>"></TD>	
 			<?php
 			$xn++;
 			}

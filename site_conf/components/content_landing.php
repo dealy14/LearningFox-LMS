@@ -97,10 +97,10 @@
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="4" WIDTH="390" style="float:left;">
   <TR >
-    <TD rowspan="2" width="130"><A HREF="index.php?section=news&sid=<?php echo $sid;?>"><IMG SRC="images/Repository.png" BORDER="0"></A></TD>
+    <TD rowspan="2" width="130"><A HREF="index.php?section=news&sid=<?php echo $sid;?>"><IMG SRC="images/news.png" BORDER="0"></A></TD>
     <TD align="left"><h4><FONT FACE="Arial, Helvetica, sans-serif" color="#003366">
-     <A HREF="index.php?section=news&sid=<?php echo $sid;?>">Repository</A></FONT></h4>
-            <p><font color="#666666" size="2" face="Arial, Helvetica, sans-serif">Repository.</font></p></TD>
+     <A HREF="index.php?section=news&sid=<?php echo $sid;?>">News</A></FONT></h4>
+            <p><font color="#666666" size="2" face="Arial, Helvetica, sans-serif">News.</font></p></TD>
   </TR>
   <tr>
   		<td align="right"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>[<A HREF="index.php?section=news&sid=<?php echo $sid;?>">more</A>]</B></FONT></td>
@@ -118,13 +118,34 @@
   </tr>
 </TABLE>
 </TD></TR></TABLE>
-
 <hr   WIDTH="100%" />
-<table align="left" style="padding-left:100px;">
-<tr><td align="center"><h4><FONT FACE="Arial, Helvetica, sans-serif" color="#507EA1">
-     News Section</FONT></h4></td></tr>
-<tr><td align="center">
-<?php include 'bottom_news_list.php'; ?>
-</td></tr></table>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"><TR><TD >
 
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="4" WIDTH="390" style="float:left;">
+  <TR >
+    <TD rowspan="2" width="130"><A HREF="index.php?section=library&sid=<?php echo $sid;?>"><IMG SRC="images/Repository.png" BORDER="0"></A></TD>
+    <TD align="left"><h4><FONT FACE="Arial, Helvetica, sans-serif" color="#003366">
+     <A HREF="index.php?section=library&sid=<?php echo $sid;?>">Repository</A></FONT></h4>
+            <p><font color="#666666" size="2" face="Arial, Helvetica, sans-serif">Repository.</font></p></TD>
+  </TR>
+  <tr>
+  		<td align="right"><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2"><B>[<A HREF="index.php?section=library&sid=<?php echo $sid;?>">more</A>]</B></FONT></td>
+  </tr>
+</TABLE>
+</TD></TR></TABLE>
+<!--
+<P>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="70%"><TR><TD BGCOLOR="#CCCCCC">
+<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="4" WIDTH="100%">
+  <TR BGCOLOR="#FFFFFF">
+    <TD><IMG SRC="images/lp_search.gif" BORDER="0"></TD>
+    <TD align="left"><FONT FACE="VERDANA" SIZE="2">Search for courses, tests, learning resources in the course list or your enrollment list.<B>[<A HREF="#">more</A>]</B></TD>
+  </TR>
+  <tr>
+  		<td></td>
+  </tr>
+</TABLE>
+</TD></TR></TABLE>
+<hr  WIDTH="70%"/>
+-->
 </div>

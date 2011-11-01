@@ -1,1 +1,0 @@
-<P ALIGN="RIGHT"></P>

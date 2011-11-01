@@ -1,4 +1,4 @@
-<div style="width:800px;">
+<div style="width:656px;">
 <?php
 
 //*************************************************************************************
@@ -30,7 +30,7 @@ if($lms_orgID!="on")
 		 <tr class="descriptor_row">
 		 	<td><FONT FACE="VERDANA" SIZE="2">&nbsp;</FONT></td>
 		 	<td><FONT FACE="VERDANA" SIZE="2">Name&nbsp;</FONT></td>
-		 	<td><FONT FACE="VERDANA" SIZE="2">Register&nbsp;</FONT></td>
+		 	<td><FONT FACE="VERDANA" SIZE="2">Course Type&nbsp;</FONT></td>
 		 	<td><FONT FACE="VERDANA" SIZE="2">Creation Date&nbsp;</FONT></td>
 		 	<td><FONT FACE="VERDANA" SIZE="2">View Details&nbsp;</FONT></td>
 		</tr>
@@ -51,7 +51,7 @@ if($lms_orgID!="on")
 	  <TR BGCOLOR="<?php echo $bgcol;?>">
 	  	<TD><IMG SRC="images/course_list1.gif" BORDER="0" ALIGN="ABSMIDDLE"></TD>
 	    <TD><FONT FACE="VERDANA" SIZE="2"><B><?php echo $course_name;?></B></FONT></TD>
-	    <TD><FONT FACE="VERDANA" SIZE="2">[<A HREF="index.php?section=coursedetails&sid=<?php echo $sid; ?>&course_ID=<?php echo $course_ID;?>">Register</A>]</FONT></TD>
+	    <TD><FONT FACE="VERDANA" SIZE="2"><?php echo $type;?>&nbsp;</FONT></TD>
 	    <TD><FONT FACE="VERDANA" SIZE="2"><?php echo $created;?>&nbsp;</FONT></TD>
 	    <TD><FONT FACE="VERDANA" SIZE="2">[<A HREF="index.php?section=coursedetails&sid=<?php echo $sid; ?>&course_ID=<?php echo $course_ID;?>">Details</A>]</FONT></TD>
 	  </TR>

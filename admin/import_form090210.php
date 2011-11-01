@@ -51,6 +51,7 @@ $ctype=$_GET['ctype'];
 //echo $_GET['cn'];
 $_SESSION['coursename']=$_GET['cn'];
 if($_POST['status']!=1){
+echo "<script>alert(' if ');</script>";
 ?>
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data" onsubmit="return validChk(this);">
 <input type="hidden" name="status" value="1" />
@@ -109,6 +110,7 @@ if($_POST['status']!=1){
 </form>
 <?php
 }else{
+echo "<script>alert(' else ');</script>";
 $db = new db;
 $db->connect();
 $str="select ID from course where ID=(select MAX(ID) from course)";
@@ -296,7 +298,7 @@ $courseid="course-".$fileno;
 																				$details = $value->getElementsByTagName("item"); 
 																				$detail  = $details->item(0)->nodeValue; 
 																				$course_name=$task;
-																				//echo "$task :: $detail :: $detail1 <br>"; 
+																				echo "$task :: $detail :: $detail1 <br>"; 
 																			  } 
 																				
 																			

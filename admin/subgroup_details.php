@@ -35,11 +35,10 @@ newwin = window.open('add_fields.php','nothing','width=250,height=50');
 
 </head>
 <body bgcolor="#93BEE2" TOPMARGIN="0" RIGHTMARGIN="0" LEFTMARGIN="0">
-<FORM NAME="editForm" METHOD="POST" ACTION="update_objects_sql.php?action=group1" target="edit_post">
+
 <INPUT TYPE="HIDDEN" NAME="modified" VALUE="<?php echo date(ymd);?>">
 <INPUT TYPE="HIDDEN" NAME="formAction">
-<INPUT TYPE="HIDDEN" NAME="ID" VALUE="<?php echo $gID;?>">
-</FORM>
+
 
 	<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" HEIGHT="100%">
 	  <TR>

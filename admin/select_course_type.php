@@ -5,6 +5,7 @@
 <title>Untitled Document</title>
 <script type="text/javascript">
 function call_scorm(ctype,action){
+alert(ctype);
 window.resizeTo(800,400);
 window.open('import_form.php?subaction=spAdd&ctype='+ctype,'ttt','toolbar=no,location=no,directories=no,status=yes,menubar=no,scrollbars=no,resizable=yes,copyhistory=no,width=600,height=800,screenX=150,screenY=150,top=150,left=150')
 //alert("str="+str+" str1="+str1);
@@ -20,6 +21,8 @@ window.open('create_course.php?subaction=spAdd&ctype='+ctype,'ttt','toolbar=no,l
 <body bgcolor="#EFF7FF" TOPMARGIN="0" RIGHTMARGIN="0" LEFTMARGIN="0">
 <?php
 if($_POST['rad_type']=='Scorm 1.2' ){
+echo "<script>alert('test');</script>";
+echo "test".$_POST['rad_type'];
 echo "<script>call_scorm('".$_POST['rad_type']."','".$_POST['val']."');</script>";
 }else{
 	if($_POST['rad_type']=='Non-Scorm')

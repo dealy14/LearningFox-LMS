@@ -48,7 +48,7 @@ function validChk(frm){
 <?php
 $courseid = $_GET["id"];
 $ctype=$_GET['ctype'];
-//echo $_GET['cn'];
+//echo " get = ".$_GET['cn'];
 $_SESSION['coursename']=$_GET['cn'];
 if($_POST['status']!=1){
 ?>
@@ -109,6 +109,7 @@ if($_POST['status']!=1){
 </form>
 <?php
 }else{
+echo "<script>alert('else');</script>";
 $db = new db;
 $db->connect();
 $str="select ID from course where ID=(select MAX(ID) from course)";
@@ -142,7 +143,7 @@ $courseid="course-".$fileno;
 													 //$file = getcwd() . "uploadfiles".$_FILES['file']['name'];
 													//echo $file;
 													// Or:
-													$file = $_SERVER['DOCUMENT_ROOT'].'/v1/uploadfiles/'.$_FILES['file']['name'];
+													$file = $_SERVER['DOCUMENT_ROOT'].'/LMS/uploadfiles/'.$_FILES['file']['name'];
 											
 																					
 													//$zip = zip_open($file);
@@ -199,7 +200,7 @@ $courseid="course-".$fileno;
 													 
 													 /*---------Checking whether index file within a directory  exist or not starts-------------------*/
 																						
-													$file_dir=$_SERVER['DOCUMENT_ROOT']."/v1/uploadfiles/".$courseid;
+													$file_dir=$_SERVER['DOCUMENT_ROOT']."/LMS/uploadfiles/".$courseid;
 													//$file_jayant_420 = basename($file,".zip");
 													//echo $file_jayant_420;
 													$dir_name=basename($file_dir);
@@ -291,10 +292,18 @@ $courseid="course-".$fileno;
 																			
 																			  foreach($note as $value ) 
 																			  { 
-																				$tasks = $value->getElementsByTagName("title"); 
+																			/*	$tasks = $value->getElementsByTagName("title"); 
 																				$task  = $tasks->item(0)->nodeValue; 
 																				$details = $value->getElementsByTagName("item"); 
 																				$detail  = $details->item(0)->nodeValue; 
+																				$course_name=$task; */
+
+                                                                                   $tasks = $value->getElementsByTagName("title"); 
+																				$temp  = $tasks->item(0);
+                                                                                 $task = $temp->nodeValue; 
+																				$details = $value->getElementsByTagName("item"); 
+																				$tempdetail  = $details->item(0);
+                                                                                $detail = $tempdetail->nodeValue; 
 																				$course_name=$task;
 																				//echo "$task :: $detail :: $detail1 <br>"; 
 																			  } 
@@ -391,7 +400,7 @@ global $course_title,$catalog_entry,$descript,$keyword,$catalog_name;
 		$timelimit=$pre->timelimitaction;
 		$maxtime=$pre->maxtimeallowed;
 		$data_from_lms=$pre->datafromlms;
-		$metapath=$_SERVER['DOCUMENT_ROOT']."/v1/uploadfiles/".$courseid."/".$pre->location;
+		$metapath=$_SERVER['DOCUMENT_ROOT']."/LMS/uploadfiles/".$courseid."/".$pre->location;
 		if($child->getName()=="metadata"){
 			foreach($child->children() as $p){
 				if($p->getName()=="schemaversion"){
@@ -542,7 +551,7 @@ displayChildrenRecursive($sitemap);
 													$db->connect();	
 													
 							//$str="insert into crab_lessons set course_id='".$courseid."',lesson_name='".$file1."',folder_name='".$_POST['cn']."/".$file1."',file_name='".$filename."',date_of_creation='".date('m/d/y'."'");
-				$str='insert into course set created="'.date("y/m/d").'",name="'.$task.'",type="wbt",course_type="'.$_POST['course_type'].'",folder_name="/v1/uploadfiles/'.$courseid.'",course_id="'.$courseid.'",cmi_credit="'.$_POST['radio_credit'].'",sco_version="'.$sco_version.'",keyword="'.$keyword.'",description2="'.$desc.'",catalog_name="'.$catalog_name.'",catalog_entry="'.$catalog_entry.'",link=""';
+				$str='insert into course set created="'.date("y/m/d").'",name="'.$task.'",type="wbt",course_type="'.$_POST['course_type'].'",folder_name="/LMS/uploadfiles/'.$courseid.'",course_id="'.$courseid.'",cmi_credit="'.$_POST['radio_credit'].'",sco_version="'.$sco_version.'",keyword="'.$keyword.'",description2="'.$desc.'",catalog_name="'.$catalog_name.'",catalog_entry="'.$catalog_entry.'",link=""';
 							
 									//echo $str;
 									

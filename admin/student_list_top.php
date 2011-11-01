@@ -12,7 +12,7 @@ top.top1.objReload(sp);
 
 function addObject()
 {
-alert("students");
+//alert("students");
 //window.open('create_'+top.top1.currobject+'.php?subaction=spAdd','ttt','height=50,width=50')
 window.open('create_user.php?subaction=spAdd','ttt','height=500,width=500')
 }

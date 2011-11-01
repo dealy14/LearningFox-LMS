@@ -34,7 +34,7 @@ if((!is_null($_GET['sid'])) )//&& $session_error =="none"
 		/**/
 		$dbtest = new db;
 		$dbtest->connect();
-		$dbtest->query("SELECT * FROM user_surveys WHERE survey=$survey_ID");
+		$dbtest->query("SELECT * FROM user_surveys WHERE survey=$survey_ID AND student = $userID");
 		if(      $dbtest->getRows()          )
 		{//passes its in the db
 			$showtest=true;

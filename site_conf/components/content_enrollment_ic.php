@@ -1,5 +1,5 @@
 <h2 align="center">Your Transcript</h2>
-<div align="center" style="width:800px;"><?php include($dir_components."enrollment_toolbar.php"); ?></div>
+<div align="center"><?php include($dir_components."enrollment_toolbar.php"); ?></div>
 <?php
 $sfile=$dir_usercourselist.$lms_userID;
 $gfile=$dir_groupfiles.$lms_usergroup_file.".grp";

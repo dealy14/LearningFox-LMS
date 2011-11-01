@@ -1,9 +1,0 @@
-<?
-$lms_groups="on";
-$lms_gtitle="Department";
-$lms_sgtitle="Title";
-$lms_default_userlevel=1;
-$lms_orgID="off";
-$lms_username_link="username";
-$lms_unique="on";
-?>
