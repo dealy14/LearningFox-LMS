@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<menu>
+
+		<list heading="Orientation 1">
+			<mitem link="ch_01" title="Orientation I" cap="Here are the basic features you’ll use to navigate through the Products and Services course. On the left is the Navigation Bar. The Forward and Back arrows at the top right allow you to move forward or back one screen at a time. The speaker button at the bottom lets you turn the sound off and on as you need to. When sound is off, closed-captioning will be activated along the bottom of the screen. The Home button  at the top will take you to the first page. The Help button will assist you through the navigation. The Exit button allows you to exit at any point in the course.">Orientation I</mitem>
+
+			<mitem link="ch_02" title="Orientation II" cap ="The Navigation Bar is also your Table of Contents.  It allows you to see the entire course. You can scroll up and down anytime by clicking and dragging the slider bar. Your current location will be highlighted in yellow and the topic you have completed will be checked-off as seen here. When you click a “Did You Know?” box on the screen, more information about the topic will pop-up. Well that’s it, so let’s get started.">Orientation II</mitem>
+
+			<mitem link="ch_03" title="Introduction" cap="This course will introduce you to the full range of products and services at Purolator. When you have completed this course you will be able to: 
+Explain the features and benefits of each Purolator Product and Service to customers, recommend the appropriate products to customers based on their need, carry out the procedures and processes required for a shipment within Canada or international destination and assist customers with specialized shipping requirements.">Introduction</mitem>
+
+			<mitem link="ch_04" title="Introduction – Cont’d" cap="Are you wondering what you’ll gain from this course? Well, the course will give you a better understanding of Purolator’s Products and Services, both within Canada and International. You’ll be able to differentiate between the various products and recommend the best ones to meet the needs of your customers. This will result in happier customers because there will be no surprises – they will understand, just as you do, how this product is the right one for their particular situation. And of course happier customers return again and again.">Introduction – Cont’d</mitem>
+
+			<mitem link="ch_05" title="Introduction – Cont’d" cap="What products and Services do our customers need?  Well let’s listen to what they have to say.">Introduction – Cont’d</mitem>
+
+			<mitem link="ch_06" title="Introduction – Cont’d" cap="Shipments at Purolator move in various ways; by truck, tractor trailer, by plane. We have an overnight ground service that is available within an 800 km radius.  With more facilities and vehicles than our competitors, we are able to service more customers overnight via our ground service than any of our competitors.Our own fleet of aircraft provides superior reliability of on-time overnight delivery to points not serviced on an overnight basis by ground.Extended ground service is available to points outside our overnight ground service area. This provides our customers with a cost-effective alternative to overnight air service, when transit time is not a shipping concern. We offer overnight next day delivery to major points within the US. We can also offer superior delivery times to countries around the world. Doesn’t that sound exciting? Let’s now look at an overview of the course to introduce you to the corresponding products and services that Purolator offers.">Introduction – Cont’d</mitem>
+
+			<mitem link="ch_07" title="Introduction – Cont’d" cap="What is this course all about? Well let’s have a look. The course includes information about shipping within Canada, shipping Internationally, including to the US, specialized services such as Hold for Pick-up or Return Service. It also includes information about all those other things you and the customer need to know when shipping; things like Shipping Restrictions and Protecting the Shipment. Finally the course will give you a step by step overview of how to process shipments within Canada and to international points, including the US. Click on each circle to learn what each module includes. It’s time to start the first module! Let’s learn about shipping within Canada.">Introduction – Cont’d</mitem>
+
+		</list>
+
+
+
+
+
+		<list heading="Shipping Within Canada">
+		
+			<mitem link="ch_11" title="Overview of Products" cap="This module will introduce you to Purolator’s products for shipping within Canada. The products we will cover during this module fall into the categories of Purolator Express™, Purolator Ground™ Delivery and Purolator Same Day. Click on each box to learn more.">Overview of Products</mitem>
+
+			<mitem link="ch_12" title="Overview of Customers" cap="Here are some Purolator customers who want to ship items to within Canada. Let’s serve the first customer to find out which product best suits his need.">Overview of Customers</mitem>
+
+			<mitem link="ch_13" title="Customer 1" cap="Let’s listen in on the conversation between the customer and the Retail Representative.">Customer 1</mitem>
+
+			<mitem link="ch_14" title="Purolator Express™ 9am" cap="When the package needs to be there early morning, offer the guaranteed Purolator Express™ 9am service. Let’s find out more about it. This is Purolator’s premium, guaranteed, delivery service. 9 am delivery is guaranteed  to major centers across Canada. As with all Purolator shipments, the shipment is safe and secure and will arrive at the time specified. This service is available Monday through Friday only - Saturdays and holidays are excluded. The 9am option must be indicated on the Bill of Lading.">Purolator Express™ 9am</mitem>
+
+			<mitem link="ch_15" title="Purolator Express™10:30am" cap="If your customer wants mid-morning delivery, offer Purolator Express™ 10:30am service. With this delivery service, 10:30 am delivery is guaranteed  to major centers across Canada.  As with other Purolator Express products the shipment is safe and secure and will arrive at the time specified. This service is available Monday through Friday only - Saturdays and holidays are excluded. Notice how the products are the same except for the guaranteed delivery time. The 10:30am option must be indicated on the Bill of Lading.">Purolator Express™ 10:30am</mitem>
+
+			<mitem link="ch_16" title="Purolator Express™" cap="With Purolator Express™, the customer’s shipment will arrive by 5pm guaranteed to major centers across Canada, Monday through Friday only - Saturdays and holidays are excluded. Again, the features of this product are the same as the other Purolator Express products except for the delivery times.">Purolator Express™</mitem>
+
+
+			<mitem link="ch_17" title="Overview of Customers" cap="Let’s serve our next customer to find out which product best suits her need.">Overview of Customers</mitem>
+
+			<mitem link="ch_18" title="Customer 2" cap="Let’s listen to the conversation.">Customer 2</mitem>
+
+			<mitem link="ch_19" title="Purolator Express™ Evening" cap="For customers who are not available for delivery during business hours, Purolator offers evening delivery.  With Purolator Express™ Evening, the package is guaranteed  to be delivered between 5:30 and 9pm in major centers across Canada. As with other Purolator Express™ products the shipment is safe and secure and will arrive at the time specified, Monday through Friday only - Saturdays and holidays are excluded. Again, notice this Purolator Express™ product differs from the others in the time of delivery.">Purolator Express™ Evening</mitem>
+
+			<mitem link="ch_110" title="Summary" cap="Let’s review the Purolator Express ™ Products:  There’s Purolator Express ™ 9 am, Purolator Express ™ 10:30 am, Purolator Express ™, which arrives before the end of the next business day, Purolator Express ™ Evening and Saturday Service.  What are the benefits of the Purolator Express ™ products for the customer?  They don’t need to worry that their shipment won’t arrive on time – we have a money-back guarantee! It’s convenient for those customers who need an overnight delivery within a city or between cities in Canada.  Confidential documents can be sent without worry.  It’s cost effective for small shipments and for business customers, delivery times correspond with business hours and the business week. Click the forward arrow to meet another customer.">Summary – Express™ Products</mitem>
+
+			<mitem link="ch_111" title="Overview of Customers" cap="Let’s serve our next customer to find out which product best suits her need.">Overview of Customers</mitem>
+
+			<mitem link="ch_112" title="Customer 3" cap="Let’s listen in on this customer and find out what product is best for her.">Customer 3</mitem>
+
+			<mitem link="ch_113" title="Saturday Service" cap="The customer wants Saturday delivery. Purolator Saturday Service offers delivery by 5 p.m. Saturday if the shipment is picked up or dropped off at a Retail location on Friday - with a money-back guarantee. The shipment destination must be a Saturday Service guaranteed 5 p.m. delivery point from the point of origin. Customers may also want to send their items on Saturday for delivery on Monday. If the shipment is picked-up or dropped off on Saturday, Purolator Saturday Service will get it there on Monday before 5pm guaranteed. Again, the shipment destination must be a Saturday Service guaranteed 5 p.m. delivery point from the point of origin.">Saturday Service</mitem>
+			
+			<mitem link="ch_114" title="Service and Benefits">Service and Benefits</mitem>
+			
+			<mitem link="ch_115" title="Overview of Customers" cap="Let’s serve our next customer to find out which product best suits her need.">Overview of Customers</mitem>
+			
+			<mitem link="ch_116" title="Customer 4" cap="What does this customer want?  Let’s find out.">Customer 4</mitem>
+
+			<mitem link="ch_117" title="Purolator Ground™" cap="This customer wants to ship using Purolator Ground™. This is a cost effective alternative to the Purolator Express™ suite of products. When overnight delivery is not necessary, Purolator Ground™ will save your customer’s money. The shipment will arrive safe and secure in two or more days Monday through Friday only - Saturdays and holidays are excluded. For evening delivery, between 5:30 and 9 pm, we have Purolator Ground™ Evening delivery.">Purolator Ground™</mitem>
+			
+			<mitem link="ch_118" title="Products and Benefits">Products and Benefits</mitem>
+			<mitem link="ch_119" title="Purolator Sameday" cap="Purolator offers Sameday shipping solutions in 16 major centres across Canada.  The definition of same day service in the messenger business is pick up and delivery on the same day, which is different from overnight service, which is pick up one day and delivery the next day. Our delivery partner for sameday service is Dynamex Courier. (pronunciation is die--namex)In most cases, the driver that picks up the parcel for same day service will also be the one to complete the delivery.">Purolator Sameday</mitem>
+			<mitem link="ch_120" title="Module Summary">Module Summary</mitem>
+			<mitem link="ch_121" title="Knowledge Check 1" cap="Drag the product name to the space beside the appropriate statement.">Knowledge Check 1</mitem>
+
+		</list>
+
+
+
+
+
+
+
+	
+		<list heading="International Products">
+		
+			<mitem link="ch_21" title="Overview of Products 1" cap="Now that we’ve reviewed shipping within Canada and answered some of the standard customer requests,  let’s take a look at our International Products.  Here are the products covered in this module:  Purolator Express™ US or International 10:30 am/noon, Purolator Express™ US or International 12:00 pm, Purolator Express™ US or International (delivery by 5pm) and Purolator Ground™ US.">Overview of Products 1</mitem>
+			
+			<mitem link="ch_22" title="UPS Partnership" cap="Purolator has a partnership with UPS. Combining the best of Purolator and UPS helps us deliver the Purolator Experience Internationally.  
+This means Purolator’s Express™ service for US and International points are processed as UPS’s Express products.  Purolator Express™ service means your customer gets either 9am, 10:30AM or next day service, depending on location, as the delivery standard.">UPS Partnership</mitem>
+
+			<mitem link="ch_23" title="Customs Clearance" cap="Shipping internationally requires some additional information than with shipping within Canada.
+You need to know about Customs Clearance and Brokerage Services. ">Customs Clearance</mitem>
+			
+			<mitem link="ch_24" title="Brokerage Services">Brokerage Services</mitem>
+			
+			<mitem link="ch_25" title="Overview of Customers 1" cap="Here is a customer with a package to going to the US.  Let’s find out which product is best for her.">Overview of Customers 1</mitem>
+			
+			<mitem link="ch_26" title="Customer 1" cap="Let’s hear what this customer has to say.">Customer 1</mitem>
+
+			<mitem link="ch_27" title="Products" cap="Let’s learn more about the Purolator Express™ US and International products. Click on the clock face to learn about them.">Products</mitem>
+			
+			<mitem link="ch_28" title="Summary">Summary</mitem>
+			
+			<mitem link="ch_29" title="Overview of Customers 2" cap="Here is another customer with a package going to the US. Let’s find out which product is best for him.">Overview of Customers 2</mitem>
+			
+			<mitem link="ch_210" title="Customer 2" cap=" Let’s hear what this customer has to say.">Customer 2</mitem>
+
+			<mitem link="ch_211" title="Purolator Ground™ US">Purolator Ground™ US</mitem>
+
+			<mitem link="ch_212" title="Knowledge Check 2">Knowledge Check 2</mitem>			
+
+		</list>	
+
+
+
+
+
+		<list heading="Specialized Services">
+		
+			<mitem link="ch_31" title="Overview 1" cap="Purolator offers a variety of specialized services that can be added to a variety of Purolator products, which respond to our customers’ unique needs.  Additional service charges and specific shipping requirements may apply.">Overview 1</mitem>
+			
+			<mitem link="ch_32" title="Overview 2" cap="Customers require a variety of services depending on their particular requirement.  Can my customer pick this up? How do I ship this tire? This needs to be transported securely. I don't need a signature for this delivery. The Customer will pay the courier when they receive this. Do you ship this classification? I found this on my door when I got home.">Overview 2</mitem>
+
+			<mitem link="ch_311" title="Knowledge Check 3">Knowledge Check 3</mitem>
+			<mitem link="ch_312" title="Additional Service Charges 1" cap="There are additional Administrative Charges you may need to discuss with your customer.  Click on each of the service charges to read more about it. Refer to the Reference Section of the LMS for more specific details.  When you have read each administrative charge, click the forward arrow to continue.">Additional Service Charges 1</mitem>
+			
+			<mitem link="ch_313" title="Additional Service Charges 2" cap="There are also additional Shipping  Charges you need to be aware of.  Click on the post-it note to read about each Shipping Charge. Click the forward arrow to continue.
+">Additional Service Charges 2</mitem>
+					
+
+		</list>	
+		
+		
+
+
+
+
+		
+		
+
+		<list heading="Shipping Restrictions">
+			<mitem link="ch_41" title="Overview" cap="What are some of the things we need to look at before we can be sure the shipment is OK to go? There are some items that can’t be shipped within Purolator’s system for various reasons.  Let’s go over what these are.
+This module will cover Shipping restrictions for: Prohibited Items, Shipper’s Risk, and Size and Weight Limitations.">Overview</mitem>
+
+			<mitem link="ch_42" title="Prohibited Items 1" cap="Why are some items prohibited from being shipped by Purolator?  There are some general principles regarding what is prohibited. As you read this list, you can see why we don’t accept these items.
+What do you think are the three prohibited items that customers most attempt to ship?  Type your answers in the box provided.">Prohibited Items 1</mitem>
+
+			<mitem link="ch_43" title="Prohibited Items 2" cap="Click the items which you think are prohibited from shipping and you’ll get more information about why that item is prohibited. Once you have finished, click the Forward Arrow to find out about Shipper’s Risk.">Prohibited Items 2</mitem>
+
+			<mitem link="ch_44" title="Shipper’s Risk 1" cap="Shipments that are not well suited to Purolator’s distribution and sorting systems are subject to a high risk of damage.
+These shipments will be accepted for shipping, but only at “shipper’s risk”.  They must travel at a “no value” basis (must be declared as $0.00 in value).  This applies to shipments travelling to Canada, U.S., and International destinations. Click the Forward Arrow to find out more.">Shipper’s Risk 1</mitem>
+
+			<mitem link="ch_45" title="Shipper’s Risk 2">Shipper’s Risk 2</mitem>
+			
+			<mitem link="ch_46" title="Size and Weight 1" cap="Shipments that are too large or heavy are not well suited to Purolator’s distribution and sorting systems.  Size and weight restrictions are in place to protect our employees and our customers’ shipments. Click on the destinations below for more details. For items that are larger or heavier, we may accept them into our system with special handling.">Size and Weight 1</mitem>
+
+			<mitem link="ch_410" title="Summary">Summary</mitem>
+			
+			<mitem link="ch_47" title="Knowledge Check 4">Knowledge Check 4</mitem>
+			<mitem link="ch_48" title="Knowledge Check 5">Knowledge Check 5</mitem>
+
+			<mitem link="ch_49" title="Knowledge Check 6">Knowledge Check 6</mitem>
+
+			
+
+			<mitem link="ch_411" title="Knowledge Check 7">Knowledge Check 7</mitem>
+		</list>	
+
+
+
+
+
+
+
+
+		<list heading="Protecting the Shipment">
+			<mitem link="ch_51" title="Overview" cap="Customers want to know that their shipment will be safe and secure while being shipped and will arrive undamaged.  What do we do to make sure this happens? This module will introduce the ways we offer protection for our customers’ shipments:  High Value Service,  Shipment Coverage, and Packaging.  Click the Forward Arrow to find out about our High Value Service.">Overview</mitem>
+			<mitem link="ch_52" title="High Value Service 1" cap="Items with a value of more than $5000.00 are considered high value items.  Examples of high value items are furs, jewelry, antiques and art work.  
+Some account customers have the need to ship these types of items so this Service was created to ship high value items safely and securely.  HVS provides a secure, traceable environment for the handling and movement of high value shipments.  
+How does HVS work? Although they are not regulated by the government, HVS shipments are locked away at all times if unattended. These shipments are easily tracked within the Purolator shipping system. For shipments with a declared value of more than $5000, customers pay a surcharge which is a percentage of the value of the shipment.  Don’t forget to refer to the reference section of the LMS for more information. 
+This service is available for account customers only. No cash customers. It is restricted to points serviced by our air/ground systems and is not available for Beyond Points, Saturday Service, SNR/OSNR.   Customers shipping HVS commodities must be authorized to use HVS services by the Senior VP of Operations, VP of Sales and the Corporate Manager of Loss Prevention. This service is distinct from the COS procedure. HVS supplements and does not replace COS service which remains for controlled narcotics and firearms.">High Value Service 1</mitem>
+			<mitem link="ch_53" title="Shipment Coverage 1" cap="As careful as we are with our customers’ shipments, sometimes unforeseen loss or damage to a shipment can occur, due to labeling, packaging or human error. At Purolator we call this ‘Declared Value’.  You may also hear it described as ‘Insurance’.
+All Purolator shipments are covered against loss or damage up to $100.00 declared value or $2/pound, whichever is higher. But many times customers want to ship items with a declared value of more than $100, such as computers.  So when this happens we offer additional coverage in order to protect the shipment.  How does Shipping Coverage work?  There is an additional surcharge to cover insuring these shipments.  The surcharge is a percentage of the amount declared in excess of $100 to a maximum of $5,000.  Customers enter a declared value on the bill of lading and pay the applicable surcharge. The E-Ship™ Online System will automatically provide the price for the customer.   
+There are some shipping restrictions. Shipper’s Risk items will travel on a “no value” basis. That means customers must enter a value of $0.00 in the declared value field.  A maximum of $5000.00 can be declared. Any higher value must get approval, and then becomes a High Value Service shipment. ">Shipment Coverage 1</mitem>
+			<mitem link="ch_54" title="Packaging 1" cap="Purolator provides specialized packaging that will travel through the sorting and distribution processes quickly and without damage.  This packaging includes and envelope, a pack and boxes.  Click on each image to learn details of each one.">Packaging 1</mitem>
+			<mitem link="ch_55" title="Packaging 2" cap="Naturally, customers are able to use their own packaging, as long as they conform to Purolator’s Shipment Acceptance Policy.  Some packages, such as paper or plastic bags, cardboard gift boxes, improperly sealed boxes, packages tied with string, or cartons with torn or missing flaps, will not be accepted as they have a risk of being damaged during shipping.  Read on to learn more about Customer Packaging.">Packaging 2</mitem>
+			<mitem link="ch_57" title="Summary" cap="Let’s summarize how we protect customer shipments.  First, we offer a High Value Service  for shipments with a declared value of more than $5000, which provides a secure, traceable environment for high value shipments.  Although not regulated by government, HVS shipments are locked away at all times if unattended.  Secondly, we offer Shipping Coverage to protect items with a declared value of more than $100.  There is an additional surcharge to insure these shipments.  The surcharge is a percentage of the amount declared in excess of $100 to a maximum of $5,000.  Thirdly, we have 4 types of Packaging available for customers.  Purolator Express™ Envelope, Purolator Express™ Pack, Purolator Express™ Box, and Customer Packaging. Also included in packing was coverage of cubing and reweigh.  Click the Forward Arrow to test your knowledge of this module.">Summary</mitem>
+			<mitem link="ch_58" title="Knowledge Check 8">Knowledge Check 8</mitem>
+			<mitem link="ch_412" title="Complete">Congratulations</mitem>
+		</list>		
+			
+</menu>
