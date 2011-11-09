@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CreateOrder xmlns="">
+	<Timestamp>2011-10-31T16:13:00Z</Timestamp>
+	<Store>https://www.californiaeducationconnection.com</Store>
+	<OrderID>24372</OrderID>
+	<InvoiceNumber>3ON2444</InvoiceNumber>
+	<Date>10/29/2011</Date>
+	<Student>
+		<FirstName>Amy</FirstName>
+		<LastName>Malone</LastName>
+		<Email>ryan@rammons.net</Email>
+		<Address>11150 Acama St.</Address>
+		<Address2>12</Address2>
+		<City>Studio City</City>
+		<ZipCode>91602</ZipCode>
+		<StateCode>CA</StateCode>
+		<CountryCode>US</CountryCode>
+		<Phone>7733505371</Phone>
+		<Company/>
+		<IP>69.249.144.33</IP>
+	</Student>
+	<Course>
+		<CourseID>TR1-E</CourseID>
+		<CourseName>Ethics & Law for Physical Therapy Practitioners</CourseName>
+		<CoursePrice>39.95</CoursePrice>
+	</Course>
+</CreateOrder>
