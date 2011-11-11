@@ -7,19 +7,22 @@ $br="<br>";
 $hr="<hr>";
 
 //POST Authenticity check
-// Ensure that 3dcart.com is in fact the origin of the POST form action.
+// Ensure that californiaeducationconnection.com server IP is in fact
+// the origin of the POST form action.
 
-//echo $_SERVER['HTTP_REFERER'];
+//Static IP for californiaeducationconnection.com
+$authorized_ip = '174.37.45.113';
+//$authorized_ip = '68.178.254.198'; //Static IP for learningfox.com
 
-//$authorizedDomain="localhost";
-$authorizedDomain="learningfox.com";
+$remote_ip = $_SERVER['REMOTE_ADDR'];
 
-if (!preg_match("/".$authorizedDomain."/", $_SERVER['HTTP_REFERER']))
+//$authorized_ip = '70.179.77.227';//local IP for testing
+//echo $br."authorized_ip==remote_ip? ".($authorized_ip==$remote_ip);
+
+if ($authorized_ip != $remote_ip)
     exit( "Not authorized." );
 else
     echo "Authorized.".$br.$hr;
-
-//echo $_SERVER['HTTP_REFERER'];
 
 //Verify that the XML file was saved without error before continuing
 if ($_FILES["file"]["error"] > 0)  {
