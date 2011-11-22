@@ -1,6 +1,4 @@
-<?php session_start(); 
-require_once("conn.php");
- ?>
+<?php require_once("conn.php"); ?>
 
 <style>
 
@@ -70,13 +68,11 @@ require_once("conn.php");
 	color:#64D7C6;
 }
 </style>
-<div style="width:800px;">
+<div style="width:656px;">
 <div id="news-content">
 	<div class="nc-title">News Section</div>
 	<?php
-  
 		if(isset($_SESSION['uploadedlink'])){
-
 			echo '<div class="session">'.$_SESSION['uploadedlink'].'</div>';
 			unset($_SESSION['uploadedlink']);
 		}
@@ -94,7 +90,6 @@ require_once("conn.php");
 			?>
 				
 				<div class="news-content" style="border:1px solid #eeeeee;">
-
 					<ul>
 						<li <?=$lbg_l?>><a HREF="index.php?section=news&sid=<?php echo $sid; ?>&nc=nlist";>News List</a></li>
 						<li <?=$lbg_c?>><a HREF="index.php?section=news&sid=<?php echo $sid; ?>&nc=ncreate";>Create News</a></li>

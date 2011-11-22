@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Welcome to Zion Technology</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+
+var omitformtags=["input", "textarea", "select"]
+
+
+
+omitformtags=omitformtags.join("|")
+
+
+
+function disableselect(e){
+
+if (omitformtags.indexOf(e.target.tagName.toLowerCase ())==-1)
+
+return false
+
+}
+
+
+
+function reEnable(){
+
+return true
+
+}
+
+
+
+if (typeof document.onselectstart!="undefined")
+
+document.onselectstart=new Function ("return false")
+
+else{
+
+document.onmousedown=disableselect
+
+document.onmouseup=reEnable
+
+}
+
+
+
+</script>
+
+</head>
+<body>
+<div id="parent">
+<!--header start-->
+<div id="headercontainer">
+<div class="logo"><img src="images/logo.jpg" alt="zion technology" /></div>
+<div class="toplink">
+<div align="right">&nbsp;</div>
+<div align="right" class="icon"><a href="index.html"><img src="images/home_icon.jpg" alt="home page" border="0" /></a><a href="contactus.html"><img src="images/contact_icon.jpg" alt="contact us" border="0" /></a><a href="site-map.html"><img src="images/sitemap_icon.jpg" alt="site map" border="0" /></a></div>
+<div align="right">91-461-2355643</div>
+</div>
+<div class="clr"></div>
+<div id="link"><ul id="navlist">
+<li class="active"><a href="index.html" title="home page"><span>Home</span></a></li>
+<li><a href="aboutus.html" title="about us"><span>About Us </span></a></li>
+<li><a href="mission-vision.html" title="vision &amp; mission of our company"><span>Vision/Mission</span></a></li>
+<li><a href="services.html" title="our company services"><span>Services</span></a></li>
+<li><a href="culture.html" title="Culture"><span>Culture</span></a></li>
+<li><a href="contactus.html" title="contact us"><span>Contact Us</span></a></li>                 				    
+</ul>
+</div>
+<div><a href="index.html"><img src="images/headerbg.jpg" alt="Welcome to Zion Technology" /></a></div>
+
+</div>
+<!--header Ends-->
+
+
+<div id="bodycontainer">
+	<!--Content part start-->
+<div class="bodytexthome">
+<p>&nbsp;</p>
+  <h1>Welcome to <span>Zion Technology</span></h1>
+  <span class="style3">Make horizons meet for real</span><br />
+  <br />
+  <p>You have reached the right destination and your search ends  here for offshore software development, web development and software  consultancy.</p>
+  <p>We are not a software product company but a software  development services company.<img src="images/guaranteed.jpg" alt="customer satisfaction" width="133" height="121" align="right" /></p>
+  <p>Software product companies worldwide can look to us to  maintain their products either in our offshore development center in Tuticorin  in India or  working remotely connecting to their sites in other parts of the world. We also  execute software projects or partner other development teams worldwide for  software development.</p>
+  <p>We offer the most competitive rates for the work entrusted  to us. Changing the clichéd ‘Value for Money’, we would say you get ‘Value that is intrinsic’ while engaging us.</p>
+  <p>We at Zion Technology make horizons meet for real.</p>
+  <p>&nbsp;</p>
+  
+  </div>
+<!--Content part Ends-->
+<div class="clr"></div>
+</div>
+
+<div class="footer">
+<div class="footera"><a href="index.html" title="home page">Home</a>&nbsp; | &nbsp;<a href="aboutus.html" title="about us">About Us</a>&nbsp; | &nbsp;<a href="mission-vision.html" title="vision &amp; mission of our company">Vision/Mission</a>&nbsp; | &nbsp;<a href="services.html" title="our company services">Services</a>&nbsp; | &nbsp;<a href="culture.html" title="culture">Culture</a>&nbsp; | &nbsp;<a href="contactus.html" title="contact us">Contact Us</a>
+<p>&copy; Zion Technology.Net. All Rights Reserved.</p>
+
+
+</div>
+
+</div>
+
+
+</div>
+</body>
+</html>

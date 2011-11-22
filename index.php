@@ -1,16 +1,61 @@
 <?php
 session_start();
-$myconf="demo_site";
 
+$myconf="demo_site";
 
 require_once("conf.php");
 $buttombanner="<img src=\"images/buttombanner.gif\" />";
 ?>
-<html>
+
+<html dir="ltr">
+
 <head>
-<title>LMS</title>
-<link rel="stylesheet" href="style/style.css" type="text/css" />
-<link rel="stylesheet" href="style1.css" type="text/css" />
+
+    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+
+    <title>Cosmos Consulting  LearnCenter</title>
+
+    <style type="text/css">
+
+        .dock
+
+        {
+
+        	position: fixed;
+
+	        bottom: 0;
+
+            overflow: hidden;
+
+            margin:0 auto;
+
+            width: 100%;
+
+        }        
+
+    </style>
+
+    <!--[if IE]>    
+
+    <style type="text/css">
+
+        .dock
+
+        {
+
+            position:expression(inQuirksMode() ? "absolute" : "fixed") !important;
+
+            top: expression(inQuirksMode() ? ((document.documentElement.scrollTop || document.body.scrollTop) + (document.documentElement.clientHeight || document.body.clientHeight) - this.offsetHeight) + "px" : "fixed") !important;
+
+            width: expression(inQuirksMode() ? (document.documentElement.clientWidth || document.body.clientWidth) + "px" : "100%") !important;
+
+            left: expression(inQuirksMode() ? (document.documentElement.scrollLeft || document.body.scrollLeft) + "px" : "0") !important;
+
+        }
+
+    </style>
+
+    <![endif]-->    
 <style type="text/css">
 <!--
 .rightborder { 
@@ -33,97 +78,142 @@ border:#FFFFFF;
 }
 -->
 </style>
-<script type="text/javascript">
-function openWindow(winName)
-{
-    window.open(winName,"FAQs", "width=950,height=650,resizable=no,scrollbars=no,toolbar=no,status=no,menubar=no,copyhistory=no,left=100,top=100,screenX=100,location=no,screenY=100");
-}
-</script>
 </head>
-<link href="style.css" rel="stylesheet" type="text/css">
-<body bgcolor="#FFFFFF" TOPMARGIN="0" LEFTMARGIN="0" RIGHTMARGIN="0">
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-   <tr>
-       <td align="center">
-         <table width="800" height="600" border="0" cellspacing="0" cellpadding="0" class="leftborder">
-              <tr bgcolor="#FFFFFF">
-              <td colspan="2"  style="background-image:url('site_conf/images/det_banner.jpg'); background-repeat:no-repeat; background-position:center;" width="100%" height="100" align="right">
-	          <?php
-	          if(!is_null($sid)&&$session_error=="none")
-	          {
-		            $_SESSION['lms_username']=$lms_username;
-					?><TABLE BORDER="0" CELLPADDING="2" CELLSPACING="0" WIDTH="190" >
-					<TR>
-						<TD><FONT FACE="VERDANA" SIZE="1" COLOR="#000000">Logged in as: <B><?php echo $lms_username; ?></B></TD>
-					</TR>
-						<?php
-						if($lms_groups=="on" && $lms_user_group!=""){
-						?>
-						<TR>
-							<TD><FONT FACE="VERDANA" SIZE="1" COLOR="#000000"><?php echo"$lms_gtitle: "; if($lms_groups=="on"){echo"<B>$lms_user_group</B>";}?></TD>		
-						</TR>	
-						<TR>
-							<TD><FONT FACE="VERDANA" SIZE="1" COLOR="#000000"><?php echo "$lms_sgtitle: "; if($lms_groups=="on"){echo"<B>$lms_user_subgroup</B>";}?></TD>
-								
-						</TR>	
-						<tr>
-							<TD><FONT FACE="VERDANA" SIZE="1" COLOR="#000000"><?php if($section=="reports" && $report){echo"<A HREF='index.php?section=reports&sid=$sid'>Back to Detailed Reports Section";}?></FONT></TD>
-						</tr>
-						<?php }?>
-				
-					</TABLE>
-					<?php	
-	           }
-	          ?></td>
-              </tr>
-			  <tr>
-				  <td colspan="2" height="20" background="images/bg.gif">
-				      <table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
-						 <tr>
-							<td>&nbsp;</td>
-							<TD align="right"><?php
-				if(!is_null($sid)&&$session_error=="none")
-				{
-				?><a style=""  href="index.php?section=<?php echo $section; ?>&logout=YES&sid=<?php echo $sid; ?>"><img src="images/logout.gif" border="0" align="ABSMIDDLE" alt="Click here to Log Out"></a><?php
-				}
-				?></TD>
-						</tr>
-					</table></td>
-			  </tr>
-             <tr>
-			    <?php
-			    if(is_null($sid)||$session_error!="none")
-				{
-				    $nav_display = 'display: none';
-				}
-			    ?>
-                <td valign="top" style=" <?php echo $nav_display; ?> ">
-				<!---------BEGIN SIDE NAV TABLE------------->
-				<table width="198" border="0" cellspacing="0" cellpadding="0" >
-                  <tr valign="top" bordercolor="#FFFFFF"> 
-                     <td width="198" bordercolor="#FFFFFF"><?php		  
-					 if((!is_null($sid)&&$session_error=="none"))
-					 {
-						include($dir_components."navbar2.php");
-					 }
-					 ?></td>
-				</tr>
-				<tr><td>&nbsp;</td></tr>
-				<tr>
-				<td></td>
-		    </tr>
-      </table>
-	</td>
-	<td class="boxcontent" VALIGN="TOP" >
+<body id="lcPage" bgcolor="#FFFFFF" style="direction: ltr"
+
+    leftmargin="0" rightmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+    <div style="display: none">
+
+        <form id="learn" action="/learncenter.asp?sessionid=3-28351FC0-727D-4795-A1B2-D679BDFAB4DA&page=1&id=178414" method="post">
+
+        </form>
+
+    </div>
+
+    
+
+    <div id="divItemProperties" style="display:none;" title="More Information">
+
+        <iframe style="width:97%;" name="ifMoreInfo" id="ifMoreInfo" frameborder="0" scrolling="auto" marginheight="0" marginwidth="0" allowtransparency="yes" src="/includes/CoursePlayer/LoadingPlaceholder.htm"></iframe>
+
+    </div>
+
+<div id="ldcWriteReviewDiv" title="Submit a Review" style="display:none;">
+
+<iframe src="/includes/CoursePlayer/LoadingPlaceholder.htm" name="ldcWriteReviewDivFrame" id="ldcWriteReviewDivFrame" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" width="100%" height="350"></iframe>
+
+</div>
+
+<div id="ldcReadReviewsDiv" title="Reviews" style="display:none;">
+
+<iframe src="/includes/CoursePlayer/LoadingPlaceholder.htm" name="ldcReadReviewsDivFrame" id="ldcReadReviewsDivFrame" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" width="95%" height="500"></iframe>
+
+</div>
+
+
+<table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" width="100%" bgcolor="#FFFFFF" background="/images/skins/lc/images/clear1x1.gif"><link rel="stylesheet" type="text/css" href="header_style.css" />
+
+<table class="pageheader" align="center" border="0" cellpadding="0" cellspacing="0" width="960">
+
+     <tbody>
+
+         <tr>
+
+             <td valign="top"><img src="images/cosmosheader4.png" align="default" border="0" hspace="0" vspace="0"  alt="" /></td>
+
+         </tr>
+
+         <tr>
+
+             <td class="navbar">
+
+             <table class="topnav" align="right" border="0" cellpadding="5">
+
+                 <tbody>
+
+                     <tr>
+
+                         <td class="topnav-link"><a href="index.html">Home</a></td>
+
+                         <td class="topnav-link" width="170"><a href="elearning.html">eLearning <br /></a></td>
+
+                         <td class="topnav-link"><a href="http://www.cosmosconsultingllc.com/services.htm">Consulting</a></td>
+
+                         
+
+                         <td class="topnav-link"><a href="faq.html">FAQ/Help</a></td>
+
+                         <td class="topnav-link"><a href="contact.html">Contact Us</a></td>
+
+                         <td class="topnav-link" id="loginState">
+						 <?php 
+						 if(is_null($sid) or $session_error!="none")
+	                     { 
+						      ?>
+							  <a href="index.php?section=login&sid=<?php echo $sid; ?>">Login</a>
+							  <?php 
+						 }
+						 else
+						 {
+						     ?>
+							 <a style=""  href="index.php?section=<?php echo $section; ?>&logout=YES&sid=<?php echo $sid; ?>">Log out</a>
+							 <?php
+						 }
+						 ?>
+						 </td>
+
+                     </tr>
+
+                 </tbody>
+
+             </table>
+
+             </td>
+
+         </tr>
+<tr><td align="right" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px;">
+    <?php
+	if(!is_null($sid)&&$session_error=="none")
+	{
+	?>Logged in as: <B><?php echo $lms_username;
+	}
+	?></td></tr>
+     </tbody>
+
+</table>
+
+</td></tr>
+
+</table>
+
+<table id="ldcLCPageContentContainerTable" width="100%" cellspacing="0" align="center" cellpadding="0" border="0">
+	
 	<?php 
-	include($mysection);
-	?></td>
-  </tr>
+	if((!is_null($sid)&&$session_error=="none"))
+	{
+		include($dir_components."navbar2.php");
+	}
+
+    ?>
+
+	 
+	 <td id="ldcLCPageLeftNavShadowTD" width="14" bgcolor="#EAEBED" valign="bottom" align="left" nowrap></td>
+	 
+	 <td id="ldcLCPageContentTD" valign="top" align="left"><div id="ldcLCPageContent">
+
+<?php 
+
+include($mysection);
+ ?>
+
+</div></td></tr>
+
+
+
 </table>
-</td>
-</tr>
-</table>
-<hr width="200px;">
+
 </body>
+
 </html>

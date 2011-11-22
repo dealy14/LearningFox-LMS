@@ -1,6 +1,0 @@
-&extra_movie=e1.swf&
-&t_content=The new protections are designed to address privacy concerns raised by many who commented on the rule. Employers must withhold the injured or ill employee's name from the OSHA log for injuries and illnesses defined by the rule as "privacy concern cases." This approach will allow the employer to provide OSHA 300 data to employees, former employees and employee representatives, while still protecting the privacy of workers when necessary.
-A separate list of case numbers and employee names must be provided to OSHA upon request.
-Privacy concern cases include:<BR> - An injury or illness to an intimate body part or reproductive system;<BR> - An injury or illness resulting from a sexual assault;<BR> - Mental illness;<BR> - HIV infection, hepatitis, tuberculosis;<BR> - Needlestick and sharps injuries that are contaminated with another person's blood or other<BR><FONT COLOR="#FFFFFF"> . </FONT>potentially infectious material;<BR> - Employee request to keep name off Log for other illness cases.
-Click <FONT COLOR="#990000">NEXT</FONT> to continue.
-&content_status=loaded&

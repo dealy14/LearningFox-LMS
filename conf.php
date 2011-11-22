@@ -2,13 +2,13 @@
 #####################################################################
 #Configure Directory values:
 #####################################################################
-error_reporting(0);
+//error_reporting(0);
 //$ID       = $_REQUEST["ID"];
 
 // 
-$web_dir="http://learningfox.com/v1/";
+//$web_dir="http://localhost/LMS/";
 //$web_dir="http://localhost/";
-$main_dir= $_SERVER['DOCUMENT_ROOT']."/v1/"; 
+$main_dir= $_SERVER['DOCUMENT_ROOT']."/LMS/"; 
 
 
 $dir_includes = $main_dir."includes/";
@@ -57,5 +57,5 @@ include($dir_includes."class_fdb.php");
 include($dir_includes."functions.php");
 include($dir_includes."stored_sql.php");
 include($dir_includes."clear_cache.php");
-include($dir_lms_conf);
+//include($dir_lms_conf);
 ?>

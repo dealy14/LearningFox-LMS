@@ -1,0 +1,106 @@
+/* CSS Document */
+
+p{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #000000;
+	padding: 8px;
+	font-weight: normal;
+	margin-bottom: -15px;
+}.normal {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	line-height: normal;
+	font-weight: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+	border-top: 0;
+	margin-bottom: -10px;
+}.white {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 14px;
+	line-height: inherit;
+	font-weight: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+	margin-top: -5px;
+}.blacktable {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+	padding-left: 6px;
+}.bullet {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: normal;
+	font-weight: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+	border-top: 0;
+	padding-right: 14px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}.bullet2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: normal;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+	border-top: 0;
+	padding-right: 14px;
+	padding-bottom: 0px;
+	margin-bottom: -2px;
+}.bullet3 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: normal;
+	font-weight: normal;
+	color: #000000;
+	text-decoration: none;
+	border-top: 0;
+	padding-right: 14px;
+	padding-bottom: 0px;
+	margin-bottom: -2px;
+}.navigation{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: bold;
+	color: #0C3F7A;
+	text-decoration: none;
+	padding: 8px;
+	line-height: normal;
+	padding: 8px;
+	padding-bottom: 0px;
+	margin-bottom: -10px;
+}
+.navigation:hover{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: bold;
+	color: #0C3F7A;
+	text-decoration: underline;
+	padding: 8px;
+	line-height: normal;
+	padding: 8px;
+	padding-bottom: 0px;
+	margin-bottom: -10px;
+}
+.spacer {
+	font-family: "Gill Sans";
+	font-size: 11px;
+	line-height: 18px;
+	font-weight: bold;
+	color: #999999;
+	text-decoration: none;
+	outline-style: none;
+	border-bottom-width: thick;
+	float: none;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 6px;
+}

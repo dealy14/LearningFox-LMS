@@ -89,14 +89,13 @@ $userEntry=0;
 	{
 	echo"<P><B><FONT COLOR='RED'>Invalid username/password$extra_text, Please try again!</FONT></B></P>";	
 	?>
-<div style="width:800px;">
 <FORM NAME="myform" METHOD="POST" ACTION="index.php?section=login&submit=yes">
-<table align="right"><tr><td><a href="javascript:newUser();" >Register as New User</a></td></tr>
-  <tr><td><a href="javascript:forgetPassword();"> Forgot Password</a></td></tr>
+<table align="right"><!--<tr><td><a href="javascript:newUser();" >Register as New User</a></td></tr>
+  <tr><td><a href="javascript:forgetPassword();"> Forgot Password</a></td></tr>-->
  <!-- <tr><td><a href="javascript:changePassword();"> Change Password</a></td></tr>--></table>
   <br/><br/>
 
-  <TABLE BORDER="0" id="login" CELLPADDING="4" CELLSPACING="0" align="center">
+  <TABLE BORDER="1" id="login" CELLPADDING="4" CELLSPACING="0" align="center">
     <?php
 	if($lms_orgID=="on")
 	{
@@ -109,12 +108,12 @@ $userEntry=0;
 	}
 	?>
     <TR>
-      <TD ALIGN="RIGHT"><FONT FACE="VERDANA" SIZE="2"><B>Username:</TD>
+      <TD ALIGN="RIGHT"><FONT FACE="VERDANA" SIZE="2"><B>UserName:</TD>
       <TD><INPUT TYPE="TEXT" NAME="uname"></TD>
     </TR>
     <TR>
       <TD ALIGN="RIGHT"><FONT FACE="VERDANA" SIZE="2"><B>Password:</TD>
-      <TD ALIGN="left"  style="padding-left:5px;"><INPUT TYPE="password" NAME="pwd"></TD>
+      <TD><INPUT TYPE="password" NAME="pwd"></TD>
     </TR>
     <TR>
       <TD COLSPAN="2" ALIGN="RIGHT"><INPUT TYPE="IMAGE" SRC="images/submit.gif" BORDER="0"></TD>
@@ -122,26 +121,23 @@ $userEntry=0;
   </TABLE>
   
  <br/><br/>
- <div style="background:url(images/learningfoxpicture.jpg) no-repeat; height:280px; margin-left:20px; " >
-  <table align="center">
+ <table align="center"><tr><td>
+  <ul>
+  <li style="list-style:none"><font>With LearningFox's Learning Management System, you can:</font></li>
+    <ul>
+   <li style="list-style:disc">      Register for instructor-led courses</li>
+
+   <li style="list-style:disc">         Take online courses</li>
+
+   <li style="list-style:disc">         View training records</li>
+
+   <li style="list-style:disc">         Store and share documents</li>
+
+   <li style="list-style:disc">         Create messages via the message board</li>
+   </ul>
+  </ul></td></tr></table>
   
-  <tr><td style="padding-left:5px;"><font size="2">With LearningFox's Learning Management System, you can:</font></td></tr>
-    
-  <tr><td height="25px" style="padding-left:15px;"><li style="list-style:disc">      Register for instructor-led courses</li></td></tr>
-
-  <tr><td height="25px" style="padding-left:15px;"><li style="list-style:disc">         Take online courses</li></td></tr>
-
-  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         View training records</li></td></tr>
-
-  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         Store and share documents</li></td></tr>
-
-  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         Create messages via the message board</li></td></tr>
-   
-  
-  </table>
-  </div>
 </FORM>
-</div>
 <?php
 	}
 }
@@ -158,19 +154,15 @@ echo"<P><B>Invalid username/password, Please try again!</B></P><BR><BR>";
 else
 {
 ?>
-<P><BR>
+<P>
   <?php
 	if($session_error!="none" && $se=="yes")
 	{
 	echo"<P><B><FONT COLOR='RED'>$session_error</P>";
 	}
 	?>
-<P>
-<div style="width:800px;">
-<table align="right"><tr><td><a href="javascript:newUser();" >Register as New User</a></td></tr>
-  <tr><td><a href="javascript:forgetPassword();"> Forgot Password</a></td></tr>
-  <!--<tr><td><a href="javascript:changePassword();"> Change Password</a></td></tr>--></table>
-  <br/><br/>
+</P>
+
 <TABLE BORDER="0" CELLPADDING="4" CELLSPACING="0" align="center">
   <TR>
     <TD ALIGN="TOP"><FORM NAME="myform" METHOD="POST" ACTION="index.php?section=login&submit=yes">
@@ -187,11 +179,11 @@ else
 	}
 	?>
           <TR>
-            <TD ALIGN="RIGHT"><FONT FACE="VERDANA" SIZE="2"><B>Username:</TD>
+            <TD ALIGN="RIGHT"><FONT FACE="VERDANA" SIZE="2"><B>UserName:</TD>
             <TD><INPUT TYPE="TEXT" NAME="uname"></TD>
           </TR>
           <TR>
-            <TD ALIGN="left"  style="padding-left:5px;"><FONT FACE="VERDANA" SIZE="2"><B>Password:</TD>
+            <TD ALIGN="RIGHT"><FONT FACE="VERDANA" SIZE="2"><B>Password:</TD>
             <TD><INPUT TYPE="password" NAME="pwd"></TD>
           </TR>
           <TR>
@@ -204,25 +196,22 @@ else
 </TABLE>
 <!--<a href="javascript:newUser();" >New LMS user </a>
   <a href="javascript:forgetPassword();"> Forgot Password</a>
--->
-<div style="background:url(images/learningfoxpicture.jpg) no-repeat; height:280px; margin-left:20px;" >
-<table align="center">
-  
-  <tr><td style="padding-left:5px;"><font size="2">With LearningFox's Learning Management System, you can:</font></td></tr>
-    
-  <tr><td height="25px" style="padding-left:15px;"><li style="list-style:disc">      Register for instructor-led courses</li></td></tr>
+--><br/>
+<table align="center"><tr><td>
+  <ul>
+  <li style="list-style:none"><font>With LearningFox's Learning Management System, you can:</font></li>
+    <ul>
+   <li style="list-style:disc">      Register for instructor-led courses</li>
 
-  <tr><td height="25px" style="padding-left:15px;"><li style="list-style:disc">         Take online courses</li></td></tr>
+   <li style="list-style:disc">         Take online courses</li>
 
-  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         View training records</li></td></tr>
+   <li style="list-style:disc">         View training records</li>
 
-  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         Store and share documents</li></td></tr>
+   <li style="list-style:disc">         Store and share documents</li>
 
-  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         Create messages via the message board</li></td></tr> 
-  
-  </table>
-  </div>
-  </div>
+   <li style="list-style:disc">         Create messages via the message board</li>
+   </ul>
+  </ul></td></tr></table>
 <?php
 }
 ?>

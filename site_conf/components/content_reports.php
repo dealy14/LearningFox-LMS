@@ -1,4 +1,4 @@
-<div style="width:800px;">
+<div >
 <?php
 if(!$report)
 {

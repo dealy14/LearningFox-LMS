@@ -1,11 +1,4 @@
-<SCRIPT language="javascript1.2">
-function launchCourse(cnum)
-{
-//newWin=window.open('../'+cnum+'/index.php?user_ID=<?php echo $lms_userID;?>','LT_COURSE','WIDTH=<?php echo $hw[0];?>,height=<?php echo $hw[1];?>');
-window.open('LMSMain.php?ref='+cnum+'&user_id=<?php echo $lms_userID;?>');
-}
-</SCRIPT>
-<div style="width:800px;">
+<div style="width:656px;">
 <h2 align="center">Your Transcript</h2>
 <div align="center"><?php include($dir_components."enrollment_toolbar.php"); ?></div>
 
@@ -67,7 +60,7 @@ if($mycourses[0]!="" || $mygcourses[0]!="")
     <TR  class="descriptor_row">
 	   <TD><FONT FACE="VERDANA" SIZE="2" COLOR="#FFFFFF">&nbsp;</FONT></TD>		
        <TD NOWRAP><FONT FACE="VERDANA" SIZE="2">Course Title</FONT></TD>
-       <TD NOWRAP><FONT FACE="VERDANA" SIZE="2">Launch Link </FONT></TD>
+       <TD NOWRAP><FONT FACE="VERDANA" SIZE="2">Date Started</FONT></TD>
        <TD NOWRAP><FONT FACE="VERDANA" SIZE="2">Last Attempt</FONT></TD>	   
 	   <TD NOWRAP><FONT FACE="VERDANA" SIZE="2">Course Status</FONT></TD>
 	   <TD><FONT FACE="VERDANA" SIZE="2">&nbsp;</FONT></TD>	   
@@ -108,7 +101,7 @@ if($mycourses[0]!="")
        <TD VALIGN="TOP"><A HREF="#"><FONT FACE="VERDANA" SIZE="2"><IMG SRC="images/course_list2.gif" BORDER="0" ALT="Click for more details on <?php echo $cname[$mycourses[$x]];?>"></FONT></A></TD>
        <TD VALIGN="TOP"><A HREF="#" STYLE="text-decoration:none;color:#000000;"><FONT FACE="VERDANA" SIZE="2"><B>
        <?php echo $cname[$mycourses[$x]];?></B></FONT></A></TD>	   
-       <TD VALIGN="TOP"><FONT FACE="VERDANA" SIZE="2"><A HREF='' onClick="launchCourse(<?php echo $cID[$mycourses[$x]];?>);return false;">Launch</A></FONT></TD>
+       <TD VALIGN="TOP"><FONT FACE="VERDANA" SIZE="2"><?php echo $start_date[$mycourses[$x]];?></FONT></TD>
        <TD VALIGN="TOP"><FONT FACE="VERDANA" SIZE="2"><?php echo $last_usage[$mycourses[$x]];?></FONT></TD>
 	   <TD VALIGN="TOP"><FONT FACE="VERDANA" SIZE="2"><?php if($course_status[$mycourses[$x]]!="Complete"){echo"<FONT COLOR='RED'>";}echo $course_status[$mycourses[$x]];?>&nbsp;
 	    </FONT></TD>

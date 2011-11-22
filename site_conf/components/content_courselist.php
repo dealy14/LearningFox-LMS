@@ -1,6 +1,17 @@
-<div style="width:800px;">
+<div style="width:656px;">
 <?php
-
+function getCourseCategory($category_id)
+{
+   $db = new db;
+   $db->connect();
+   $db->query("SELECT category_name FROM course_categories WHERE category_id=$category_id");
+   while($db->getRows())
+   { 
+	  return $db->row("category_name");
+   }
+   $db->close();
+   return "";
+}
 //*************************************************************************************
 //course list
 //*************************************************************************************
@@ -16,7 +27,7 @@ if($lms_orgID!="on")
 	<?php
 	  $db = new db;
 	  $db->connect();
-	  $db->query("SELECT created,name,ID,type FROM course WHERE status='active'");
+	  $db->query("SELECT created,name,ID,type,category_id FROM course WHERE status='active'");
 	  $color_cnt = 0;
 	  while($db->getRows())
 	  {
@@ -24,13 +35,15 @@ if($lms_orgID!="on")
 		  $course_name=$db->row("name");
 		  $created=$db->row("created");
 		  $type=$db->row("type");
+		  $category_id=$db->row("category_id");
 		 if($color_cnt == 0)
 		 {
 		 ?>
 		 <tr class="descriptor_row">
 		 	<td><FONT FACE="VERDANA" SIZE="2">&nbsp;</FONT></td>
 		 	<td><FONT FACE="VERDANA" SIZE="2">Name&nbsp;</FONT></td>
-		 	<td><FONT FACE="VERDANA" SIZE="2">Register&nbsp;</FONT></td>
+		 	<td><FONT FACE="VERDANA" SIZE="2">Course Type&nbsp;</FONT></td>
+			<td><FONT FACE="VERDANA" SIZE="2">Category&nbsp;</FONT></td>
 		 	<td><FONT FACE="VERDANA" SIZE="2">Creation Date&nbsp;</FONT></td>
 		 	<td><FONT FACE="VERDANA" SIZE="2">View Details&nbsp;</FONT></td>
 		</tr>
@@ -51,7 +64,8 @@ if($lms_orgID!="on")
 	  <TR BGCOLOR="<?php echo $bgcol;?>">
 	  	<TD><IMG SRC="images/course_list1.gif" BORDER="0" ALIGN="ABSMIDDLE"></TD>
 	    <TD><FONT FACE="VERDANA" SIZE="2"><B><?php echo $course_name;?></B></FONT></TD>
-	    <TD><FONT FACE="VERDANA" SIZE="2">[<A HREF="index.php?section=coursedetails&sid=<?php echo $sid; ?>&course_ID=<?php echo $course_ID;?>">Register</A>]</FONT></TD>
+	    <TD><FONT FACE="VERDANA" SIZE="2"><?php echo $type;?>&nbsp;</FONT></TD>
+		<TD><FONT FACE="VERDANA" SIZE="2"><?php echo getCourseCategory($category_id); ?>&nbsp;</FONT></TD>
 	    <TD><FONT FACE="VERDANA" SIZE="2"><?php echo $created;?>&nbsp;</FONT></TD>
 	    <TD><FONT FACE="VERDANA" SIZE="2">[<A HREF="index.php?section=coursedetails&sid=<?php echo $sid; ?>&course_ID=<?php echo $course_ID;?>">Details</A>]</FONT></TD>
 	  </TR>
@@ -82,14 +96,14 @@ else
 	  		$color_cnt = 0;
 		  $db = new db;
 		  $db->connect();
-		  $db->query("SELECT created,name,ID,type FROM course WHERE status='active' AND ID='' $db_clause");
+		  $db->query("SELECT created,name,ID,type,category_id FROM course WHERE status='active' AND ID='' $db_clause");
 		  while($db->getRows())
 		  {
 		  $course_ID=$db->row("ID");
 		  $course_name=$db->row("name");
 		  $created=$db->row("created");
 		  $type=$db->row("type");
-
+          $category_id=$db->row("category_id");
 		 if($color_cnt == 0)
 		 {
 		 ?>
@@ -97,6 +111,7 @@ else
 		 	<td><FONT FACE="VERDANA" SIZE="2">&nbsp;</FONT></td>
 		 	<td><FONT FACE="VERDANA" SIZE="2">Name&nbsp;</FONT></td>
 		 	<td><FONT FACE="VERDANA" SIZE="2">Course Type&nbsp;</FONT></td>
+			<td><FONT FACE="VERDANA" SIZE="2">Category&nbsp;</FONT></td>
 		 	<td><FONT FACE="VERDANA" SIZE="2">Creation Date&nbsp;</FONT></td>
 		 	<td><FONT FACE="VERDANA" SIZE="2">View Details&nbsp;</FONT></td>
 		</tr>
@@ -117,6 +132,7 @@ else
 		    <TD><IMG SRC="images/course_list1.gif" BORDER="0" ALIGN="ABSMIDDLE"></TD>
 		    <TD><FONT FACE="VERDANA" SIZE="2"><B><?php echo $course_name;?>&nbsp;</B></FONT></TD>
 		    <TD><FONT FACE="VERDANA" SIZE="2"><?php echo $type;?>&nbsp;</FONT></TD>
+			<TD><FONT FACE="VERDANA" SIZE="2"><?php echo getCourseCategory($category_id); ?>&nbsp;</FONT></TD>
 		    <TD><FONT FACE="VERDANA" SIZE="2"><?php echo $created;?>&nbsp;</FONT></TD>
 		    <TD><FONT FACE="VERDANA" SIZE="2">[<A HREF="index.php?section=coursedetails&sid=<?php echo $sid; ?>&course_ID=<?php echo $course_ID;?>">Details</A>]</FONT></TD>
 		  </TR>

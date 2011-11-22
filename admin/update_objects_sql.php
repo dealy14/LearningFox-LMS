@@ -250,18 +250,14 @@ echo"<SCRIPT>top.rmain.edit_main.location='blank.php';</SCRIPT>";
 
 if($action=="objective" && $formAction=="SAVE")
 {
-//insertAction($object_sql["objective_save"]);
- $objective = $_REQUEST['objective'];
-    $oID = $_REQUEST['oID'];
-    insertAction("UPDATE objectives SET objective='$objective',link='$link' WHERE ID=$oID");
+insertAction($object_sql["objective_save"]);
 /*echo"<SCRIPT>alert('Obective Saved'); top.rmain.edit_main.location.reload();</SCRIPT>"; jayant*/
 echo"<SCRIPT>alert('Obective Saved'); top.rmain.edit_main.location.reload();</SCRIPT>";
 }
 
 if($action=="objective" && $formAction=="DELETE")
 {
-$oID = $_REQUEST['oID'];
-insertAction("DELETE FROM objectives WHERE ID=$oID");
+insertAction($object_sql["objective_delete"]);
 /*echo"<SCRIPT>top.rmain.edit_main.location.reload();</SCRIPT>"; jayant*/
 echo"<SCRIPT>alert('Objective Deleted');top.rmain.edit_main.location.reload();</SCRIPT>";
 }
@@ -272,29 +268,21 @@ echo"<SCRIPT>alert('Objective Deleted');top.rmain.edit_main.location.reload();</
 
 if($action=="ref" && $formAction=="SAVE")
 {
-    $description=$_REQUEST['description'];
-	$rname=$_REQUEST['rname'];
-	$oID = $_REQUEST['oID'];
-    insertAction("UPDATE ref SET description='$description',rname='$rname' WHERE ID=$oID");
-	$thefile = $_FILES["thefile"]["name"];
-	/*echo "<SCRIPT>alert('".$dir_references.$thefile."');</SCRIPT>";*/
-    if($thefile!="")
-    {
-    //upload file;
-	  // copy("$thefile", $dir_references.$rthefile);
-	   move_uploaded_file($_FILES["thefile"]["tmp_name"],$dir_references.$thefile);
-	   insertAction("UPDATE ref SET filename='$thefile' WHERE ID=$oID");
-	   //unlink($thefile);
-    }
-    /*echo"<SCRIPT>top.rmain.edit_main.location.reload();</SCRIPT>"; jayant*/
-    echo "<SCRIPT>alert('Reference Saved');top.rmain.edit_main.location.reload();</SCRIPT>";
+insertAction($object_sql["ref_save"]);
+   if($thefile!="")
+   {
+   //upload file;
+	  copy("$thefile", $dir_references.$rthefile);
+	  unlink($thefile);
+   }
+/*echo"<SCRIPT>top.rmain.edit_main.location.reload();</SCRIPT>"; jayant*/
+echo"<SCRIPT>alert('Reference Saved');top.rmain.edit_main.location.reload();</SCRIPT>";
 }
 
 if($action=="ref" && $formAction=="DELETE")
 {
-    $oID = $_REQUEST['oID'];
-    insertAction("DELETE FROM ref WHERE ID=$oID");
-    echo "<SCRIPT>alert('Reference Deleted'); top.rmain.edit_main.location.reload();</SCRIPT>";
+insertAction($object_sql["ref_delete"]);
+echo"<SCRIPT>top.rmain.edit_main.location.reload();</SCRIPT>";
 }
 
 ###############################################################################

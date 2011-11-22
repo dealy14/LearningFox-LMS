@@ -63,6 +63,7 @@ echo "var arrLnks = new Array($totalCnt);\n";
 //echo "var arrScoId = new Array($totalCnt);\n";
 echo "arrLnks[0]=\"complete.php\";\n";
 $itrCnt = 0;
+
 while($datScoNm = mysql_fetch_object($rsScoNm)){
 //echo "arrScoId[$itrCnt]=\"$datScoNm->sco_id\";\n";
 echo "arrLnks[$itrCnt] = \"uploadfiles/$rowCrseNm->course_id/$datScoNm->launch\"; \n";

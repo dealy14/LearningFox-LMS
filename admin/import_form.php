@@ -2,6 +2,9 @@
 session_start();
 include("../conf.php");
 include("dUnzip2.inc.php");
+ini_set("post_max_size", "80M");
+ini_set("upload_max_filesize", "80M");
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -40,7 +43,11 @@ function validChk(frm){
 		frm.file.focus();
 		return false;
 	}
-	
+	if(frm.category_id.value==''){
+		alert('Please select Category.');
+		frm.category_id.focus();
+		return false;
+	}
 }
 </script>
 </head>
@@ -51,6 +58,7 @@ $ctype=$_GET['ctype'];
 //echo $_GET['cn'];
 $_SESSION['coursename']=$_GET['cn'];
 if($_POST['status']!=1){
+$upload_max_filesize=ini_get("upload_max_filesize");
 ?>
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data" onsubmit="return validChk(this);">
 <input type="hidden" name="status" value="1" />
@@ -100,7 +108,32 @@ if($_POST['status']!=1){
     <td align="right">&nbsp;</td>
     <td colspan="4">&nbsp;</td>
   </tr>
- 
+  <tr>
+    <td align="right">&nbsp;Select Category:</td>
+    <td colspan="4">
+	<select id="category_id" name="category_id">
+	<option value="">Select Category</option>
+	<?php
+	$db = new db;
+	$db->connect();
+	$db->query("SELECT * FROM course_categories");
+    while($db->getRows())
+	{
+		echo $category_id = $db->row("category_id");
+		$category_name = $db->row("category_name");
+		?>
+		<option value="<?php echo $category_id; ?>"><?php echo $category_name; ?></option>
+		<?php
+	}	
+	$db->close();		  
+    ?>
+	</select>
+	</td>
+  </tr>
+  <tr>
+    <td align="right">&nbsp;</td>
+    <td colspan="4">&nbsp;</td>
+  </tr>
   <tr>
     <td align="right">&nbsp;</td>
     <td colspan="4"><input name="submit" type="submit" value="Submit" />&nbsp;</td>
@@ -124,10 +157,11 @@ $courseid="course-".$fileno;
 //echo $courseid;
 
 //echo "Type: " . $_FILES["file"]["type"] . "hello<br />";
-				if ($_FILES["file"]["type"]=="application/zip" || $_FILES["file"]["type"]=="application/x-zip-compressed"){
+				if ($_FILES["file"]["type"]=="application/octet-stream" || $_FILES["file"]["type"]=="application/zip" || $_FILES["file"]["type"]=="application/x-zip-compressed"){
 							 if ($_FILES["file"]["error"] > 0) {
 									 echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
 							 }else{
+							
 									if(!file_exists("../uploadfiles"))
 														mkdir("uploadfiles",0777);
 									/*if(!file_exists("uploadfiles/".$_POST['cn']))
@@ -142,9 +176,9 @@ $courseid="course-".$fileno;
 													 //$file = getcwd() . "uploadfiles".$_FILES['file']['name'];
 													//echo $file;
 													// Or:
-													$file = $_SERVER['DOCUMENT_ROOT'].'/v1/uploadfiles/'.$_FILES['file']['name'];
+													$file = $_SERVER['DOCUMENT_ROOT'].'/LMS/uploadfiles/'.$_FILES['file']['name'];
 											
-																					
+														
 													//$zip = zip_open($file);
 													//................function starts here.......................// 
 													/*function unzip($zipfile)
@@ -199,7 +233,7 @@ $courseid="course-".$fileno;
 													 
 													 /*---------Checking whether index file within a directory  exist or not starts-------------------*/
 																						
-													$file_dir=$_SERVER['DOCUMENT_ROOT']."/v1/uploadfiles/".$courseid;
+													$file_dir=$_SERVER['DOCUMENT_ROOT']."/LMS/uploadfiles/".$courseid;
 													//$file_jayant_420 = basename($file,".zip");
 													//echo $file_jayant_420;
 													$dir_name=basename($file_dir);
@@ -212,6 +246,7 @@ $courseid="course-".$fileno;
 														$dir_handle = @opendir($path) or die("Unable to open $path");
 													 
 														$path=str_replace($_SERVER['DOCUMENT_ROOT']."/import_test/","",$path);
+																
 														   //echo $path."<br>";
 														//Leave only the lastest folder name
 														$dirname = end(explode("/", $path));
@@ -276,7 +311,7 @@ $courseid="course-".$fileno;
 																			  // Load XML File. You can use loadXML if you wish to load XML data from a string 
 																			
 																		  $objDOM = new DOMDocument(); 
-												 //$path=$_SERVER['DOCUMENT_ROOT']."/lms/admin/uploadfiles/".basename($file,".zip")."/sco/imsmanifest.xml";
+												 //$path=$_SERVER['DOCUMENT_ROOT']."/LMS/admin/uploadfiles/".basename($file,".zip")."/sco/imsmanifest.xml";
 												 							// $path1=$manifest_path;
 												//echo $manifest_path."hello";
 												
@@ -391,7 +426,8 @@ global $course_title,$catalog_entry,$descript,$keyword,$catalog_name;
 		$timelimit=$pre->timelimitaction;
 		$maxtime=$pre->maxtimeallowed;
 		$data_from_lms=$pre->datafromlms;
-		$metapath=$_SERVER['DOCUMENT_ROOT']."/v1/uploadfiles/".$courseid."/".$pre->location;
+		$metapath=$_SERVER['DOCUMENT_ROOT']."/LMS/uploadfiles/".$courseid."/".$pre->location;
+				
 		if($child->getName()=="metadata"){
 			foreach($child->children() as $p){
 				if($p->getName()=="schemaversion"){
@@ -542,12 +578,12 @@ displayChildrenRecursive($sitemap);
 													$db->connect();	
 													
 							//$str="insert into crab_lessons set course_id='".$courseid."',lesson_name='".$file1."',folder_name='".$_POST['cn']."/".$file1."',file_name='".$filename."',date_of_creation='".date('m/d/y'."'");
-				$str='insert into course set created="'.date("y/m/d").'",name="'.$task.'",type="wbt",course_type="'.$_POST['course_type'].'",folder_name="/v1/uploadfiles/'.$courseid.'",course_id="'.$courseid.'",cmi_credit="'.$_POST['radio_credit'].'",sco_version="'.$sco_version.'",keyword="'.$keyword.'",description2="'.$desc.'",catalog_name="'.$catalog_name.'",catalog_entry="'.$catalog_entry.'",link=""';
+				$str='insert into course set created="'.date("y/m/d").'",name="'.$task.'",type="wbt",course_type="'.$_POST['course_type'].'",folder_name="/LMS/uploadfiles/'.$courseid.'",course_id="'.$courseid.'",cmi_credit="'.$_POST['radio_credit'].'",sco_version="'.$sco_version.'",keyword="'.$keyword.'",description2="'.$desc.'",catalog_name="'.$catalog_name.'",catalog_entry="'.$catalog_entry.'",link="", category_id='.$_POST['category_id'].'';
 							
 									//echo $str;
 									
 									$db->query($str);
-									
+										
 									echo "<script>alert('The course content has been successfuly imported.');</script>";									
 									//echo "<script> window.close();";
 									echo "<script>window.close();if (window.opener && !window.opener.closed) { window.opener.parent.location.reload(); } </script>";

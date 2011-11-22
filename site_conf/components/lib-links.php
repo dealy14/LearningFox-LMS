@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 	<style>
 		.librarylink-content{
 			float:left;
@@ -24,8 +23,7 @@
 			<?php
 				print '';
 				$cnt=0;
-				//$qryLink = "SELECT * FROM library_link WHERE userID ='".$_SESSION['lms_userID']."'";	
-	            $qryLink = "SELECT * FROM library_link WHERE userID ='".$_SESSION['lms_userID']."'";   
+				$qryLink = "SELECT * FROM library_link WHERE userID ='".$_SESSION['lms_userID']."'";		
 				$rsLink = mysql_query($qryLink);
 				while($userLink = mysql_fetch_assoc($rsLink)){
 					$cnt++;

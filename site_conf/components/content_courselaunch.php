@@ -44,13 +44,13 @@ $db->query($upuser_sco);
 // echo strftime('%l:%M %p', strtotime('14:35:00'));
   $db = new db;
   $db->connect();
-  $db->query("SELECT created,name,description2,type FROM course WHERE ID='$course_ID'");
+  $db->query("SELECT created,name,description,type FROM course WHERE ID='$course_ID'");
   while($db->getRows())
   {   
   $name=$db->row("name");
   $created=$db->row("created");
   $type=$db->row("type");
-  $description=$db->row("description2");
+  $description=$db->row("description");
   }  
      $db = new db;
      $db->connect();
@@ -83,7 +83,7 @@ $score_total = array_sum($allscores);
 $score_average = round($score_total/(count($allscores)-1));
 }
 ?>
-<TABLE BORDER="0" CELLSPACING="2" CELLPADDING="0" WIDTH="800">
+<TABLE BORDER="0" CELLSPACING="2" CELLPADDING="0" WIDTH="600">
   <TR>
     <TD COLSPAN="4" BGCOLOR="#eaeaea"><IMG SRC="images/c_progress.gif"></TD>
   </TR>
@@ -108,9 +108,9 @@ $score_average = round($score_total/(count($allscores)-1));
 </TABLE>
 <?php }?>
 <P>
-<A HREF="index.php?section=enrollment&sid=<?php echo $sid; ?>">Back to Your Transcript.</A>
+<A HREF="index.php?section=enrollment&sid=<?php echo $sid; ?>">Back to Enrollment List.</A>
 <P>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="800"><TR><TD BGCOLOR="#eaeaea">
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="600"><TR><TD BGCOLOR="#eaeaea">
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="4" WIDTH="100%">
   <TR BGCOLOR="#eaeaea">
     <TD COLSPAN="2" ALIGN="RIGHT">
@@ -157,7 +157,7 @@ $score_average = round($score_total/(count($allscores)-1));
   $db2->query("SELECT * FROM ref WHERE course_ID='$course_ID'");
   while($db2->getRows())
   { 
-  echo"<LI><I><A HREF='../v1/references/".$db2->row("filename")."' TARGET='_blank'>".$db2->row("rname")."</I></A>: ";
+  echo"<LI><I><A HREF='../references/".$db2->row("filename")."' TARGET='_blank'>".$db2->row("rname")."</I></A>: ";
   echo nl2br($db2->row("description"));
   }
 ?>
