@@ -10,7 +10,7 @@ function send_pass_email($email, $password) {
     $body .= "If you have any questions, concerns or comments, you may contact us through email. Please stay tuned to the website for more changes to come. Thank you very much.\n\n\n";
     $body .= "THIS IS AN AUTOMATED MESSAGE FROM LEARNINGFOX.COM\n\n";
     $body .= "\n" . date('m/d/Y');
-    $headers = "From: confirmation@learningfox.com" . "\r\n";
+    $headers = "From: cec@learningfox.com" . "\r\n";
 
     mail($to, $subject, $body, $headers);
 }
@@ -82,7 +82,10 @@ $paymentData['courseprice']
 
     //echo $br."Payment Date: ".$payment_date.$br;
 
-    $course_ID = $payment_data['courseid'];
+    // Look not here!  Here be hacked code dragons!  Seriously, this is TOTALLY temp
+    $course_ID_from_payment_system = $payment_data['courseid'];
+    $course_ID = 7; //hard-coded course ID value for CEC's single course offering
+
     $sql1 = "insert into 3dcart_order_info (";
     $sql2 = ") values ( ";
     $sql1 .= " firstname ";
