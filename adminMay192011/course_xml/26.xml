@@ -1,8 +1,0 @@
-<tree>
-	<imageList>
-		<image name="lesson2" file="images/lesson_sm.gif"/>
-		<image name="home" file="images/course_tree.gif"/>
-	</imageList>
-	<root name=" Breeze Presenter - Simple Course" oImage="home" cImage="home">
-	</root>
-</tree>

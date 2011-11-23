@@ -1,4 +1,0 @@
-  {Sharing,#,_self,images/button0a_sm.gif} 
-  {Notes,nav.html,_self,images/note02_sm.gif} 
-  {Search,nav.html,_self,images/envel_sm.gif} 
-  {Bookmark,nav.html,_self,images/boxin_sm.gif}     

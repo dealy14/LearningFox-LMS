@@ -1,7 +1,0 @@
-  {Link Courses,javascript:1,_,_}  
-  {New Group,javascript:1,_,_}
-  {Edit Groups,javascript:1,_,_}   
-  {New Sub-Group Group,javascript:1,_,_}  
-  {Edit Sub_groups,javascript:1,_,_}      
-
-  
