@@ -10,64 +10,64 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 <html dir="ltr">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
-    <title>Cosmos Consulting  LearnCenter</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+    <title>Cosmos Consulting LearnCenter</title>
 
     <style type="text/css">
     <!--
-		    .dock {
-        	position: fixed;
-	        bottom: 0;
-            overflow: hidden;
-            margin:0 auto;
-            width: 100%;
-        }        
+	  .dock {
+		position: fixed;
+		bottom: 0;
+		overflow: hidden;
+		margin: 0 auto;
+		width: 100%;
+      }
     -->
 	</style>
 
     <!--[if IE]>    
     <style type="text/css">
-    
-	    .dock {
-            position:expression(inQuirksMode() ? "absolute" : "fixed") !important;
-            top: expression(inQuirksMode() ? ((document.documentElement.scrollTop || document.body.scrollTop) + (document.documentElement.clientHeight || document.body.clientHeight) - this.offsetHeight) + "px" : "fixed") !important;
-            width: expression(inQuirksMode() ? (document.documentElement.clientWidth || document.body.clientWidth) + "px" : "100%") !important;
-            left: expression(inQuirksMode() ? (document.documentElement.scrollLeft || document.body.scrollLeft) + "px" : "0") !important;
-        }
+	  .dock {
+		position: expression(inQuirksMode() ? "absolute" : "fixed") !important;
+		top: expression(inQuirksMode() ? ((document.documentElement.scrollTop || document.body.scrollTop) + (document.documentElement.clientHeight || document.body.clientHeight) - this.offsetHeight) + "px" : "fixed") !important;
+		width: expression(inQuirksMode() ? (document.documentElement.clientWidth || document.body.clientWidth) + "px" : "100%") !important;
+		left: expression(inQuirksMode() ? (document.documentElement.scrollLeft || document.body.scrollLeft) + "px" : "0") !important;
+      }
 	</style>
     <![endif]-->    
-	
+
 	<style type="text/css">
 	<!--
-	.rightborder { 
-		border-right: 1px solid #000000; 
-	} 
-	.leftborder { 
-		border-left: 1px solid #000000; 
-		border-right: 1px solid #000000; 
-		border-bottom: 1px solid #000000; 
-		border-style: thin; 
-	} 
+	.rightborder {
+		border-right: 1px solid #000000;
+	}
+	.leftborder {
+		border-left: 1px solid #000000;
+		border-right: 1px solid #000000;
+		border-bottom: 1px solid #000000;
+		border-style: thin;
+	}
 	.style2 {
-		font-size: xx-small
+		font-size: xx-small;
 	}
 	.descriptor_row	{
-		background:#003366;
-		font-size:x-small;
-		color:#FFFFFF;
-		border:#FFFFFF;
+		background: #003366;
+		font-size: x-small;
+		color: #fff;
+		border: #fff;
 	}
 	-->
 	</style>
+	
+	<link rel="stylesheet" type="text/css" href="header_style.css" />
+	
 </head>
 
-<body id="lcPage" bgcolor="#FFFFFF" style="direction: ltr"
-    leftmargin="0" rightmargin="0" topmargin="0" 
-	marginwidth="0" marginheight="0">
+<body id="lcPage" bgcolor="#fff" style="margin:0 0 0 0; direction: ltr">
 
     <div style="display: none">
-        <form id="learn" action="/learncenter.asp?sessionid=3-28351FC0-727D-4795-A1B2-D679BDFAB4DA&page=1&id=178414" method="post">
-        </form>
+        <form id="learn" action="/learncenter.asp?sessionid=3-28351FC0-727D-4795-A1B2-D679BDFAB4DA&page=1&id=178414" 
+				method="post"> </form>
     </div>
 
     <div id="divItemProperties" style="display:none;" title="More Information">
@@ -90,12 +90,10 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 <tr>
-	<td align="center" width="100%" bgcolor="#FFFFFF" 
+	<td align="center" width="100%" bgcolor="#fff" 
 		background="/images/skins/lc/images/clear1x1.gif">
-		<link rel="stylesheet" type="text/css" href="header_style.css" />
 
 	<table class="pageheader" align="center" border="0" cellpadding="0" cellspacing="0" width="960">
-
      <tbody>
          <tr>
              <td valign="top"><img src="images/cosmosheader4.png" align="default" border="0" hspace="0" vspace="0"  alt="" /></td>
@@ -115,8 +113,7 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 					 		<?php 
 							if(is_null($sid) or $session_error!="none") { ?>
 							  <a href="index.php?section=login&sid=<?php echo $sid; ?>">Login</a>
-							<?php } 
-							 else { ?>
+							<?php } else { ?>
 							  <a style="" href="index.php?section=<?php echo $section; ?>&logout=YES&sid=<?php echo $sid; ?>">
 								Log out
 							  </a>
@@ -129,9 +126,9 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
          </tr>
 		<tr>
 			<td align="right" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px;">
-		  	<?php
-				if(!is_null($sid)&&$session_error=="none") { ?>
-				Logged in as: <b><?php echo $lms_username; } ?></b>
+			  	<?php if(!is_null($sid) && $session_error=="none") { ?>
+					Logged in as: <b><?php echo $lms_username; ?></b>
+				<?php } ?>
 		  	</td>
 		</tr>
 	</tbody>
@@ -139,21 +136,21 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 </td></tr>
 </table>
 
-<table id="ldcLCPageContentContainerTable" width="100%" cellspacing="0" align="center" cellpadding="0" border="0">
-<tr>	
-	<?php 
-		if((!is_null($sid)&&$session_error=="none")) {
-			include($dir_components."navbar2.php");
-		}
-    ?>
-	 <td id="ldcLCPageLeftNavShadowTD" width="14" bgcolor="#EAEBED" valign="bottom" align="left" nowrap></td>
-	 <td id="ldcLCPageContentTD" valign="top" align="left">
-	 	<div id="ldcLCPageContent">
-			<?php include($mysection); ?>
-		</div>
-	</td>
-</tr>
-</table>
+  <table id="ldcLCPageContentContainerTable" width="100%" cellspacing="0" 
+  				align="center" cellpadding="0" border="0">
+	<tr>	
+		<?php 
+		  /* Disable left nav (navbar2.php) */
+		  //if((!is_null($sid) && $session_error=="none")) { include($dir_components."navbar2.php"); }
+    	?>
+		<td id="ldcLCPageLeftNavShadowTD" width="14" bgcolor="#EAEBED" valign="bottom" align="left" nowrap></td>
+		<td id="ldcLCPageContentTD" valign="top" align="left">
+			<div id="ldcLCPageContent">
+				<?php include_once($mysection); ?>
+			</div>
+		</td>
+	</tr>
+  </table>
 </body>
 
 </html>
