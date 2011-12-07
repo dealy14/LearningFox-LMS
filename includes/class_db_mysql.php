@@ -12,7 +12,7 @@ class db
 //var $mydb="";
 	var $user="cosmoscolms";
 	var $pass = "tTTS9wVUUW7ZjY";
-	var $host="localhost";
+	var $host="cosmoscolms.db.8685149.hostedresource.com";
 	var $mydb="cosmoscolms";
 
 	function connect()
