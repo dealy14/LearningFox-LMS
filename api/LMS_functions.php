@@ -5,19 +5,31 @@ require_once($_SERVER['DOCUMENT_ROOT'] . '/LMS/conf.php');
 function send_pass_email($email, $password, $ac_message) {
     $admin_email = "admin@cosmosconsultingllc.com";
 	$subject = 'Course Account information';
-    $to = $email;    //  user/purchaser/student email
-    $body = "Thank you very much for your purchase! You may now log in at any time ".
-			"to see the course(s) you have purchased, as well as any other previously ".
-			"purchased courses, by visiting http://cosmosconsultingllc.com/LMS.\n\n\n";
-    $body .= "To log in to your account, you require a username and password. ";
-	$body .= "Your username is simply your email address. Your randomly generated password for the account is:  " . $password . " \n\n\n";
+    
+	//override email for debugging
+	//$email = "ryan@rammons.net";
+		
+	$to = $email;    //  user/purchaser/student email
+    $body = "Thank you very much for your purchase! You may now log in at any time " .
+			"to see the course(s) you have purchased, as well as any other previously " .
+			"purchased courses, by visiting: \n" .
+			"http://cosmosconsultingllc.com/LMS/index.php?section=login.\n\n\n";
+			
+    $body .= "To log in to your account, you'll need your username and password. \n\n" .
+			 "Your username is simply your email address: " . $to . "\n" .
+			 "Your randomly generated password is: " . $password . " \n\n\n";
+			 
 	$body .= $ac_message . "\n\n";
-	$body .= "If you have any questions, concerns or comments, you may contact us at " . $admin_email . ".\n\n\n";
-    $body .= "THIS IS AN AUTOMATED MESSAGE FROM COSMOSCONSULTINGLLC.COM\n\n";
-    $body .= "\n" . date('m/d/Y');
-    $headers = "From: " . $admin_email . "\r\n";
+	
+	$body .= "If you have any questions, concerns or comments, please contact us at " .
+				$admin_email . ".\n\n\n";
+    
+	$body .= "THIS IS AN AUTOMATED MESSAGE FROM COSMOSCONSULTINGLLC.COM\n\n\n" .
+    			"\n" . date('m/d/Y');
+    
+	$headers = "From: " . $admin_email . "\r\n";
 
-    mail($to." , ryan@rammons.net", $subject, $body, $headers);
+    mail($to, $subject, $body, $headers);
 }
 
 function generatePassword($length=9, $strength=0) {
