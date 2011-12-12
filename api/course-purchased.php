@@ -11,22 +11,34 @@ $hr="<hr>";
 // the origin of the POST form action.
 
 //Static IP for californiaeducationconnection.com
-$authorized_ip = '174.37.45.113';
-//$authorized_ip = '68.178.254.198'; //Static IP for learningfox.com
+//$authorized_ip = '174.37.45.113';
+$authorized_host = "3dcartstores.com";
+
+//$remote_host = $_SERVER['REMOTE_HOST'];
+//$server_name = $_SERVER['SERVER_NAME'];
 
 $remote_ip = $_SERVER['REMOTE_ADDR'];
 
-//$authorized_ip = '70.179.77.227';//local IP for testing
-//echo $br."authorized_ip==remote_ip? ".($authorized_ip==$remote_ip);
+$hostname = gethostbyaddr($remote_ip);
 
-if ($authorized_ip != $remote_ip)
+$regexPattern = "/".$authorized_host."$/";
+
+//$hostname="3dcartstores.com";
+
+//mail("ryan@rammons.net","Script Accessed by ".$hostname,"","From:admin@learningfox.com");
+if (0==preg_match($regexPattern,$hostname))
     exit( "Not authorized." );
 else
     echo "Authorized.".$br.$hr;
 
+//mail("ryan@rammons.net","Authorized Access by ".$hostname,"","From:admin@learningfox.com");
+
+$formData = print_r($_REQUEST, true);
+
 //Verify that the XML file was saved without error before continuing
 if ($_FILES["file"]["error"] > 0)  {
-  	echo "Error: ".$_FILES["file"]["error"].$br;
+  	mail("ryan@rammons.net","Error","Error: ".$_FILES["file"]["error"],"From:admin@learningfox.com");
+	echo "Error: ".$_FILES["file"]["error"].$br;
 	die();
 }
 /*else
@@ -39,14 +51,32 @@ if ($_FILES["file"]["error"] > 0)  {
   }*/
 
 //Retrieve POSTed temporary XML file
+
 $file = $_FILES["file"]["tmp_name"];
+
+$numFiles=0;
+foreach($_FILES as $eachFile)
+{
+     if($eachFile['size'] > 0)
+        $numFiles++;
+}
+
 
 //Get the file contents as a string, then HTML-encode ampersands
 //                              (SimpleXML chokes on non-encoded &'s...)
 $data = ereg_replace("& ", "&amp; ", file_get_contents($file));
 
+mail("ryan@rammons.net","Begin parsing XML",$data." - number of files: ".$numFiles."\n\r".$formData,"From:admin@learningfox.com");
+
 //Parse the XML file's contents
-$order = new SimpleXMLElement($data);
+
+try {
+	$order = new SimpleXMLElement($data);
+} catch (Exception $e) {
+    mail("ryan@rammons.net","SimpleXMLElement parse excetion","Caught exception: ".$e->getMessage(),"From:admin@learningfox.com"); 
+}
+
+mail("ryan@rammons.net","Parse of XML successful","","From:admin@learningfox.com");
 
 $paymentData['store'] = $order->Store;
 $paymentData['orderid'] = $order->OrderID;
@@ -70,7 +100,12 @@ $paymentData['courseprice'] = $order->Course->CoursePrice;
 /*foreach ($paymentData as $key=>$value){
     echo $key.": ".$value.$br;
 }*/
+
 //echo $hr;
+
+
+mail("ryan@rammons.net","Order info",implode(",",$paymentData),"From:admin@learningfox.com");
+
 
 //Write values to the LMS database and generate/send credentials to user
 update_LMS($paymentData, $dir_usercourselist, $paymentData['courseid']);
