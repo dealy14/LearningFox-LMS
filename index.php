@@ -34,7 +34,7 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 		left: expression(inQuirksMode() ? (document.documentElement.scrollLeft || document.body.scrollLeft) + "px" : "0") !important;
       }
 	</style>
-    <![endif]-->    
+    <![endif]-->
 
 	<style type="text/css">
 	<!--
@@ -63,9 +63,8 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 	
 </head>
 
-<body id="lcPage" bgcolor="#fff" style="margin:0 0 0 0; direction: ltr">
-
-
+<body id="lcPage" bgcolor="#ffffff" style="margin: 0 auto 0 auto; direction: ltr">
+<div id="mainContainer">
     <div style="display: none">
         <form id="learn" action="/learncenter.asp?sessionid=3-28351FC0-727D-4795-A1B2-D679BDFAB4DA&page=1&id=178414" 
 				method="post"> </form>
@@ -92,13 +91,15 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 <tr>
-	<td align="center" width="100%" bgcolor="#fff" 
+	<td align="center" width="100%" bgcolor="#ffffff" 
 		background="/images/skins/lc/images/clear1x1.gif">
 
 	<table class="pageheader" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
      <tbody>
          <tr>
-             <td valign="top"><img src="images/cosmosheader4.png" align="default" border="0" hspace="0" vspace="0"  alt="" /></td>
+             <td valign="top">
+			 	<img src="images/cosmosheader4.png" align="default" border="0" hspace="0" vspace="0"  alt="" />
+			 </td>
          </tr>
          <!--
 		 <tr>
@@ -154,7 +155,7 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 		</td>
 	</tr>
   </table>
-
+</div>
 </body>
 
 </html>
