@@ -133,7 +133,7 @@ $userfile = $dir_usercourselist.$lms_userID;
   $description=$db->row("description");
   }
 ?>
-
+<div style="width:800px;">
 
 <P>
 <A HREF="index.php?section=courselist&sid=<?php echo $sid;?>">Back to Course List.</A>
@@ -201,4 +201,4 @@ $userfile = $dir_usercourselist.$lms_userID;
     </TD>
   </TR>
 </TABLE>
-</TD></TR></TABLE>                                                                                                                                                                                                                                                                                                                                        
+</TD></TR></TABLE> </div>                                                                                                                                                                                                                                                                                                                          

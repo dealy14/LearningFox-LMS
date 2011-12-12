@@ -1,3 +1,4 @@
+<div style="width:800px;">
 <h2 align="center">Your Transcript</h2>
 <div align="center"><?php include($dir_components."enrollment_toolbar.php"); ?></div>
 <?php
@@ -177,3 +178,4 @@ echo"<P>You have no courses in your group enrollment list at this time.</p>";
 }
 ?>
 
+</div>

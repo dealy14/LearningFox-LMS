@@ -1,4 +1,4 @@
-<div style="width:656px;">
+<div id="contentEnrollment">
 <!--
 <h2 align="center">Your Transcript</h2>
 <div align="center"><?php 
@@ -52,7 +52,6 @@ if(file_exists($sfile) || file_exists($gfile)) {
 
 
 if($mycourses[0] != "" || $mygcourses[0] != "") { ?>
-    <p>Courses</p>
     <table border="0" cellspacing="1" cellpadding="4" width="100%">
       <tr class="descriptor_row">
         <th NOWRAP width="80%">
@@ -94,8 +93,8 @@ if ($mycourses[0] != "") /* start IF_A1 */ {
 		 <?php if (!is_null($cID[$mycourses[$x]])) /* start IF_B2 */ { ?>
 		   
 			<tr bgcolor="<?php echo $bgcol; ?>">
-		    	<td Valign="TOP">
-			   		<a href="#" STYLE="text-decoration:none;color:#000000;" >
+		    	<td valign="top">
+			   		<a href="#" style="text-decoration:none;color:#000000;" >
 						<font face="Verdana" size="2">
 							<b><?php echo $cname[$mycourses[$x]]; ?></b>
 						</font>
