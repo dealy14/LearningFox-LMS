@@ -55,9 +55,6 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 		font-size: x-small;
 		color: #fff;
 		border: #fff;
-	#mainContainer {
-		width: 960px;
-	}
 	}
 	-->
 	</style>
@@ -67,7 +64,7 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 </head>
 
 <body id="lcPage" bgcolor="#fff" style="margin:0 0 0 0; direction: ltr">
-<div id="mainContainer">
+
 
     <div style="display: none">
         <form id="learn" action="/learncenter.asp?sessionid=3-28351FC0-727D-4795-A1B2-D679BDFAB4DA&page=1&id=178414" 
@@ -120,9 +117,7 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 							if(is_null($sid) or $session_error!="none") { ?>
 							  <a href="index.php?section=login&sid=<?php echo $sid; ?>">Login</a>
 							<?php } else { ?>
-							  <a style="" href="index.php?section=<?php echo $section; ?>&logout=YES&sid=<?php echo $sid; ?>">
-								Log out
-							  </a>
+							  
 							<?php } ?>
 						 </td>
                      </tr>
@@ -134,7 +129,8 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 		<tr>
 			<td align="right" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px;">
 			  	<?php if(!is_null($sid) && $session_error=="none") { ?>
-					Logged in as: <b><?php echo $lms_username; ?></b>
+					Logged in as: <b><?php echo $lms_username; ?></b> 
+					(<a style="" href="index.php?section=<?php echo $section; ?>&logout=YES&sid=<?php echo $sid; ?>">Log out</a>)
 				<?php } ?>
 		  	</td>
 		</tr>
@@ -159,7 +155,6 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 	</tr>
   </table>
 
-</div>
 </body>
 
 </html>
