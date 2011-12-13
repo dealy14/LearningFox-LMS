@@ -63,7 +63,11 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 	
 </head>
 
+<<<<<<< HEAD
 <body id="lcPage" bgcolor="#ffffff" style="margin: 0 auto 0 auto; direction: ltr">
+=======
+<body id="lcPage" bgcolor="#ffffff" style="margin:0 0 0 0; direction: ltr">
+>>>>>>> origin/cosmos
 <div id="mainContainer">
     <div style="display: none">
         <form id="learn" action="/learncenter.asp?sessionid=3-28351FC0-727D-4795-A1B2-D679BDFAB4DA&page=1&id=178414" 

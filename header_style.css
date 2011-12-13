@@ -8,6 +8,7 @@ body {
 	color:#777;
 	background-color: white;
    	width: 1000px;
+<<<<<<< HEAD
 	margin-left:auto;
 	margin-right:auto;
 }
@@ -16,6 +17,12 @@ body {
 	width: 1000px;
 	margin-left:auto;
 	margin-right:auto;
+=======
+}
+
+#mainContainer{
+	width: 1000px;	
+>>>>>>> origin/cosmos
 }
 
 #ldcLCPageContentContainerTable {
