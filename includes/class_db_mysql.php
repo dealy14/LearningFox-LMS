@@ -10,10 +10,10 @@ class db
 	var $host="localhost";
 	var $mydb="lms_davidealytechnologies_com"; */
 //var $mydb="";
-	var $user="cosmoscolms";
-	var $pass = "tTTS9wVUUW7ZjY";
-	var $host="cosmoscolms.db.8685149.hostedresource.com";
-	var $mydb="cosmoscolms";
+	var $user="cosmoscourseslms";
+	var $pass = "K3RgmwVqh6";
+	var $host="cosmoscourseslms.db.8685149.hostedresource.com";
+	var $mydb="cosmoscourseslms";
 
 	function connect()
 	{
@@ -25,7 +25,7 @@ class db
 		{
 		$this->rlink = mysql_connect($this->host,$this->user,$this->pass);
 		}
-	mysql_select_db ($this->mydb);
+		mysql_select_db ($this->mydb);
 	}
 	
 	
