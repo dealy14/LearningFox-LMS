@@ -2,9 +2,8 @@
 session_start();
 include("../conf.php");
 include("dUnzip2.inc.php");
-ini_set("post_max_size", "80M");
-ini_set("upload_max_filesize", "80M");
 
+echo $upload_max_filesize=ini_get("upload_max_filesize");
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -224,9 +223,17 @@ $courseid="course-".$fileno;
 															mkdir($file1,0777);
 															//chdir($file1);
 															
-													 $zip = new dUnzip2($file);
-													 $zip->unzipAll($file1);
-													 @unlink($file);
+													// $zip = new dUnzip2($file);
+													// $zip->unzipAll($file1);
+													 //@unlink($file);
+                                                     $zip = new ZipArchive();
+		$x = $zip->open($file);
+		if ($x === true) {
+			$zip->extractTo($file1); // change this to the correct site path
+			$zip->close();
+ 
+			unlink($file);
+		}
 													 //die( getcwd()); 
 													// 
 													 //..............function ends here..................//
@@ -578,7 +585,7 @@ displayChildrenRecursive($sitemap);
 													$db->connect();	
 													
 							//$str="insert into crab_lessons set course_id='".$courseid."',lesson_name='".$file1."',folder_name='".$_POST['cn']."/".$file1."',file_name='".$filename."',date_of_creation='".date('m/d/y'."'");
-				$str='insert into course set created="'.date("y/m/d").'",name="'.$task.'",type="wbt",course_type="'.$_POST['course_type'].'",folder_name="/LMS/uploadfiles/'.$courseid.'",course_id="'.$courseid.'",cmi_credit="'.$_POST['radio_credit'].'",sco_version="'.$sco_version.'",keyword="'.$keyword.'",description2="'.$desc.'",catalog_name="'.$catalog_name.'",catalog_entry="'.$catalog_entry.'",link="", category_id='.$_POST['category_id'].'';
+				$str='insert into course set created="'.date("m/d/y").'",name="'.$task.'",type="wbt",course_type="'.$_POST['course_type'].'",folder_name="/LMS/uploadfiles/'.$courseid.'",course_id="'.$courseid.'",cmi_credit="'.$_POST['radio_credit'].'",sco_version="'.$sco_version.'",keyword="'.$keyword.'",description2="'.$desc.'",catalog_name="'.$catalog_name.'",catalog_entry="'.$catalog_entry.'",link="", category_id='.$_POST['category_id'].'';
 							
 									//echo $str;
 									

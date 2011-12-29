@@ -68,7 +68,7 @@
 	color:#64D7C6;
 }
 </style>
-<div style="width:656px;">
+<div style="width:800px;">
 <div id="news-content">
 	<div class="nc-title">News Section</div>
 	<?php

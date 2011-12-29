@@ -71,7 +71,7 @@ if(isset($_GET['lib'])&&!is_null($_GET['lib'])&&isset($_GET['op'])&&!is_null($_G
 	}
 }
 ?>
-<div style="width:656px;margin-top:20px;">	
+<div style="width:800px;margin-top:20px;">	
 <div class="library-content">
 	<div class="library-content">
 		<div class="style1">Repository</div>

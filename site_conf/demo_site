@@ -4,7 +4,7 @@
 #############################################################################################
 
 //exit;
-if($section!=""&&$section!="faqs"&&$section!="elearning"&&$section!="catelog"&&$section!="catelog_subpage"&&$section!="get_started"&&$section!="contact"&&$section!="login"&&$section!="register"&&$section!="messageboard"&&$section!="msg")
+if($section!=""&&$section!="elearning"&&$section!="catelog"&&$section!="catelog_subpage"&&$section!="get_started"&&$section!="contact"&&$section!="login"&&$section!="register")
 {
 require_once($dir_components."session_check.php");
 }
@@ -18,7 +18,7 @@ switch($section)
 
   case '':
   $mylogin="html/login.html";
-  $mysection=$dir_components."content_home.php";
+  $mysection=$dir_components."content_login.php";
 
   break;
   
