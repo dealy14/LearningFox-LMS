@@ -1,4 +1,3 @@
-<?php  ?>
 	<style>
 		.librarydoc-content{
 			float:left;

@@ -32,7 +32,7 @@ window.open('changepassword.php','ChangePassword','resizable=0,width=650,height=
 			 	<td width="186">&nbsp;</td>
 			 </tr>
 			  <tr> 
-                <td width="186" ><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><B> &nbsp;Global Navigation</B></font></td>
+                <td width="186" ><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><B>Global Navigation</B></font></td>
               </tr>
 			  <?php
 			  if($lms_userlevel!=1){
@@ -111,7 +111,7 @@ window.open('changepassword.php','ChangePassword','resizable=0,width=650,height=
 	  <?php }?>	
 <table width="186"  border="0" cellspacing="0" cellpadding="0">
    <tr>
-	   <td width="auto"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><strong> &nbsp;Public Documents</strong></font></td>
+	   <td width="auto"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><strong>Public Documents</strong></font></td>
    </tr>
    <tr>
 	   <td width="auto"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><a href="index.php?section=faqs&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;"> FAQs</a></font></td>
