@@ -3,7 +3,7 @@ session_start();
 require_once("conn.php");
 
 	$getftyle = explode("/",$_FILES['uploadedfile']['type']);
-	$folder_id = $_POST["folder_id"];;
+	
 	if($getftyle[1] == 'msword'){
 		$img_type = 'word-thumb';
 	}else{
@@ -18,9 +18,9 @@ if($getftyle[1] != ''){
 		move_uploaded_file($_FILES['uploadedfile']['tmp_name'], "libdocs/".$_FILES['uploadedfile']['name']);
 
 
-		$query="INSERT INTO `library` (`userID` ,`filename` ,`filetype` ,`img_type` ,`datetime`,`targetID`)
+		$query="INSERT INTO `library` (`userID` ,`filename` ,`filetype` ,`img_type` ,`datetime`)
 		   VALUES('".mysql_escape_string($_SESSION['lms_userID'])."','".$_FILES['uploadedfile']['name']."',
-				  '".mysql_escape_string($getftyle[1])."','".mysql_escape_string($img_type)."', NOW(), '".mysql_escape_string($folder_id)."')"; 
+				  '".mysql_escape_string($getftyle[1])."','".mysql_escape_string($img_type)."', NOW())"; 
 																			
 	   $result = mysql_query($query);
 	   $userID = mysql_insert_id($db);
