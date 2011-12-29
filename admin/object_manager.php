@@ -239,7 +239,7 @@ while($db->getRows())
 { 
 	$day  = $db->row("created");
 	$domain = split('/',$day);
-	$var = $domain[1]."/".$domain[2]."/".$domain[0];
+	$var = $domain[0]."/".$domain[1]."/".$domain[2];
 	$createDate = date('m/d/Y', strtotime($var));
 	$ID=$db->row("ID");
 	if($obtable=="course")
