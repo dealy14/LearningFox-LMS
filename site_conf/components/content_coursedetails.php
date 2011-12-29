@@ -133,12 +133,12 @@ $userfile = $dir_usercourselist.$lms_userID;
   $description=$db->row("description");
   }
 ?>
-
+<div style="width:800px;">
 
 <P>
 <A HREF="index.php?section=courselist&sid=<?php echo $sid;?>">Back to Course List.</A>
 <P>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="800"><TR><TD BGCOLOR="#CCCCCC">
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="550"><TR><TD BGCOLOR="#CCCCCC">
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="4" WIDTH="100%">
   <TR BGCOLOR="#FFFFFF">
     <TD COLSPAN="2" ALIGN="RIGHT">
@@ -201,4 +201,4 @@ $userfile = $dir_usercourselist.$lms_userID;
     </TD>
   </TR>
 </TABLE>
-</TD></TR></TABLE>                                                                                                                                                                                                                                                                                                                                        
+</TD></TR></TABLE> </div>                                                                                                                                                                                                                                                                                                                          

@@ -36,16 +36,16 @@
 ** disparaging to ADL Co-Lab Hub.
 **
 ** This software is provided "AS IS," without a warranty of any kind.  ALL 
-** EXPRESS OR IMPLIED CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING 
-** ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE 
-** OR NON-INFRINGEMENT, ARE HEREBY EXCLUDED.  ADL Co-Lab Hub AND ITS LICENSORS 
-** SHALL NOT BE LIABLE FOR ANY DAMAGES SUFFERED BY LICENSEE AS A RESULT OF 
-** USING, MODIFYING OR DISTRIBUTING THE SOFTWARE OR ITS DERIVATIVES.  IN NO 
-** EVENT WILL ADL Co-Lab Hub OR ITS LICENSORS BE LIABLE FOR ANY LOST REVENUE, 
+** EXPRESS OR IMPliED CONDITIONS, REPRESENTATIONS AND WARRANTIES, INCLUDING 
+** ANY IMPliED WARRANTY OF MERCHANTABIliTY, FITNESS FOR A PARTICulAR PURPOSE 
+** OR NON-INFRINGEMENT, ARE HEREBY EXCLUDED.  ADL Co-Lab Hub AND ITS liCENSORS 
+** SHALL NOT BE liABLE FOR ANY DAMAGES SUFFERED BY liCENSEE AS A RESulT OF 
+** USING, MODIFYING OR DIStrIBUTING THE SOFTWARE OR ITS DERIVATIVES.  IN NO 
+** EVENT WILL ADL Co-Lab Hub OR ITS liCENSORS BE liABLE FOR ANY LOST REVENUE, 
 ** PROFIT OR DATA, OR FOR DIRECT, INDIRECT, SPECIAL, CONSEQUENTIAL, 
 ** INCIDENTAL OR PUNITIVE DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THE 
-** THEORY OF LIABILITY, ARISING OUT OF THE USE OF OR INABILITY TO USE 
-** SOFTWARE, EVEN IF ADL Co-Lab Hub HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH 
+** THEORY OF liABIliTY, ARISING OUT OF THE USE OF OR INABIliTY TO USE 
+** SOFTWARE, EVEN IF ADL Co-Lab Hub HAS BEEN ADVISED OF THE POSSIBIliTY OF SUCH 
 ** DAMAGES. 
 **
 *******************************************************************************/
@@ -53,12 +53,13 @@
 <head>
 <meta http-equiv="expires" content="Tue, 20 Aug 1999 01:00:00 GMT">
 <meta http-equiv="Pragma" content="no-cache">
-<title>SCORM 2004 3rd Edition Sample Run-Time Environment Version 1.0.2 - 
-    Login</title>
+<title>
+	SCORM 2004 3rd Edition Sample Run-Time Environment Version 1.0.2 - Login
+</title>
 
 <link href="../includes/sampleRTE_style.css" rel="stylesheet" type="text/css">
 
-<script language=javascript>
+<script language="javascript">
 
 /****************************************************************************
 **
@@ -72,12 +73,11 @@
 ***************************************************************************/
 function submit1_onclick() 
 {
-   var username = new String(loginform.uname.value);
-   var password = new String(loginform.pwd.value);
+   var username = new String(document.loginform.uname.value);
+   var password = new String(document.loginform.pwd.value);
     
-   if (username == "" || password == "")
-   {
-      alert("you must enter a username and a password");
+   if (username == "" || password == "") {
+      alert("You must enter a username and a password.");
       return false;
    }
    return true;
@@ -85,7 +85,7 @@ function submit1_onclick()
 
 </script>
 </head>
-<body id="main_page">
+<body id="main_page" onload="document.loginform.uname.focus();">
 
   <div id="login_page">
    <form action="LMSLogin.jsp" method="Get" id="loginform" name="loginform" 
@@ -105,12 +105,8 @@ function submit1_onclick()
       <input type="Submit" value="Submit" id="submit1" name="submit1">
    </form>
 
-<script language="JavaScript">
-
-
-document.loginform.uname.focus();
-
-
+<script type="text/javascript">
+	document.loginform.uname.focus();
 </script>
 
  </div>

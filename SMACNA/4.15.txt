@@ -1,5 +1,0 @@
-&extra_movie=em1.swf&
-&t_content=Certification of the accuracy of the recorded data by a company executive is required.  This is another change in the new rule. A company executive has to certify that the information is accurate. And it can't be just any executive. It has to be basically one of four.  It has to be an owner of the company, officer of the corporation, the highest-ranking person at the establishment itself or that person's supervisor.  
-The rationale for this requirement is that it will help move the management of the records up the corporate ladder so that somebody with a significant stake in the establishment will take personal responsibility for the accuracy of the records.
-Click <FONT COLOR="#990000">Next</FONT> to continue.&
-&content_status=loaded&

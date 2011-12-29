@@ -4,17 +4,16 @@ class db
 	var $persistent=0;
 	var $query;
 
-/*	
-	var $user="root";
+	
+/*	var $user="root";
 	var $pass = "";
 	var $host="localhost";
-	var $mydb="lms"; 
-*/
-
-	var $user="lmsv1db";
-	var $pass = "Technologies14";
-	var $host="p50mysql107.secureserver.net";
-	var $mydb="lmsv1db";
+	var $mydb="lms_davidealytechnologies_com"; */
+//var $mydb="";
+	var $user="cosmoscolms";
+	var $pass = "tTTS9wVUUW7ZjY";
+	var $host="cosmoscolms.db.8685149.hostedresource.com";
+	var $mydb="cosmoscolms";
 
 	function connect()
 	{

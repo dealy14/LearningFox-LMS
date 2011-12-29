@@ -20,6 +20,18 @@ if($obtable=="asset")
 $obtable="course";
 }
 
+function getCourseCategory($category_id)
+{
+   $db = new db;
+   $db->connect();
+   $db->query("SELECT category_name FROM course_categories WHERE category_id=$category_id");
+   while($db->getRows())
+   { 
+	  return $db->row("category_name");
+   }
+   $db->close();
+   return "";
+}
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
@@ -199,12 +211,13 @@ function swLoad()
   <TR><TD BGCOLOR="#93BEE2">
 <TABLE BORDER="0" CELLPADDING="2" CELLSPACING="1" WIDTH="100%">
   <TR>
-    <TD bgcolor="#93BEE2" COLSPAN="4"><IMG SRC="images/spcr.gif" HEIGHT="1" WIDTH="394"></TD>
+    <TD bgcolor="#93BEE2" COLSPAN="5"><IMG SRC="images/spcr.gif" HEIGHT="1" WIDTH="394"></TD>
   </TR>
   <TR>
     <TD bgcolor="#93BEE2"><B><SPAN CLASS="innerl">Name</SPAN></B></TD>
     <TD bgcolor="#93BEE2"><B><SPAN CLASS="innerl">Created</SPAN></B></TD>
     <TD bgcolor="#93BEE2"><B><SPAN CLASS="innerl">Course Type</SPAN></B></TD>
+	<TD bgcolor="#93BEE2"><B><SPAN CLASS="innerl">Category</SPAN></B></TD>
     <TD bgcolor="#93BEE2"><B><SPAN CLASS="innerl">ID</SPAN></B></TD>
   </TR>
 <?php
@@ -220,13 +233,13 @@ elseif($obtable=="course")
 
 $db = new db;
 $db->connect();
-$db->query("SELECT name,ID,created,course_type $topic_sql_extra FROM $obtable ORDER BY $order");
+$db->query("SELECT name,ID,created,course_type,category_id $topic_sql_extra FROM $obtable ORDER BY $order");
 $xm=0;
 while($db->getRows())
 { 
 	$day  = $db->row("created");
 	$domain = split('/',$day);
-	$var = $domain[1]."/".$domain[2]."/".$domain[0];
+	$var = $domain[0]."/".$domain[1]."/".$domain[2];
 	$createDate = date('m/d/Y', strtotime($var));
 	$ID=$db->row("ID");
 	if($obtable=="course")
@@ -277,6 +290,7 @@ while($db->getRows())
 			<A HREF="#" TARGET="rmain" onClick="setBKG('m<?php echo $ID;?>');<?php echo $course_link;?>top.top1.getEdit(top.top1.<?php echo $obtable;?>ItemSelect,'<?php echo $ID;?>','<?php echo $obtable.$topic_extra;?>');getsessiondata('<?php echo $ID;?>');pushnamedata('<?php echo $db->row("name");?>');checkreturn('<?php echo $db->row("name");?>');return false;"><IMG SRC="<?php echo $rimage;?>" alt="<?php echo $db->row("name");?>" BORDER="0" ALIGN="ABSMIDDLE"></A> <?php echo $db->row("name");?></TD>
 		<TD><SPAN CLASS="innerl"><?php echo $createDate;?></TD>
 		<TD><SPAN CLASS="innerl"><?php echo $db->row("course_type");?></TD>
+		<TD><SPAN CLASS="innerl"><?php echo getCourseCategory($db->row("category_id"));?></TD>
 		<TD><SPAN CLASS="innerl"><?php echo $db->row("ID");?></TD>
 	  </TR>
 	<?php

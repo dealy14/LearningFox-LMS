@@ -117,76 +117,18 @@ if(isset($_GET['lib'])&&!is_null($_GET['lib'])&&isset($_GET['op'])&&!is_null($_G
 		<div class="librarydoc-content">
 			<?php
 				if(isset($_SESSION['uploadeddoc'])){
-						echo '<div class="uploadedlink"><p class="logsession">'.$_SESSION['uploadeddoc'].'</p></div>';
+						//echo '<div class="uploadedlink"><p class="logsession">'.$_SESSION['uploadeddoc'].'</p></div>';
 					unset($_SESSION['uploadeddoc']);
 				}
-				
-				if($_REQUEST['update_folder']=='yes')
-				{
-				    $update_view="display: block";
-				}
-				else
-				{
-				    $update_view='display: none';
-				}
-				$folder_query = "SELECT * FROM library_folders WHERE folder_id=".$_REQUEST['update_folder_id'];
-				$folder_result = mysql_query($folder_query);
-				while($row = mysql_fetch_assoc($folder_result))
-				{
-				    $folder_name= $row['folder_name'];
-				}
 			?>
-			<br />
-			<div align="center" style="background-color:#F8F0E5; <?php echo $update_view; ?>;">				
-			<div style="text-align:left; margin-left:10px;"><strong>Edit Folder</strong></div>
-			<form name="folder_update_form" id="folder_update_form" method="post" action="repository_operations.php?section=library&sid=<?=$_GET['sid']?>&operation=update_folder">
-			<table>
-			<tr>
-			<td>
-			Folder Name: <?php echo $folder_name; ?><br /><input type="hidden" name="update_folder_id" id="update_folder_id" size="40" value="<?php echo $_REQUEST['update_folder_id']; ?>" />
-			</td>
-			</tr>
-			<tr>
-			<td>
-			Renamed by: <input type="text" name="update_folder_name" id="update_folder_name" size="40" />
-			<input type="submit" value="Rename"/> 
-			</td></tr></table>
-			</form>			
-			</div><br/>
-			<div align="center" style="background-color:#F8F0E5;">			
-			
-			<div style="text-align:left; margin-left:10px;"><strong>Create New Folder</strong></div>
-			<form name="folder_create_form" id="folder_create_form" method="post" action="repository_operations.php?section=library&sid=<?=$_GET['sid']?>&operation=create_folder">
-			Folder Name: <input type="text" name="new_folder_name" id="new_folder_name" size="40" />
-			<input type="button" value="Create" onclick="createFolder();" /> 
-			</form>
-			</br>
-			</div>
-			<script type="text/javascript">
-			function createFolder()
-			{
-			   document.forms["folder_create_form"].submit();
-			}
-			</script>
 			<br />
 			<div align="center" style="background-color:#F8F0E5;">			
 			<div style="text-align:left; margin-left:10px;"><strong>Upload files here:</strong></div>
 			<form enctype="multipart/form-data" action="docpost.php?section=library&sid=<?=$_GET['sid']?>&lib=2" method="POST">
 			<input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
-			<p style="text-align:left; padding-left:130px;">Upload to:&nbsp;&nbsp;&nbsp;&nbsp;
-			<?php 
-			$result = mysql_query("SELECT folder_id, folder_name FROM library_folders");
-            while ($row = mysql_fetch_array($result))
-            {
-		         $folder_id=$row["folder_id"];
-		         $folder_name=$row["folder_name"];
-                 echo "<input type='radio' id='folder_id' name='folder_id' value='".$folder_id."' />".$folder_name."&nbsp;&nbsp;";
-		    }
-			 mysql_free_result($result); 
-			?>
-            <!--<label for="rdbUploadToP" title="Priority"><input type="radio" id="rdbUploadToP" name="rdbUploadTo" value="priority" />Priority</label>&nbsp;&nbsp;<label for="rdbUploadToG" title="Global"><input type="radio" id="rdbUploadToG" name="rdbUploadTo" value="global" checked="checked" />Board Meeting Documents</label>&nbsp;&nbsp;<label for="rdbUploadToO" title="Own"><input type="radio" id="rdbUploadToO" name="rdbUploadTo" value="own" />Own</label>-->
+            <p style="text-align:left; padding-left:130px;">Upload to:&nbsp;&nbsp;&nbsp;&nbsp;<label for="rdbUploadToP" title="Priority"><input type="radio" id="rdbUploadToP" name="rdbUploadTo" value="priority" />Priority</label>&nbsp;&nbsp;<label for="rdbUploadToG" title="Global"><input type="radio" id="rdbUploadToG" name="rdbUploadTo" value="global" checked="checked" />Board Meeting Documents</label>&nbsp;&nbsp;<label for="rdbUploadToO" title="Own"><input type="radio" id="rdbUploadToO" name="rdbUploadTo" value="own" />Own</label>
             </p>
-			Choose a file to upload: <input name="uploadedfile" id="uploadedfile" type="file" /><br />
+			Choose a file to upload: <input name="uploadedfile" type="file" name="udoc" id="udoc" /><br />
 			<input type="submit" value="Upload File" />
 			</form>
 			</div>

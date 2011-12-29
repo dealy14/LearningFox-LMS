@@ -1,6 +1,0 @@
-&t_content=The basic requirement to report fatalities and the hospitalization of three of more employees to OSHA within 8 hours has not changed. The report must be made orally to the OSHA area office near the incident site or by using the toll free number, <FONT COLOR="#990000">1-800-321-6742 (OSHA)</FONT>.
-Clarifications in the new rule relating to reporting information to the government include:
- - Employers must report fatal heart attacks that occur at work to OSHA.<BR> - Employers do not have to report motor vehicle accidents that occur in a public street<BR><FONT COLOR="#FFFFFF">. . </FONT>outside of a construction work zone.<BR> - Employers do not have to report commercial airplane, train, subway or bus accidents.
-Although employers do not have to report these incidents to OSHA under the 8-hour reporting requirement, any fatalities and hospitalizations caused by motor vehicle accidents, as well as commercial or public transportation accidents are recordable if they meet OSHA's recordability criteria.
-Click <FONT COLOR="#990000">NEXT</FONT> to continue to LESSON 5: Frequently Asked Questions.
-&content_status=loaded&

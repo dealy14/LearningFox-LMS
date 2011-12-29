@@ -1,7 +1,0 @@
-&t_content=<FONT COLOR="#990000" SIZE="14">It's important to note!</FONT>
-If your company has more than one establishment or site, you must keepseparate records for each physical location that is expected to remain in operation for one year or longer.
-Cases listed on the Log of Work-Related Injuries and Illnesses are not necessarily eligible for workers' compensation or other insurance benefits. Listing a case on the Log does not mean that the employer or worker was at fault or that an OSHA standard was violated.
-<FONT COLOR="#990000" SIZE="14">You don't post the Log. You post only the Summary at the end of the year.</FONT>
-Well that's the OSHA 300 Log of Work-Related Injuries and Illnesses.  Let's move on to FORM 300A - THE SUMMARY. 
-Click <FONT COLOR="#990000">Next</FONT> to continue.&
-&content_status=loaded&
