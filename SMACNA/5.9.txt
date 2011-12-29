@@ -1,4 +1,0 @@
-&extra_movie=e2.swf&
-&t_content=The federal government does two surveys of the Recordkeeping information, one by OSHA and one by the Bureau of Labor Statistics. Often these are run by state agencies on behalf of those two government federal agencies. If employers receive a form for either of these surveys in the mail, they need to complete and return the form using the instructions that are on the form.  The new incident report form has been modified to make it easier to comply with the BLS survey.  Essentially, an employer can copy the data from the 300 and the -- the 300-A form and the 301 forms directly into the BLS survey and meet those requirements.
-Click <FONT COLOR="#990000">NEXT</FONT> to continue.
-&content_status=loaded&

@@ -1,4 +1,0 @@
-&t_content=<FONT SIZE="10">(Please note that no audio will be available for Lesson 4.)</FONT>
-The new data requirements do not mean that employers have to change the kind of information they record.  OSHA still allows employers to use what they call "equivalent forms."   These include any forms that have the same data elements.  Many employers use their workers compensation first report of injuries or internal accident reports, and OSHA does still allow that. But, employers have to make sure that if they're going to continue to be using the same forms that they used for the old OSHA 101, that the new data element requirements appearing on the FORM 301 is contained on the equivalent forms.  If all of the information is not on the form, the employer won't satisfy the recording requirements.
-Click <FONT COLOR="#990000">NEXT</FONT> to examine MAINTAING RECORDS ON COMPUTERS.
-&content_status=loaded&

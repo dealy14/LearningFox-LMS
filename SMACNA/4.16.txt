@@ -1,5 +1,0 @@
-&extra_movie=em2.swf&
-&t_content=Items of interest on the 300-A are now required fields for average numbers of employees and also for total hours worked. This is new to the data collection. And what this will allow employers to more easily calculate incidence rates and also provide OSHA and the Bureau of Labor Statistics with the data when required.  On the back of the summary is a worksheet for employers to use to estimate those figures if they don't have them readily available.
-The annual summary now needs to be posted for a three-month period, from February 1st through April 30, of the year following the year covered by the summary. And it needs to be posted in a common area where all the employees can see it.  Posting makes employees aware of the occupational injury and illness experience of the establishment in which they work.
-Let's try a quick quiz.<BR>Click <FONT COLOR="#990000">Next</FONT> to take the quiz.&
-&content_status=loaded&

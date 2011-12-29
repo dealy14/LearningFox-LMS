@@ -1,5 +1,0 @@
-&extra_movie=em2.swf&
-&t_content=OSHA's new recordkeeping rule, 29 CFR 1904, effective on January 1, 2002 affects 1.4 million establishments in the United States. Like the former rule, employers with 10 or fewer employees are exempt from most requirements of the new rule, as are establishments classified in a number of industries in the low hazard retail, service, finance, insurance and real estate sectors. The new rule updates the list of exempted industries to reflect recent industry data. However, all employers covered by the OSHA act must continue to report any workplace incident resulting in a fatality or the hospitalization of three or more employees.
-When you're ready continue, click the <FONT COLOR="#990000">NEXT button</FONT>.
-&
-&content_status=loaded&

@@ -1,9 +1,0 @@
-&t_content=<FONT SIZE="16" COLOR="#990000">Can one business location include two or more establishments?</FONT>
-Normally, one business location has only one establishment. Under limited conditions, the employer may consider two or more separate businesses that share a single location to be separate establishments. An employer may divide one location into two or more establishments only when:
-<FONT SIZE="20">- </FONT>Each of the establishments represents a distinctly separate business;
-<FONT SIZE="20">- </FONT>Each business is engaged in a different economic activity;
-<FONT SIZE="20">- </FONT>No one industry description in the Standard Industrial Classification (SIC) Manual applies to<BR><FONT COLOR="#FFFFFF">. . </FONT>the joint activities of the establishments; and
-<FONT SIZE="20">- </FONT>Separate reports are routinely prepared for each establishment on the number of<BR><FONT COLOR="#FFFFFF">. . </FONT>employees, their wages and salaries, sales or receipts, and other business information. For<BR><FONT COLOR="#FFFFFF">. . </FONT>example, if an employer operates a construction company at the same location as a<BR><FONT COLOR="#FFFFFF">. . </FONT>lumberyard, the employer may consider each business to be a separate establishment.
-When you're ready to continue, click the <FONT COLOR="#990000">NEXT button</FONT>.
-&
-&content_status=loaded&

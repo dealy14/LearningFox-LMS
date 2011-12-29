@@ -1,4 +1,0 @@
-&extra_movie=e2.swf&
-&t_content=The state plan states must collect the same information as federal OSHA so that we have consistent data nationwide. However, the states can differ on other matters. For example, they can have different industry and size exemptions and they can have different requirements for the reporting of fatalities and catastrophes.  They can be more stringent in their requirements but they have to be at least as effective as the federal OSHA rules.
-Click <FONT COLOR="#990000">NEXT</FONT> to continue.
-&content_status=loaded&

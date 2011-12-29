@@ -1,5 +1,0 @@
-&t_content=Many employers use an equivalent workers' compensation form or internal reporting form for the purpose of recording more detailed information on each case. It's perfectly okay to do this.
-The OSHA form 301 differs in several ways from the former OSHA 101. The form has been reworded and reformatted for clarity. The new form eliminates redundant data and adds several items that will provide important information regarding the occurrence of occupational injuries and illnesses. New questions relate to: the date the employee was hired, the time the employee began work, the time of the event, and whether the employee was treated at an emergency room or hospitalized overnight.
-Let's move on to the OSHA 300 Log of Work-Related Injuries and Illnesses.
-Click <FONT COLOR="#990000">Next</FONT> to continue.&
-&content_status=loaded&
