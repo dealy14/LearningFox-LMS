@@ -4,17 +4,16 @@ class db
 	var $persistent=0;
 	var $query;
 
-/*	
-	var $user="root";
+	
+/*	var $user="root";
 	var $pass = "";
 	var $host="localhost";
-	var $mydb="lms"; 
-*/
-
-	var $user="lmsv1db";
-	var $pass = "Technologies14";
-	var $host="p50mysql107.secureserver.net";
-	var $mydb="lmsv1db";
+	var $mydb="lms_davidealytechnologies_com"; */
+//var $mydb="";
+	var $user="cosmoscourseslms";
+	var $pass = "K3RgmwVqh6";
+	var $host="cosmoscourseslms.db.8685149.hostedresource.com";
+	var $mydb="cosmoscourseslms";
 
 	function connect()
 	{
@@ -26,7 +25,7 @@ class db
 		{
 		$this->rlink = mysql_connect($this->host,$this->user,$this->pass);
 		}
-	mysql_select_db ($this->mydb);
+		mysql_select_db ($this->mydb);
 	}
 	
 	
