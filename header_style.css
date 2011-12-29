@@ -1,5 +1,5 @@
 * {
-	white-space:normal;
+	/*white-space:normal;*/
 }
 
 body {
@@ -8,26 +8,27 @@ body {
 	color:#777;
 	background-color: white;
    	width: 1000px;
-<<<<<<< HEAD
 	margin-left:auto;
 	margin-right:auto;
+	text-align: center;
 }
 
 #mainContainer{
 	width: 1000px;
 	margin-left:auto;
 	margin-right:auto;
-=======
-}
-
-#mainContainer{
-	width: 1000px;	
->>>>>>> origin/cosmos
+	border-style:solid;
+	border-width:1px;
+	border-color:#000000;
+	text-align: left;
 }
 
 #ldcLCPageContentContainerTable {
 	width:100%;
 	margin:0 auto;
+	padding-left:5px;
+	padding-right:5px;
+	padding-bottom:5px;
 }
 
 #ldcLCPageLeftNav, #ldcLCPageLeftNavTD, #ldcLCPageContent, #ldcLCPageContentTD {
@@ -38,6 +39,7 @@ body {
 #ldcLCPageLeftNav,#ldcLCPageLeftNavTD {
 	border:none;
 	background-color:transparent;
+	vertical-align:top;
 }
 
 #ldcLCPageLeftNavTD, #ldcLCPageContentTD {
