@@ -70,115 +70,8 @@ function generatePassword($length=9, $strength=0) {
 
 function update_LMS($payment_data, $dir_usercourselist) {
 
-
-    // Format date value from 'MM/DD/YYYY' to 'YYYY-MM-DD' for MySQL insert
-    /* // this correction is only for the CEC 3dcart XML file date format
-     * $temp_date = date_parse($payment_data['payment_date']);
-     * $payment_date = $temp_date['year']."-".$temp_date['month']."-".$temp_date['day'];
-	 */
 	$payment_date = $payment_data['payment_date'];
-    
-	//echo $br."Payment Date: ".$payment_date.$br;
-
 	$course_array = $payment_data['course_info'];
-
-/*
-    
-    $sql1 = "insert into 3dcart_order_info (";
-    $sql2 = ") values ( ";
-    $sql1 .= " firstname ";
-    $sql2 .= " '" . $payment_data['first_name'] . "' ";
-
-    if ("" != $payment_data['last_name']) {
-        $sql1 .= ", lastname ";
-        $sql2 .= ", '" . $payment_data['last_name'] . "' ";
-    }
-
-    if ("" != $payment_data['email']) {
-        $sql1 .= ", email ";
-        $sql2 .= ", '" . $payment_data['email'] . "' ";
-    }
-
-    if ("" != $payment_data['address']) {
-        $sql1 .= ", address ";
-        $sql2 .= ", '" . $payment_data['address'] . "' ";
-    }
-
-    if ("" != $payment_data['address2']) {
-        $sql1 .= ", address2 ";
-        $sql2 .= ", '" . $payment_data['address2'] . "' ";
-    }
-
-    if ("" != $payment_data['city']) {
-        $sql1 .= ", city ";
-        $sql2 .= ", '" . $payment_data['city'] . "' ";
-    }
-
-    if ("" != $payment_data['state']) {
-        $sql1 .= ", state ";
-        $sql2 .= ", '" . $payment_data['state'] . "' ";
-    }
-
-    if ("" != $payment_data['zip']) {
-        $sql1 .= ", zip ";
-        $sql2 .= ", '" . $payment_data['zip'] . "' ";
-    }
-
-    if ("" != $payment_data['country']) {
-        $sql1 .= ", country ";
-        $sql2 .= ", '" . $payment_data['country'] . "' ";
-    }
-
-    if ("" != $payment_data['coursename']) {
-        $sql1 .= ", coursename ";
-        $sql2 .= ", '" . $payment_data['coursename'] . "' ";
-    }
-
-    if ("" != $payment_data['courseid']) {
-        $sql1 .= ", courseid ";
-        $sql2 .= ", '" . $payment_data['courseid'] . "' ";
-    }
-
-    if ("" != $payment_data['payment_date']) {
-        $sql1 .= ", payment_date ";
-        $sql2 .= ", '" . $payment_date . "' ";
-    }
-
-    if ("" != $payment_data['orderid']) {
-        $sql1 .= ", orderid ";
-        $sql2 .= ", '" . $payment_data['orderid'] . "' ";
-    }
-
-    if ("" != $payment_data['invoice_number']) {
-        $sql1 .= ", invoice_number ";
-        $sql2 .= ", '" . $payment_data['invoice_number'] . "' ";
-    }
-
-    if ("" != $payment_data['courseprice']) {
-        $sql1 .= ", courseprice ";
-        $sql2 .= ", '" . $payment_data['courseprice'] . "' ";
-    }
-
-    if ("" != $payment_data['store']) {
-        $sql1 .= ", store ";
-        $sql2 .= ", '" . $payment_data['store'] . "' ";
-    }
-
-    if ("" != $payment_data['phone']) {
-        $sql1 .= ", phone ";
-        $sql2 .= ", '" . $payment_data['phone'] . "' ";
-    }
-
-    if ("" != $payment_data['ip']) {
-        $sql1 .= ", ip ";
-        $sql2 .= ", '" . $payment_data['ip'] . "' ";
-    }
-
-        $sql1 .= ", datecreation ";
-        $sql2 .= ", CURDATE()";
-
-    $sql = $sql1 . $sql2 . ");";
-*/
     /*
       $body .=  "\n\n".$sql;
       $body .=  "\n\n".$ac_message;
@@ -186,13 +79,6 @@ function update_LMS($payment_data, $dir_usercourselist) {
       fwrite($fp, $body . "\n\n");
       fclose($fp);
      */
-    
-	/*
-	$db = new db;
-	$db->connect();
-    $db->query($sql);
-    $db->close();
-	*/
 
     $password = generatePassword(5, 4);
     $sql1 = "SELECT * FROM `students` WHERE `username` = '" . $payment_data['email'] . "'";

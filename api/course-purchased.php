@@ -53,9 +53,9 @@ if (isset($_REQUEST['course_info'])){
 */
 	
 	if (magic_quotes_gpc)
-		$temp = unserialize(stripslashes($_REQUEST['course_info']));
+		$temp = unserialize(urldecode($_REQUEST['course_info']));
 	else
-		$temp = unserialize($_REQUEST['course_info']);
+		$temp = unserialize(urldecode($_REQUEST['course_info']));
 	$paymentData['course_info'] = $temp;
 	
 }
