@@ -5,26 +5,18 @@ require_once('LMS_functions.php');
 $br="<br>";
 $hr="<hr>";
 //POST Authenticity check
-// Ensure that cosmosconsultingllc.com server IP is in fact
-// the origin of the POST form action.
+// Ensure that the POST's remote IP is an 
+//	authorized/whitelisted IP.
 
-//		!!!!!need to change for COSMOS!!!!!
-
-//Static IP for californiaeducationconnection.com
-$authorized_ip = '174.37.45.113';
-//$authorized_ip = '68.178.254.198'; //Static IP for learningfox.com
 $remote_ip = $_SERVER['REMOTE_ADDR'];
-//$authorized_ip = '70.179.77.227';//local IP for testing
-//echo $br."authorized_ip==remote_ip? ".($authorized_ip==$remote_ip);
+$server_ip = $_SERVER['SERVER_ADDR'];
+//For Cosmos, we expect it to be originating from the same server
+$authorized_ip = $server_ip;  
 
-
-//  !!!!NEED to reactivate!!!!!
-
-/*if ($authorized_ip != $remote_ip)
+if ($authorized_ip != $remote_ip)
 	exit( "Not authorized." );
 else
 	echo "Authorized.".$br.$hr;
-*/
 
 $order = $_POST;
 
@@ -45,17 +37,18 @@ $paymentData['phone'] = $order['phone'];
 $paymentData['ip'] = $order['ip'];
 
 if (isset($_REQUEST['course_info'])){
-/*
-	$temp = $_REQUEST['course_info'];
-	$temp2 = unserialize($temp);
-	mail("ryan@rammons.net","temps", "temp: " . $temp . "\ntemp2: " . 
-			print_r($temp2), "From: admin@cosmosconsultingllc.com");
-*/
 	
+/*	$temp = $_REQUEST['course_info'];
+	$temp2 = stripslashes($temp);
+	$temp3 = unserialize($temp2);
+	mail("ryan@rammons.net","temps", "temp: " . $temp . "\ntemp2: " . 
+			$temp2."\n\ntemp3: ".$temp3,
+			 "From: admin@cosmosconsultingllc.com");  */
 	if (magic_quotes_gpc)
-		$temp = unserialize(urldecode($_REQUEST['course_info']));
+		$temp = unserialize(stripslashes($_REQUEST['course_info']));
 	else
-		$temp = unserialize(urldecode($_REQUEST['course_info']));
+		$temp = unserialize($_REQUEST['course_info']);
+	
 	$paymentData['course_info'] = $temp;
 	
 }
@@ -64,16 +57,11 @@ else{
 }
 
 //var_dump($paymentData);
+/* foreach ($paymentData as $key=>$value){	echo $key.": ".$value.$br; } */
 
-/*
-foreach ($paymentData as $key=>$value){
-	echo $key.": ".$value.$br;
-}
-*/
-
-//echo $hr;
 //Write values to the LMS database and generate/send credentials to user
 update_LMS($paymentData, $dir_usercourselist);
+
 //echo $hr.$br."lms_userID =".$lms_userID;
 //echo "userfile =".$userfile;
 //echo $ac_message;
