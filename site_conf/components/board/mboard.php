@@ -1,7 +1,7 @@
 <?php
 session_start();
-$db = mysql_connect("cosmoscolms.db.8685149.hostedresource.com", "cosmoscolms", "tTTS9wVUUW7ZjY") or die(mysql_error());
-mysql_select_db("cosmoscolms") or die(mysql_error());
+$db = mysql_connect("p50mysql107.secureserver.net", "lmsv1db", "Technologies14") or die(mysql_error());
+mysql_select_db("lmsv1db") or die(mysql_error());
 # PHP message board (MBoard)
 # Version: 1.3 from November 18, 2006  (fix from 16th Feb 2007)
 # File name: mboard.php

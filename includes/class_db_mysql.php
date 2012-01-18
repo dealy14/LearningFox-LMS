@@ -10,10 +10,10 @@ class db
 	var $host="localhost";
 	var $mydb="lms_davidealytechnologies_com"; */
 //var $mydb="";
-	var $user="cosmoscolms";
-	var $pass = "tTTS9wVUUW7ZjY";
-	var $host="cosmoscolms.db.8685149.hostedresource.com";
-	var $mydb="cosmoscolms";
+	var $user="lmsv1db";
+	var $pass = "Technologies14";
+	var $host="p50mysql107.secureserver.net";
+	var $mydb="lmsv1db";
 
 	function connect()
 	{
