@@ -101,20 +101,25 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 		font-size: xx-small;
 
 	}
+	#mainContainer1 {
 
+		width:500px;
+		}
+		  
 	.descriptor_row	{
 
 		background: #003366;
-
+			
 		font-size: x-small;
 
 		color: #fff;
 
 		border: #fff;
+		size:10px;
 
-	#mainContainer {
-
-		width: 960px;
+	
+	}
+	
 
 	}
 
