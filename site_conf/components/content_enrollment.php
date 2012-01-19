@@ -1,10 +1,12 @@
+<script type="text/javascript">
+	<!--
+	function launchCourse(cnum){
+		window.open('LMSMain.php?ref='+cnum+'&user_id=<?php echo $lms_userID;?>');
+	}
+	-->
+</script>
+
 <div id="contentEnrollment">
-<!--
-<h2 align="center">Your Transcript</h2>
-<div align="center"><?php 
-/* include($dir_components."enrollment_toolbar.php"); */ ?>
-</div>
--->
 <?php
 $sfile=$dir_usercourselist.$lms_userID;
 $gfile=$dir_groupfiles.$lms_usergroup_file.".grp";
@@ -266,12 +268,3 @@ while($dbsurvey->getRows())
 ?>
 </table>
 </div>
-<script type="text/javascript">
-<!--
-
-function launchCourse(cnum)
-{
-	window.open('LMSMain.php?ref='+cnum+'&user_id=<?php echo $lms_userID;?>');
-}
--->
-</script>
