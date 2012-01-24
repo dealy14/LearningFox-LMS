@@ -80,7 +80,7 @@ switch($section)
   break; 
   
   case 'msg':
-  $mysection=$dir_components."board/msg/".$_GET['count'].".php";
+  $mysection=$dir_components."board/msg/".$_GET['count'].".html";
   break; 
   
   case 'library':

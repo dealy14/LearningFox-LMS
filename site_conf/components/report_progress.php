@@ -94,7 +94,7 @@ function hTop($xlink,$xstr,$order,$direction,$cnt,$totals)
 	
 	$course_name="undefined";
 	
-	if(isset($_POST['course_ID']) && ! ereg('[^0-9]',  $_POST['course_ID']))
+	if(isset($_POST['course_ID']) && ! preg_match('[^0-9]',  $_POST['course_ID']))
 	{
 		$course_ID= $_POST['course_ID'];
 		$course_name_sql = "select name from course where ID = $course_ID";
@@ -110,7 +110,7 @@ function hTop($xlink,$xstr,$order,$direction,$cnt,$totals)
 ?>
 <h2 align="center"><?php echo  $course_name; ?>: Course Progress</h2>
 
-<FORM NAME="views" METHOD="POST" ACTION="<?php echo "index.php?section=reports&report=$report&course_ID=$course_ID&sid=$sid&direction=$direction&cnt=$cnt&order=$order";?>"><?php input_list("view","All||View All,Complete||View Complete,Incomplete||View Incomplete,Complete_and_Incomplete||View Complete & Incomplete",0,"View ".ereg_replace("_"," ",$view),"onChange='document.views.submit();'")?></FORM>
+<FORM NAME="views" METHOD="POST" ACTION="<?php echo "index.php?section=reports&report=$report&course_ID=$course_ID&sid=$sid&direction=$direction&cnt=$cnt&order=$order";?>"><?php input_list("view","All||View All,Complete||View Complete,Incomplete||View Incomplete,Complete_and_Incomplete||View Complete & Incomplete",0,"View ".preg_replace("@_@","@-@",$view),"onChange='document.views.submit();'")?></FORM>
 
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="3" WIDTH="100%">
 <?php

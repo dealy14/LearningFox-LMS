@@ -374,7 +374,7 @@ fclose($fp);
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
 			<p align="center"><b>Your message was successfully added!</b></p>
-			<p align="center"><a href="javascript:history.go(-3)"  onMouseOver="self.status=document.referrer;return true">Click here to continue</a></p>
+			<p align="center"><a href="<?php print $settings['mboard_url2']; ?>/index.php?section=messageboard&sid=<?php print $_GET['sid']; ?>">Click here to continue</a></p>
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
@@ -447,7 +447,7 @@ $content.='<div id="main-content">';
 //$content.=include '../includes/left-nav.php';
 	
 $content.=$header;
-$url = $_SERVER['REQUEST_URI'];
+
 $content.='
 <h3 align="center" class="title">'.$settings['mboard_title'].'</h3>
 
@@ -455,12 +455,8 @@ $content.='
 <table border="0" width="95%"><tr>
 <td>
 
-<p align="center"><a href="#new">Post a reply</a> ||' ;
-
-$content.='
-<a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">Back to '.$settings['mboard_title'].'</a>';
-
-$content.='
+<p align="center"><a href="#new">Post a reply</a> ||
+<a href="index.php?section=messageboard&sid=<?php echo $sid; ?>">Back to '.$settings['mboard_title'].'</a></p>
 <hr>
 <p align="center"><b>'.$subject.'</b></p>
 
@@ -787,8 +783,7 @@ if(!empty($up) && file_exists($upfile)) {
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
 			<p align="center"><b>Selected post and all replies to it were successfully removed!</b></p>
-		<!--	<p align="center"><a href="<?php print $settings['mboard_url2']; ?>index.php?section=messageboard&sid=<?php print $_GET['sid']; ?>">Click here to continue</a></p>-->
-				<p align="center"><a href="javascript:history.go(-3)"  onMouseOver="self.status=document.referrer;return true"> Click here to continue</a></p>
+			<p align="center"><a href="<?php print $settings['mboard_url2']; ?>index.php?section=messageboard&sid=<?php print $_GET['sid']; ?>">Click here to continue</a></p>
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
 		
@@ -818,7 +813,7 @@ global $settings;
 			<p align="center"><b>Please enter your administration password:</b><br>
 			<input type="password" name="pass" size="20"></p>
 			<p align="center"><b>Are you sure you want to delete this post and all replies to it? This action cannot be undone!</b></p>
-			<p align="center"><input type="submit" value="YES, delete this entry and replies to it"> | <a href="javascript:history.go(-2)"  onMouseOver="self.status=document.referrer;return true">NO, I changed my mind</a></p>
+			<p align="center"><input type="submit" value="YES, delete this entry and replies to it"> | <a href="<?php print $settings['mboard_url2']; ?>site_conf/components/board/mboard.php?sid=<?php print $_GET['sid']; ?>">NO, I changed my mind</a></p>
 			</form>
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>

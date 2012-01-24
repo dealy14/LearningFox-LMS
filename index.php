@@ -129,7 +129,12 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 
 	</style>
 
-	
+	<script type="text/javascript">
+function openWindow(winName)
+{
+    window.open(winName,"FAQs", "width=950,height=650,resizable=no,scrollbars=no,toolbar=no,status=no,menubar=no,copyhistory=no,left=100,top=100,screenX=100,location=no,screenY=100");
+}
+</script>
 
 	<link rel="stylesheet" type="text/css" href="header_style.css" />
 

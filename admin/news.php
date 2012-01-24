@@ -1,4 +1,7 @@
-<?php session_start(); require_once("conn.php"); ?>
+<?php session_start(); 
+$db = mysql_connect("cosmoscolms.db.8685149.hostedresource.com", "cosmoscolms", "tTTS9wVUUW7ZjY") or die(mysql_error());
+$dbName = mysql_select_db("cosmoscolms") or die(mysql_error());
+ ?>
 <style>
 #news-content{
 	overflow:auto;

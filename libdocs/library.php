@@ -129,17 +129,21 @@ if(isset($_GET['lib'])&&!is_null($_GET['lib'])&&isset($_GET['op'])&&!is_null($_G
 				{
 				    $update_view='display: none';
 				}
-				if($_REQUEST['update_folder_id']!=0)
-				{
 				$folder_query = "SELECT * FROM library_folders WHERE folder_id=".$_REQUEST['update_folder_id'];
-				//var_dump($folder_query);
 				$folder_result = mysql_query($folder_query);
-			
 				while($row = mysql_fetch_assoc($folder_result))
 				{
 				    $folder_name= $row['folder_name'];
 				}
-				}
+				/*$folder_result = mysql_query("SELECT folder_id, folder_name FROM library_folders");
+            while ($row = mysql_fetch_assoc($folder_result))
+            {
+		         $folder_id=$row["folder_id"];
+		         $folder_name=$row["folder_name"];
+                // echo "<input type='radio' id='folder_id' name='folder_id' value='".$folder_id."' />".$folder_name."&nbsp;&nbsp;";
+		    }*/
+			// mysql_free_result($folder_result); 
+
 			?>
 			<br />
 			<div align="center" style="background-color:#F8F0E5; <?php echo $update_view; ?>;">				
@@ -187,9 +191,9 @@ if(isset($_GET['lib'])&&!is_null($_GET['lib'])&&isset($_GET['op'])&&!is_null($_G
 		         $folder_name=$row["folder_name"];
                  echo "<input type='radio' id='folder_id' name='folder_id' value='".$folder_id."' />".$folder_name."&nbsp;&nbsp;";
 		    }
-			 mysql_free_result($result); 
+			 mysql_free_result($result);
 			?>
-            <!--<label for="rdbUploadToP" title="Priority"><input type="radio" id="rdbUploadToP" name="rdbUploadTo" value="priority" />Priority</label>&nbsp;&nbsp;<label for="rdbUploadToG" title="Global"><input type="radio" id="rdbUploadToG" name="rdbUploadTo" value="global" checked="checked" />Board Meeting Documents</label>&nbsp;&nbsp;<label for="rdbUploadToO" title="Own"><input type="radio" id="rdbUploadToO" name="rdbUploadTo" value="own" />Own</label>-->
+        <!--    <label for="rdbUploadToP" title="Priority"><input type="radio" id="rdbUploadToP" name="rdbUploadTo" value="priority" />Priority</label>&nbsp;&nbsp;<label for="rdbUploadToG" title="Global"><!--<input type="radio" id="rdbUploadToG" name="rdbUploadTo" value="global" checked="checked" />Board Meeting Documents</label>&nbsp;&nbsp;<label for="rdbUploadToO" title="Own"><input type="radio" id="rdbUploadToO" name="rdbUploadTo" value="own" />Own</label>-->
             </p>
 			Choose a file to upload: <input name="uploadedfile" id="uploadedfile" type="file" /><br />
 			<input type="submit" value="Upload File" />

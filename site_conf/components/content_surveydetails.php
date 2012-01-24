@@ -2,7 +2,7 @@
 ####################################################################################
 # Action to add to the user's course list
 ####################################################################################
-if( isset( $_GET['survey_ID'] ) && !empty( $_GET['survey_ID'] ) && !ereg('[^0-9]',  $_GET['survey_ID']  ) )
+if( isset( $_GET['survey_ID'] ) && !empty( $_GET['survey_ID'] ) && !preg_match('[^0-9]',  $_GET['survey_ID']  ) )
 {
 	$survey_ID= $_GET['survey_ID'];
 	if($_GET['addcourse']=="yes")

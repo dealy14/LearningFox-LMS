@@ -19,7 +19,7 @@ $settings['mboard_title']="Message Board";
 // URL to folder where message board is installed
 // DO NOT a trailing "/" !
 $settings['mboard_url']='http://localhost/LMS/index.php?section=messageboard&sid='.$_SESSION['lms_userID'].'';
-$settings['mboard_url2']='http://localhost/LMS/';
+$settings['mboard_url2']='http://www.cosmosconsultingllc.com/LMS/';
 
 /* Prevent automated submissions (recommended YES)? 0 = NO, 1 = YES, GRAPHICAL, 2 = YES, TEXT */  
 $settings['autosubmit']=1;

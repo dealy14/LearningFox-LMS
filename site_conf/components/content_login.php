@@ -257,20 +257,18 @@ if($submit=="yes" && !is_null($uname) && !is_null($pwd) && !is_null($org_id)) /*
 
 		 
 
-		 <div style="background:url(images/learningpicture.jpg) no-repeat; height:280px; margin-left:20px; "  align="center">
+		 <div style="height:280px; margin-left:20px; "  align="center">
   <table align="center">
   
-  <tr><td style="padding-left:5px;"><font size="2">With Cosmos's Learning Management System, you can:</font></td></tr>
+  <tr><td style="padding-left:5px;"><font size="2">With Cosmos's Learning Safety Management System (LSMS), you can:</font></td></tr>
     
-  <tr><td height="25px" style="padding-left:15px;"><li style="list-style:disc">      Register for instructor-led courses</li></td></tr>
-
   <tr><td height="25px" style="padding-left:15px;"><li style="list-style:disc">         Take online courses</li></td></tr>
 
-  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         View training records</li></td></tr>
+  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         Access custom reports</li></td></tr>
 
   <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         Store and share documents</li></td></tr>
 
-  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         Create messages via the message board</li></td></tr>
+  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         Create messages and share messages/li></td></tr>
    
   
   </table>
@@ -395,20 +393,18 @@ else /* start ELSE_C1 */ { ?>
 
 	
 
-	<div style="background:url(images/learningpicture.jpg) no-repeat; height:280px; margin-left:20px; " align="center" >
+	<div style="height:280px; margin-left:20px; " align="center" >
   <table align="center">
   
-  <tr><td style="padding-left:5px;"><font size="2">With Cosmos's Learning Management System, you can:</font></td></tr>
+  <tr><td style="padding-left:5px;"><font size="2">With Cosmos's Learning Safety Management System (LSMS), you can:</font></td></tr>
     
-  <tr><td height="25px" style="padding-left:15px;"><li style="list-style:disc">      Register for instructor-led courses</li></td></tr>
-
   <tr><td height="25px" style="padding-left:15px;"><li style="list-style:disc">         Take online courses</li></td></tr>
 
-  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         View training records</li></td></tr>
+  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         Access custom reports</li></td></tr>
 
   <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         Store and share documents</li></td></tr>
 
-  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         Create messages via the message board</li></td></tr>
+  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         Create messages and share messages</li></td></tr>
    
   
   </table>

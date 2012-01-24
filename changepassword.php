@@ -47,7 +47,7 @@ include("conf.php");
 	    
 		
 		  $result = $db->query($sql);
-		  echo "rows = ".mysql_num_rows($result)."<br/>";
+		  //echo "rows = ".mysql_num_rows($result)."<br/>";
 		  while($db->getrows())
 		  {             
 		    $pass = $db->row("password");
