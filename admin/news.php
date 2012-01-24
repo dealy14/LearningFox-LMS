@@ -1,4 +1,7 @@
-<?php session_start(); require_once("conn.php"); ?>
+<?php
+session_start();
+require_once("conn.php");
+?>
 <style>
 #news-content{
 	overflow:auto;
