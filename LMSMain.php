@@ -52,6 +52,8 @@ $qryCrseNm = "select course_id from course where id = " . $_SESSION["course_id"]
 $rsCrseNm = mysql_query($qryCrseNm);
 $rowCrseNm = mysql_fetch_object($rsCrseNm);
 $_SESSION["course_identifier"] = $rowCrseNm->course_id;
+
+$db->connect();
 $totalCnt = mysql_result(mysql_query( "select count(*) from user_sco_info where course_id = '" . 
 				$rowCrseNm->course_id . "' and user_id=" . $_SESSION['student_id'] . " and lesson_status not like('%completed%') " .
 				"and (sco_entry='ab-initio' or sco_entry='resume') order by sequence"),0);
@@ -59,7 +61,7 @@ $totalCnt = mysql_result(mysql_query( "select count(*) from user_sco_info where 
 $qryScoNm = "select launch from user_sco_info " .
 				"where course_id = '" . $rowCrseNm->course_id . "' and user_id=" . $_SESSION['student_id'] . " and " .
 				"lesson_status not like('%completed%') and (sco_entry='ab-initio' or sco_entry='resume') order by sequence";
-				
+
 $rsScoNm = mysql_query($qryScoNm);
 //if($totalCnt > 1){
 ?>

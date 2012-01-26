@@ -1,6 +1,171 @@
 <?php
-
 require_once($_SERVER['DOCUMENT_ROOT'] . '/courses/conf.php');
+
+function update_LMS($payment_data, $dir_usercourselist) {
+	
+	$payment_date = $payment_data['payment_date'];
+	$course_array = $payment_data['course_info'];
+	/*
+	$body .=  "\n\n".$sql;
+	$body .=  "\n\n".$ac_message;
+	$fp=fopen("log.txt",'a');
+	fwrite($fp, $body . "\n\n");
+	fclose($fp);
+	*/
+	
+	$password = generatePassword(5, 4);
+	$sql1 = "SELECT * FROM `students` WHERE `username` = '" . $payment_data['email'] . "'";
+	
+	$db = new db;
+		
+	$db->connect();
+	$db->query($sql1);
+	if (!$db->getRows()) {  // if no student in DB with given email, insert the new student
+		register_student($payment_data['payment_date'],$payment_data['first_name'],$payment_data['last_name'],
+						$payment_data['phone'],$payment_data['email'],$payment_data['address'],
+						$payment_data['address2'],$payment_data['city'],$payment_data['state'],
+						$payment_data['zip'],$password);
+		$db->connect();
+		$db->query($sql1); // re-run query to grab newly-inserted student record
+						// NOTE: this may seem redundant, but we need to grab 
+						//       the autonumber ID of the new record
+		$db->getRows();
+	
+	}
+	
+	$lms_userID = $db->row('ID');
+	$password = $db->row('password');
+	$db->close();
+	
+	//$lms_userID = 13;
+	//$course_ID = 54;
+	
+	$userfile = $dir_usercourselist . $lms_userID;
+	
+	//echo "lms_userID =".$lms_userID."<br>";
+	//echo "userfile =".$userfile."<br>";
+	
+	$ac_message = "";
+	
+	if (file_exists($userfile)) {
+		$userfile = file($userfile);
+		$userdata = explode("|", $userfile[0]);
+		
+		$db->connect();
+		
+		foreach ($course_array as $course){
+			$course_ID = $course['courseid'];
+			
+			insertAction("INSERT INTO course_history ".
+			"(user_ID,course_status,start_date,course_id) ".
+			"VALUES ('" . $lms_userID . "','Not Attempted',CURDATE()," . $course_ID . ")");
+			
+			register_student_in_course($lms_userID,'course-'.$course_ID);
+			
+			if (!in_array($course_ID, $userdata)) {
+				$newfile = implode("|", $userdata);
+				to_file($dir_usercourselist . $lms_userID, "$newfile|$course_ID", "w+");
+				$ac_message .= $course['coursename']." has been added to your enrollment list.\n";
+				} else {
+				$ac_message .= $course['coursename']." is already in your enrollment list.\n";
+			}
+		}
+		
+		$db->close();
+
+		} else {
+		/* echo "<pre>";
+		print_r($course_array);
+		echo "</pre>";
+		*/
+		foreach ($course_array as $course){
+			$course_id_array[] = $course['courseid'];
+			$course_names[] = $course['coursename'];
+		}
+		$newfile = implode("|",$course_id_array);
+		$course_list = implode(", ",$course_names);
+		
+		to_file($dir_usercourselist . $lms_userID, $newfile, "w+");
+		$ac_message.= "The following course(s) were added to your enrollment list: \n\t".$course_list;
+		
+	}
+	send_pass_email($payment_data['email'], $password, $ac_message);
+	//echo $ac_message;
+}
+
+/* -------------end of function update_LMS-------------------------- */
+
+function register_student($dateofreg,$firstname,$lastname,$phone,$email,$address,$address2,$city,$state,$zip,$password){
+
+		 $sql = "INSERT INTO students (
+		`date_of_reg` ,	`date_of_mod`  , `fname` ,
+		`lname` , `mname` ,	`orgID` , `user_group` , `user_subgroup` ,
+		`date_of_birth` , `sex` , `phone` , `email` , `address`,
+		`city` , `state` , `zip` , `username` , `password` ,
+		`userlevel` )	VALUES (
+		'" . $dateofreg . "', CURDATE() , '" . $first_name .
+		"', '" . $last_name . "', '', '', '', '', '00000000', 
+		'na', '" . $phone . "', '" . $email . 
+		"', '" . $address . " " . $address2 . 
+		"', '" . $city . "', '" . $state . 
+		"', '" . $zip . "', '" . $email . 
+		"', '" . $password . "', '1' );";
+		
+		$db = new db;
+		$db->connect();
+		$db->query($sql);
+		$db->close();
+}
+
+function register_student_in_course($studentid,$courseid){
+	
+	/* 
+	  SUMMARY: 
+			This function uses existing SCORM course data, along with
+			student/user identification, to enable a given student
+			access to specified course.
+			
+	  TABLES: 
+			item_info			Contains SCORM course data
+			user_sco_info		Contains student-course correlation records
+	*/
+	
+	$db = new db;
+	
+	$sql="select * from item_info where course_id='".$courseid."'";
+	$db->connect();
+	$db->query($sql);
+	$db->getRows();
+	
+	$sco_identifier = $db->row("identifier");
+	$course_launch_file = $db->row("launch");
+	$data_from_lms = $db->row("data_from_lms");
+	$prerequisites = $db->row("prerequisites");
+	$masteryscore = $db->row("masteryscore");
+	$maximumtime = $db->row("maximumtime");
+	$timelimitaction = $db->row("timelimitaction");
+	$sequence = $db->row("sequence");
+	$type = $db->row("type");
+	$cmi_credit = $db->row("cmi_credit");
+	
+	$db->connect();
+	
+	if($db->getRows()){
+			$insrt="insert into user_sco_info set user_id=" . $studentid . ",course_id='".
+						$courseid ."',sco_id='". $sco_identifier ."',launch='". 
+						$course_launch_file . "',data_from_lms='" . $data_from_lms .
+						"',lesson_status='not attempted',prerequisite='" . $prerequisites . "',".
+						"sco_exit='',sco_entry='ab-initio',masteryscore='" . $masteryscore . 
+						"',maximumtime='" . $maximumtime . "',timelimitaction='" . $timelimitaction .
+						"',sequence=" . $sequence . ",type='" . $type . "',cmi_credit='" . $cmi_credit ."'";
+			
+			insertAction($insrt);
+
+		}
+	
+	$db->close();
+	
+}
 
 function send_pass_email($email, $password, $ac_message) {
 	$admin_email = "admin@cosmosconsultingllc.com";	
@@ -67,157 +232,4 @@ function generatePassword($length=9, $strength=0) {
 	
 	return $password;
 }
-
-function update_LMS($payment_data, $dir_usercourselist) {
-	
-	$payment_date = $payment_data['payment_date'];
-	$course_array = $payment_data['course_info'];
-	/*
-	$body .=  "\n\n".$sql;
-	$body .=  "\n\n".$ac_message;
-	$fp=fopen("log.txt",'a');
-	fwrite($fp, $body . "\n\n");
-	fclose($fp);
-	*/
-	
-	$password = generatePassword(5, 4);
-	$sql1 = "SELECT * FROM `students` WHERE `username` = '" . $payment_data['email'] . "'";
-	
-	$db = new db;
-	
-	$db->connect();
-	$db->query($sql1);
-	if (!$db->getRows()) {
-		$sql2 = "INSERT INTO students (
-		`date_of_reg` ,	`date_of_mod`  , `fname` ,
-		`lname` , `mname` ,	`orgID` , `user_group` , `user_subgroup` ,
-		`date_of_birth` , `sex` , `phone` , `email` , `address`,
-		`city` , `state` , `zip` , `username` , `password` ,
-		`userlevel` )	VALUES (
-		'" . $payment_date . "', CURDATE() , '" . $payment_data['first_name'] .
-		"', '" . $payment_data['last_name'] . "', '', '', '', '', '00000000', 
-		'na', '" . $payment_data['phone'] . "', '" . $payment_data['email'] . 
-		"', '" . $payment_data['address'] . " " . $payment_data['address2'] . 
-		"', '" . $payment_data['city'] . "', '" . $payment_data['state'] . 
-		"', '" . $payment_data['zip'] . "', '" . $payment_data['email'] . 
-		"', '" . $password . "', '1' );";
-		$db->close();
-		
-		//$db = new db;
-		
-		$db->connect();
-		$db->query($sql2);
-		$db->close();
-		//$db = new db;
-		$db->connect();
-		$db->query($sql1);
-		$db->getRows();
-	}
-	
-	$lms_userID = $db->row('ID');
-	$password = $db->row('password');
-	$db->close();
-	
-	//$lms_userID = 13;
-	//$course_ID = 54;
-	
-	$userfile = $dir_usercourselist . $lms_userID;
-	
-	//echo "lms_userID =".$lms_userID."<br>";
-	//echo "userfile =".$userfile."<br>";
-	
-	$ac_message = "";
-	
-	if (file_exists($userfile)) {
-		$userfile = file($userfile);
-		$userdata = explode("|", $userfile[0]);
-		
-		$db->connect();
-		
-		foreach ($course_array as $course){
-			$course_ID = $course['courseid'];
-			
-			insertAction("INSERT INTO course_history ".
-			"(user_ID,status,forder,stored,display) ".
-			"VALUES ('".$lms_userID."','active','','n','')");
-			
-			if (!in_array($course_ID, $userdata)) {
-				$newfile = implode("|", $userdata);
-				to_file($dir_usercourselist . $lms_userID, "$newfile|$course_ID", "w+");
-				$ac_message .= $course['coursename']." has been added to your enrollment list.\n";
-				} else {
-				$ac_message .= $course['coursename']." is already in your enrollment list.\n";
-			}
-		}
-		
-		$db->close();
-		/*
-		
-		// Code to get user course history info and populate course list, from which user can launch the LMS
-		$db = new db;
-		$db->connect();
-		$db->query("SELECT * FROM course_history WHERE user_ID='$lms_userID'");
-		while($db->getRows()) { 
-			$ecourse_ID=$db->row("course_ID");
-			$start_date[$ecourse_ID]=$db->row("start_date");	 
-			$last_usage[$ecourse_ID]=$db->row("last_usage");
-			$course_status[$ecourse_ID]=$db->row("course_status");
-			$elesson[$ecourse_ID]=$db->row("lesson");		 
-			$etopic[$ecourse_ID]=$db->row("topic");
-		}
-		*/
-		
-		} else {
-		/* echo "<pre>";
-		print_r($course_array);
-		echo "</pre>";
-		*/
-		foreach ($course_array as $course){
-			$course_id_array[] = $course['courseid'];
-			$course_names[] = $course['coursename'];
-		}
-		$newfile = implode("|",$course_id_array);
-		$course_list = implode(", ",$course_names);
-		
-		to_file($dir_usercourselist . $lms_userID, $newfile, "w+");
-		$ac_message.= "The following course(s) were added to your enrollment list: \n\t".$course_list;
-		
-	}
-	send_pass_email($payment_data['email'], $password, $ac_message);
-	//echo $ac_message;
-}
-
-/* -------------end of function update_LMS-------------------------- */
-
-/*
-
---
--- Table structure for table `3dcart_order_info`
---
-
-CREATE TABLE `3dcart_order_info` (
-`ID` int(9) NOT NULL auto_increment,
-`firstname` varchar(100) NOT NULL default '',
-`lastname` varchar(100) NOT NULL default '',
-`email` varchar(100) NOT NULL default '',
-`address` varchar(100) NOT NULL default '',
-`address2` varchar(100) NOT NULL default '',
-`city` varchar(50) NOT NULL default '',
-`state` varchar(3) NOT NULL default '',
-`zip` varchar(11) NOT NULL default '',
-`country` varchar(20) NOT NULL default '',
-`phone` varchar(11) NOT NULL default '',
-`coursename` varchar(255) default NULL,
-`courseid` varchar(50) default NULL,
-`courseprice` varchar(10) default NULL,
-`store` varchar(150) default NULL,
-`invoice_number` varchar(10) default NULL,
-`orderid` varchar(10) default NULL,
-`payment_date` date NOT NULL default '0000-00-00',
-`ip` varchar(15) default NULL,
-`datecreation` date NOT NULL default '0000-00-00',
-PRIMARY KEY  (`ID`)
-	) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
-
-*/
 ?>

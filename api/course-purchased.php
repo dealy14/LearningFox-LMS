@@ -15,8 +15,9 @@ $authorized_ip = $server_ip;
 
 if ($authorized_ip != $remote_ip)
 	exit( "Not authorized." );
-else
-	echo "Authorized.".$br.$hr;
+else{
+	//echo "Authorized.".$br.$hr;
+}
 
 $order = $_POST;
 
