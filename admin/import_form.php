@@ -409,12 +409,18 @@ if($_POST['status']!=1){
 								
 								}	
 							//echo $qry_meta;
-							$qry_meta='insert into course_metdata_info set course_id="'.$courseid.'",version="'.$scormversion.'",title="'.$course_title.'",description="'.$descript.'",catalogentry="'.$catalog_entry.'",keywords="'.$keyword.'",catalogname="'.$catalog_name.'"';						
+//							$qry_meta='insert into course_metdata_info set course_id="'.$courseid.'",version="'.$scormversion.'",
+//							title="'.$course_title.'",description="'.$descript.'",catalogentry="'.$catalog_entry.'",
+//							keywords="'.$keyword.'",catalogname="'.$catalog_name.'"';						
+							
 							$db=new db;
 							$db->connect();
+							$qry_meta=sprintf("insert into course_metdata_info (course_id, version, title, description, catalogentry, keywords, catalogname) " .
+											  "VALUES('%s', '%s', '%s', '%s', '%s','%s', '%s')", 
+											  $db->escape_string($courseid), $db->escape_string($scormversion), $db->escape_string($course_title),
+											  $db->escape_string($descript), $db->escape_string($catalog_entry), $db->escape_string($keyword), 
+											  $db->escape_string($catalog_name));
 							$db->query($qry_meta);		
-							
-							
 						}
 						
 						displayChildrenRecursive1($child,$depth+1);
@@ -433,7 +439,7 @@ if($_POST['status']!=1){
 						$timelimit=$pre->timelimitaction;
 						$maxtime=$pre->maxtimeallowed;
 						$data_from_lms=$pre->datafromlms;
-						$metapath=$_SERVER['DOCUMENT_ROOT']."/LMS/uploadfiles/".$courseid."/".$pre->location;
+						$metapath=$_SERVER['DOCUMENT_ROOT']."/LMS/uploadfiles/".$courseid."/".urldecode($pre->location);
 						
 						if($child->getName()=="metadata"){
 							foreach($child->children() as $p){
@@ -487,11 +493,16 @@ if($_POST['status']!=1){
 									}
 								}
 							}
-							$qry_meta1='insert into course_metdata_info set course_id="'.$courseid.'",version="'.$scormversion.'",title="'.$course_title.'",description="'.$descript.'",catalogentry="'.$catalog_entry.'",keywords="'.$keyword.'",catalogname="'.$catalog_name.'"';						
+//							$qry_meta1='insert into course_metdata_info set course_id="'.$courseid.'",version="'.$scormversion.'",title="'.$course_title.'",description="'.$descript.'",catalogentry="'.$catalog_entry.'",keywords="'.$keyword.'",catalogname="'.$catalog_name.'"';						
 							$db=new db;
 							$db->connect();
+
+							$qry_meta=sprintf("insert into course_metdata_info (course_id, version, title, description, catalogentry, keywords, catalogname) " .
+											  "VALUES('%s', '%s', '%s', '%s', '%s','%s', '%s')", 
+											  $db->escape_string($courseid), $db->escape_string($scormversion), $db->escape_string($course_title),
+											  $db->escape_string($descript), $db->escape_string($catalog_entry), $db->escape_string($keyword), 
+											  $db->escape_string($catalog_name));
 							$db->query($qry_meta1);	
-							
 						}
 						//Metadata entry ends here..........
 						if($child->getName()=="item" ){

@@ -1,8 +1,8 @@
 <?php
-class db
-{
+class db {
 	var $persistent=0;
 	var $query;
+	private $rlink;
 
 	
 /*	var $user="root";
@@ -15,57 +15,49 @@ class db
 	var $host="cosmoscolms.db.8685149.hostedresource.com";
 	var $mydb="cosmoscolms";
 
-	function connect()
-	{
-		if($this->persistent==1)
-		{
-		$this->rlink = mysql_connect($this->host,$this->user,$this->pass);
+	function connect() 	{
+		if($this->persistent==1) {
+			$this->rlink = mysql_connect($this->host,$this->user,$this->pass);
 		}
-		else
-		{
-		$this->rlink = mysql_connect($this->host,$this->user,$this->pass);
+		else {
+			$this->rlink = mysql_connect($this->host,$this->user,$this->pass);
 		}
-	mysql_select_db ($this->mydb);
+		mysql_select_db ($this->mydb);
 	}
 	
 	
-	function query($SQL)
-	{
-	$this->query=mysql_query($SQL)or die( "error with query: $SQL ".mysql_error() );
+	function query($SQL) {
+		$this->query=mysql_query($SQL)or die( "error with query: ".mysql_error() );
+//		if ($this->query === false)
+//			echo( $SQL . ": " . mysql_error());
 	}
 	
-	function getRows()
-	{
-	$this->moreRows=mysql_fetch_array($this->query);
+	function getRows() {
+		$this->moreRows=mysql_fetch_array($this->query);
+			if($this->moreRows<1) {
+			@mysql_close($this->rlink);
+		}
+		return $this->moreRows;
+	}
 	
-		if($this->moreRows<1)
-		{
+	function row($column) {
+		return $this->moreRows[$column];
+	}
+	
+	function rowdata() {
+		return $this->moreRows;
+	}
+	
+	function close() {
 		@mysql_close($this->rlink);
-		}
-	
-	return $this->moreRows;
 	}
 	
-	function row($column)
-	{
-	return $this->moreRows[$column];
-	}
-	function close()
-	{
-		@mysql_close($this->rlink);
+	function escape_string($str) {
+		$str2 = mysql_real_escape_string($str, $this->rlink);
+		if ($str2 === false)
+			echo "escape_string: " . mysql_error() . "<br>\n";
+		return $str2;
 	}
 
 }
-/*
-$db = new db;
-$db->connect();
-$db->query("SELECT * FROM x_groups");
-//$db->query("INSERT INTO x_groups (group_ID,name) VALUES ('mm10','mystery tester 10')");
-
-while($db->getRows())
-//while(odbc_fetch_into($rlink, $row));
-{ 
-echo $db->row("name")."---".$db->row("group_ID")."<BR>";
-} 
-*/
 ?>
