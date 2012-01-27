@@ -53,10 +53,7 @@ class db {
 	}
 	
 	function escape_string($str) {
-		$str2 = mysql_real_escape_string($str, $this->rlink);
-		if ($str2 === false)
-			echo "escape_string: " . mysql_error() . "<br>\n";
-		return $str2;
+		return mysql_real_escape_string($str, $this->rlink);
 	}
 
 }

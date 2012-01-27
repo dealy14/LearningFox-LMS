@@ -450,7 +450,8 @@ if($_POST['status']!=1){
 								}	
 						}
 						if($pre->location !=""){
-							//echo $metapath."--";
+							$metapath = str_replace("\\", "/", $metapath);
+							// echo $metapath."--";
 							$sitemap1=new SimpleXMLElement($metapath,null,true);
 							displayChildrenRecursive1($sitemap1);
 							}	
