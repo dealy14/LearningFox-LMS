@@ -88,6 +88,9 @@ top.top1.topicItemSelect=3;
 	  <TD><SPAN CLASS="ttl">User Level</SPAN></TD>
 	  <TD><?php input_list("userlevel","0,1,2,3,4",0,$userlevel,"CLASS=input");?></TD>
 	</TR>
+	<TR>
+	  <TD><SPAN CLASS="ttl">User ID</SPAN></TD>
+	  <TD><INPUT TYPE="TEXT" NAME="id" VALUE="<?php echo $ID;?>" READONLY="READONLY"></td>
 	</TABLE>
 
 	</TD>
