@@ -498,7 +498,7 @@ if($_POST['status']!=1){
 							$db=new db;
 							$db->connect();
 
-							$qry_meta=sprintf("insert into course_metdata_info (course_id, version, title, description, catalogentry, keywords, catalogname) " .
+							$qry_meta1=sprintf("insert into course_metdata_info (course_id, version, title, description, catalogentry, keywords, catalogname) " .
 											  "VALUES('%s', '%s', '%s', '%s', '%s','%s', '%s')", 
 											  $db->escape_string($courseid), $db->escape_string($scormversion), $db->escape_string($course_title),
 											  $db->escape_string($descript), $db->escape_string($catalog_entry), $db->escape_string($keyword), 
@@ -551,12 +551,18 @@ if($_POST['status']!=1){
 							$max_time=$maxtime;
 							$timelimit=$timelimit;	
 							
-							$insrt="insert into item_info set course_id='".$courseid."',identifier='".$sco_id."',type='".$scotype."'";
-							$insrt.=",title='".$title."',launch='".$launch."',prerequisites='".$prerequisites."',masteryscore='".$masteryscore."',";
-							$insrt.="maximumtime='".$max_time."',data_from_lms='".$data_from_lms."',cmi_credit='".$_POST['radio_credit']."',timelimitaction='".$timelimit."',sequence=".$z;
-							//echo $insrt;
+							// $insrt="insert into item_info set course_id='".$courseid."',identifier='".$sco_id."',type='".$scotype."'";
+							// $insrt.=",title='".$title."',launch='".$launch."',prerequisites='".$prerequisites."',masteryscore='".$masteryscore."',";
+							// $insrt.="maximumtime='".$max_time."',data_from_lms='".$data_from_lms."',cmi_credit='".$_POST['radio_credit']."',timelimitaction='".$timelimit."',sequence=".$z;
 							$db=new db;
 							$db->connect();
+							$insrt=sprintf("INSERT INTO item_info (course_id, identifier, type, title, launch, prerequisites, masteryscore, maximumtime, data_from_lms, cmi_credit, timelimitaction, sequence) " .
+											"VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', %d)",
+											$db->escape_string($courseid), $db->escape_string($sco_id), $db->escape_string($scotype),
+											$db->escape_string($title), $db->escape_string($launch), $db->escape_string($prerequisites),
+											$db->escape_string($masteryscore), $db->escape_string($max_time), $db->escape_string($data_from_lms),
+											$db->escape_string($_POST['radio_credit']), $db->escape_string($timelimit), $z);
+							//echo $insrt;
 							$db->query($insrt);
 							//echo $insrt."<br><br>";
 							/*$insrt="insert into crab_course_info set course_id='".$courseid."',identifier='".$child["identifier"]."',resource_ref='".$child["identifierref"]."',";
@@ -597,8 +603,14 @@ if($_POST['status']!=1){
 				$db->connect();	
 				
 				//$str="insert into crab_lessons set course_id='".$courseid."',lesson_name='".$file1."',folder_name='".$_POST['cn']."/".$file1."',file_name='".$filename."',date_of_creation='".date('m/d/y'."'");
-				$str='insert into course set created="'.date("m/d/y").'",name="'.$task.'",type="wbt",course_type="'.$_POST['course_type'].'",folder_name="/LMS/uploadfiles/'.$courseid.'",course_id="'.$courseid.'",cmi_credit="'.$_POST['radio_credit'].'",sco_version="'.$sco_version.'",keyword="'.$keyword.'",description2="'.$desc.'",catalog_name="'.$catalog_name.'",catalog_entry="'.$catalog_entry.'",link="", category_id='.$_POST['category_id'].'';
-				
+				//$str='insert into course set created="'.date("m/d/y").'",name="'.$task.'",type="wbt",course_type="'.$_POST['course_type'].'",folder_name="/LMS/uploadfiles/'.$courseid.'",course_id="'.$courseid.'",cmi_credit="'.$_POST['radio_credit'].'",sco_version="'.$sco_version.'",keyword="'.$keyword.'",description2="'.$desc.'",catalog_name="'.$catalog_name.'",catalog_entry="'.$catalog_entry.'",link="", category_id='.$_POST['category_id'].'';
+				$str = sprintf("INSERT INTO course (created, name, type, course_type, folder_name, course_id, cmi_credit, sco_version, keyword, description2, catalog_name, catalog_entry, link, category_id) " .
+							   "VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+							   date('m/d/y'), $db->escape_string($task), 'wbt', 
+							   $db->escape_string($_POST['course_type']), $db->escape_string('/LMS/uploadfiles/'.$courseid), $db->escape_string($courseid), 
+							   $db->escape_string($_POST['radio_credit']), $db->escape_string($sco_version), $db->escape_string($keyword), 
+							   $db->escape_string($desc),  $db->escape_string($catalog_name), $db->escape_string($catalog_entry), 
+							   '', $db->escape_string($_POST['category_id']));
 				//echo $str;
 				
 				$db->query($str);
