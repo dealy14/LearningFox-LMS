@@ -35,7 +35,7 @@ top.top1.topicItemSelect=3;
     $ID = $_GET['ID'];
 	$db = new db;
 	$db->connect();
-	$db->query("SELECT * FROM students WHERE ID='$ID'");
+	$db->query("SELECT * FROM students WHERE ID=$ID");
 	$nx=0;
 	while($db->getRows())
 	{ 
@@ -59,6 +59,7 @@ top.top1.topicItemSelect=3;
 	$username = $db->row("username");
 	$password = $db->row("password");
 	$userlevel = $db->row("userlevel");
+	$provider_number = $db->row('provider_number');
 	$ID = $db->row("ID");	
 	}
 ?>

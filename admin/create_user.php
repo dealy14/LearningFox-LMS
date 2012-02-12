@@ -109,21 +109,23 @@ $nx++;
 }
 else {
 require_once("../includes/class_db_mysql.php");
-$obj1 = new db();
-$obj1->connect();
+$db = new db();
+$db->connect();
 
 	$fname = ucwords($_POST["fname"]);
 	$lname = ucwords($_POST["lname"]);
-	$user_group = $_POST["user_group"];
+//	$user_group = $_POST["user_group"];	Not in form
 	$email = $_POST["email"];
 	$username = $_POST["username"];
+	$provider_number = $_POST['provider_number'];
 	$password = $_POST["password"];
-	$orgID = $_POST["orgID"];
-	$ssn = $_POST["ssn"];
+	$phone = $_POST['phone'];
+//	$orgID = $_POST["orgID"];  			Not in form
+//	$ssn = $_POST["ssn"];  				Not in form
 	$user_level = $_POST["user_level"];
-	$ip = str_replace(".","",$_SERVER['REMOTE_ADDR']);
+	$ip = ip2long($_SERVER['REMOTE_ADDR']);
 	
-	$qry = "insert into students set
+/*	$qry = "insert into students set
 		date_of_reg = '".date("Y-m-d")."',
 		fname = '".$fname."',
 		lname = '". $lname."',
@@ -134,18 +136,26 @@ $obj1->connect();
 		password = '".$password."',
 		userlevel = ".$user_level.",
 		ssn = '".$ssn."',
-		ip = $ip";
+		ip = $ip"; */
 		
+		
+	$qry = sprintf("INSERT INTO students (date_of_reg, fname, lname, email, username, provider_number, `password`, phone, userlevel, ip) " .
+				  "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, %u)", 	
+				  date('Y-m-d'), $db->escape_string($fname), $db->escape_string($lname), $db->escape_string($email),
+				  $db->escape_string($username), $db->escape_string($provider_number), $db->escape_string($password), 
+				  $db->escape_string($phone), $user_level, $ip);
+	$db->query($qry);
+	$db->close();
 	//echo $qry;
-	$rsltSet = mysql_query($qry);
-	$cnt = mysql_affected_rows();
+	//$rsltSet = $db->query($qry);
+	//$cnt = mysql_affected_rows();
 	//$cnt = 1;
 	//echo $cnt;
-	if($cnt > 0){
+	//if($cnt > 0){
 		echo "<script> alert('User Added'); window.close();</script>";
 		/*echo "<script>top.window.opener.objReload('course');window.close()</script>";*/
 		/*echo "<script> alert(opener.parent.location.href);</script>";*/
-	}
+	//}
 }
 ?>
 <!--

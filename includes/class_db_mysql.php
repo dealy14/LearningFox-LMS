@@ -27,9 +27,9 @@ class db {
 	
 	
 	function query($SQL) {
-		$this->query=mysql_query($SQL)or die( "error with query: ".mysql_error() );
+		$this->query=mysql_query($SQL) or die( "error with query: ".mysql_error() );
 //		if ($this->query === false)
-//			echo( $SQL . ": " . mysql_error());
+//			throw new Exception ( $SQL . ": " . mysql_error());
 	}
 	
 	function getRows() {
@@ -54,6 +54,15 @@ class db {
 	
 	function escape_string($str) {
 		return mysql_real_escape_string($str, $this->rlink);
+	}
+	
+	function get_column_types($table) {
+		$result = mysql_query("SHOW COLUMNS FROM $table", $this->rlink);
+		$retval = array();
+		while ($row = mysql_fetch_assoc($result)) 
+			$retval[$row['Field']] = $row['Type'];
+		mysql_free_result($result);
+		return $retval;
 	}
 
 }
