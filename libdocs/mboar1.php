@@ -1,9 +1,9 @@
 <?php
 session_start();
-$db = mysql_connect("cosmoscolms.db.8685149.hostedresource.com", "cosmoscolms", "tTTS9wVUUW7ZjY") or die(mysql_error());
-mysql_select_db("cosmoscolms") or die(mysql_error());
+$db = mysql_connect("safetytraindemo.db.8609376.hostedresource.com", "safetytraindemo", "RZ8Lk55auNQv1e") or die(mysql_error());
+mysql_select_db("safetytraindemo") or die(mysql_error());
 //$db = mysql_connect("localhost", "root", "") or die(mysql_error());
-//mysql_select_db("cosmoscolms") or die(mysql_error());
+//mysql_select_db("safetytraindemo") or die(mysql_error());
 # PHP message board (MBoard)
 # Version: 1.3 from November 18, 2006  (fix from 16th Feb 2007)
 # File name: mboard.php

@@ -10,10 +10,10 @@ class db {
 	var $host="localhost";
 	var $mydb="lms_davidealytechnologies_com"; */
 //var $mydb="";
-	var $user="cosmoscolms";
-	var $pass = "tTTS9wVUUW7ZjY";
-	var $host="cosmoscolms.db.8685149.hostedresource.com";
-	var $mydb="cosmoscolms";
+	var $user="safetytraindemo";
+	var $pass = "RZ8Lk55auNQv1e";
+	var $host="safetytraindemo.db.8609376.hostedresource.com";
+	var $mydb="safetytraindemo";
 
 	function connect() 	{
 		if($this->persistent==1) {
