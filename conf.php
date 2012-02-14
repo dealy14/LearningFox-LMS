@@ -8,7 +8,7 @@
 // 
 //$web_dir="http://localhost/LMS/";
 //$web_dir="http://localhost/";
-$main_dir= $_SERVER['DOCUMENT_ROOT']."/courses/"; 
+$main_dir= $_SERVER['DOCUMENT_ROOT']."/cosmos-content/courses/"; 
 
 
 $dir_includes = $main_dir."includes/";
@@ -56,6 +56,6 @@ include($dir_includes."class_db_".$db_type.".php");
 include($dir_includes."class_fdb.php");
 include($dir_includes."functions.php");
 include($dir_includes."stored_sql.php");
-include($dir_includes."clear_cache.php");
+//include($dir_includes."clear_cache.php");
 //include($dir_lms_conf);
 ?>

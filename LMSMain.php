@@ -53,6 +53,24 @@ $rsCrseNm = mysql_query($qryCrseNm);
 $rowCrseNm = mysql_fetch_object($rsCrseNm);
 $_SESSION["course_identifier"] = $rowCrseNm->course_id;
 
+
+$str1="select * from item_info where course_id='".$_SESSION["course_identifier"]."'";
+			$db->connect();
+			$db->query($str1);
+			//echo $str1;
+			if($db->getRows()){
+					//echo $insrt1."<br>";
+					$insrt1="insert into user_sco_info set user_id=".$lms_userID.",course_id='".$_SESSION['course_identifier']."',sco_id='".$db->row("identifier")."',";
+					$insrt1.="launch='".$db->row("launch")."',data_from_lms='".$db->row("data_from_lms")."',lesson_status='not attempted',prerequisite='".$db->row("prerequisites")."',";
+					$insrt1.="sco_exit='',sco_entry='ab-initio',masteryscore='".$db->row("masteryscore")."',maximumtime='".$db->row("maximumtime")."',";
+					$insrt1.="timelimitaction='".$db->row("timelimitaction")."',sequence=".$db->row("sequence").",type='".$db->row("type")."',";
+					$insrt1.="cmi_credit='".$db->row("cmi_credit")."'";
+					//$db->connect();
+					insertAction($insrt1); //$db->query($insrt1); 
+					//echo $insrt1;
+				
+			}
+
 $db->connect();
 $totalCnt = mysql_result(mysql_query( "select count(*) from user_sco_info where course_id = '" . 
 				$rowCrseNm->course_id . "' and user_id=" . $_SESSION['student_id'] . " and lesson_status not like('%completed%') " .
