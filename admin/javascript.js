@@ -47,4 +47,3 @@ if (d.subject.value=='') {alert('Please write a subject!'); return false;}
 if (d.message.value=='') {alert('Please write a message!'); return false;}
 return true;
 }
-

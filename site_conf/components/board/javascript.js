@@ -1,6 +1,6 @@
 function insertspecial(tag) {
-var space=" ";
-var text=prompt("Type text you wish to enter:","");
+var space='';
+var text=prompt('Type text you wish to enter:','');
 if (text != null)
         {
         var text_to_insert = space+'['+tag+']'+text+'[/'+tag+']'+space;
@@ -36,15 +36,30 @@ w=window.open(smurl, "smileys", "fullscreen=no,toolbar=no,status=no,menubar=no,s
 
 function mboard_checkFields() {
 d=document.form;
-if (d.name.value=='') {alert('Please enter your name!'); return false;}
+if (d.name.value=='') 
+{
+	alert('Please enter your name!');
+    return false;
+}
 if (
     d.email.value!='' && (
       d.email.value.indexOf(".") == -1 ||
       d.email.value.indexOf("@") == -1
     )
-) {alert('Please enter a valid e-mail address!'); return false;}
-if (d.subject.value=='') {alert('Please write a subject!'); return false;}
-if (d.message.value=='') {alert('Please write a message!'); return false;}
+) 
+{
+	alert('Please enter a valid e-mail address!');
+	return false;
+}
+if (d.subject.value=='') 
+        {
+			alert('Please write a subject!');
+			return false;
+		}
+if (d.message.value=='') 
+        {
+			alert('Please write a message!'); 
+			return false;
+		}
 return true;
 }
-

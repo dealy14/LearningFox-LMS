@@ -1,16 +1,16 @@
-<!--z 116-->
-<!--s 116--><ul><li><a href="index.php?count=116&section=msg&sid=<?php echo $sid; ?>">testing</a> - <b>Thinesh</b> <i>23/Jan/2012</i>
-<!--o 116--> (0)
-</li></ul><!--k 116-->
-<!--z 95-->
-<!--s 95--><ul><li><a href="index.php?count=95&section=msg&sid=10156318764b4b5b39389dc">Documents uploaded 1.112010</a> - <b>David Ealy</b> <i>11/Jan/2010</i>
-<!--o 95--> (0)
-</li></ul><!--k 95-->
-<!--z 94-->
-<!--s 94--><ul><li><a href="index.php?count=94&section=msg&sid=12998952504ac65f55e92c5">Test Topic</a> - <b>Marvin</b> <i>02/Oct/2009</i>
-<!--o 94--> (0)
-</li></ul><!--k 94-->
-<!--z 93-->
-<!--s 93--><ul><li><a href="index.php?count=93&section=msg&sid=8125747174aafe57d6f405">Blogs should come through anlm.org</a> - <b>David Ealy</b> <i>15/Sep/2009</i>
-<!--o 93--> (0)
-</li></ul><!--k 93-->
+<!--z 187-->
+<!--s 187--><ul><li><a href="index.php?count=187&section=msg&sid=<?php echo $sid; ?>">Blogs should come through anlm.org</a> - <b>David Ealy</b> <i>30/Jan/2012</i>
+<!--o 187--> (0)
+</li></ul><!--k 187-->
+<!--z 185-->
+<!--s 185--><ul><li><a href="index.php?count=185&section=msg&sid=<?php echo $sid; ?>">Test Topic</a> - <b>Marvin</b> <i>30/Jan/2012</i>
+<!--o 185--> (0)
+</li></ul><!--k 185-->
+<!--z 184-->
+<!--s 184--><ul><li><a href="index.php?count=184&section=msg&sid=<?php echo $sid; ?>">Documents uploaded 1.112010</a> - <b>David Ealy</b> <i>30/Jan/2012</i>
+<!--o 184--> (0)
+</li></ul><!--k 184-->
+<!--z 183-->
+<!--s 183--><ul><li><a href="index.php?count=183&section=msg&sid=<?php echo $sid; ?>">Testing</a> - <b>Thinesh</b> <i>30/Jan/2012</i>
+<!--o 183--> (0)
+</li></ul><!--k 183-->
