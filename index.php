@@ -237,7 +237,7 @@ if($_REQUEST['section']!='login' && $_REQUEST['section']!='' && $_REQUEST['logou
 
                          <td class="topnav-link" width="170"><a href="elearning.html">eLearning <br /></a></td>
 
-                         <td class="topnav-link"><a href="http://www.cosmosconsultingllc.com/services.htm">Consulting</a></td>                         
+                         <td class="topnav-link"><a href="/services.htm">Consulting</a></td>                         
 
                          <td class="topnav-link"><a href="faq.html">FAQ/Help</a></td>
 
