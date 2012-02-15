@@ -1,19 +1,19 @@
 <?php
 
-require_once($_SERVER['DOCUMENT_ROOT'] . '/LMS/conf.php');
+require_once("$main_dir/conf.php");
 
 function send_pass_email($email, $password, $ac_message) {
-    $admin_email = "admin@cosmosconsultingllc.com";
+    $admin_email = $default_email; // from conf.php
 	$subject = 'Course Account information';
     
 	//override email for debugging
 	//$email = "ryan@rammons.net";
-		
+	$domain_in_caps = toupper($domain_name);
 	$to = $email;    //  user/purchaser/student email
     $body = "Thank you very much for your purchase! You may now log in at any time " .
 			"to see the course(s) you have purchased, as well as any other previously " .
 			"purchased courses, by visiting: \n" .
-			"http://cosmosconsultingllc.com/LMS/index.php?section=login.\n\n\n";
+			"$lms_url_fq/index.php?section=login.\n\n\n";
 			
     $body .= "To log in to your account, you'll need your username and password. \n\n" .
 			 "Your username is simply your email address: " . $to . "\n" .
@@ -24,7 +24,7 @@ function send_pass_email($email, $password, $ac_message) {
 	$body .= "If you have any questions, concerns or comments, please contact us at " .
 				$admin_email . ".\n\n\n";
     
-	$body .= "THIS IS AN AUTOMATED MESSAGE FROM COSMOSCONSULTINGLLC.COM\n\n\n" .
+	$body .= "THIS IS AN AUTOMATED MESSAGE FROM $domain_in_caps\n\n\n" .
     			"\n" . date('m/d/Y');
     
 	$headers = "From: " . $admin_email . "\r\n";
