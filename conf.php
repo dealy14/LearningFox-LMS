@@ -7,39 +7,24 @@ error_reporting(0);
 // 
 //$web_dir="http://localhost/LMS/";
 //$web_dir="http://localhost/";
-
-// This check is necessary for Go Daddy.  It does not change
-// $_SERVER['DOCUMENT_ROOT'] to include the subdirectory if the domain
-// is mapped to a subdirectory of the hosting account.  It does, however,
-// change $_SERVER['SUBDOMAIN_DOCUMENT_ROOT'].  See
-// <http://www.robertmullaney.com/2010/09/09/subdomains-document-root/> for
-// more info.
-if ($_SERVER['DOCUMENT_ROOT'] === $_SERVER['SUBDOMAIN_DOCUMENT_ROOT'])
-	$main_dir = $_SERVER['DOCUMENT_ROOT'];
-else
-	$main_dir = $_SERVER['SUBDOMAIN_DOCUMENT_ROOT'];
-
+$main_dir= $_SERVER['DOCUMENT_ROOT']."/cosmos-content/LMS/"; 
 $dir_includes = $main_dir."includes/";
 $dir_surveys =  $main_dir."surveys/";
 $dir_sql = $main_dir."sql/";
-
 $dir_admin = $main_dir."admin/";
 $dir_xml = $dir_admin."course_xml/";
 $dir_topics = $dir_admin."topics/";
 $dir_template = $dir_admin."template/";
 $dir_layout = $dir_admin."layout/";
-$dir_orgfile = $dir_admin."orgs/";
-
 $dir_lms_conf = $main_dir."lms_conf/.lmsconf1";
 $dir_components = $main_dir."site_conf/components/";
 $dir_siteconf = $main_dir."site_conf/";
-
 $dir_users = $main_dir."users/";
 $dir_sessions = $dir_users."sessions/";
 $dir_usercourselist = $dir_users."courselist/";
 $dir_testlogs = $dir_users."test_logs/";
 $dir_groupfiles = $dir_admin."groups/";
-
+$dir_orgfile = $dir_admin."orgs/";
 $dir_references = $main_dir."references/";
 include($dir_includes."isdefined.php");
 #####################################################################
@@ -66,13 +51,4 @@ include($dir_includes."functions.php");
 include($dir_includes."stored_sql.php");
 include($dir_includes."clear_cache.php");
 //include($dir_lms_conf);
-
-/*******************************************************************************
-** Domain name and related info
-*******************************************************************************/
-$domain_name = "safetytrainingsystem.com";
-$lms_url = "/LMS";
-$lms_url_fq = $domain_name . $lms_url;
-
-$default_email = "admin@safetytrainingsystem.com";
 ?>

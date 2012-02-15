@@ -161,21 +161,21 @@ if($_POST['status']!=1){
 			echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
 			}else{
 			
-			if(!file_exists("../uploadfiles"))
-				mkdir("uploadfiles",0777);
+			if(!file_exists($main_dir . 'uploadfiles'))
+				mkdir($main_dir . 'uploadfiles',0777);
 			/*if(!file_exists("uploadfiles/".$_POST['cn']))
 				mkdir("uploadfiles/".$_POST['cn'],0777);*/
 			
-			if (file_exists("../uploadfiles/". basename($_FILES["file"]["name"],".zip"))){
+			if (file_exists($main_dir . 'uploadfiles/'. basename($_FILES["file"]["name"],".zip"))){
 				echo '<strong>'.$_FILES["file"]["name"] . " already exists.</.strong> ";
 				}else{
-				move_uploaded_file($_FILES["file"]["tmp_name"],"../uploadfiles/". $_FILES["file"]["name"]);
+				move_uploaded_file($_FILES["file"]["tmp_name"],$main_dir . 'uploadfiles/'. $_FILES["file"]["name"]);
 				$file420 = $_FILES["file"]["name"];
 				
 				//$file = getcwd() . "uploadfiles".$_FILES['file']['name'];
 				//echo $file;
 				// Or:
-				$file = $_SERVER['DOCUMENT_ROOT'].'/LMS/uploadfiles/'.$_FILES['file']['name'];
+				$file = $main_dir.'uploadfiles/'.$_FILES['file']['name'];
 				
 				
 				//$zip = zip_open($file);
@@ -217,7 +217,7 @@ if($_POST['status']!=1){
 					return true;
 					}							 
 				unzip($file);*/
-				$file1 = "../uploadfiles/".$courseid;
+				$file1 = $main_dir . 'uploadfiles/'.$courseid;
 				//die($file1);
 				if(!file_exists($file1))
 					mkdir($file1,0777);
@@ -240,7 +240,7 @@ if($_POST['status']!=1){
 				
 				/*---------Checking whether index file within a directory  exist or not starts-------------------*/
 				
-				$file_dir=$_SERVER['DOCUMENT_ROOT']."/LMS/uploadfiles/".$courseid;
+				$file_dir=$main_dir . 'uploadfiles/'.$courseid;
 				//$file_jayant_420 = basename($file,".zip");
 				//echo $file_jayant_420;
 				$dir_name=basename($file_dir);
@@ -439,7 +439,7 @@ if($_POST['status']!=1){
 						$timelimit=$pre->timelimitaction;
 						$maxtime=$pre->maxtimeallowed;
 						$data_from_lms=$pre->datafromlms;
-						$metapath=$_SERVER['DOCUMENT_ROOT']."/LMS/uploadfiles/".$courseid."/".urldecode($pre->location);
+						$metapath=$main_dir . 'uploadfiles/'.$courseid."/".urldecode($pre->location);
 						
 						if($child->getName()=="metadata"){
 							foreach($child->children() as $p){
@@ -607,7 +607,7 @@ if($_POST['status']!=1){
 				$str = sprintf("INSERT INTO course (created, name, type, course_type, folder_name, course_id, cmi_credit, sco_version, keyword, description2, catalog_name, catalog_entry, link, category_id) " .
 							   "VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
 							   date('m/d/y'), $db->escape_string($task), 'wbt', 
-							   $db->escape_string($_POST['course_type']), $db->escape_string('/LMS/uploadfiles/'.$courseid), $db->escape_string($courseid), 
+							   $db->escape_string($_POST['course_type']), $db->escape_string($main_dir . 'uploadfiles/'.$courseid), $db->escape_string($courseid), 
 							   $db->escape_string($_POST['radio_credit']), $db->escape_string($sco_version), $db->escape_string($keyword), 
 							   $db->escape_string($desc),  $db->escape_string($catalog_name), $db->escape_string($catalog_entry), 
 							   '', $db->escape_string($_POST['category_id']));
