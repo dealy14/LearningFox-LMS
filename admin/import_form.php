@@ -52,6 +52,7 @@ function validChk(frm){
 </head>
 <body  BGCOLOR="#EFF7FF">
 <?php
+$uploadpath = $main_dir . 'uploadfiles';
 $courseid = $_GET["id"];
 $ctype=$_GET['ctype'];
 //echo $_GET['cn'];
@@ -161,6 +162,17 @@ if($_POST['status']!=1){
 			echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
 			}else{
 			
+<<<<<<< HEAD
+			if(!file_exists($uploadpath))
+				mkdir($uploadpath,0777);
+			/*if(!file_exists("uploadfiles/".$_POST['cn']))
+				mkdir("uploadfiles/".$_POST['cn'],0777);*/
+			
+			if (file_exists($uploadpath . '/'. basename($_FILES["file"]["name"],".zip"))){
+				echo '<strong>'.$_FILES["file"]["name"] . " already exists.</.strong> ";
+				}else{
+				move_uploaded_file($_FILES["file"]["tmp_name"],$uploadpath . '/'. $_FILES["file"]["name"]);
+=======
 			if(!file_exists($main_dir . 'uploadfiles'))
 				mkdir($main_dir . 'uploadfiles',0777);
 			/*if(!file_exists("uploadfiles/".$_POST['cn']))
@@ -170,12 +182,17 @@ if($_POST['status']!=1){
 				echo '<strong>'.$_FILES["file"]["name"] . " already exists.</.strong> ";
 				}else{
 				move_uploaded_file($_FILES["file"]["tmp_name"],$main_dir . 'uploadfiles/'. $_FILES["file"]["name"]);
+>>>>>>> 183fb19b9b281311b78c650ff53cd7ba8f2611b7
 				$file420 = $_FILES["file"]["name"];
 				
 				//$file = getcwd() . "uploadfiles".$_FILES['file']['name'];
 				//echo $file;
 				// Or:
+<<<<<<< HEAD
+				$file = $uploadpath . '/'.$_FILES['file']['name'];
+=======
 				$file = $main_dir.'uploadfiles/'.$_FILES['file']['name'];
+>>>>>>> 183fb19b9b281311b78c650ff53cd7ba8f2611b7
 				
 				
 				//$zip = zip_open($file);
@@ -217,7 +234,11 @@ if($_POST['status']!=1){
 					return true;
 					}							 
 				unzip($file);*/
+<<<<<<< HEAD
+				$file1 = $uploadpath . '/'.$courseid;
+=======
 				$file1 = $main_dir . 'uploadfiles/'.$courseid;
+>>>>>>> 183fb19b9b281311b78c650ff53cd7ba8f2611b7
 				//die($file1);
 				if(!file_exists($file1))
 					mkdir($file1,0777);
@@ -240,7 +261,11 @@ if($_POST['status']!=1){
 				
 				/*---------Checking whether index file within a directory  exist or not starts-------------------*/
 				
+<<<<<<< HEAD
+				$file_dir=$uploadpath . '/'.$courseid;
+=======
 				$file_dir=$main_dir . 'uploadfiles/'.$courseid;
+>>>>>>> 183fb19b9b281311b78c650ff53cd7ba8f2611b7
 				//$file_jayant_420 = basename($file,".zip");
 				//echo $file_jayant_420;
 				$dir_name=basename($file_dir);
@@ -428,6 +453,7 @@ if($_POST['status']!=1){
 				}
 				/*-----------------------Metadata Entry Ends..................................*/
 				function displayChildrenRecursive($xmlObj,$depth=0) {
+					global $uploadpath;
 					global $courseid,$z,$manifest_path,$scormversion;
 					global $course_title,$catalog_entry,$descript,$keyword,$catalog_name;
 					//$z=0;
@@ -439,7 +465,11 @@ if($_POST['status']!=1){
 						$timelimit=$pre->timelimitaction;
 						$maxtime=$pre->maxtimeallowed;
 						$data_from_lms=$pre->datafromlms;
+<<<<<<< HEAD
+						$metapath=$uploadpath .'/'.$courseid."/".urldecode($pre->location);
+=======
 						$metapath=$main_dir . 'uploadfiles/'.$courseid."/".urldecode($pre->location);
+>>>>>>> 183fb19b9b281311b78c650ff53cd7ba8f2611b7
 						
 						if($child->getName()=="metadata"){
 							foreach($child->children() as $p){
@@ -607,7 +637,11 @@ if($_POST['status']!=1){
 				$str = sprintf("INSERT INTO course (created, name, type, course_type, folder_name, course_id, cmi_credit, sco_version, keyword, description2, catalog_name, catalog_entry, link, category_id) " .
 							   "VALUES('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')",
 							   date('m/d/y'), $db->escape_string($task), 'wbt', 
+<<<<<<< HEAD
+							   $db->escape_string($_POST['course_type']), $db->escape_string($uploadpath . '/'.$courseid), $db->escape_string($courseid), 
+=======
 							   $db->escape_string($_POST['course_type']), $db->escape_string($main_dir . 'uploadfiles/'.$courseid), $db->escape_string($courseid), 
+>>>>>>> 183fb19b9b281311b78c650ff53cd7ba8f2611b7
 							   $db->escape_string($_POST['radio_credit']), $db->escape_string($sco_version), $db->escape_string($keyword), 
 							   $db->escape_string($desc),  $db->escape_string($catalog_name), $db->escape_string($catalog_entry), 
 							   '', $db->escape_string($_POST['category_id']));
