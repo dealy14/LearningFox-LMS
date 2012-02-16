@@ -161,8 +161,6 @@ if($_POST['status']!=1){
 		if ($_FILES["file"]["error"] > 0) {
 			echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
 			}else{
-			
-<<<<<<< HEAD
 			if(!file_exists($uploadpath))
 				mkdir($uploadpath,0777);
 			/*if(!file_exists("uploadfiles/".$_POST['cn']))
