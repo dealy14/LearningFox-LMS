@@ -17,12 +17,18 @@ require_once("../conf.php");
 	<title>Create User</title>	
 <script language="javascript" type="text/javascript">
 function valFrm(objFrm){
+var regex = /^([a-z0-9_\-\.]+)@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
 	if(objFrm.email.value == ""){
 		alert("Kindly Specify the email address");
 		objFrm.email.focus();
 		return false;
 	}
-	
+	if(!(regex.test(objFrm.email.value)))
+	{
+		alert("Kindly Specify the valid email address");
+		objFrm.email.focus();
+		return false;
+	}
 	if(objFrm.username.value == ""){
 		alert("Kindly Specify the username");
 		objFrm.username.focus();
@@ -108,9 +114,9 @@ $nx++;
 <?php
 }
 else {
-require_once("../includes/class_db_mysql.php");
-$db = new db();
-$db->connect();
+	require_once("../includes/class_db_mysql.php");
+	$db = new db();
+	$db->connect();
 
 	$fname = ucwords($_POST["fname"]);
 	$lname = ucwords($_POST["lname"]);

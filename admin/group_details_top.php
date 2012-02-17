@@ -19,13 +19,13 @@ function rupdate()
 {
 	var chckFrame = true;
 
-	for(i = 0; i<parent.frames.length;i++){
+	/*for(i = 0; i<parent.frames.length;i++){
 		pageName = parent.frames.item(i).location.href.substr(parent.frames.item(i).location.href.lastIndexOf("/")+1,parent.frames.item(i).location.href.length);
 		if(pageName=="blank.php"  && parent.frames.item(i).name === "edit_main"){
 				chckFrame = false;
 				//break;
 		}
-	}
+	}*/
 
 if(chckFrame){
 alert("Record Saved");
@@ -38,13 +38,13 @@ function rdelete()
 {
 	var chckFrame = true;
 
-	for(i = 0; i<parent.frames.length;i++){
+	/*for(i = 0; i<parent.frames.length;i++){
 		pageName = parent.frames.item(i).location.href.substr(parent.frames.item(i).location.href.lastIndexOf("/")+1,parent.frames.item(i).location.href.length);
 		if(pageName=="blank.php"  && parent.frames.item(i).name === "edit_main"){
 				chckFrame = false;
 				//break;
 		}
-	}
+	}*/
 
 	if(chckFrame){
 		a = confirm("Do You Really Want To Delete ?");

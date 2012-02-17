@@ -18,13 +18,13 @@ function rupdate()
 {
 	var chckFrame = true;
 
-	for(i = 0; i<parent.frames.length;i++){
+	/*for(i = 0; i<parent.frames.length;i++){
 		pageName = parent.frames.item(i).location.href.substr(parent.frames.item(i).location.href.lastIndexOf("/")+1,parent.frames.item(i).location.href.length);
 		if(pageName=="blank.php"  && parent.frames.item(i).name === "edit_main"){
 				chckFrame = false;
 				//break;
 		}
-	}
+	}*/
 
 if(chckFrame){
 alert("Record Saved");
@@ -36,7 +36,7 @@ top.rmain.details.edit_main.document.editForm.submit();
 function rdelete()
 {
 	var chckFrame = true;
-
+/*
 	for(i = 0; i<parent.frames.length;i++){
 		pageName = parent.frames.item(i).location.href.substr(parent.frames.item(i).location.href.lastIndexOf("/")+1,parent.frames.item(i).location.href.length);
 		if(pageName=="blank.php"  && parent.frames.item(i).name === "edit_main"){
@@ -45,13 +45,14 @@ function rdelete()
 		}
 	}
 
-	if(chckFrame){
+*/	if(chckFrame){
 		a = confirm("Do You Really Want To Delete ?");
 		if(a){
 				alert("Deleted");
 				top.top1.currTest=null;
 				top.rmain.details.edit_main.document.editForm.formAction.value="DELETE";
 				top.rmain.details.edit_main.document.editForm.submit();
+				
 		}
 	}
 }
@@ -107,7 +108,7 @@ document.getElementById( tabid          ).className='mytablinkselected';
 ?>
 <TD VALIGN="MIDDLE" nowrap="nowrap" width="1%"><a href="javascript:rupdate();" class="thebutton"><img border="0" src="images/save.gif" alt="save Test"> Save Survey</a></TD>
 <td nowrap="nowrap" width="1%">
-<a href="javascript:rdelete();" class="thebutton"><img src="images/delete.gif" border="0" alt="Delete Test"> Delete Survey</a></TD>
+<a href="javascript:rdelete();" class="thebutton"><img src="images/delete.gif" border="0" alt="Delete Test">Delete Survey </a></TD>
 </TR>
 </TABLE>
 
