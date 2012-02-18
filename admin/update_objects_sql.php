@@ -250,15 +250,18 @@ echo"<SCRIPT>top.rmain.edit_main.location='blank.php';</SCRIPT>";
 
 if($action=="objective" && $formAction=="SAVE")
 {
-insertAction($object_sql["objective_save"]);
+//insertAction($object_sql["objective_save"]);
+ $oID = $_REQUEST['oID'];
+ $objective = $_REQUEST['objective'];
+    insertAction("UPDATE objectives SET objective='$objective',link='$link' WHERE ID=$oID");
 /*echo"<SCRIPT>alert('Obective Saved'); top.rmain.edit_main.location.reload();</SCRIPT>"; jayant*/
 echo"<SCRIPT>alert('Obective Saved'); top.rmain.edit_main.location.reload();</SCRIPT>";
 }
 
 if($action=="objective" && $formAction=="DELETE")
 {
-insertAction($object_sql["objective_delete"]);
-/*echo"<SCRIPT>top.rmain.edit_main.location.reload();</SCRIPT>"; jayant*/
+$oID= $_REQUEST['oID'];
+$object_sql["objective_delete"]="DELETE FROM objectives WHERE ID='$oID'";
 echo"<SCRIPT>alert('Objective Deleted');top.rmain.edit_main.location.reload();</SCRIPT>";
 }
 
@@ -266,23 +269,26 @@ echo"<SCRIPT>alert('Objective Deleted');top.rmain.edit_main.location.reload();</
 # actions for course references
 ###############################################################################
 
-if($action=="ref" && $formAction=="SAVE")
+if ($action=="ref" && $formAction=="SAVE")
 {
-insertAction($object_sql["ref_save"]);
-   if($thefile!="")
-   {
-   //upload file;
-	  copy("$thefile", $dir_references.$rthefile);
-	  unlink($thefile);
-   }
-/*echo"<SCRIPT>top.rmain.edit_main.location.reload();</SCRIPT>"; jayant*/
-echo"<SCRIPT>alert('Reference Saved');top.rmain.edit_main.location.reload();</SCRIPT>";
+	$description = isset($_REQUEST['description']) ? $_REQUEST['description'] : '';
+	$rname = isset($_REQUEST['rname']) ? $_REQUEST['rname'] : '';
+	$oID = isset($_REQUEST['oID']) ? intval($_REQUEST['oID']) : 0;
+    insertAction("UPDATE ref SET description='$description',rname='$rname' WHERE ID=$oID");
+	$thefile = $_FILES['thefile']['name'];
+	if (strlen($thefile) > 0)
+	{
+		move_uploaded_file($_FILES['thefile']['tmp_name'], $dir_references.$thefile);
+		insertAction("UPDATE ref SET filename='$thefile' WHERE ID=$oID");
+	}
+	echo "<SCRIPT>alert('Reference Saved');top.rmain.edit_main.location.reload();</SCRIPT>";
 }
 
 if($action=="ref" && $formAction=="DELETE")
 {
-insertAction($object_sql["ref_delete"]);
-echo"<SCRIPT>top.rmain.edit_main.location.reload();</SCRIPT>";
+    $oID = $_REQUEST['oID'];
+    insertAction("DELETE FROM ref WHERE ID=$oID");
+    echo "<SCRIPT>alert('Reference Deleted'); top.rmain.edit_main.location.reload();</SCRIPT>";
 }
 
 ###############################################################################
@@ -446,12 +452,17 @@ if($action=="subgroup" && $formAction=="DELETE")
 ###############################################################################
 if($action=="test1" && $formAction=="SAVE")
 {
-insertAction("update tests set name='$name',type='$type',randomize='$randomize', rand_total='$rand_total' WHERE ID=$ID");
-echo"<SCRIPT>top.rmain.test_list.location.reload();</SCRIPT>";
-//echo"update tests set name='$name',type='$type',randomize='$randomize' WHERE ID=$ID";
+ $ID = $_REQUEST['ID'];
+ $name=$_REQUEST['name'];
+ $type=$_REQUEST['type'];
+ //$randomize=$_REQUEST['randomize'];
+ $rand_total=$_REQUEST['rand_total'];
+  insertAction("update tests set name='$name',type='$type',randomize='$randomize' WHERE ID=$ID");
+  echo"<SCRIPT>top.rmain.test_list.location.reload();</SCRIPT>";
 }
 if($action=="test1" && $formAction=="DELETE")
 {
+ $ID = $_REQUEST['ID'];
 insertAction("DELETE FROM tests WHERE ID=$ID");
 echo"<SCRIPT>top.rmain.test_list.location.reload();top.rmain.details.edit_main.location='blank.php';</SCRIPT>";
 }
@@ -464,6 +475,7 @@ echo"<SCRIPT>top.rmain.test_list.location.reload();</SCRIPT>";
 }
 if($action=="question1" && $formAction=="DELETE")
 {
+$ID = $_REQUEST['ID'];
 insertAction("DELETE FROM questions WHERE ID=$ID");
 insertAction("DELETE FROM tests_r WHERE question_ID=$ID");
 echo"<SCRIPT>top.rmain.test_list.location.reload();top.rmain.details.edit_main.location='blank.php';</SCRIPT>";
