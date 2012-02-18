@@ -1198,7 +1198,7 @@ function LMSFinish(param){
 									sco_exit="logout";
 									
 			}
-			var str_scoid=top.glbSCO1D;
+			var str_scoid=top.glbSCOID;
 				cmi_total_time = AddTime("<?php echo $total_time;?>",session_time);	
 			var data="lesson_status="+lesson_status+"&sco_id="+str_scoid+"&sco_entry="+sco_entry+"&sco_exit="+sco_exit+"&total_time="+cmi_total_time+"&score="+raw_score+"&lesson_location="+lesson_location+"&suspend_data="+cmi_suspend_data+"&session_time="+session_time;
 			//alert("chil="+LMSGetValue("cmi.objectives.0.score._children"));

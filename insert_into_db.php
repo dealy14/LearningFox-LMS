@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../conf.php");
+require_once("conf.php");
 $_SESSION['session_time']=$_POST['session_time'];
 $_SESSION['suspend_data']=$_POST['suspend_data'];
 if($_POST['sco_entry']=='ab-initio'){
