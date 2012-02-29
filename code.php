@@ -1,6 +1,4 @@
-<%@page import = "java.sql.*, java.util.*" %>
-
-<%
+<?php
 /*******************************************************************************
 **
 ** Filename:  code.jsp
@@ -58,7 +56,7 @@
 ** Copyright (c) 2001, Morten Wang & contributors
 ** All rights reserved.
 ***************************************************************************/
-%>
+?>
 
 <html>
 <head>
@@ -167,7 +165,8 @@ MTMIconList.addIcon(new MTMIcon("menu_link_external.gif", "http://", "pre"));
 MTMIconList.addIcon(new MTMIcon("menu_link_pdf.gif", ".pdf", "post"));
 
 var menu = new MTMenu();
-
+<?php
+/*
 <%
  //  Get the information needed to build the menu
  Vector title_vector = new Vector();
@@ -327,7 +326,8 @@ try
             }// end else
     } //end while
  } // end menu creation%>
- 
+ */
+ ?>
       </script>
 </head> 
 
