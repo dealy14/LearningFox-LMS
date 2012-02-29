@@ -5,7 +5,7 @@ $upuser_sco.=" where user_id > 0 ";
 $db=new db;
 $db->connect();
 $db->query($upuser_sco);
-$uphis="update course_history set course_status='Not Attempted',start_date='NA',last_usage='NA',total_time='00:00:00.00',total_score=0";
+$uphis="update course_history set course_status='Not Attempted',start_date='0000-00-00',last_usage='0000-00-00',total_time='00:00:00.00',total_score=0";
 $db->connect();
 $db->query($uphis);
 ?>
