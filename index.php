@@ -24,7 +24,7 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 
     <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
 
-    <title>Cosmos Consulting LearnCenter</title>
+    <title>Zenith Performance Solutions LearnCenter</title>
 
 
 
