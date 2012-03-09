@@ -10,7 +10,7 @@ $settings['apass']='admin';
 $settings['website_title']="Message Board";
 
 // Website URL
-$settings['website_url']='http://www.safetytrainingsystem.com/LMS/';
+$settings['website_url']='http://www.zenithperformancesolutions.com/LMS/';
 
 
 // Message board title
@@ -18,8 +18,8 @@ $settings['mboard_title']="Message Board";
 
 // URL to folder where message board is installed
 // DO NOT a trailing "/" !
-$settings['mboard_url']='http://www.safetytrainingsystem.com/LMS/index.php?section=messageboard&sid='.$_SESSION['lms_userID'].'';
-$settings['mboard_url2']='http://www.safetytrainingsystem.com/LMS/';
+$settings['mboard_url']='http://www.zenithperformancesolutions.com/LMS/index.php?section=messageboard&sid='.$_SESSION['lms_userID'].'';
+$settings['mboard_url2']='http://www.zenithperformancesolutions.com/LMS/';
 
 /* Prevent automated submissions (recommended YES)? 0 = NO, 1 = YES, GRAPHICAL, 2 = YES, TEXT */  
 $settings['autosubmit']=1;
