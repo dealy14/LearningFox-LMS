@@ -7,7 +7,7 @@ error_reporting(0);
 // 
 //$web_dir="http://localhost/LMS/";
 //$web_dir="http://localhost/";
-$main_dir= $_SERVER['DOCUMENT_ROOT']."/cosmos-content/LMS/"; 
+$main_dir= $_SERVER['DOCUMENT_ROOT']."/LMS/"; 
 $dir_includes = $main_dir."includes/";
 $dir_surveys =  $main_dir."surveys/";
 $dir_sql = $main_dir."sql/";
