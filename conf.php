@@ -8,7 +8,7 @@
 // 
 //$web_dir="http://localhost/LMS/";
 //$web_dir="http://localhost/";
-$main_dir= $_SERVER['DOCUMENT_ROOT']."/cosmos-content/courses/"; 
+$main_dir= $_SERVER['DOCUMENT_ROOT']."/courses/"; 
 
 
 $dir_includes = $main_dir."includes/";

@@ -9,11 +9,12 @@ class db
 	var $pass = "";
 	var $host="localhost";
 	var $mydb="lms_davidealytechnologies_com"; */
-//var $mydb="";
-	var $user="safetytraining";
-	var $pass = "K3RgmwVqh6";
-	var $host="safetytraining.db.8609376.hostedresource.com";
-	var $mydb="safetytraining";
+	//var $mydb="";
+
+	var $user="dbo407049122";
+	var $pass = "miCKey2012!";
+	var $host="db407049122.db.1and1.com";
+	var $mydb="db407049122";
 
 	function connect()
 	{
