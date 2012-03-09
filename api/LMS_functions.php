@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/cosmos-content/courses/conf.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/courses/conf.php');
 
 function update_LMS($payment_data, $dir_usercourselist) {
 	
@@ -168,7 +168,7 @@ function register_student_in_course($studentid,$courseid){
 }
 
 function send_pass_email($email, $password, $ac_message) {
-	$admin_email = "admin@safetytrainingsystem.com";	
+	$admin_email = "admin@zenithperformancesolutions.com";	
 	$subject = 'Course Account information';
 	
 	//override email for debugging
@@ -178,7 +178,7 @@ function send_pass_email($email, $password, $ac_message) {
 	$body = "Thank you very much for your purchase! You may now log in at any time " .
 	"to see the course(s) you have purchased, as well as any other previously " .
 	"purchased courses, by visiting: \n" .
-	"http://safetytrainingsystem.com/courses/index.php?section=login.\n\n\n";
+	"http://zenithperformancesolutions.com/courses/index.php?section=login.\n\n\n";
 	
 	$body .= "To log in to your account, you'll need your username and password. \n\n" .
 	"Your username is simply your email address: " . $to . "\n" .
@@ -189,7 +189,7 @@ function send_pass_email($email, $password, $ac_message) {
 	$body .= "If you have any questions, concerns or comments, please contact us at " .
 	$admin_email . ".\n\n\n";
 	
-	$body .= "THIS IS AN AUTOMATED MESSAGE FROM SAFETYTRAININGSYSTEM.COM\n\n\n" .
+	$body .= "THIS IS AN AUTOMATED MESSAGE FROM ZENITHPERFORMANCESOLUTIONS.COM\n\n\n" .
 	"\n" . date('m/d/Y');
 	
 	$headers = "From: " . $admin_email . "\r\n";
