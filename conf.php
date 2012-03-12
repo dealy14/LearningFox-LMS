@@ -35,8 +35,7 @@ include($dir_includes."isdefined.php");
 #####################################################################
 #include special site configurations
 #####################################################################
-if(!is_null($myconf))
-{
+if(!is_null($myconf)){
 	require_once($dir_siteconf.$myconf);
 }
 
