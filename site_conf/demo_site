@@ -1,12 +1,18 @@
 <?php
+#Site Branding Configuration
+
+$site_title = "Cosmos Consulting LearnCenter";
+$logo_file = "images/cosmosheader4.png";
+
+$buttombanner="<img src=\"images/buttombanner.gif\" />";
+
 #############################################################################################
 #Require the "Session Component"
 #############################################################################################
-
-//exit;
-if($section!=""&&$section!="elearning"&&$section!="catelog"&&$section!="catelog_subpage"&&$section!="get_started"&&$section!="contact"&&$section!="login"&&$section!="register")
-{
-require_once($dir_components."session_check.php");
+if($section!="" && $section!="elearning" && $section!="catelog" && 
+  		$section!="catelog_subpage" && $section!="get_started" && 
+		$section!="contact" && $section!="login" && $section!="register") {
+	require_once($dir_components."session_check.php");
 }
 
 #############################################################################################
@@ -15,100 +21,41 @@ require_once($dir_components."session_check.php");
 
 switch($section)
 {
-
   case '':
-  $mylogin="html/login.html";
-  $mysection=$dir_components."content_login.php";
+  	$mylogin="html/login.html";
+  	$mysection=$dir_components."content_login.php";
+	break;
 
-  break;
-  
   case 'get_started':
-  $mysection=$dir_components."content_getstarted.php";
-  break;  
-  
-  case 'faqs':
-  $mysection=$dir_components."content_faqs.php";
-  break;  
-  
-  case 'elearning':
-  $mysection=$dir_components."content_elearning.php";
-  break; 
-  
-  case 'catelog':
-  $mysection=$dir_components."content_catelog.php";
-  break;
-  
-  case 'catelog_subpage':
-  $mysection=$dir_components."content_catelog_subpage.php";
-  break; 
-  
-  case 'contact':
-  $mysection=$dir_components."content_contact.php";
-  break; 
-  
-  case 'landing':
-  $mysection=$dir_components."content_landing.php";
-  break;  
+	$mysection=$dir_components."content_getstarted.php";
+	break;  
 
   case 'login':
-  $mylogin="html/login.html";
-  $mysection=$dir_components."content_login.php";
-  break;
-  
-  case 'register':
-  $mysection=$dir_components."content_register.php";
-  break;
-    
-  case 'courselist':
-  $mysection=$dir_components."content_courselist.php";
-  break;
-  
-  case 'courselaunch':
-  $mysection=$dir_components."content_courselaunch.php";
-  break;  
+	$mylogin="html/login.html";
+  	$mysection=$dir_components."content_login.php";
+  	break;
 
-  case 'reports':
-  $mysection=$dir_components."content_reports.php";
-  break;
-  
-  case 'news':
-  $mysection=$dir_components."news.php";
-  break;
-  
   case 'messageboard':
-  $mysection=$dir_components."board/mboard.php";
-  break; 
-  
+	$mysection=$dir_components."board/mboard.php";
+  	break; 
+
   case 'msg':
-  $mysection=$dir_components."board/msg/".$_GET['count'].".html";
-  break; 
-  
+  	$mysection=$dir_components."board/msg/".$_GET['count'].".html";
+  	break; 
+
   case 'library':
-  $mysection=$dir_components."library.php";
-  break;  
-  
-  //case 'links':
-  //$mysection=$dir_components."links.php";
-  //break;  
+  	$mysection=$dir_components."library.php";
+  	break;  
 
   case 'forums':
-  $mysection=$dir_components."forums_listing.php";
-  break;   
+  	$mysection=$dir_components."forums_listing.php";
+  	break;   
 
   case 'add_member':
-  $mysection="html/add_form.html";
-  break;
-  
-  case 'message':
-  $mysection=$dir_components."content_message.php";
-  break;  
-  	
-  default:
-  $mysection=$dir_components."content_$section.php";
+  	$mysection="html/add_form.html";
+  	break;
+
+  default:  // Almost all components will be set with the pass-through $section variable
+  	$mysection=$dir_components."content_$section.php";
 }
-
-
-#############################################################################################
-#
-#############################################################################################
 ?>
