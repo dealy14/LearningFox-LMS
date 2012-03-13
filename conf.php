@@ -1,9 +1,13 @@
 <?php
+/* Main Configuration File */
+
+// Site-specific configuration found under directory named after site config
+
 #####################################################################
 #Configure Directory values:
 #####################################################################
 error_reporting(0);
-//$ID       = $_REQUEST["ID"];
+//$ID = $_REQUEST["ID"];
 // 
 //$web_dir="http://localhost/LMS/";
 //$web_dir="http://localhost/";
@@ -27,19 +31,21 @@ $dir_groupfiles = $dir_admin."groups/";
 $dir_orgfile = $dir_admin."orgs/";
 $dir_references = $main_dir."references/";
 include($dir_includes."isdefined.php");
+
 #####################################################################
 #include special site configurations
 #####################################################################
-if(!is_null($myconf))
-{
+if(!is_null($myconf)){
 	require_once($dir_siteconf.$myconf);
 }
+
 #####################################################################
 #Configure Database Options:
 #$db_type = mysql or odbc
 #####################################################################
 $db_type="mysql";
 $lms_session_expire=0;
+
 #####################################################################
 #Include Various Items:
 #####################################################################
