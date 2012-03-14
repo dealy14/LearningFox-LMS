@@ -26,8 +26,8 @@ $logout = $_REQUEST['logout'];
 		window.open(winName,"FAQs", "width=950,height=650,resizable=no,scrollbars=no,toolbar=no,status=no,menubar=no,copyhistory=no,left=100,top=100,screenX=100,location=no,screenY=100");
 	}
 	</script>
-	<link rel="stylesheet" type="text/css" href="css/index_style.css" />
-	<link rel="stylesheet" type="text/css" href="css/header_style.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $dir_css."index_style.css"; ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $dir_css."header_style.css"; ?>" />
 </head>
 <body id="lcPage" bgcolor="#fffff">
 <div id="mainContainer">
@@ -56,8 +56,8 @@ scrolling="no" width="95%" height="500"></iframe>
 		</tr>
 		<tr>
 	 	<td class="navbar">
-			<?php require_once('includes/partials/top_menu.php'); ?>
-	 	</td>																											
+			<?php require_once($dir_components.'top_menu.php'); ?>
+	 	</td>
 		</tr>
 		<tr>
 		 <td align="right" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px;">

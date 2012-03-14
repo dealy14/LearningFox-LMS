@@ -1,17 +1,21 @@
 <?php
 /* Main Configuration File */
 
-// Site-specific configuration found under directory named after site config
+// Site-specific configuration file found under /site_config/<$myconf>.php
 
 #####################################################################
 #Configure Directory values:
 #####################################################################
 error_reporting(0);
 //$ID = $_REQUEST["ID"];
-// 
-//$web_dir="http://localhost/LMS/";
-//$web_dir="http://localhost/";
-$main_dir= $_SERVER['DOCUMENT_ROOT']."/cosmos-content/LMS/"; 
+
+/* Web-server path values */
+$web_root = "/cosmos/";
+$dir_images = $web_root."images/";  //defaults to root/images
+$dir_css = $web_root."css/"; // defaults to root/css
+
+/* Filesystem Path Values */
+$main_dir = $_SERVER['DOCUMENT_ROOT'].$web_root; 
 $dir_includes = $main_dir."includes/";
 $dir_surveys =  $main_dir."surveys/";
 $dir_sql = $main_dir."sql/";
@@ -36,7 +40,9 @@ include($dir_includes."isdefined.php");
 #include special site configurations
 #####################################################################
 if(!is_null($myconf)){
-	require_once($dir_siteconf.$myconf);
+	$dir_images = $web_root."site_conf/images/"; //images specific to site config
+	$dir_css = $web_root."site_conf/css/";  //css specific to site config
+	require_once($dir_siteconf.$myconf.'.php');
 }
 
 #####################################################################
