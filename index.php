@@ -63,7 +63,7 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 	
 </head>
 
-<body id="lcPage" bgcolor="#ffffff" style="margin-left: auto;margin-right: auto; direction: ltr">
+<body id="lcPage" bgcolor="#ffffff" style=" direction: ltr">
 <div id="mainContainer">
     <div style="display: none">
         <form id="learn" action="/learncenter.asp?sessionid=3-28351FC0-727D-4795-A1B2-D679BDFAB4DA&page=1&id=178414" 
@@ -91,9 +91,8 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 
 <table width="100%" cellpadding="0" cellspacing="0" border="0">
 <tr>
-	<td align="center" width="100%" bgcolor="#ffffff" 
-		background="/images/skins/lc/images/clear1x1.gif">
-
+	<td align="center" width="100%" bgcolor="#ffffff" background="/images/skins/lc/images/clear1x1.gif">
+	
 	<table class="pageheader" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
      <tbody>
          <tr>
@@ -101,43 +100,53 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 			 	<img src="images/cosmosheader4.png" align="default" border="0" hspace="0" vspace="0"  alt="" />
 			 </td>
          </tr>
-         <!--
+           <!--
 		 <tr>
             <td class="navbar">
-             <table class="topnav" align="right" border="0" cellpadding="5">
+             <table class="topnav" align="right" border="0" cellpadding="0">
                  <tbody>
-                     <tr>
-                         <td class="topnav-link"><a href="index.html">Home</a></td>
+                   <tr>
+					<td class="topnav-link"></td>
+					          
+						<td class="topnav-link"><a href="index.html">Home</a></td>
                          <td class="topnav-link" width="170"><a href="elearning.html">eLearning <br /></a></td>
                          <td class="topnav-link"><a href="http://www.cosmosconsultingllc.com/services.htm">Consulting</a></td>
-                         
                          <td class="topnav-link"><a href="faq.html">FAQ/Help</a></td>
                          <td class="topnav-link"><a href="contact.html">Contact Us</a></td>
-                         <td class="topnav-link" id="loginState">
-					 		<?php 
+							<?php 
 							if(is_null($sid) or $session_error!="none") { ?>
+							  <td class="topnav-link" id="loginState">
 							  <a href="index.php?section=login&sid=<?php echo $sid; ?>">Login</a>
+							  </td>
 							<?php } else { ?>
-							  
+							  <td class="topnav-link" id="loginState">
+							  <a style="" href="index.php?section=<?php echo $section; ?>&logout=YES&sid=<?php echo $sid; ?>">
+
+								Log out
+
+							  </a>
+							  </td>
 							<?php } ?>
-						 </td>
-                     </tr>
+					  
+                    </tr>
                  </tbody>
              </table>
             </td>
-         </tr>
-		-->
+         </tr>-->
+		
+		<?php if(!is_null($sid) && $session_error=="none") { ?>
 		<tr>
 			<td align="right" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px;">
-			  	<?php if(!is_null($sid) && $session_error=="none") { ?>
+			  	
 					Logged in as: <b><?php echo $lms_username; ?></b> 
 					(<a style="" href="index.php?section=<?php echo $section; ?>&logout=YES&sid=<?php echo $sid; ?>">Log out</a>)
-				<?php } ?>
-		  	</td>
+			</td>
 		</tr>
+		<?php } ?>
 	</tbody>
-</table>
-</td></tr>
+	</table>
+ </td>
+ </tr>
 </table>
 
   <table id="ldcLCPageContentContainerTable" width="100%" cellspacing="0" 
@@ -147,7 +156,8 @@ $buttombanner="<img src=\"images/buttombanner.gif\" />";
 		  /* Disable left nav (navbar2.php) */
 		  //if((!is_null($sid) && $session_error=="none")) { include($dir_components."navbar2.php"); }
     	?>
-		<td id="ldcLCPageLeftNavShadowTD" width="14" bgcolor="#EAEBED" valign="bottom" align="left" nowrap></td>
+		<!--<td id="ldcLCPageLeftNavShadowTD" width="14" bgcolor="#EAEBED" valign="bottom" align="left" nowrap></td>-->
+		
 		<td id="ldcLCPageContentTD" valign="top" align="left">
 			<div id="ldcLCPageContent">
 				<?php include_once($mysection); ?>

@@ -193,7 +193,7 @@ else /* start ELSE_C1 */ { ?>
 	            <td><input type="password" name="pwd"></td>
 	          </tr>
 	          <tr>
-	            <td colspan="2" align="right"><input type="image" src="images/submit.gif" border="0"></td>
+	            <td colspan="2" align="right"><input type="image" src="images/login.jpg" border="0"></td>
 	          </tr>
 	        </table>
 	      </form></td>
