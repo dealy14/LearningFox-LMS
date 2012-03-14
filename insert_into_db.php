@@ -60,4 +60,5 @@ if (isset($_POST['score']))
 	$up_course_his .=  ",score_raw='".$db->escape_string($_POST['score'])."'";
 $up_course_his .= " where course_ID=".$_SESSION['course_id']." and user_id=".$_SESSION['student_id'];
 $db->query($up_course_his);
+echo $_POST['sco_id'];  // Return the SCO id to the caller
 ?>
