@@ -3,16 +3,15 @@ session_start();
 include("../conf.php");
 include("dUnzip2.inc.php");
 
-echo $upload_max_filesize=ini_get("upload_max_filesize");
+//echo $upload_max_filesize=ini_get("upload_max_filesize");
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
+<title>Course Import Form</title>
 <style type="text/css">
-
 td.class1{
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	font-size:14px;
@@ -22,20 +21,20 @@ td.class1{
 	
 }
 </style>
-<STYLE TYPE="text/css" >
-#m1 {BACKGROUND-COLOR:#FFFFFF;}
-.innerl {FONT-FAMILY:VERDANA;FONT-SIZE:10;FONT-COLOR:000000;}
-.bkg {BACKGROUND-COLOR:#FFFFFF;}
-.bkg2 {BACKGROUND-COLOR:#FFFFCC;}
-<?php include("admin_css.php");?>
-.style1 {font-family: Verdana, Arial, Helvetica, sans-serif}
-.style2 {
-	font-size: 12px;
-	font-weight: bold;
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-}
-</STYLE>
-<script language="javascript1.1" type="text/javascript">
+<style type="text/css" >
+	#m1 {BACKGROUND-COLOR:#FFFFFF;}
+	.innerl {FONT-FAMILY:VERDANA;FONT-SIZE:10;FONT-COLOR:000000;}
+	.bkg {BACKGROUND-COLOR:#FFFFFF;}
+	.bkg2 {BACKGROUND-COLOR:#FFFFCC;}
+	<?php include("admin_css.php");?>
+	.style1 {font-family: Verdana, Arial, Helvetica, sans-serif}
+	.style2 {
+		font-size: 12px;
+		font-weight: bold;
+		font-family: Verdana, Arial, Helvetica, sans-serif;
+	}
+</style>
+<script type="text/javascript">
 function validChk(frm){
 	if(frm.file.value==''){
 		alert('Please specify the course content.');
@@ -50,7 +49,7 @@ function validChk(frm){
 }
 </script>
 </head>
-<body  BGCOLOR="#EFF7FF">
+<body bgcolor="#EFF7FF">
 <?php
 $uploadpath = $main_dir . 'uploadfiles';
 $courseid = $_GET["id"];
@@ -88,7 +87,7 @@ if($_POST['status']!=1){
 	<td colspan="4">&nbsp;</td>
 	</tr>
 	<tr>
-	<td colspan="5" align="left">Whether you want to credit the course or not ? (Mandatory element for SCORM 1.2) </td>
+	<td colspan="5" align="left">Do you want to credit the course? (Mandatory element for SCORM 1.2) </td>
 	</tr>
 	<tr>
 	<td align="right">&nbsp;</td>
@@ -99,10 +98,10 @@ if($_POST['status']!=1){
 	</tr>
 	<tr>
 	<td align="right">&nbsp;</td>
-	<td width="2%"><input type="radio" value="credit" name="radio_credit" checked="checked" />&nbsp;</td>
-	<td width="10%">Credit&nbsp;</td>
-	<td width="2%"><input type="radio" value="no-credit" name="radio_credit"  />&nbsp;</td>
-	<td width="73%">No Credit&nbsp;</td>
+	<td width="2%"><input type="radio" id="creditradio" value="credit" name="radio_credit" checked="checked" />&nbsp;</td>
+	<td width="10%"><label for="creditradio">Credit&nbsp;</label></td>
+	<td width="2%"><input type="radio" id="nocreditradio" value="no-credit" name="radio_credit"  />&nbsp;</td>
+	<td width="73%"><label for="nocreditradio">No Credit&nbsp;</label></td>
 	</tr>
 	<tr>
 	<td align="right">&nbsp;</td>
@@ -141,7 +140,8 @@ if($_POST['status']!=1){
 	</table>
 	</form>
 	<?php
-	}else{
+	}
+else {
 	$db = new db;
 	$db->connect();
 	$str="select ID from course where ID=(select MAX(ID) from course)";
