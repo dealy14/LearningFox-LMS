@@ -19,27 +19,35 @@ require_once("../conf.php");
 function valFrm(objFrm){
 var regex = /^([a-z0-9_\-\.]+)@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
 	if(objFrm.email.value == ""){
-		alert("Kindly Specify the email address");
+		alert("Please specify the email address");
 		objFrm.email.focus();
 		return false;
 	}
 	if(!(regex.test(objFrm.email.value)))
 	{
-		alert("Kindly Specify the valid email address");
+		alert("Please specify a valid email address");
 		objFrm.email.focus();
 		return false;
 	}
 	if(objFrm.username.value == ""){
-		alert("Kindly Specify the username");
+		alert("Please specify the username");
 		objFrm.username.focus();
 		return false;
 	}
 	
 	if(objFrm.password.value == ""){
-		alert("Kindly Specify the password");
+		alert("Please specify the password");
 		objFrm.password.focus();
 		return false;
 	}
+	
+	if(objFrm.password.value != objFrm.password_confirmation.value){
+		alert("The passwords you have entered do not match.");
+		objFrm.password.focus();
+		return false;
+	}
+	
+	
 return true;	
 }
 </script>	
@@ -79,21 +87,23 @@ $db = new db;
 $db->connect();
 $db->query("SELECT * FROM reg_form WHERE stored = 'y' AND forder>=1 AND status='on' ORDER BY forder ASC");
 $nx=0;
-while($db->getRows())
-{ 
-$mvals = $db->row("field_name");
-?>
-<TR>
-  <TD><FONT FACE="VERDANA" SIZE="2"><B><?php echo$db->row("display");?>:</FONT></TD>
-  <TD><?php makeField($db->row("field_name"),$$mvals);?></TD>
-</TR>
-<?php
-$nx++;
-
+while($db->getRows()) { 
+  $mvals = $db->row("field_name");
+  ?>
+	<TR>
+	  <TD><FONT FACE="VERDANA" SIZE="2"><B><?php echo$db->row("display");?>:</FONT></TD>
+	  <TD><?php makeField($db->row("field_name"),$$mvals);?></TD>
+	</TR>
+  <?php
+  $nx++;
 }
 ?>
 <tr>
-	<td><font face="verdana" size="2"><strong>Select User Level :</strong></font></td>
+	<TD><FONT FACE="VERDANA" SIZE="2"><B>Confirm password:</FONT></TD>
+	<TD><input type="password" name="password_confirmation" value="" class="input"></TD>
+</tr>
+<tr>
+	<td><font face="verdana" size="2"><strong>Select User Level:</strong></font></td>
 	<td>
 		<select name="user_level">
 			<?php 
@@ -104,9 +114,10 @@ $nx++;
 				}
 			?>
 		</select>
+		&nbsp;(0=most restrictive; 4=full admin)
 </tr>
 <TR>
-  <TD COLSPAN="2" ALIGN="center"><INPUT TYPE="IMAGE" SRC="images/submit.gif" BORDER="0"></TD>
+  <TD COLSPAN="2" ALIGN="center"><br><br><INPUT TYPE="IMAGE" SRC="images/submit.gif" BORDER="0"></TD>
 </TR>
 </TABLE>
 </FORM>
