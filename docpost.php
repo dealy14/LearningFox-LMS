@@ -23,7 +23,7 @@ if($getftyle[1] != ''){
 				  '".mysql_escape_string($getftyle[1])."','".mysql_escape_string($img_type)."', NOW(), '".mysql_escape_string($folder_id)."')"; 
 																			
 	   $result = mysql_query($query);
-	   $userID = mysql_insert_id($db);
+	   $userID = mysql_insert_id($database);
 	   
 	   if(!$result){
 			print mysql_error();
