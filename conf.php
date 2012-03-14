@@ -1,18 +1,25 @@
 <?php
 /* Main Configuration File */
 
+# Set the LMS version--either:
+#		1. Company/Demonstration or
+#		2. Customer-facing/Content-provider
+$lms_version = "demonstration";
+//$lms_version = "content-provider";
+
+
 // Site-specific configuration file found under /site_config/<$myconf>.php
 
 #####################################################################
 #Configure Directory values:
 #####################################################################
-error_reporting(0);
+//error_reporting(0);
 //$ID = $_REQUEST["ID"];
 
 /* Web-server path values */
 $web_root = "/cosmos/";
-$dir_images = $web_root."images/";  //defaults to root/images
-$dir_css = $web_root."css/"; // defaults to root/css
+$dir_images = $web_root."site_conf/images/";
+$dir_css = $web_root."site_conf/css/"; 
 
 /* Filesystem Path Values */
 $main_dir = $_SERVER['DOCUMENT_ROOT'].$web_root; 
@@ -40,8 +47,6 @@ include($dir_includes."isdefined.php");
 #include special site configurations
 #####################################################################
 if(!is_null($myconf)){
-	$dir_images = $web_root."site_conf/images/"; //images specific to site config
-	$dir_css = $web_root."site_conf/css/";  //css specific to site config
 	require_once($dir_siteconf.$myconf.'.php');
 }
 

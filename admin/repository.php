@@ -1,6 +1,7 @@
 <?php 
-$db = mysql_connect("safetytraindemo.db.8609376.hostedresource.com", "safetytraindemo", "RZ8Lk55auNQv1e") or die(mysql_error());
-$dbName = mysql_select_db("safetytraindemo") or die(mysql_error());
+require_once('../conn.php');
+//$db = mysql_connect("safetytraindemo.db.8609376.hostedresource.com", "safetytraindemo", "RZ8Lk55auNQv1e") or die(mysql_error());
+//$dbName = mysql_select_db("safetytraindemo") or die(mysql_error());
  ?>
 <style>
 	.library-content{

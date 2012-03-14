@@ -122,4 +122,3 @@ if(($_GET['nc'] == '') && ($_GET['news'] != '') && ($_GET['nla'] != '') && ($_GE
 	include 'news_edit.php';
 }
 ?>
-

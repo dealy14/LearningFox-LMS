@@ -6,10 +6,8 @@
 */
 require_once("conf.php"); // among other things, this will grab the db credentials
 
-var $db_temp_object = new $db;
-var $db_params;
-
-$db_params = $db->get_connection_parameters();
+$db_temp_object = new db;
+$db_params = $db_temp_object->get_connection_parameters();
 $db_temp_object = null;
 
 $database = mysql_connect($db_params['host'], $db_params['user'], $db_params['password']) 
