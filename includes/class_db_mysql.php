@@ -4,17 +4,17 @@ class db {
 	var $query;
 	private $rlink;
 
-	
+/*	
 	var $user = "rammons_lms";
 	var $pass = "brwahp95";
 	var $host = "localhost";
 	var $mydb = "rammons_lms";
-
-/*	var $user = "safetytraindemo";
+*/
+	var $user = "safetytraindemo";
 	var $pass = "RZ8Lk55auNQv1e";
 	var $host = "safetytraindemo.db.8609376.hostedresource.com";
 	var $mydb = "safetytraindemo";
-*/
+
 	function connect() {
 		if($this->persistent==1) {
 			$this->rlink = mysql_connect($this->host,$this->user,$this->pass);
