@@ -66,6 +66,15 @@
 
 			//echo "<script>alert('".$upuser_sco."');";
 
+/***  Update course history table ***/
+
+		$up_his="update course_history set course_status='Not Attempted',start_date='0000-00-00',last_usage='0000-00-00',total_time='00:00:00.00',total_score=0 where user_id=$lms_userID AND course_ID=$course_ID";
+		$db = new db;
+		$db->connect();
+		$db->query($up_his);
+
+			
+						
 		}
 
 	}
