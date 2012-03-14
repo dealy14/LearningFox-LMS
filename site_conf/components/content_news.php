@@ -91,8 +91,8 @@
 				
 				<div class="news-content" style="border:1px solid #eeeeee;">
 					<ul>
-						<li <?=$lbg_l?>><a HREF="index.php?section=news&sid=<?php echo $sid; ?>&nc=nlist";>News List</a></li>
-						<li <?=$lbg_c?>><a HREF="index.php?section=news&sid=<?php echo $sid; ?>&nc=ncreate";>Create News</a></li>
+						<li <? echo $lbg_l?>><a HREF="index.php?section=news&sid=<?php echo $sid; ?>&nc=nlist";>News List</a></li>
+						<li <? echo $lbg_c?>><a HREF="index.php?section=news&sid=<?php echo $sid; ?>&nc=ncreate";>Create News</a></li>
 					</ul>
 				</div>
 			

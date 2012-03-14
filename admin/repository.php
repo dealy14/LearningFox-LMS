@@ -54,8 +54,8 @@ if($_GET['lib'] == '1'){
 		<div class="style1">Repository</div>
 		<div style="border:1px solid #eeeeee;">
 			<ul>
-				<li <?=$lbg_1?>><a HREF="repository.php?section=library&sid=<?php echo $sid; ?>&lib=1";>Links</a></li>
-				<li <?=$lbg_2?>><a HREF="repository.php?section=library&sid=<?php echo $sid; ?>&lib=2";>Documents</a></li>
+				<li <? echo $lbg_1?>><a HREF="repository.php?section=library&sid=<?php echo $sid; ?>&lib=1";>Links</a></li>
+				<li <? echo $lbg_2?>><a HREF="repository.php?section=library&sid=<?php echo $sid; ?>&lib=2";>Documents</a></li>
 			</ul>
 		</div>
 	</div>

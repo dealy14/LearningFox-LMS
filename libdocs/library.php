@@ -77,8 +77,8 @@ if(isset($_GET['lib'])&&!is_null($_GET['lib'])&&isset($_GET['op'])&&!is_null($_G
 		<div class="style1">Repository</div>
 		<div class="linkdoc">
 			<ul>
-				<li <?=$lbg_1?>><a HREF="index.php?section=library&sid=<?php echo $sid; ?>&lib=1";>Links</a></li>
-				<li <?=$lbg_2?>><a HREF="index.php?section=library&sid=<?php echo $sid; ?>&lib=2";>Documents</a></li>
+				<li <? echo $lbg_1?>><a HREF="index.php?section=library&sid=<?php echo $sid; ?>&lib=1";>Links</a></li>
+				<li <? echo $lbg_2?>><a HREF="index.php?section=library&sid=<?php echo $sid; ?>&lib=2";>Documents</a></li>
 			</ul>
 		</div>
 	</div>
@@ -102,7 +102,7 @@ if(isset($_GET['lib'])&&!is_null($_GET['lib'])&&isset($_GET['op'])&&!is_null($_G
 			<div align="center" style="background-color:#F8F0E5;">			
 			
 			<div style="text-align:left; margin-left:10px;"><strong>Submit a link of your file</strong></div>
-			<form name="liblinks" id="liblinks" method="post" action="linkpost.php?section=library&sid=<?=$_GET['sid']?>&lib=1">
+			<form name="liblinks" id="liblinks" method="post" action="linkpost.php?section=library&sid=<? echo $_GET['sid']?>&lib=1">
 			http://<input type="text" name="links" id="links" size="40" />
 			<input type="submit" value="Submit" /> 
 			</form>
@@ -148,7 +148,7 @@ if(isset($_GET['lib'])&&!is_null($_GET['lib'])&&isset($_GET['op'])&&!is_null($_G
 			<br />
 			<div align="center" style="background-color:#F8F0E5; <?php echo $update_view; ?>;">				
 			<div style="text-align:left; margin-left:10px;"><strong>Edit Folder</strong></div>
-			<form name="folder_update_form" id="folder_update_form" method="post" action="repository_operations.php?section=library&sid=<?=$_GET['sid']?>&operation=update_folder">
+			<form name="folder_update_form" id="folder_update_form" method="post" action="repository_operations.php?section=library&sid=<? echo $_GET['sid']?>&operation=update_folder">
 			<table>
 			<tr>
 			<td>
@@ -165,7 +165,7 @@ if(isset($_GET['lib'])&&!is_null($_GET['lib'])&&isset($_GET['op'])&&!is_null($_G
 			<div align="center" style="background-color:#F8F0E5;">			
 			
 			<div style="text-align:left; margin-left:10px;"><strong>Create New Folder</strong></div>
-			<form name="folder_create_form" id="folder_create_form" method="post" action="repository_operations.php?section=library&sid=<?=$_GET['sid']?>&operation=create_folder">
+			<form name="folder_create_form" id="folder_create_form" method="post" action="repository_operations.php?section=library&sid=<? echo $_GET['sid']?>&operation=create_folder">
 			Folder Name: <input type="text" name="new_folder_name" id="new_folder_name" size="40" />
 			<input type="button" value="Create" onclick="createFolder();" /> 
 			</form>
@@ -180,7 +180,7 @@ if(isset($_GET['lib'])&&!is_null($_GET['lib'])&&isset($_GET['op'])&&!is_null($_G
 			<br />
 			<div align="center" style="background-color:#F8F0E5;">			
 			<div style="text-align:left; margin-left:10px;"><strong>Upload files here:</strong></div>
-			<form enctype="multipart/form-data" action="docpost.php?section=library&sid=<?=$_GET['sid']?>&lib=2" method="POST">
+			<form enctype="multipart/form-data" action="docpost.php?section=library&sid=<? echo $_GET['sid']?>&lib=2" method="POST">
 			<input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
 			<p style="text-align:left; padding-left:130px;">Upload to:&nbsp;&nbsp;&nbsp;&nbsp;
 			<?php 

@@ -196,7 +196,7 @@ else
 		}
 		
 		?>
-		  <TR BGCOLOR="<?=$bgcol;?>">
+		  <TR BGCOLOR="<? echo $bgcol;?>">
 		    <TD><FONT FACE="VERDANA" SIZE="2"><B><?php echo $survey_name;?>&nbsp;</B></FONT></TD>
 		    <TD><FONT FACE="VERDANA" SIZE="2"><?php echo $type;?>&nbsp;</FONT></TD>
 		    <TD><FONT FACE="VERDANA" SIZE="2">[<A HREF="index.php?section=surveydetails&sid=<?php echo $sid; ?>&survey_ID=<?php echo $survey_ID;?>">Details</A>]</FONT></TD>

@@ -335,7 +335,7 @@ function swLoad()
 		
 ?>
 	<style>
-		#<?='a'.$ID?>{
+		#<? echo 'a'.$ID?>{
 			font-weight:normal;
 		}
 	</style>
@@ -345,20 +345,20 @@ function swLoad()
 		if($_REQUEST['assetID'] == $ID){
 	?>		
 		<script>
-			var reassetID = '<?=$reassetID?>';
+			var reassetID = '<? echo $reassetID?>';
 			top.rmain.location="assets.php?assetID="+reassetID;
 			//document.all.reassetID.style.color="red";
 			//eval("document.all."+reassetID+".style.fontWeight=\"bold\";");
 		</script>
 	<?php } ?>
 	
-	<TR CLASS="bkg" id="<?='a'.$ID?>" 
+	<TR CLASS="bkg" id="<? echo 'a'.$ID?>" 
 	
 	<?php if($_REQUEST['assetID'] == $ID){ ?>
 		style="font-weight:bold;"
 	<?php }else{ ?> style="font-weight:normal;"<?php }?>
 	>
-		<td style="width:420px;" ><span class="assetrow"><A HREF="#" onClick="setAsset('<?='a'.$ID?>');"><img src="<?=$imgext?>" border=0></A><?=$db->row("filename")?></SPAN></td>
+		<td style="width:420px;" ><span class="assetrow"><A HREF="#" onClick="setAsset('<? echo 'a'.$ID?>');"><img src="<? echo $imgext?>" border=0></A><? echo $db->row("filename")?></SPAN></td>
 <?php		
 		//print '<tr CLASS="bkg">';
 		//print '<td style="width:420px;"><SPAN CLASS="innerl"><a href="#" onClick="setBKG()"><img src="'.$imgext.'" border=0></a>'.$db->row("filename").'</SPAN></td>';
