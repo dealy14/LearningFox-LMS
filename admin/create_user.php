@@ -135,7 +135,7 @@ else {
 	$email = $_POST["email"];
 	$username = $_POST["username"];
 	$provider_number = $_POST['provider_number'];
-	$password = crypt($_POST["password"]);
+	$password = crypt($_POST["password"], 'lF');
 	$phone = $_POST['phone'];
 //	$orgID = $_POST["orgID"];  			Not in form
 //	$ssn = $_POST["ssn"];  				Not in form

@@ -26,7 +26,7 @@ if($submit=="yes" && !is_null($uname) && !is_null($pwd) && !is_null($org_id)) /*
 	echo"<p><br><p><br><I><b>Validating Information...";
 	$userEntry=0;
 
-	$pwd = crypt($pwd); //hash the input value for comparison to stored, hashed value
+	$pwd = crypt($pwd, 'lF'); //hash the input value for comparison to stored, hashed value
 	
 	//compare login info;
 	$db = new db;
