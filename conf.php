@@ -13,7 +13,6 @@ $lms_version = "demonstration";
 #####################################################################
 #Configure Directory values:
 #####################################################################
-//error_reporting(0);
 //$ID = $_REQUEST["ID"];
 
 /* Web-server path values */
@@ -41,12 +40,30 @@ $dir_testlogs = $dir_users."test_logs/";
 $dir_groupfiles = $dir_admin."groups/";
 $dir_orgfile = $dir_admin."orgs/";
 $dir_references = $main_dir."references/";
+
+#####################################################################
+#Configure error handling options and include custom error handler
+#####################################################################
+// catch all errors/warnings/etc except notices
+error_reporting(E_ALL & ~E_NOTICE); 
+// set error handler options
+$err_cfg = array();
+$err_cfg['debug'] = 1; //0=off; 1=on
+$err_cfg['adminEmail'] = 'ryan@rammons.net';
+$err_cfg['logFile'] = $dir_admin."error_log.txt";
+include_once($dir_includes."error_handler.php");
+
+// initialize any expected, yet unset POST/GET variables
 include($dir_includes."isdefined.php");
 
 #####################################################################
 #include special site configurations
 #####################################################################
 if(!is_null($myconf)){
+	#Site Branding Configuration
+	$site_title = "Cosmos Consulting LearnCenter";
+	$logo_file = $dir_images."logo.png";
+	
 	require_once($dir_siteconf.$myconf.'.php');
 }
 
@@ -62,10 +79,11 @@ $lms_session_expire=0;
 #####################################################################
 //include($main_dir."listvariables.php");
 //listvariables();
-include($dir_includes."class_db_".$db_type.".php");
-include($dir_includes."class_fdb.php");
-include($dir_includes."functions.php");
-include($dir_includes."stored_sql.php");
-include($dir_includes."clear_cache.php");
+include_once($dir_includes."class_db_".$db_type.".php");
+include_once($dir_includes."class_fdb.php");
+include_once($dir_includes."functions.php");
+include_once($dir_includes."stored_sql.php");
+include_once($dir_includes."clear_cache.php");
+
 //include($dir_lms_conf);
 ?>

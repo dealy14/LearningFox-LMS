@@ -1,9 +1,4 @@
 <?php
-#Site Branding Configuration
-
-$site_title = "Cosmos Consulting LearnCenter";
-$logo_file = $dir_images."logo.png";
-
 $buttombanner="<img src=\"images/buttombanner.gif\" />";
 
 #############################################################################################
