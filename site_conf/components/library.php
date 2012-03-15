@@ -131,7 +131,7 @@ if(isset($_GET['lib'])&&!is_null($_GET['lib'])&&isset($_GET['op'])&&!is_null($_G
 				}
 				if($_REQUEST['update_folder_id']!=0)
 				{
-				$folder_query = "SELECT * FROM library_folders WHERE folder_id=".$_REQUEST['update_folder_id'];
+				$folder_query = "SELECT folder_name FROM library_folders WHERE folder_id=".intval($_REQUEST['update_folder_id']);
 				//var_dump($folder_query);
 				$folder_result = mysql_query($folder_query);
 			

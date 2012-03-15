@@ -12,6 +12,8 @@ window.open('LMSMain.php?ref='+cnum+'&user_id=<?php echo $lms_userID;?>');
   <?php
 $sfile=$dir_usercourselist.$lms_userID;
 $gfile=$dir_groupfiles.$lms_usergroup_file.".grp";
+$mycourses = array();
+$mygcourses = array();
 
 if(file_exists($sfile)||file_exists($gfile))
 {
@@ -20,11 +22,12 @@ if(file_exists($sfile)||file_exists($gfile))
    $mycourses=file($sfile);
    $mycourses=explode("|",$mycourses[0]);  
   }
+  	
   if(file_exists($gfile))
   {
    $mygcourses=file($gfile);
    $mygcourses=explode("|",$mygcourses[0]);  
-  }  
+  } 
   
   if(count($mycourses)>=1||count($mygcourses)>=1)
   {
@@ -57,7 +60,7 @@ if(file_exists($sfile)||file_exists($gfile))
   }  
 }
 
-if($mycourses[0]!="" || $mygcourses[0]!="")
+if((count($mycourses) > 0 && $mycourses[0]!="") || (count($mygcourses) >0 && $mygcourses[0]!=""))
 {
    ?>
   
@@ -82,7 +85,7 @@ if($mycourses[0]!="")
      $x=0;
      while($x<count($mycourses))
      {
-	   if(@!in_array($mycourses[$x],$mygcourses))
+	   if(!in_array($mycourses[$x],$mygcourses))
 	   {
 			 if($start_date[$mycourses[$x]]=="")
 			 {

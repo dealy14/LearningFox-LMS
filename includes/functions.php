@@ -459,7 +459,7 @@ function load_brother($load,$target,$url)
 #########################################################################
 function insertAction($qstring)
 {
-echo "<SCRIPT>alert('.$qstring.'+fdh)</SCRIPT>";
+// echo "<SCRIPT>alert('.$qstring.'+fdh)</SCRIPT>";
 $dbinsert1 = new db;
 $dbinsert1->connect();
 $dbinsert1->query($qstring);

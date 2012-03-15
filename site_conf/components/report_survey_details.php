@@ -1,6 +1,6 @@
 <table width="100%">
 <?php
-if( isset( $_GET['survey_ID']) &&  !  preg_match('[^0-9]',  $_GET['survey_ID']) && isset($_GET['student_ID']) &&  !  preg_match('[^0-9]',  $_GET['student_ID'])   )
+if( isset( $_GET['survey_ID']) &&  !  preg_match('/[^0-9]/',  $_GET['survey_ID']) && isset($_GET['student_ID']) &&  !  preg_match('[^0-9]',  $_GET['student_ID'])   )
 {
 	$survey_ID = $_GET['survey_ID'];
 	$student_ID = $_GET[ 'student_ID'];

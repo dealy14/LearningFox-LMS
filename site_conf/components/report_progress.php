@@ -94,7 +94,7 @@ function hTop($xlink,$xstr,$order,$direction,$cnt,$totals)
 	
 	$course_name="undefined";
 	
-	if(isset($_POST['course_ID']) && ! preg_match('[^0-9]',  $_POST['course_ID']))
+	if(isset($_POST['course_ID']) && ! preg_match('/[^0-9]/',  $_POST['course_ID']))
 	{
 		$course_ID= $_POST['course_ID'];
 		$course_name_sql = "select name from course where ID = $course_ID";

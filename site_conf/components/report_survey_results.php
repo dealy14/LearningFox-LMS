@@ -7,7 +7,7 @@
 <?php
 	
 	$survey_name= "undefined";
-	if(isset($_GET['survey_ID']) && ! preg_match('[^0-9]',  $_GET['survey_ID']))
+	if(isset($_GET['survey_ID']) && ! preg_match('/[^0-9]/',  $_GET['survey_ID']))
 	{
 		$survey_ID = $_GET['survey_ID'];
 		$course_name_sql = "select name from tests where ID = $survey_ID";
@@ -33,7 +33,7 @@
 	<td>&nbsp;</td>
 </tr>
 <?php
-if( isset( $_GET['survey_ID']) &&  !  preg_match('[^0-9]',  $_GET['survey_ID'])    )
+if( isset( $_GET['survey_ID']) &&  !  preg_match('/[^0-9]/',  $_GET['survey_ID'])    )
 {
 	$survey_ID = $_GET['survey_ID'];
 	$sql  = "select students.fname as fname, students.lname as lname, students.ID as student_ID, user_survey_log.fecha as fecha, user_survey_log.ID as survey_ID  ";

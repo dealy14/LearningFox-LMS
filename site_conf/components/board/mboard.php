@@ -1,11 +1,9 @@
 <?php
 session_start();
-
-//$db = mysql_connect("safetytraindemo.db.8609376.hostedresource.com", "safetytraindemo", "RZ8Lk55auNQv1e") or die(mysql_error());
-//mysql_select_db("safetytraindemo") or die(mysql_error());
-
-//$db = mysql_connect("localhost", "root", "") or die(mysql_error());
-//mysql_select_db("safetytraindemo") or die(mysql_error());
+if (file_exists('conf.php'))
+	require_once('conf.php');
+else
+	require_once('../../../conf.php');	
 # PHP message board (MBoard)
 # Version: 1.3 from November 18, 2006  (fix from 16th Feb 2007)
 # File name: mboard.php
@@ -35,7 +33,6 @@ session_start();
 #     DO NOT EDIT BELOW     #
 #############################
 $sid = $_GET['sid'];
-error_reporting(E_ALL ^ E_NOTICE);
 define('IN_SCRIPT',true);
 
 require_once('settings.php');
@@ -49,7 +46,7 @@ if(empty($_REQUEST['a'])) {
 
 if ($settings['autosubmit'] && ($a=='addnew' || $a=='reply')) {
 
-    session_start();
+//    session_start();
 
     if (!empty($_SESSION['block'])) {
         printTopHTML();
@@ -183,7 +180,6 @@ if ($a) {
 			<p align="center"><b>Recent topics</b></p>
 			<ul>
 			<?php
-			$sid = $_GET['sid'];
 			include_once 'threads.txt';
 			?>
 			</ul>
@@ -322,7 +318,6 @@ for ($i=0;$i<=count($threads);$i++) {
         $threads[$i] .= "<!--z $count-->\n";
         //$threads[$i] .= "<!--s $count--><ul><li><a href=\"msg/$count.$settings[extension]\">$subject</a> - <b>$name</b> <i>$date</i>\n";
 		$threads[$i] .=   "<!--s $count--><ul><li><a href=\"index.php?count=".$count."&section=msg&sid=<?php echo \$sid; ?>\">$subject</a> - <b>$name</b> <i>$date</i>\n";
-        $threads[$i] .= "<!--o $count--> (0)\n";
         $threads[$i] .= "</li></ul><!--k $count-->\n";
         break;
         }
@@ -349,7 +344,7 @@ $filecontent = file($oldfile);
 for ($i=0;$i<=count($filecontent);$i++) {
     if(preg_match("/<!-- zacni -->/",$filecontent[$i]))
         {
-        $filecontent[$i] = "<!-- zacni -->\n<!--s $count--><li><a href=\"index.php?count=".$count."&section=msg&sid=<?php echo \$sid; ?>\">$subject</a> - <b>$name</b> <i>$date</i></li>\n";
+		$filecontent[$i] = "<!-- zacni -->\n<!--s $count--><li><a href=\"index.php?count=".$count."&section=msg&sid=<?php echo \$sid; ?>\">$subject</a> - <b>$name</b> <i>$date</i></li>\n";
         break;
         }
 }
@@ -391,15 +386,17 @@ fclose($fp);
 	-->
 </div>	
 <?php
+$db = new db;
+$db->connect();
 $qryEmail = "SELECT email FROM students";
-$rsEmail = mysql_query($qryEmail);
+$db->query($qryEmail);
 $to = "";
-while($userEmail = mysql_fetch_assoc($rsEmail))
+while($db->getRows())
 {
-	if(strlen(trim($userEmail['email']))>0&&preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/i",$userEmail['email']))
-		$to .= $userEmail['email'].", ";
+	$userEmail = $db->row['email'];
+	if(strlen(trim($userEmail))>0&&preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/i",$userEmail))
+		$to .= $userEmail.", ";
 }
-mysql_free_result($rsEmail);
 if(strlen($to)>0)
 {
 	$to = substr($to,0,strlen($to)-2);
@@ -412,7 +409,8 @@ if(strlen($to)>0)
 	//$to="jimwu2010@gmail.com";
 	//mail($to,$subject,$body,$headers);
 }
-	mysql_query("INSERT INTO user_messages (USERID,CREATEDATE,MESSAGE,TYPE) VALUES (".mysql_escape_string($_SESSION['lms_userID']).",NOW(),'".mysql_escape_string($subject)."','Reponse Message')");
+$db->connect();
+$db->query(	"INSERT INTO user_messages (USERID,CREATEDATE,MESSAGE,TYPE) VALUES (".$db->escape_string($_SESSION['lms_userID']).",NOW(),'".$db->escape_string($subject)."','Reponse Message')");
 //printDownHTML();
 exit();
 }
@@ -466,7 +464,7 @@ $content.='
 <hr>
 <p align="center"><b>'.$subject.'</b></p>
 
-<p><a href="'.$settings['mboard_url2'].'site_conf/components/board/mboard.php?sid=<?php echo $sid; ?>&a=delete&num='.$count.'&up='.$up.'"><img
+<p><a href="'.$settings['mboard_url2'].'site_conf/components/board/mboard.php?sid=<?php echo \$sid; ?>&a=delete&num='.$count.'&up='.$up.'"><img
 src="'.$settings['mboard_url2'].'site_conf/components/board/images/delete.gif" width="16" height="14" border="0" alt="Delete this post"></a>
 Submitted by '.$name.' '.$mail.' on '.$date.' '.$other;
 
@@ -482,7 +480,7 @@ $content .= '</p>
 
 <p align="center"><b>Replies to this post</b></p>
 <ul>
-<!-- zacni --><p>No replies yet</p>
+<p>No replies yet</p>
 </ul>
 <hr></td>
 </tr></table>
@@ -492,7 +490,7 @@ $content .= '</p>
 <div align="center"><center>
 <table border="0"><tr>
 <td>
-<form method=post action="'.$settings['mboard_url2'].'site_conf/components/board/mboard.php?sid=<?php echo $sid; ?>" name="form" onSubmit="return mboard_checkFields();">
+<form method=post action="'.$settings['mboard_url2'].'site_conf/components/board/mboard.php?sid=<?php echo \$sid; ?>" name="form" onSubmit="return mboard_checkFields();">
 <p><input type="hidden" name="a" value="reply"><b>Name:</b><br><input type=text name="name" size=30 maxlength=30><br>
 E-mail (optional):<br><input type=text name="email" size=30 maxlength=50><br>
 <b>Subject:</b><br><input type=text name="subject" value="Re: '.$subject.'" size=30 maxlength=100><br><br>
@@ -667,15 +665,17 @@ createNewFile($name,$mail,$subject,$comments,$count,$date);
 	</div>
 </div>
 <?php
+$db = new db;
+$db->connect();
 $qryEmail = "SELECT email FROM students";
-$rsEmail = mysql_query($qryEmail);
+$db->query($qryEmail);
 $to = "";
-while($userEmail = mysql_fetch_assoc($rsEmail))
+while($db->getRows())
 {
-	if(strlen(trim($userEmail['email']))>0&&preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/i",$userEmail['email']))
-		$to .= $userEmail['email'].", ";
+	$userEmail = $db->row['email'];
+	if(strlen(trim($userEmail))>0&&preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/i",$userEmail))
+		$to .= $userEmail.", ";
 }
-mysql_free_result($rsEmail);
 if(strlen($to)>0)
 {
 	$to = substr($to,0,strlen($to)-2);
@@ -688,7 +688,9 @@ if(strlen($to)>0)
 	//$to="jimwu2010@gmail.com";
 	//mail($to,$subject,$body,$headers);
 }
-mysql_query("INSERT INTO user_messages (USERID,CREATEDATE,MESSAGE,TYPE) VALUES (".mysql_escape_string($_SESSION['lms_userID']).",NOW(),'".mysql_escape_string($subject)."','New Message')");
+$db = new db;
+$db->connect();
+$db->query("INSERT INTO user_messages (USERID,CREATEDATE,MESSAGE,TYPE) VALUES (".$db->escape_string($_SESSION['lms_userID']).",NOW(),'".$db->escape_string($subject)."','New Message')");
 //printDownHTML();
 exit();
 }
