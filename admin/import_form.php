@@ -188,7 +188,8 @@ else {
 				$zip = new ZipArchive();
 				$x = $zip->open($file);
 				if ($x === true) {
-					$zip->extractTo($file1) or die('Unable to extract ZIP archive.'); // change this to the correct site path
+					$zip->extractTo($file1) 
+						or trigger_error('Unable to extract ZIP archive.', E_USER_ERROR); // change this to the correct site path
 					$zip->close();
 					unlink($file);
 				}
@@ -204,7 +205,8 @@ else {
 				function ListFolder($path,$jay420)
 				{
 					//using the opendir function
-					$dir_handle = @opendir($path) or die("Unable to open $path");
+					$dir_handle = @opendir($path) 
+						or trigger_error("Unable to open $path", E_USER_ERROR);
 					$path = str_replace($_SERVER['DOCUMENT_ROOT']."/import_test/","",$path);
 					//echo $path."<br>";
 					//Leave only the lastest folder name
@@ -259,7 +261,7 @@ else {
 				// echo $path1;
 				
 				$objDOM->load("$manifest_path") 
-							or die('Unable to load the course manifest.'); //make sure path is correct 
+							or trigger_error('Unable to load the course manifest.', E_USER_ERROR); //make sure path is correct 
 				
 				$note = $objDOM->getElementsByTagName("organizations"); 
 				// for each note tag, parse the document and get values for 
@@ -276,7 +278,7 @@ else {
 				
 				/*... insert values related to course and resourses into database....*/
 				$sitemap = new SimpleXMLElement("$manifest_path",null,true) 
-									or die('Unable to load the course XML manifest.');
+									or trigger_error('Unable to load the course XML manifest.',E_USER_ERROR);
 				$studentid = $_SESSION['student_id'];
 				$z = 0;
 				$scormversion = "";
@@ -343,7 +345,8 @@ else {
 											  $db->escape_string($courseid), $db->escape_string($scormversion), $db->escape_string($course_title),
 											  $db->escape_string($descript), $db->escape_string($catalog_entry), $db->escape_string($keyword), 
 											  $db->escape_string($catalog_name));
-							$db->query($qry_meta) or die('Unable to insert course information into the LMS database.');
+							$db->query($qry_meta) 
+								or trigger_error('Unable to insert course information into the LMS database.', E_USER_ERROR);
 						}
 						
 						displayChildrenRecursive1($child,$depth+1);
@@ -376,7 +379,8 @@ else {
 						if($pre->location !=""){
 							$metapath = str_replace("\\", "/", $metapath);
 							// echo $metapath."--";
-							$sitemap1=new SimpleXMLElement($metapath,null,true) or die('Unable to parse course metadata manfest.');
+							$sitemap1=new SimpleXMLElement($metapath,null,true) 
+								or trigger_error('Unable to parse course metadata manfest.', E_USER_ERROR);
 							displayChildrenRecursive1($sitemap1);
 							}	
 						
@@ -427,7 +431,8 @@ else {
 											  $db->escape_string($courseid), $db->escape_string($scormversion), $db->escape_string($course_title),
 											  $db->escape_string($descript), $db->escape_string($catalog_entry), $db->escape_string($keyword), 
 											  $db->escape_string($catalog_name));
-							$db->query($qry_meta1) or die('Unable to insert course information into the LMS database.');	
+							$db->query($qry_meta1) 
+								or trigger_error('Unable to insert course information into the LMS database.', E_USER_ERROR);	
 						}
 						//Metadata entry ends here..........
 						if($child->getName()=="item" ){
@@ -485,7 +490,8 @@ else {
 											$db->escape_string($masteryscore), $db->escape_string($max_time), $db->escape_string($data_from_lms),
 											$db->escape_string($_POST['radio_credit']), $db->escape_string($timelimit), $z);
 							//echo $insrt;
-							$db->query($insrt) or die('Unable to insert ITEM data into LMS database.');
+							$db->query($insrt) 
+								or trigger_error('Unable to insert ITEM data into LMS database.', E_USER_ERROR);
 							//echo $insrt."<br><br>";
 							$z++;													
 						}
@@ -500,7 +506,8 @@ else {
 				//$file1=$file420;
 				$qry_metadata="select * from course_metdata_info where course_id='".$courseid."'";
 				$db->connect();
-				$db->query($qry_metadata) or die('Unable to load course metadata from LMS database.');
+				$db->query($qry_metadata) 
+					or trigger_error('Unable to load course metadata from LMS database.', E_USER_ERROR);
 				while($db->getRows()){
 					$sco_version=$db->row("version");
 					$keyword=$db->row("keywords");
@@ -525,7 +532,8 @@ else {
 							   '', $db->escape_string($_POST['category_id']));
 				//echo $str;
 				
-				$db->query($str) or die('Unable to insert course into LMS database.');
+				$db->query($str) 
+					or trigger_error('Unable to insert course into LMS database.', E_USER_ERROR);
 				
 				echo "<script>alert('The course content has been successfuly imported.');</script>";									
 				//echo "<script> window.close();";

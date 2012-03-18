@@ -112,10 +112,10 @@ function errorHandler($errno, $errstr='', $errfile='', $errline='')
 
     // what to do
     switch ($errno) {
-        case E_NOTICE:
+        /*case E_NOTICE:
         case E_USER_NOTICE:
             return;
-            break;
+            break;*/
 
         default:
             error_log($errMsg); // write message to default system/server log
