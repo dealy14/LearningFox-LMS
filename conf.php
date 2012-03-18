@@ -16,12 +16,13 @@ $lms_version = "demonstration";
 //$ID = $_REQUEST["ID"];
 
 /* Web-server path values */
-$web_root = "/cosmos/";
+$web_root = "/LMS/";
 $dir_images = $web_root."site_conf/images/";
 $dir_css = $web_root."site_conf/css/"; 
 
 /* Filesystem Path Values */
-$main_dir = $_SERVER['DOCUMENT_ROOT'].$web_root; 
+$sub_domain_root = "/cosmos-content";
+$main_dir = $_SERVER['DOCUMENT_ROOT'].$sub_domain_root.$web_root; 
 $dir_includes = $main_dir."includes/";
 $dir_surveys =  $main_dir."surveys/";
 $dir_sql = $main_dir."sql/";
