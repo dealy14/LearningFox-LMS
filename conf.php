@@ -21,8 +21,8 @@ $dir_images = $web_root."site_conf/images/";
 $dir_css = $web_root."site_conf/css/"; 
 
 /* Filesystem Path Values */
-$sub_domain_root = "/cosmos-content";
-$main_dir = $_SERVER['DOCUMENT_ROOT'].$sub_domain_root.$web_root; 
+$subdomain_root = "/cosmos-content";
+$main_dir = $_SERVER['DOCUMENT_ROOT'].$subdomain_root.$web_root; 
 $dir_includes = $main_dir."includes/";
 $dir_surveys =  $main_dir."surveys/";
 $dir_sql = $main_dir."sql/";
@@ -45,17 +45,19 @@ $dir_references = $main_dir."references/";
 #####################################################################
 #Configure error handling options and include custom error handler
 #####################################################################
-// catch all errors/warnings/etc except notices
-error_reporting(E_ALL & ~E_NOTICE); 
+$error_level =  E_ALL & ~E_NOTICE;
+//$error_level =  E_ALL; // for development or detailed debugging
+error_reporting($error_level); 
+
 // set error handler options
 $err_cfg = array();
 $err_cfg['debug'] = 1; //0=off; 1=on
 $err_cfg['adminEmail'] = 'ryan@rammons.net';
 $err_cfg['logFile'] = $dir_admin."error_log.txt";
-include_once($dir_includes."error_handler.php");
+require_once($dir_includes."error_handler.php");
 
 // initialize any expected, yet unset POST/GET variables
-include($dir_includes."isdefined.php");
+require_once($dir_includes."isdefined.php");
 
 #####################################################################
 #include special site configurations
@@ -80,11 +82,11 @@ $lms_session_expire=0;
 #####################################################################
 //include($main_dir."listvariables.php");
 //listvariables();
-include_once($dir_includes."class_db_".$db_type.".php");
-include_once($dir_includes."class_fdb.php");
-include_once($dir_includes."functions.php");
-include_once($dir_includes."stored_sql.php");
-include_once($dir_includes."clear_cache.php");
+require_once($dir_includes."class_db_".$db_type.".php");
+require_once($dir_includes."class_fdb.php");
+require_once($dir_includes."functions.php");
+require_once($dir_includes."stored_sql.php");
+require_once($dir_includes."clear_cache.php");
 
 //include($dir_lms_conf);
 ?>

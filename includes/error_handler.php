@@ -1,6 +1,6 @@
 <?php
 // use custom errorHandler() function
-set_error_handler(errorHandler, E_ALL & ~E_NOTICE);
+set_error_handler(errorHandler, $error_level);
 
 if (!isset($err_cfg)){
 	$err_cfg = array();
@@ -118,7 +118,7 @@ function errorHandler($errno, $errstr='', $errfile='', $errline='')
             break;
 
         default:
-            logError($errMsg); //log to file
+            error_log($errMsg); // write message to default system/server log
 			
 			if($err_cfg['debug'] == 0){
                 // send email to admin
