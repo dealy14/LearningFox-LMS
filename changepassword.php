@@ -37,8 +37,8 @@ function validFrm(frm1)
 <?php  
 //include("conf.php");
 require_once("conf.php");
-  if(isset($_POST['Submit1']))
-     {
+
+if(isset($_POST['Submit1'])){
 	    $pwd = $_POST["oldpassword"];
 		$db = new db();
 		$db->connect();
@@ -47,23 +47,22 @@ require_once("conf.php");
 
 		$result = $db->query($sql);
 		//echo "rows = ".mysql_num_rows($result)."<br/>";
-		while($db->getrows()){             
+		if($db->getrows()){
 		    $pass = $db->row("password");
+			
+			$db = new db();
+			$db->connect();  
+			$sql="UPDATE students set password ='".addslashes(crypt($_POST["password"],"lF"))."' where password ='".$pass."'";
+			$db->query($sql);          
+			//echo "password changed...";			
+			echo "<script>alert('Your password has been changed.'); window.close();</script>";
 		}
-		 // echo $pass; 
-		
-		$db = new db();
-		$db->connect();  
-		$sql="UPDATE students set password ='".addslashes(crypt($_POST["password"],"lF"))."' where password ='".$pass."'";
-		$db->query($sql);          
-		echo "<script>alert('Your password has been changed.'); window.close();</script>";
-/*          $result=mysql_query($sql) or die(mysql_error());
-		  echo "row =".mysql_num_rows($result);
-	      while($row = mysql_fetch_array($result))
-	          {
-			  echo $pass = $row['oldpassword'];
-			   }
-*/    }			   
+		else
+			echo "<center><font color='#FF0000'>Incorrect password. Please try again.</font></center>";
+			
+		//echo $pass . " | " . $_POST["oldpassword"] . " | " ; 		
+		//echo $_POST["password"];
+}			   
 ?>
 <body>
 <form action="changepassword.php" method="post" onsubmit="return validFrm(this);" name="passwordFrm">
