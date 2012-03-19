@@ -47,15 +47,21 @@ require_once("conf.php");
 
 		$result = $db->query($sql);
 		//echo "rows = ".mysql_num_rows($result)."<br/>";
-		while($db->getrows()){             
+		if($db->getrows())
 		    $pass = $db->row("password");
-		}
-		 // echo $pass; 
-		
+		else
+			echo "<center><font color='#FF0000'>Incorrect password. Please try again.</font></center>";
+			
+		//echo $pass . " | " . $_POST["oldpassword"] . " | " ; 		
+		  
 		$db = new db();
 		$db->connect();  
 		$sql="UPDATE students set password ='".addslashes(crypt($_POST["password"],"lF"))."' where password ='".$pass."'";
 		$db->query($sql);          
+		
+		//echo $_POST["password"];
+		
+		//echo "password changed...";
 		echo "<script>alert('Your password has been changed.'); window.close();</script>";
 /*          $result=mysql_query($sql) or die(mysql_error());
 		  echo "row =".mysql_num_rows($result);
