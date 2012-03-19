@@ -7,22 +7,43 @@
 $lms_version = "demonstration";
 //$lms_version = "content-provider";
 
+$default_email = "admin@safetytrainingsystem.com";
 
 // Site-specific configuration file found under /site_config/<$myconf>.php
+
+#####################################################################
+#Configure error handling options
+#####################################################################
+$error_level =  E_ALL & ~E_NOTICE;
+//$error_level =  E_ALL; // for development or detailed debugging
+error_reporting($error_level); 
 
 #####################################################################
 #Configure Directory values:
 #####################################################################
 //$ID = $_REQUEST["ID"];
 
-/* Web-server path values */
-$web_root = "/LMS/";
-$dir_images = $web_root."site_conf/images/";
-$dir_css = $web_root."site_conf/css/"; 
+// This check is necessary for Go Daddy. It does not change
+// $_SERVER['DOCUMENT_ROOT'] to include the subdirectory if the domain
+// is mapped to a subdirectory of the hosting account. It does, however,
+// change $_SERVER['SUBDOMAIN_DOCUMENT_ROOT']. See
+// <http://www.robertmullaney.com/2010/09/09/subdomains-document-root/> for
+// more info.
+if ($_SERVER['DOCUMENT_ROOT'] === $_SERVER['SUBDOMAIN_DOCUMENT_ROOT'])
+	$main_dir = $_SERVER['DOCUMENT_ROOT'] . "/";
+else
+	$main_dir = $_SERVER['SUBDOMAIN_DOCUMENT_ROOT'] . "/";
+
+// Domain name and related info
+$domain_name = "safetytrainingsystem.com";
+$lms_url = "/LMS/";
+$lms_url_fq = $domain_name . $lms_url;
+
+/* Web-server path values - URLs */
+$dir_images = $lms_url."site_conf/images/";
+$dir_css = $lms_url."site_conf/css/"; 
 
 /* Filesystem Path Values */
-$subdomain_root = "/cosmos-content";
-$main_dir = $_SERVER['DOCUMENT_ROOT'].$subdomain_root.$web_root; 
 $dir_includes = $main_dir."includes/";
 $dir_surveys =  $main_dir."surveys/";
 $dir_sql = $main_dir."sql/";
@@ -42,17 +63,10 @@ $dir_groupfiles = $dir_admin."groups/";
 $dir_orgfile = $dir_admin."orgs/";
 $dir_references = $main_dir."references/";
 
-#####################################################################
-#Configure error handling options and include custom error handler
-#####################################################################
-$error_level =  E_ALL & ~E_NOTICE;
-//$error_level =  E_ALL; // for development or detailed debugging
-error_reporting($error_level); 
-
-// set error handler options
+// Set error handler options
 $err_cfg = array();
 $err_cfg['debug'] = 1; //0=off; 1=on
-$err_cfg['adminEmail'] = 'ryan@rammons.net';
+$err_cfg['adminEmail'] = $default_email;
 $err_cfg['logFile'] = $dir_admin."error_log.txt";
 require_once($dir_includes."error_handler.php");
 
