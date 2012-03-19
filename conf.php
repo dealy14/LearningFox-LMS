@@ -23,25 +23,28 @@ error_reporting($error_level);
 #####################################################################
 //$ID = $_REQUEST["ID"];
 
+// Domain name and related info
+$domain_name = "safetytrainingsystem.com/";
+$lms_url = "LMS/";
+$lms_url_fq = $domain_name . $lms_url;
+
 // This check is necessary for Go Daddy. It does not change
 // $_SERVER['DOCUMENT_ROOT'] to include the subdirectory if the domain
 // is mapped to a subdirectory of the hosting account. It does, however,
 // change $_SERVER['SUBDOMAIN_DOCUMENT_ROOT']. See
 // <http://www.robertmullaney.com/2010/09/09/subdomains-document-root/> for
 // more info.
-if ($_SERVER['DOCUMENT_ROOT'] === $_SERVER['SUBDOMAIN_DOCUMENT_ROOT'])
-	$main_dir = $_SERVER['DOCUMENT_ROOT'] . "/";
+// NOTE: If the site is not in a subdirectory-domain, SUBDOMAIN_DOCUMENT_ROOT 
+//  	is simply unset in some configurations.
+if ($_SERVER['DOCUMENT_ROOT'] === $_SERVER['SUBDOMAIN_DOCUMENT_ROOT']
+		or !isset($_SERVER['SUBDOMAIN_DOCUMENT_ROOT']))
+	$main_dir = $_SERVER['DOCUMENT_ROOT'] . "/" . $lms_url;
 else
-	$main_dir = $_SERVER['SUBDOMAIN_DOCUMENT_ROOT'] . "/";
-
-// Domain name and related info
-$domain_name = "safetytrainingsystem.com";
-$lms_url = "/LMS/";
-$lms_url_fq = $domain_name . $lms_url;
+	$main_dir = $_SERVER['SUBDOMAIN_DOCUMENT_ROOT'] . "/" . $lms_url;
 
 /* Web-server path values - URLs */
-$dir_images = $lms_url."site_conf/images/";
-$dir_css = $lms_url."site_conf/css/"; 
+$dir_images = "/" . $lms_url . "site_conf/images/";
+$dir_css = "/" . $lms_url . "site_conf/css/"; 
 
 /* Filesystem Path Values */
 $dir_includes = $main_dir."includes/";
