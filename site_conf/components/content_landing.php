@@ -2,7 +2,7 @@
 /*
   $db = new db;
   $db->connect();
-  $db->query("SELECT ID,fname,lname,email,userlevel FROM students WHERE username='$uname' AND password='$pwd'");
+  $db->query("SELECT ID,fname,lname,email,userlevel FROM students WHERE username='$uname' AND password='".crypt($pwd,"lF")."'");
   $xx=0;
   while($db->getRows())
   { 

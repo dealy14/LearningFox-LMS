@@ -95,6 +95,16 @@ $db_type="mysql";
 $lms_session_expire=0;
 
 #####################################################################
+#Global lookup lists
+#####################################################################
+/* User Access Levels
+	For such a simple lookup, decided against a new database table*/
+$user_levels = array(1 => 'Regular User', 
+					2 => 'Manager (Reports access)', 
+					3 => 'Administrator (full access)');
+
+
+#####################################################################
 #Include Various Items:
 #####################################################################
 //include($main_dir."listvariables.php");

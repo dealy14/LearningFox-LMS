@@ -18,8 +18,6 @@ require_once("../conf.php");
 
 if($_REQUEST['action']=="student_details" && $_REQUEST['formAction']=="UPDATE")
 {
-
-
   //assemble SQL String here;
   $db = new db;
   $db->connect();

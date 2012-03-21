@@ -91,30 +91,24 @@ while($db->getRows()) {
   $mvals = $db->row("field_name");
   ?>
 	<TR>
-	  <TD><FONT FACE="VERDANA" SIZE="2"><B><?php echo$db->row("display");?>:</FONT></TD>
+	  <TD><FONT FACE="VERDANA" SIZE="2"><B><?php echo$db->row("display");?>:</B></FONT></TD>
 	  <TD><?php makeField($db->row("field_name"),$$mvals);?></TD>
 	</TR>
-  <?php
+		<?php if ("password" == strtolower($mvals)) {  //add non-stored pass confirmation field
+		?> 
+		<tr>
+			<TD><FONT FACE="VERDANA" SIZE="2"><B>Confirm password:</B></FONT></TD>
+			<TD><?php makeField("password_confirmation",""); ?></TD>
+		</tr>
+  <?php 	}
   $nx++;
 }
 ?>
 <tr>
-	<TD><FONT FACE="VERDANA" SIZE="2"><B>Confirm password:</FONT></TD>
-	<TD><input type="password" name="password_confirmation" value="" class="input"></TD>
-</tr>
-<tr>
 	<td><font face="verdana" size="2"><strong>Select User Level:</strong></font></td>
 	<td>
-		<select name="user_level">
-			<?php 
-				for($i=0;$i<=4;$i++){
-			?>
-				<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-			<?php
-				}
-			?>
-		</select>
-		&nbsp;(0=most restrictive; 4=full admin)
+		<?php generate_dropdown_control("user_level",$user_levels,1,"class='input'"); ?>
+	</td>
 </tr>
 <TR>
   <TD COLSPAN="2" ALIGN="center"><br><br><INPUT TYPE="IMAGE" SRC="images/submit.gif" BORDER="0"></TD>
