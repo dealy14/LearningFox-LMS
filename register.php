@@ -579,11 +579,11 @@ if($_GET['avail'] == 0 && $_GET['action']!='wait' && $_POST['action']!='register
 		echo "<a href='javascript:window.history.back();'>go back</a>";
 	}else if($_GET['newuser'] == "yes"){
 	 // echo "else if <br/>"; 
-	$insrt="insert into students set fname='".$fname."',lname='".$lname."',email='".$email."',phone='".$phone."',username='".trim($username)."',password='".trim($password)."',buisness_type='".$buisness_type."',security_question='".$security_question."',security_answer='".$security_answer."',provider_number='".$provider_number."',userlevel=2,confirmation_number='',organization_name='".$organization_name."',reg_date='".date("m/d/Y")."'";
+	$insrt="insert into students set fname='".$fname."',lname='".$lname."',email='".$email."',phone='".$phone."',username='".trim($username)."',password='".trim($password)."',buisness_type='".$buisness_type."',security_question='".$security_question."',security_answer='".$security_answer."',provider_number='".$provider_number."',userlevel=2,confirmation_number='',organization_name='".$organization_name."',reg_date=CURRENT_DATE()";
 	}
 	else{
 	//echo "else 2 <br/>"; 
-	$insrt="insert into students set fname='".$fname."',lname='".$lname."',email='".$email."',phone='".$phone."',username='".trim($username)."',password='".trim($password)."',buisness_type='".$buisness_type."',security_question='".$security_question."',security_answer='".$security_answer."',provider_number='".$provider_number."',userlevel=2,confirmation_number='".$confirmation."',organization_name='".$organization_name."',reg_date='".date("m/d/Y")."'";
+	$insrt="insert into students set fname='".$fname."',lname='".$lname."',email='".$email."',phone='".$phone."',username='".trim($username)."',password='".trim($password)."',buisness_type='".$buisness_type."',security_question='".$security_question."',security_answer='".$security_answer."',provider_number='".$provider_number."',userlevel=2,confirmation_number='".$confirmation."',organization_name='".$organization_name."',reg_date=CURRENT_DATE()";
 	
 /*		echo$insrt="insert into students (fname,lname,email,phone,username,password,buisness_type,security_question,security_answer,provider_number,userlevel,date_of_reg) values ('$fname','$lname','$email','$phone','trim($username)','trim($password)','$buisness_type','$security_question','$security_answer','$provider_number','2','date(m/d/Y)')";
 */			mysql_query($insrt) or die(mysql_error());

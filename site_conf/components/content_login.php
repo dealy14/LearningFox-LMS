@@ -47,7 +47,6 @@ if($submit=="yes" && !is_null($uname) && !is_null($pwd) && !is_null($org_id)) /*
 	  $xx++;
 	}
 
-
 	//if it's good - assign an okay value to userEntry, then extract session info;
     if($xx>=1) /* start IF_C2 */ {
 		  //if groups is on - get group name and sub group name and add info to session;
@@ -64,6 +63,11 @@ if($submit=="yes" && !is_null($uname) && !is_null($pwd) && !is_null($org_id)) /*
 			  }
 		  }
 
+		  //Update last_login date
+		  $db = new db;
+		  $db->connect();
+		  $db->query("UPDATE students SET last_login=CURRENT_DATE() WHERE ID=".$userID);
+		  
 		  //Ceate a session file here;
 		  $sid = uniqid (rand());
           $_SESSION['lms_sessionID'] = $sid;

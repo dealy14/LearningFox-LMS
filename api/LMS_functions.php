@@ -203,12 +203,12 @@ function update_LMS($payment_data, $dir_usercourselist) {
     $db->query($sql1);
     if (!$db->getRows()) {
         $sql2 = "INSERT INTO students (" .
-                "`date_of_reg` ,	`date_of_mod`  , `fname` ," .
-                "`lname` , `mname` ,	`orgID` , `user_group` , `user_subgroup` ," .
+                "`date_of_reg` , `date_of_mod`  , `fname` ," .
+                "`lname` , `mname` , `orgID` , `user_group` , `user_subgroup` ," .
                 "`date_of_birth` , `sex` , `phone` , `email` , `address`," .
                 "`city` , `state` , `zip` , `username` , `password` ," .
                 "`userlevel` )	VALUES (" .
-                "'" . $payment_date . "', CURDATE() , '" . $payment_data['first_name'] .
+                "CURDATE(), CURDATE() , '" . $payment_data['first_name'] .
                 "', '" . $payment_data['last_name'] . "', '', '', '', '', '00000000', " .
 				"'na', '" . $payment_data['phone'] . "', '" . $payment_data['email'] . 
 				"', '" . $payment_data['address'] . " " . $payment_data['address2'] . 
