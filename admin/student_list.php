@@ -143,7 +143,7 @@ $rimage="images/student_2.gif";
     <TD><SPAN CLASS="innerl" NOWRAP><?php echo $db->row("fname");?></TD>
     <TD><SPAN CLASS="innerl" NOWRAP><?php echo $db->row("lname");?></TD>
 	 <TD><SPAN CLASS="innerl" NOWRAP><a href="javascript:htmlData('reset_course.php?userid=<?php echo $db->row("ID");?>');">Reset</a></TD>
-    <TD><SPAN CLASS="innerl" NOWRAP><?php echo $db->row("date_of_mod");?></TD>
+    <TD><SPAN CLASS="innerl" NOWRAP><?php echo $db->row("last_login");?></TD>
     <TD><SPAN CLASS="innerl" NOWRAP><?php echo $db->row("userlevel");?></TD>
    
   </TR>
