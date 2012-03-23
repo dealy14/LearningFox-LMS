@@ -127,8 +127,8 @@ require_once('../conn.php');
 				
 				<div style="border:1px solid #eeeeee;">
 					<ul>
-						<li <? echo $lbg_l?>><a HREF="news.php?section=news&nc=nlist&sid=<?php print $_GET['sid']; ?>";>News List</a></li>
-						<li <? echo $lbg_c?>><a HREF="news.php?section=news&nc=ncreate&sid=<?php print $_GET['sid']; ?>";>Create News</a></li>
+						<li <?php echo $lbg_l?>><a HREF="news.php?section=news&nc=nlist&sid=<?php print $_GET['sid']; ?>";>News List</a></li>
+						<li <?php echo $lbg_c?>><a HREF="news.php?section=news&nc=ncreate&sid=<?php print $_GET['sid']; ?>";>Create News</a></li>
 					</ul>
 				</div>
 			

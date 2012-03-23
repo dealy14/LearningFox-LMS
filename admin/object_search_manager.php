@@ -154,7 +154,7 @@ function searchAssets(sa){
     <TD bgcolor="#93BEE2" COLSPAN="3"><SPAN CLASS="innerl"><b>SEARCH RESULTS</b></SPAN></TD>
   </TR>
   <tr>
-		<td><TD bgcolor="#93BEE2"><B><SPAN CLASS="innerl"><? echo $assetlist?></SPAN></B></TD></td>
+		<td><TD bgcolor="#93BEE2"><B><SPAN CLASS="innerl"><?php echo $assetlist; ?></SPAN></B></TD></td>
   </tr>
   <TR>
     <TD bgcolor="#93BEE2"  style="width:330px;"><B><SPAN CLASS="innerl">Name</SPAN></B></TD>

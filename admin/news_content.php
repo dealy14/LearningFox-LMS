@@ -8,8 +8,8 @@ while($userNews = mysql_fetch_assoc($rsNews)){
 	<div class="nc-main">
 		<div class="ncm-content">
 		<p><a href="javascript: history.back()" class="todo_cancel" onclick="history.back()">Back</a></p>
-			<div class="ncmc-headline"><? echo $userNews['title']?></div>
-			<div class="ncmc-text"><? echo $userNews['content']?></div>
+			<div class="ncmc-headline"><?php echo $userNews['title'];?></div>
+			<div class="ncmc-text"><?php echo $userNews['content'];?></div>
 		</div>
 	</div>
 </div>

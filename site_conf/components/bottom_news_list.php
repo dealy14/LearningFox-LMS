@@ -56,8 +56,8 @@ require_once($main_dir."conn.php");
 			?>
 			</div>
 				<?php //if($_SESSION['ses_role'] == 'Super Admin'){ ?>
-					<div class="news_edit"><a href="index.php?section=news&sid=<? echo $_GET['sid']?>&news=<? echo $userNews['id']?>&nla=edit">Edit</a></div>
-					<div class="news_delete"><a href="form_upload.php?section=news&sid=<? echo $_GET['sid']?>&news=<? echo $userNews['id']?>&nla=delete">Delete</a></div>
+					<div class="news_edit"><a href="index.php?section=news&sid=<?php echo $_GET['sid']; ?>&news=<?php echo $userNews['id']; ?>&nla=edit">Edit</a></div>
+					<div class="news_delete"><a href="form_upload.php?section=news&sid=<?php echo $_GET['sid']; ?>&news=<?php echo $userNews['id']; ?>&nla=delete">Delete</a></div>
 				<?php
 					//}else{
 					//}
