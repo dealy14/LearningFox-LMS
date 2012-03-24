@@ -4,21 +4,13 @@
 ################################################################################################
 //topics;
 $object_sql["full_topic_insert"]="INSERT INTO topic (modified,created,name,time_limit,time_req,topic_type,content_location,content_link,content,test_link) VALUES ('$modified','$created','$topic_name','$time_limit','$time_req','$topic_type','$content_location','$content_link','$content',".( 0+$test_link).")";
-$object_sql["topic_update1"]="UPDATE topic SET modified='$modified',name='$topic_name',time_limit='$time_limit',time_req='$time_req',topic_type='$topic_type',content_link='$content_link',content_location='$content_location',test_link='$test_link' WHERE ID=$ID";
-$object_sql["topic_update2"]="UPDATE topic SET modified='$modified', content='".addslashes($content)."' WHERE ID=$ID";
 $object_sql["topic_update3"]="UPDATE topic SET modified='$modified', content_link='$content_link' WHERE ID=$ID";
-$object_sql["topic_delete"]="DELETE FROM topic WHERE ID=$ID";
 
 //Lessons;
 $object_sql["full_lesson_insert"]="INSERT INTO lesson (modified,created,name) VALUES ('$modified','$created','$name')";
-$object_sql["lesson_update1"]="UPDATE lesson SET modified='$modified',name='$name' WHERE ID=$ID";
-$object_sql["lesson_delete"]="DELETE FROM lesson WHERE ID=$ID";
-$object_sql["lesson_delete2"]="DELETE FROM lessons_r WHERE ID=$ID";
 
 //Courses;
 $object_sql["full_wbtcourse_insert"]="INSERT INTO course (modified,created,name,type,status) VALUES ('$modified','$created','$name','$type','not active')";
-$object_sql["course_update1"]="UPDATE course SET modified='$modified',name='$name',status='$status',description='$description', link='$url' WHERE ID=$ID";
-$object_sql["course_delete1"]="DELETE FROM course WHERE ID=$ID";
 $object_sql["course_delete2"]="DELETE FROM courses_r WHERE ID=$ID";
 
 //objectives;
