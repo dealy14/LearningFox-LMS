@@ -2,6 +2,7 @@
 class db {
 	var $persistent=0;
 	var $query;
+	var $rowCount=0;
 	private $rlink;
 
 /*	
@@ -27,15 +28,20 @@ class db {
 	
 	function query($SQL) {
 		$this->query=mysql_query($SQL);// or die( "error with query: ".mysql_error() );
+		$this->rowCount = mysql_num_rows($this->query);
 //		if ($this->query === false)
 //			throw new Exception ( $SQL . ": " . mysql_error());
 	}
 	
+	function getRowCount(){
+		return $this->rowCount;
+	}
+	
 	function getRows() {
 		$this->moreRows=mysql_fetch_array($this->query);
-			if($this->moreRows<1) {
-			@mysql_close($this->rlink);
-		}
+		/*	if($this->moreRows<1) {
+				@mysql_close($this->rlink);
+			}*/
 		return $this->moreRows;
 	}
 	
@@ -48,7 +54,10 @@ class db {
 	}
 	
 	function close() {
-		@mysql_close($this->rlink);
+		if (isset($this->rlink))
+			mysql_close($this->rlink);
+		else
+			trigger_error("Cannot close an un-set MySQL resource connection.");
 	}
 	
 	function escape_string($str) {
