@@ -110,21 +110,25 @@ if($_POST['status']!=1){
 	<tr>
 	<td align="right">&nbsp;Select Category:</td>
 	<td colspan="4">
-	<select id="category_id" name="category_id">
-	<option value="">Select Category</option>
 	<?php
 	$db = new db;
 	$db->connect();
 	$db->query("SELECT * FROM course_categories");
+	if ($db->getRowCount()==0) 
+		trigger_error("The course categories table must have at least one record.",E_USER_ERROR);
+	?>
+	<select id="category_id" name="category_id">
+	<option value="">Select Category</option>
+	<?php
 	while($db->getRows())
 	{
-		echo $category_id = $db->row("category_id");
+		$category_id = $db->row("category_id");
 		$category_name = $db->row("category_name");
-		?>
+	?>
 		<option value="<?php echo $category_id; ?>"><?php echo $category_name; ?></option>
-		<?php
-		}	
-	$db->close();		  
+	<?php
+	}
+	$db->close();
 	?>
 	</select>
 	</td>
@@ -159,7 +163,8 @@ else {
 	//echo "Type: " . $_FILES["file"]["type"] . "hello<br />";
 	if ($_FILES["file"]["type"]=="application/octet-stream" || $_FILES["file"]["type"]=="application/zip" || $_FILES["file"]["type"]=="application/x-zip-compressed"){
 		if ($_FILES["file"]["error"] > 0) {
-			echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
+				trigger_error('Unable to access the file you uploaded.', E_USER_ERROR);
+				//echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
 			}
 			else {
 			 if(!file_exists($uploadpath))
@@ -189,10 +194,13 @@ else {
 				$x = $zip->open($file);
 				if ($x === true) {
 					$zip->extractTo($file1) 
-						or trigger_error('Unable to extract ZIP archive.', E_USER_ERROR); // change this to the correct site path
+						or trigger_error('Unable to extract ZIP archive.', E_USER_ERROR); 
+						// change this to the correct site path
 					$zip->close();
 					unlink($file);
 				}
+				else 
+					trigger_error('Unable to open the specified ZIP archive.', E_USER_ERROR);
 
 				/*---------Checking whether index file within a directory  exist or not starts-------------------*/
 
@@ -205,8 +213,8 @@ else {
 				function ListFolder($path,$jay420)
 				{
 					//using the opendir function
-					$dir_handle = @opendir($path) 
-						or trigger_error("Unable to open $path", E_USER_ERROR);
+					$dir_handle = opendir($path) 
+						or trigger_error("Unable to open a portion of the course data.", E_USER_ERROR);
 					$path = str_replace($_SERVER['DOCUMENT_ROOT']."/import_test/","",$path);
 					//echo $path."<br>";
 					//Leave only the lastest folder name
@@ -251,6 +259,11 @@ else {
 				//echo $ims_path."hiii";
 				$manifest_path=$ims_path;
 				
+				//determine whether manifest actually found; if not, trigger an error
+				if(!preg_match("/imsmanifest/i",$manifest_path)){
+					trigger_error('Unable to find or load the course manifest.', E_USER_ERROR);
+				}
+				
 				//echo '</ul>';
 				
 				/*------checking for index file ends here-------------*/
@@ -260,8 +273,7 @@ else {
 				$objDOM = new DOMDocument(); 
 				// echo $path1;
 				
-				$objDOM->load("$manifest_path") 
-							or trigger_error('Unable to load the course manifest.', E_USER_ERROR); //make sure path is correct 
+				$objDOM->load("$manifest_path");	//make sure path is correct 
 				
 				$note = $objDOM->getElementsByTagName("organizations"); 
 				// for each note tag, parse the document and get values for 
@@ -491,7 +503,7 @@ else {
 											$db->escape_string($_POST['radio_credit']), $db->escape_string($timelimit), $z);
 							//echo $insrt;
 							$db->query($insrt) 
-								or trigger_error('Unable to insert ITEM data into LMS database.', E_USER_ERROR);
+								or trigger_error("Unable to insert item data $title into LMS database.", E_USER_ERROR);
 							//echo $insrt."<br><br>";
 							$z++;													
 						}
@@ -543,6 +555,7 @@ else {
 		}
 		else{
 			echo '<strong>The course content file should be in the zip format.</strong>';
+			error_log("Attempt to import a non ZIP-file as a course",E_ERROR);
 		}
 }
 ?>
