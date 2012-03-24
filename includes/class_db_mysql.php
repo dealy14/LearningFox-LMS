@@ -28,7 +28,8 @@ class db {
 	
 	function query($SQL) {
 		$this->query=mysql_query($SQL);// or die( "error with query: ".mysql_error() );
-		$this->rowCount = mysql_num_rows($this->query);
+		if ("resource"==gettype($this->query))
+			$this->rowCount = mysql_num_rows($this->query);
 //		if ($this->query === false)
 //			throw new Exception ( $SQL . ": " . mysql_error());
 	}
