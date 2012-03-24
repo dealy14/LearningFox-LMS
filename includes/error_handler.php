@@ -9,8 +9,7 @@ if (!isset($err_cfg)){
 	$err_cfg['logFile'] = $dir_admin."error_log.txt";
 }
 
-$err_cfg['clientMessage'] = "<h3>Oops...you probably weren't expecting this, right?</h3>".
-			"<p style='font-weight:bold'>Something went wrong on our end--".
+$err_cfg['clientMessage'] = "<p style='font-weight:bold'>Something went wrong on our end--".
 			"and we've been notified of this unintended 'feature'.</p>".
 			"<p>We apologize for any inconvenience and ".
 			"hope to have the issue resolved soon.</p>".
@@ -104,44 +103,39 @@ function errorHandler($errno, $errstr='', $errfile='', $errline='')
         }
     }
 
-    // display error msg, if debug is enabled
+    // display debug error msg
     if($err_cfg['debug'] == 1) {
         echo '<h2>Debug Message</h2>'.nl2br($errMsg).'<br />
             Trace: '.nl2br($trace).'<br />';
-    }
+    }	
 
     // what to do
-    switch ($errno) {
-        /*case E_NOTICE:
-        case E_USER_NOTICE:
-            return;
-            break;*/
-
-        default:
-            error_log($errMsg); // write message to default system/server log
-			
-			if($err_cfg['debug'] == 0){
-                // send email to admin
-                if(!empty($err_cfg['adminEmail'])) {
-                    @mail($err_cfg['adminEmail'],'Critical error on '.$_SERVER['HTTP_HOST'], 
-							$errMsg, 'From: Error Handler');
-                }
-                // end and display error msg
-                exit(displayClientMessage());
-            }
-            else
-                exit('<p>--Abort from DEBUG mode--</p>');
-			break;
-
+	if ($errno == E_USER_ERROR){ //triggered by app logic, so safe to display errstr/message
+		echo "<h3>Sorry, there's been an error:</h3>" . $errstr .
+				"<br><br>Technical staff have been notified of the problem.";
+	}
+	else{
+		echo "<h3>Sorry, there's been an internal error.</h3>" .
+				"We apologize for the inconvenience. Technical staff have been notified of the problem.";
+	}
+				
+    error_log($errMsg); // write message to default system/server log
+	
+	if($err_cfg['debug'] == 0){
+        // send email to admin
+        /*if(!empty($err_cfg['adminEmail'])) {
+            @mail($err_cfg['adminEmail'],'Critical error on '.$_SERVER['HTTP_HOST'], 
+					$errMsg, 'From: Error Handler');
+        }*/
+		
+        // end
+    	exit();
     }
+    else
+        exit('<p>--Abort from DEBUG mode--</p>');
 
 } // end of errorHandler()
 
-function displayClientMessage()
-{
-    global $err_cfg;
-	echo $err_cfg['clientMessage'];
-}
 
 function getArgument($arg)
 {
