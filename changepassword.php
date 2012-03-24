@@ -43,22 +43,38 @@ if(isset($_POST['Submit1'])){
 		$db = new db();
 		$db->connect();
 
-        $sql="select * from students where password ='".addslashes(crypt($_POST["oldpassword"],"lF"))."'";
+		
+        $sql="select * from students where ID=".$_SESSION['lms_userID']; //get current user
+		
+		//password ='".
+		//		$db->escape_string(sha1($_POST["oldpassword"]))."'";
 
 		$result = $db->query($sql);
 		//echo "rows = ".mysql_num_rows($result)."<br/>";
 		if($db->getrows()){
 		    $pass = $db->row("password");
+			$user = $db->row("username");
+			$salt = $user;
 			
-			$db = new db();
-			$db->connect();  
-			$sql="UPDATE students set password ='".addslashes(crypt($_POST["password"],"lF"))."' where password ='".$pass."'";
-			$db->query($sql);          
-			//echo "password changed...";			
-			echo "<script>alert('Your password has been changed.'); window.close();</script>";
+			if(sha1($user.$_POST["oldpassword"])==$pass){
+			
+				$db = new db();
+				$db->connect();  
+				$sql="UPDATE students set password ='".
+						$db->escape_string(sha1($salt.$_POST["password"])).
+						"' where password ='".$pass."'";
+				$db->query($sql);          
+				//echo "password changed...";			
+				echo "<script>alert('Your password has been changed.'); window.close();</script>";
+			}
+			else
+				echo "<center><font color='#FF0000'>Incorrect password. Please try again.</font></center>";
 		}
-		else
-			echo "<center><font color='#FF0000'>Incorrect password. Please try again.</font></center>";
+		else{
+			echo "<center><font color='#FF0000'>An error has occurred while trying to locate your user information.</font></center>";
+			//todo: log error
+		}
+			
 			
 		//echo $pass . " | " . $_POST["oldpassword"] . " | " ; 		
 		//echo $_POST["password"];

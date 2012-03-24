@@ -194,8 +194,11 @@ function update_LMS($payment_data, $dir_usercourselist) {
     $db->close();
 	*/
 
+	$username = $payment_data['email'];
     $password = generatePassword(5, 4);
-    $sql1 = "SELECT * FROM `students` WHERE `username` = '" . $payment_data['email'] . "'";
+	$password_hashed = sha1($username.$password);
+	
+    $sql1 = "SELECT * FROM `students` WHERE `username` = '" . $username . "'";
 
     $db = new db;
 
@@ -213,9 +216,9 @@ function update_LMS($payment_data, $dir_usercourselist) {
 				"'na', '" . $payment_data['phone'] . "', '" . $payment_data['email'] . 
 				"', '" . $payment_data['address'] . " " . $payment_data['address2'] . 
 				"', '" . $payment_data['city'] . "', '" . $payment_data['state'] . 
-				"', '" . $payment_data['zip'] . "', '" . $payment_data['email'] . 
+				"', '" . $payment_data['zip'] . "', '" . $username . 
 				"', '" . 
-				crypt($password, "lF") . 
+				$db->escape_string($password_hashed) . 
 				"', '1' );";
 				
         $db->close();

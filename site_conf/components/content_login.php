@@ -26,13 +26,14 @@ if($submit=="yes" && !is_null($uname) && !is_null($pwd) && !is_null($org_id)) /*
 	echo"<p><br><p><br><I><b>Validating Information...";
 	$userEntry=0;
 
-	$pwd = crypt($pwd, 'lF'); //hash the input value for comparison to stored, hashed value
+	$pwd = sha1($uname.$pwd); //hash the input value for comparison to stored, hashed value
 	
 	//compare login info;
 	$db = new db;
 	$db->connect();
 	$db->query("SELECT ID,fname,lname,email,userlevel,user_group,orgID FROM students " .
-					"WHERE username='$uname' AND password='$pwd' $extra_clause");
+					"WHERE username='$uname' AND password='".
+					$db->escape_string($pwd)."' $extra_clause");
 
 	$xx=0;
 	while($db->getRows()) {  

@@ -2,7 +2,8 @@
 /*
   $db = new db;
   $db->connect();
-  $db->query("SELECT ID,fname,lname,email,userlevel FROM students WHERE username='$uname' AND password='".crypt($pwd,"lF")."'");
+  $db->query("SELECT ID,fname,lname,email,userlevel FROM students WHERE username='$uname' AND ".
+  		"password='". $db->escape_string(sha1($uname.$pwd). "'");
   $xx=0;
   while($db->getRows())
   { 
