@@ -119,7 +119,6 @@ while($db->getRows()) {
 <?php
 }
 else {
-	require_once("../includes/class_db_mysql.php");
 	$db = new db();
 	$db->connect();
 
