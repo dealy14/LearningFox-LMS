@@ -64,7 +64,6 @@ if((count($mycourses) > 0 && $mycourses[0]!="") || (count($mygcourses) >0 && $my
 {
    ?>
   
-
 <p>Courses </p>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="4" width="100%">
     <TR  class="descriptor_row">

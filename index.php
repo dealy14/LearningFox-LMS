@@ -1,7 +1,5 @@
 <?php
 session_start();
-$myconf="demo_site"; //used by 'conf.php' to grab correct settings file 
-					//(same as directory name in which config and components stored)
 require_once("conf.php");
 
 $section = $_REQUEST['section'];
@@ -10,7 +8,7 @@ $logout = $_REQUEST['logout'];
 <html dir="ltr">
 <head>
 	<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
-	<title><?php echo $site_title; ?></title>
+	<title><?php echo TEXT_SITE_TITLE; ?></title>
 	<!--[if IE]>    
 	<style type="text/css">
 	.dock {
@@ -52,7 +50,7 @@ scrolling="no" width="95%" height="500"></iframe>
 	<table class="pageheader" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tbody>
 		<tr>
-			<td valign="top"><img src="<?php echo $logo_file; ?>" align="default" border="0" hspace="0" vspace="0"  alt="" /></td>
+			<td valign="top"><img src="<?php echo PATH_LOGO_FILE; ?>" align="default" border="0" hspace="0" vspace="0"  alt="" /></td>
 		</tr>
 		<tr>
 	 	<td class="navbar">

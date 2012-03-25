@@ -77,7 +77,7 @@ if(isset($_GET['lib'])&&!is_null($_GET['lib'])&&isset($_GET['op'])&&!is_null($_G
 		<div class="style1">Repository</div>
 		<div class="linkdoc">
 			<ul>
-				<li <?php echo $lbg_1?;>><a HREF="index.php?section=library&sid=<?php echo $sid; ?>&lib=1";>Links</a></li>
+				<li <?php echo $lbg_1;?>><a HREF="index.php?section=library&sid=<?php echo $sid; ?>&lib=1";>Links</a></li>
 				<li <?php echo $lbg_2;?>><a HREF="index.php?section=library&sid=<?php echo $sid; ?>&lib=2";>Documents</a></li>
 			</ul>
 		</div>

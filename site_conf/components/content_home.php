@@ -1,7 +1,7 @@
 <table class="welcome-box" border="0" cellpadding="5" cellspacing="5" width="800">
      <tbody>
          <tr>
-             <td class="welcome-txt">Welcome to the Cosmos Consulting eLearning Site. Please take a few moments to peruse the site.</td>
+             <td class="welcome-txt">Welcome to <?php echo TEXT_SITE_TITLE; ?>. Please take a few moments to peruse the site.</td>
          </tr>
          <tr>
              <td>
@@ -31,7 +31,9 @@
             <tbody><tr>
                 <td  style="font: 12px Arial, Helvetica, sans-serif;">
 				<ul>
-  <li style="list-style:none"><font size="2">With LearningFox's Learning Management System, you can:<br /></font></li>
+  <li style="list-style:none"><font size="2">With <?php 
+	  			echo TEXT_COMPANY_NAME."'s ".TEXT_LMS_FULL_SYSTEM_NAME; 
+				?>, you can:<br /></font></li>
   <li style="list-style:none;">&nbsp;</li>
     <ul>
    <li style="list-style:disc">      Register for instructor-led courses</li>

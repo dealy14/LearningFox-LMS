@@ -37,12 +37,12 @@ function validFrm(frm1)
 <?php  
 //include("conf.php");
 require_once("conf.php");
+session_start();
 
 if(isset($_POST['Submit1'])){
 	    $pwd = $_POST["oldpassword"];
 		$db = new db();
 		$db->connect();
-
 		
         $sql="select * from students where ID=".$_SESSION['lms_userID']; //get current user
 		

@@ -4,12 +4,12 @@
 # Set the LMS version--either:
 #		1. Company/Demonstration or
 #		2. Customer-facing/Content-provider
-$lms_version = "demonstration";
-//$lms_version = "content-provider";
+$lms_version = "demo_site";
+//$lms_version = "content_site";
 
 $default_email = "admin@safetytrainingsystem.com";
 
-// Site-specific configuration file found under /site_config/<$myconf>.php
+// Site-specific configuration file found under /site_config/<$lms_version>.php
 
 #####################################################################
 #Configure error handling options
@@ -27,6 +27,12 @@ error_reporting($error_level);
 $domain_name = "safetytrainingsystem.com/";
 $lms_url = "LMS/";
 $lms_url_fq = $domain_name . $lms_url;
+/*
+$domain_name = "hosting.ammonsdatasolutions.com/";
+
+$lms_url = "cosmos/";
+$lms_url_fq = $domain_name . $lms_url;
+*/
 
 // This check is necessary for Go Daddy. It does not change
 // $_SERVER['DOCUMENT_ROOT'] to include the subdirectory if the domain
@@ -77,15 +83,16 @@ require_once($dir_includes."error_handler.php");
 require_once($dir_includes."isdefined.php");
 
 #####################################################################
-#include special site configurations
+#Branding and special site configurations
 #####################################################################
-if(!is_null($myconf)){
-	#Site Branding Configuration
-	$site_title = "Cosmos Consulting LearnCenter";
-	$logo_file = $dir_images."logo.png";
-	
-	require_once($dir_siteconf.$myconf.'.php');
-}
+#Site Branding Configuration
+
+define(TEXT_SITE_TITLE, "Cosmos Consulting LearnCenter");
+define(PATH_LOGO_FILE, $dir_images."logo.png");
+define(TEXT_COMPANY_NAME, "Cosmos");
+define(TEXT_LMS_FULL_SYSTEM_NAME, "Learning Safety Management System (LSMS)");
+
+require_once($dir_siteconf.$lms_version.'.php');
 
 #####################################################################
 #Configure Database Options:
@@ -95,14 +102,13 @@ $db_type="mysql";
 $lms_session_expire=0;
 
 #####################################################################
-#Global lookup lists
+#Global values/lists
 #####################################################################
 /* User Access Levels
 	For such a simple lookup, decided against a new database table*/
 $user_levels = array(1 => 'Regular User', 
 					2 => 'Manager (Reports access)', 
 					3 => 'Administrator (full access)');
-
 
 #####################################################################
 #Include Various Items:

@@ -5,12 +5,13 @@ class db {
 	var $rowCount=0;
 	private $rlink;
 
-/*	
+/*		
 	var $user = "rammons_lms";
 	var $pass = "brwahp95";
 	var $host = "localhost";
 	var $mydb = "rammons_lms";
 */
+
 	var $user = "safetytraindemo";
 	var $pass = "RZ8Lk55auNQv1e";
 	var $host = "safetytraindemo.db.8609376.hostedresource.com";
