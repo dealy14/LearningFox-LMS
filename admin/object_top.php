@@ -50,7 +50,7 @@ alert ("Browser does not support HTTP Request");
 return;
 }
 
-url=url
+url=url;
 //alert("Frame = " + url);
 xmlHttp.onreadystatechange=stateChanged;
 xmlHttp.open("GET",url,true) ;

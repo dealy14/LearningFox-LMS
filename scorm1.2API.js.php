@@ -292,11 +292,17 @@ function LMSInitialize(param){
 										cmi_comments='';
 										sub_objective=0;
 										max_interactions=0;
-										session_time="0000:00:00.00";
+										session_time="00:00:00.00";
 										pattern_no=0;
 										cmi_correct_responses=0;
 										//alert("initialize time="+sco_id);
 										//cmi_total_time="0000:00:00.00";
+			var data="lesson_status=incomplete&sco_id="+sco_id+"&sco_entry=resume";
+//			var data="lesson_status=incomplete&sco_id="+str_scoid+"&sco_entry="+sco_entry+"&sco_exit="+sco_exit+"&total_time="+cmi_total_time+"&score="+raw_score+"&lesson_location="+lesson_location+"&suspend_data="+cmi_suspend_data+"&session_time="+session_time;
+
+			//alert(lesson_status);
+ 			htmlDataApi("insert_into_db.php",data);	 
+										
 										return "true";
 									}else{
 												errorCode="101";
@@ -1198,7 +1204,7 @@ function LMSFinish(param){
 									sco_exit="logout";
 									
 			}
-			var str_scoid=top.glbSCO1D;
+			var str_scoid=top.glbSCOID;
 				cmi_total_time = AddTime("<?php echo $total_time;?>",session_time);	
 			var data="lesson_status="+lesson_status+"&sco_id="+str_scoid+"&sco_entry="+sco_entry+"&sco_exit="+sco_exit+"&total_time="+cmi_total_time+"&score="+raw_score+"&lesson_location="+lesson_location+"&suspend_data="+cmi_suspend_data+"&session_time="+session_time;
 			//alert("chil="+LMSGetValue("cmi.objectives.0.score._children"));

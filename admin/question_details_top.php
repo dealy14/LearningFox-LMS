@@ -81,7 +81,7 @@ s.gif" ALIGN="absmiddle"> &nbsp;</TD>
 <applet Code="apTabMenu" Archive="apTabMenu.jar" Width=400 Height=22 MAYSCRIPT>
 <param name="Copyright" value="Apycom Software - www.apycom.com">
 <param name="bottomLine" value="true">
-<param name="pressedItem" value="<?=$sel_item?>">
+<param name="pressedItem" value="<?php echo $sel_item; ?>">
 <param name="tabType" value="0"> 
 <param name="backColor" value="336699">
 <param name="tabColor" value="93BEE2">

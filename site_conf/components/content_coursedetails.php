@@ -49,12 +49,21 @@ $userfile = $dir_usercourselist.$lms_userID;
 			$db->query($str1);
 			while($db->getRows()){
 					//echo $insrt1."<br>";
-					$insrt1="insert into user_sco_info set user_id=".$lms_userID.",course_id='".$courseid."',sco_id='".$db->row("identifier")."',";
-					$insrt1.="launch='".$db->row("launch")."',data_from_lms='".$db->row("data_from_lms")."',lesson_status='not attempted',prerequisite='".$db->row("prerequisites")."',";
-					$insrt1.="sco_exit='',sco_entry='ab-initio',masteryscore='".$db->row("masteryscore")."',maximumtime='".$db->row("maximumtime")."',";
-					$insrt1.="timelimitaction='".$db->row("timelimitaction")."',sequence=".$db->row("sequence").",type='".$db->row("type")."',";
-					$insrt1.="cmi_credit='".$db->row("cmi_credit")."'";
-					$db->connect();
+//					$insrt1="insert into user_sco_info set user_id=".$lms_userID.",course_id='".$courseid."',sco_id='".$db->row("identifier")."',";
+//					$insrt1.="launch='".$db->row("launch")."',data_from_lms='".$db->row("data_from_lms")."',lesson_status='not attempted',prerequisite='".$db->row("prerequisites")."',";
+//					$insrt1.="sco_exit='',sco_entry='ab-initio',masteryscore='".$db->row("masteryscore")."',maximumtime='".$db->row("maximumtime")."',";
+//					$insrt1.="timelimitaction='".$db->row("timelimitaction")."',sequence=".$db->row("sequence").",type='".$db->row("type")."',";
+//					$insrt1.="cmi_credit='".$db->row("cmi_credit")."'";
+					$insrt1=sprintf("insert into user_sco_info (user_id, course_id, sco_id, launch, data_from_lms, lesson_status, " .
+															   "prerequisite, sco_exit, sco_entry, masteryscore, maximumtime, " .
+															   "timelimitaction, sequence, type, cmi_credit, suspend_data) " .
+														"VALUES (%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s') ",
+														$lms_userID, $db->escape_string($courseid), $db->escape_string($db->row('identifier')), 
+														$db->escape_string($db->row('launch')), $db->escape_string($db->row('data_from_lms')), 
+														'not attempted', $db->escape_string($db->row('prerequisites')), '', 'ab-initio', 
+														$db->escape_string($db->row('masteryscore')), $db->escape_string($db->row('maximumtime')),
+														$db->escape_string($db->row('timelimitaction')), $db->escape_string($db->row('sequence')),
+														$db->escape_string($db->row('type')),$db->escape_string($db->row('cmi_credit')), '');
 					$db->query($insrt1);
 			}
 		
@@ -104,12 +113,21 @@ $userfile = $dir_usercourselist.$lms_userID;
 			$db->query($str1);
 			while($db->getRows()){
 					//echo $insrt1."<br>";
-					$insrt1="insert into user_sco_info set user_id=".$lms_userID.",course_id='".$courseid."',sco_id='".$db->row("identifier")."',";
-					$insrt1.="launch='".$db->row("launch")."',data_from_lms='".$db->row("data_from_lms")."',lesson_status='not attempted',prerequisite='".$db->row("prerequisites")."',";
-					$insrt1.="sco_exit='',sco_entry='ab-initio',masteryscore='".$db->row("masteryscore")."',maximumtime='".$db->row("maximumtime")."',";
-					$insrt1.="timelimitaction='".$db->row("timelimitaction")."',sequence=".$db->row("sequence").",type='".$db->row("type")."',";
-					$insrt1.="cmi_credit='".$db->row("cmi_credit")."'";
-					$db->connect();
+//					$insrt1="insert into user_sco_info set user_id=".$lms_userID.",course_id='".$courseid."',sco_id='".$db->row("identifier")."',";
+//					$insrt1.="launch='".$db->row("launch")."',data_from_lms='".$db->row("data_from_lms")."',lesson_status='not attempted',prerequisite='".$db->row("prerequisites")."',";
+//					$insrt1.="sco_exit='',sco_entry='ab-initio',masteryscore='".$db->row("masteryscore")."',maximumtime='".$db->row("maximumtime")."',";
+//					$insrt1.="timelimitaction='".$db->row("timelimitaction")."',sequence=".$db->row("sequence").",type='".$db->row("type")."',";
+//					$insrt1.="cmi_credit='".$db->row("cmi_credit")."'";
+					$insrt1=sprintf("insert into user_sco_info (user_id, course_id, sco_id, launch, data_from_lms, lesson_status, " .
+															   "prerequisite, sco_exit, sco_entry, masteryscore, maximumtime, " .
+															   "timelimitaction, sequence, type, cmi_credit, suspend_data) " .
+														"VALUES (%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s') ",
+														$lms_userID, $db->escape_string($courseid), $db->escape_string($db->row('identifier')), 
+														$db->escape_string($db->row('launch')), $db->escape_string($db->row('data_from_lms')), 
+														'not attempted', $db->escape_string($db->row('prerequisites')), '', 'ab-initio', 
+														$db->escape_string($db->row('masteryscore')), $db->escape_string($db->row('maximumtime')),
+														$db->escape_string($db->row('timelimitaction')), $db->escape_string($db->row('sequence')),
+														$db->escape_string($db->row('type')), $db->escape_string($db->row('cmi_credit')), '');
 					$db->query($insrt1);
 			}
 		

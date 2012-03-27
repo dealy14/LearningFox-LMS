@@ -1,7 +1,9 @@
 <?php
 session_start();
-$db = mysql_connect("sql5c6a.megasqlservers.com", "davidealyt445491", "ealy14") or die(mysql_error());
-mysql_select_db("LMS_davidealytechnologies_com") or die(mysql_error());
+if (file_exists('conf.php'))
+	require_once('conf.php');
+else
+	require_once('../../../conf.php');	
 # PHP message board (MBoard)
 # Version: 1.3 from November 18, 2006  (fix from 16th Feb 2007)
 # File name: mboard.php
@@ -30,8 +32,7 @@ mysql_select_db("LMS_davidealytechnologies_com") or die(mysql_error());
 #############################
 #     DO NOT EDIT BELOW     #
 #############################
-
-error_reporting(E_ALL ^ E_NOTICE);
+$sid = $_GET['sid'];
 define('IN_SCRIPT',true);
 
 require_once('settings.php');
@@ -45,7 +46,7 @@ if(empty($_REQUEST['a'])) {
 
 if ($settings['autosubmit'] && ($a=='addnew' || $a=='reply')) {
 
-    session_start();
+//    session_start();
 
     if (!empty($_SESSION['block'])) {
         printTopHTML();
@@ -179,21 +180,8 @@ if ($a) {
 			<p align="center"><b>Recent topics</b></p>
 			<ul>
 			<?php
-			//include_once 'threads.txt';
+			include_once 'threads.txt';
 			?>
-			<!--z 95-->
-<!--s 95--><ul><li><a href="index.php?count=95&section=msg&sid=<?php echo $_GET['sid']; ?>">Documents uploaded 1.112010</a> - <b>David Ealy</b> <i>11/Jan/2010</i>
-<!--o 95--> (0)
-</li></ul><!--k 95-->
-<!--z 94-->
-<!--s 94--><ul><li><a href="index.php?count=94&section=msg&sid=<?php echo $_GET['sid']; ?>">Test Topic</a> - <b>Marvin</b> <i>02/Oct/2009</i>
-<!--o 94--> (0)
-</li></ul><!--k 94-->
-<!--z 93-->
-<!--s 93--><ul><li><a href="index.php?count=93&section=msg&sid=<?php echo $_GET['sid']; ?>">Blogs should come through anlm.org</a> - <b>David Ealy</b> <i>15/Sep/2009</i>
-<!--o 93--> (0)
-</li></ul><!--k 93-->
-
 			</ul>
 			<hr></td>
 			</tr></table>
@@ -203,7 +191,7 @@ if ($a) {
 			<div align="center"><center>
 			<table border="0"><tr>
 			<td>
-			<form method=post action="../site_conf/components/board/mboard.php?sid=<?php print $sid; ?>" name="form" onSubmit="return mboard_checkFields();">
+			<form method=post action="site_conf/components/board/mboard.php?sid=<?php print $sid; ?>" name="form" onSubmit="return mboard_checkFields();">
 			<p><input type="hidden" name="a" value="addnew"><b>Name:</b><br><input type=text name="name" size=30 maxlength=30><br>
 			E-mail (optional):<br><input type=text name="email" size=30 maxlength=50><br>
 			<b>Subject:</b><br><input type=text name="subject" size=30 maxlength=100><br><br>
@@ -319,6 +307,7 @@ fclose($fp);
 
 $threads = file("threads.txt");
 
+$text = "<?php echo $sid; ?>";
 
 for ($i=0;$i<=count($threads);$i++) {
     if(strstr($threads[$i],'<!--o '.$orig_id.'-->'))
@@ -328,8 +317,7 @@ for ($i=0;$i<=count($threads);$i++) {
         $threads[$i] = "<!--o $orig_id--> ($number_of_replies)\n";
         $threads[$i] .= "<!--z $count-->\n";
         //$threads[$i] .= "<!--s $count--><ul><li><a href=\"msg/$count.$settings[extension]\">$subject</a> - <b>$name</b> <i>$date</i>\n";
-		$threads[$i] .=   "<!--s $count--><ul><li><a href=\"index.php?count=".$count."&section=msg&sid=".$_GET['sid']."\">$subject</a> - <b>$name</b> <i>$date</i>\n";
-        $threads[$i] .= "<!--o $count--> (0)\n";
+		$threads[$i] .=   "<!--s $count--><ul><li><a href=\"index.php?count=".$count."&section=msg&sid=<?php echo \$sid; ?>\">$subject</a> - <b>$name</b> <i>$date</i>\n";
         $threads[$i] .= "</li></ul><!--k $count-->\n";
         break;
         }
@@ -356,7 +344,7 @@ $filecontent = file($oldfile);
 for ($i=0;$i<=count($filecontent);$i++) {
     if(preg_match("/<!-- zacni -->/",$filecontent[$i]))
         {
-        $filecontent[$i] = "<!-- zacni -->\n<!--s $count--><li><a href=\"index.php?count=".$count."&section=msg&sid=".$_GET['sid']."\">$subject</a> - <b>$name</b> <i>$date</i></li>\n";
+		$filecontent[$i] = "<!-- zacni -->\n<!--s $count--><li><a href=\"index.php?count=".$count."&section=msg&sid=<?php echo \$sid; ?>\">$subject</a> - <b>$name</b> <i>$date</i></li>\n";
         break;
         }
 }
@@ -383,7 +371,7 @@ fclose($fp);
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
 			<p align="center"><b>Your message was successfully added!</b></p>
-			<p align="center"><a href="<?php print $settings['mboard_url2']; ?>anlm/index.php?section=messageboard&sid=<?php print $_GET['sid']; ?>">Click here to continue</a></p>
+			<p align="center"><a href="javascript:history.go(-3)"  onMouseOver="self.status=document.referrer;return true">Click here to continue</a></p>
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
@@ -398,15 +386,17 @@ fclose($fp);
 	-->
 </div>	
 <?php
+$db = new db;
+$db->connect();
 $qryEmail = "SELECT email FROM students";
-$rsEmail = mysql_query($qryEmail);
+$db->query($qryEmail);
 $to = "";
-while($userEmail = mysql_fetch_assoc($rsEmail))
+while($db->getRows())
 {
-	if(strlen(trim($userEmail['email']))>0&&preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/i",$userEmail['email']))
-		$to .= $userEmail['email'].", ";
+	$userEmail = $db->row['email'];
+	if(strlen(trim($userEmail))>0&&preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/i",$userEmail))
+		$to .= $userEmail.", ";
 }
-mysql_free_result($rsEmail);
 if(strlen($to)>0)
 {
 	$to = substr($to,0,strlen($to)-2);
@@ -417,9 +407,10 @@ if(strlen($to)>0)
 	$headers .= 'From: LearningFox Support <dealy@davidealytechnologies.com>' . "\r\n";
 	//die($to."<br/>".$subject."<br/>".$body);
 	//$to="jimwu2010@gmail.com";
-	mail($to,$subject,$body,$headers);
+	//mail($to,$subject,$body,$headers);
 }
-	mysql_query("INSERT INTO user_messages (USERID,CREATEDATE,MESSAGE,TYPE) VALUES (".mysql_escape_string($_SESSION['lms_userID']).",NOW(),'".mysql_escape_string($subject)."','Reponse Message')");
+$db->connect();
+$db->query(	"INSERT INTO user_messages (USERID,CREATEDATE,MESSAGE,TYPE) VALUES (".$db->escape_string($_SESSION['lms_userID']).",NOW(),'".$db->escape_string($subject)."','Reponse Message')");
 //printDownHTML();
 exit();
 }
@@ -456,7 +447,7 @@ $content.='<div id="main-content">';
 //$content.=include '../includes/left-nav.php';
 	
 $content.=$header;
-
+$url = $_SERVER['REQUEST_URI'];
 $content.='
 <h3 align="center" class="title">'.$settings['mboard_title'].'</h3>
 
@@ -464,12 +455,16 @@ $content.='
 <table border="0" width="95%"><tr>
 <td>
 
-<p align="center"><a href="#new">Post a reply</a> ||
-<a href="index.php?section=messageboard&sid='.$_GET['sid'].'">Back to '.$settings['mboard_title'].'</a></p>
+<p align="center"><a href="#new">Post a reply</a> ||' ;
+
+$content.='
+<a href="javascript:history.go(-1)"  onMouseOver="self.status=document.referrer;return true">Back to '.$settings['mboard_title'].'</a>';
+
+$content.='
 <hr>
 <p align="center"><b>'.$subject.'</b></p>
 
-<p><a href="'.$settings['mboard_url2'].'site_conf/components/board/mboard.php?sid='.$_GET['sid'].'&a=delete&num='.$count.'&up='.$up.'"><img
+<p><a href="'.$settings['mboard_url2'].'site_conf/components/board/mboard.php?sid=<?php echo \$sid; ?>&a=delete&num='.$count.'&up='.$up.'"><img
 src="'.$settings['mboard_url2'].'site_conf/components/board/images/delete.gif" width="16" height="14" border="0" alt="Delete this post"></a>
 Submitted by '.$name.' '.$mail.' on '.$date.' '.$other;
 
@@ -485,7 +480,7 @@ $content .= '</p>
 
 <p align="center"><b>Replies to this post</b></p>
 <ul>
-<!-- zacni --><p>No replies yet</p>
+<p>No replies yet</p>
 </ul>
 <hr></td>
 </tr></table>
@@ -495,7 +490,7 @@ $content .= '</p>
 <div align="center"><center>
 <table border="0"><tr>
 <td>
-<form method=post action="'.$settings['mboard_url2'].'/site_conf/components/board/mboard.php?sid='.$_GET['sid'].'" name="form" onSubmit="return mboard_checkFields();">
+<form method=post action="'.$settings['mboard_url2'].'site_conf/components/board/mboard.php?sid=<?php echo \$sid; ?>" name="form" onSubmit="return mboard_checkFields();">
 <p><input type="hidden" name="a" value="reply"><b>Name:</b><br><input type=text name="name" size=30 maxlength=30><br>
 E-mail (optional):<br><input type=text name="email" size=30 maxlength=50><br>
 <b>Subject:</b><br><input type=text name="subject" value="Re: '.$subject.'" size=30 maxlength=100><br><br>
@@ -575,7 +570,7 @@ $settings[mboard_url]/$newfile
 End of message
 ";
 
-    mail($settings['admin_email'],'New forum post',$message);
+   // mail($settings['admin_email'],'New forum post',$message);
     }
 
 /* Delete old posts */
@@ -632,7 +627,7 @@ fclose($fp);
 
 $addline = "<!--z $count-->\n";
 //$addline .= "<!--s $count--><p><li><a href=\"msg/$count.$settings[extension]\">$subject</a> - <b>$name</b> <i>$date</i>\n";
-$addline .= "<!--s $count--><ul><li><a href=\"index.php?count=".$count."&section=msg&sid=".$_GET['sid']."\">$subject</a> - <b>$name</b> <i>$date</i>\n";
+$addline .= "<!--s $count--><ul><li><a href=\"index.php?count=".$count."&section=msg&sid=<?php echo \$sid; ?>\">$subject</a> - <b>$name</b> <i>$date</i>\n";
 $addline .= "<!--o $count--> (0)\n";
 $addline .= "</li></ul><!--k $count-->\n";
 
@@ -660,7 +655,7 @@ createNewFile($name,$mail,$subject,$comments,$count,$date);
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
 			<p align="center"><b>Your message was successfully added!</b></p>
-			<p align="center"><a href="<?php print $settings['mboard_url2']; ?>anlm/index.php?section=messageboard&sid=<?php print $_GET['sid']; ?>">Click here to continue</a></p>
+			<p align="center"><a href="<?php print $settings['mboard_url2']; ?>index.php?section=messageboard&sid=<?php print $_GET['sid']; ?>">Click here to continue</a></p>
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
@@ -670,15 +665,17 @@ createNewFile($name,$mail,$subject,$comments,$count,$date);
 	</div>
 </div>
 <?php
+$db = new db;
+$db->connect();
 $qryEmail = "SELECT email FROM students";
-$rsEmail = mysql_query($qryEmail);
+$db->query($qryEmail);
 $to = "";
-while($userEmail = mysql_fetch_assoc($rsEmail))
+while($db->getRows())
 {
-	if(strlen(trim($userEmail['email']))>0&&preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/i",$userEmail['email']))
-		$to .= $userEmail['email'].", ";
+	$userEmail = $db->row['email'];
+	if(strlen(trim($userEmail))>0&&preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/i",$userEmail))
+		$to .= $userEmail.", ";
 }
-mysql_free_result($rsEmail);
 if(strlen($to)>0)
 {
 	$to = substr($to,0,strlen($to)-2);
@@ -689,9 +686,11 @@ if(strlen($to)>0)
 	$headers .= 'From: LearningFox Support <dealy@davidealytechnologies.com>' . "\r\n";
 	//die($to."<br/>".$subject."<br/>".$body);
 	//$to="jimwu2010@gmail.com";
-	mail($to,$subject,$body,$headers);
+	//mail($to,$subject,$body,$headers);
 }
-mysql_query("INSERT INTO user_messages (USERID,CREATEDATE,MESSAGE,TYPE) VALUES (".mysql_escape_string($_SESSION['lms_userID']).",NOW(),'".mysql_escape_string($subject)."','New Message')");
+$db = new db;
+$db->connect();
+$db->query("INSERT INTO user_messages (USERID,CREATEDATE,MESSAGE,TYPE) VALUES (".$db->escape_string($_SESSION['lms_userID']).",NOW(),'".$db->escape_string($subject)."','New Message')");
 //printDownHTML();
 exit();
 }
@@ -791,8 +790,9 @@ if(!empty($up) && file_exists($upfile)) {
 			<hr>
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
-			<p align="center"><b>Selected post and all replies to it were successfully removed!sss</b></p>
-			<p align="center"><a href="<?php print $settings['mboard_url2']; ?>anlm/index.php?section=messageboard&sid=<?php print $_GET['sid']; ?>">Click here to continue</a></p>
+			<p align="center"><b>Selected post and all replies to it were successfully removed!</b></p>
+		<!--	<p align="center"><a href="<?php print $settings['mboard_url2']; ?>index.php?section=messageboard&sid=<?php print $_GET['sid']; ?>">Click here to continue</a></p>-->
+				<p align="center"><a href="javascript:history.go(-3)"  onMouseOver="self.status=document.referrer;return true"> Click here to continue</a></p>
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
 		
@@ -822,7 +822,7 @@ global $settings;
 			<p align="center"><b>Please enter your administration password:</b><br>
 			<input type="password" name="pass" size="20"></p>
 			<p align="center"><b>Are you sure you want to delete this post and all replies to it? This action cannot be undone!</b></p>
-			<p align="center"><input type="submit" value="YES, delete this entry and replies to it"> | <a href="<?php print $settings['mboard_url2']; ?>site_conf/components/board/mboard.php?sid=<?php print $_GET['sid']; ?>">NO, I changed my mind</a></p>
+			<p align="center"><input type="submit" value="YES, delete this entry and replies to it"> | <a href="javascript:history.go(-2)"  onMouseOver="self.status=document.referrer;return true">NO, I changed my mind</a></p>
 			</form>
 			<p>&nbsp;</p>
 			<p>&nbsp;</p>
@@ -983,11 +983,10 @@ $_SESSION['checked']=$settings['filter_sum'];
 			<div align="center"><center>
 			<table border="0" width="90%"><tr>
 			<td>
-			<!--<form method=post action="<?php //echo $settings['mboard_url']; ?>/mboard.php?<?php //echo strip_tags(SID); ?>" method="POST" name="form">-->
-			<!--<form method=post action="<?php //echo $settings['mboard_url']; ?>/mboard.php?sid=<?php //echo $_GET['sid']; ?>" method="POST" name="form">-->
-			<form method=post action="<?php print $settings['mboard_url2']; ?>site_conf/components/board/mboard.php?sid=<?php print $_GET['sid']; ?>" method="POST" name="form">
-			<!--<form method=post action="http://iloilotravel.com/kenneth/lms/demo_site/index.php?section=messageboard&sid=<?php print $_GET['sid']; ?>" method="POST" name="form">-->
 			
+			<!--<form method=post action="<?php print $settings['mboard_url2']; ?>site_conf/components/board/mboard.php?sid=<?php print $_GET['sid']; ?>" method="POST" name="form">-->
+			<form method=post action="<?php print $settings['mboard_url2']; ?>site_conf/components/board/mboard.php?sid=<?php print $_GET['sid']; ?>" method="POST" name="form">
+
 			<?php
 			//print $_GET['sid'].'<br />';
 			if ($message == 1) {echo '<p align="center"><font color="#FF0000"><b>Please type in the security number</b></font></p>';}

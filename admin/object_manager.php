@@ -238,7 +238,7 @@ $xm=0;
 while($db->getRows())
 { 
 	$day  = $db->row("created");
-	$domain = split('/',$day);
+	$domain = preg_split('/\//',$day);
 	$var = $domain[0]."/".$domain[1]."/".$domain[2];
 	$createDate = date('m/d/Y', strtotime($var));
 	$ID=$db->row("ID");

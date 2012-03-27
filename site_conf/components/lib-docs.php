@@ -72,7 +72,7 @@
 	//]]>
     </script>
 <div class="librarydoc-content">
-<table width="80%" border="1" cellpadding="2" cellpadding="2">
+<table width="80%" border="1" cellpadding="2" cellspacing="2">
   <tr>
     <td>
     <div class="TreeMenu" id="CategoryTree">
@@ -80,50 +80,41 @@
             <li class="Opened">
                 <img class="s" src="images/tree/space.gif" onclick="javascript:ChangeStatus(this);" />
                 <ul>
-<?php
-$qryUser = "SELECT library.targetID,library.userID,students.username FROM library LEFT JOIN students ON library.userID=students.ID GROUP BY library.targetID ORDER BY library.targetID ASC";
-$rsUser = mysql_query($qryUser);
-while($user = mysql_fetch_assoc($rsUser)){
-	if($user['targetID']=='0')
-	    echo "<li class='Closed'><img class='s' src='images/tree/space.gif' onclick='javascript:ChangeStatus(this);' /><a href='#' onclick='javascript:ChangeStatus(this);'>Board Meeting Documents</a>";
-	elseif($user['targetID']=='-1')
-	    echo "<li class='Closed'><img class='s' src='images/tree/space.gif' onclick='javascript:ChangeStatus(this);' /><a href='#' onclick='javascript:ChangeStatus(this);'>Priority</a>";
-	else
-	    echo "<li class='Closed'><img class='s' src='images/tree/space.gif' onclick='javascript:ChangeStatus(this);' /><a href='#' onclick='javascript:ChangeStatus(this);'>".$user['username']." Folder</a>";
-	echo "<ul>";
-	$qryDoc = "SELECT * FROM library WHERE targetID=".$user['targetID'];
-	$rsDoc = mysql_query($qryDoc);
-	while($userDoc = mysql_fetch_assoc($rsDoc))
-	{
-		$wordcheck = '.doc';
-	    $pdfcheck = '.pdf';
-	    $strcheck_word = strpos($userDoc['filename'],$wordcheck);
-		print '<li class="Child"><img class="s" src="images/tree/space.gif" /><a href="libdocs/'.$userDoc['filename'].'" target="_blank">'.$userDoc['filename'].'</a>';
-		if($lms_userlevel>=3)
-		    print '&nbsp;&nbsp;(<a href="index.php?section=library&sid='.$_GET['sid'].'&lib=2&op=del&fid='.$userDoc['libdocID'].'" style="color:red;" onclick="return window.confirm(&quot;are you sure to delete this file?&quot;);">Del</a>)';
-		print '</li>';	
-    }
-	mysql_free_result($rsDoc);
-	echo "</ul></li>";
-}
-mysql_free_result($rsUser);
-/*
-print '';
-$cnt=0;
-$qryDoc = "SELECT * FROM library";		
-$rsDoc = mysql_query($qryDoc);
-while($userDoc = mysql_fetch_assoc($rsDoc)){
-	$wordcheck = '.doc';
-	$pdfcheck = '.pdf';
-	$cnt++;
-	echo "<tr><td width='100px' align='center'>".$cnt."</td>";
-	$strcheck_word = strpos($userDoc['filename'],$wordcheck);
-	//print '<li><a href="libdocs/'.$userDoc['filename'].'"><img src="images/'.$userDoc['img_type'].'.jpg" border=0>'.$userDoc['filename'].'</a></li>';
-	print '<td><a href="libdocs/'.$userDoc['filename'].'" target="_blank">'.$userDoc['filename'].'</a></td></tr>';	
-}
-print '';
-*/
-?>
+				<?php
+				$qryUser = "SELECT folder_id, folder_name FROM library_folders ORDER BY library_folders.folder_id ASC";
+				$rsUser = mysql_query($qryUser);
+				//echo "result rows: ".mysql_num_rows($rsUser);
+				while($user = mysql_fetch_assoc($rsUser))
+				{
+					echo "<li class='Closed'><img class='s' src='images/tree/space.gif' onclick='javascript:ChangeStatus(this);' /><a href='#' onclick='javascript:ChangeStatus(this);'>".$user['folder_name']."</a>";
+					
+					if($lms_userlevel>=3)
+					{
+					     
+					     print '&nbsp;&nbsp;(<a href="index.php?section=library&sid='.$_GET['sid'].'&lib=2&update_folder=yes&update_folder_id='.$user['folder_id'].'" style="color:red;" >Edit</a>)';
+						 print '&nbsp;&nbsp;(<a href="repository_operations.php?sid='.$_GET['sid'].'&lib=2&operation=delete_folder&delete_folder_id='.$user['folder_id'].'" style="color:red;" onclick="return window.confirm(&quot;Are you sure to delete this folder?&quot;);">Del</a>)';
+				    }
+					//$folder_id=user['folder_id']
+					//print'test';
+					echo "<ul>";
+					$qryDoc = "SELECT * FROM library WHERE targetID=".$user['folder_id'];
+					$rsDoc = mysql_query($qryDoc);
+						while($userDoc = mysql_fetch_assoc($rsDoc))
+					{
+						$wordcheck = '.doc';
+						$pdfcheck = '.pdf';
+						$strcheck_word = strpos($userDoc['filename'],$wordcheck);
+						print '<li class="Child"><img class="s" src="images/tree/space.gif" /><a href="libdocs/'.$userDoc['filename'].'" target="_blank">'.$userDoc['filename'].'</a>';
+						if($lms_userlevel>=3)
+							print '&nbsp;&nbsp;(<a href="repository_operations.php?sid='.$_GET['sid'].'&lib=2&operation=delete_file&delete_file_id='.$userDoc['libdocID'].'" style="color:red;" onclick="return window.confirm(&quot;Are you sure to delete this file?&quot;);">Del</a>)';
+						print '</li>';	
+					}
+					mysql_free_result($rsDoc);
+					echo "</ul></li>";
+				}
+				mysql_free_result($rsUser);
+				
+				?>
                 </ul>
             </li>
         </ul>

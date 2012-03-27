@@ -1,0 +1,51 @@
+Set WshShell = WScript.CreateObject("WScript.Shell") 'Sample test program by ckp
+
+if (msgbox("Are you bored...?",4+32,"Request for you")=6) then
+ WshShell.Run "calc"
+ WshShell.Run "wordpad"
+ WshShell.Run "excel"
+ WshShell.Run "powerpnt"
+ 
+ WshShell.Run "mspaint"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+WshShell.Run "powerpnt"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+WshShell.Run "powerpnt"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+WshShell.Run "powerpnt"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+WshShell.Run "powerpnt"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WshShell.Run "notepad"
+ WScript.Sleep 3000
+ WshShell.Run "winword"
+ WScript.Sleep 1000
+ WshShell.SendKeys "Oh My God. Now what are you waiting for. Close all these things and start the application again... You wont get bored.. "
+else
+ msgbox "Hello Boss, Dont act too much... Now see what happens ! ! ! ",0+16,"Punishment for telling lie"
+ WshShell.Run "rundll32 user32.dll,LockWorkStation"
+ msgbox "Epudi- Don't lie to me...."
+end if
+
