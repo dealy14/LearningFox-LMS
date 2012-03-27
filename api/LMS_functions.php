@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . '/cosmos-content/courses/conf.php');
+require_once("../conf.php");
 
 function update_LMS($payment_data, $dir_usercourselist) {
 	
@@ -13,10 +13,34 @@ function update_LMS($payment_data, $dir_usercourselist) {
 	fclose($fp);
 	*/
 	
-	$password = generatePassword(5, 4);
-	$sql1 = "SELECT * FROM `students` WHERE `username` = '" . $payment_data['email'] . "'";
 	
-	$db = new db;
+	$username = $payment_data['email'];
+    $password = generatePassword(5, 4);
+	$password_hashed = sha1($username.$password);
+	
+    $sql1 = "SELECT * FROM `students` WHERE `username` = '" . $username . "'";
+
+    $db = new db;
+
+    /*
+	    $sql2 = "INSERT INTO students (" .
+                "`date_of_reg` , `date_of_mod`  , `fname` ," .
+                "`lname` , `mname` , `orgID` , `user_group` , `user_subgroup` ," .
+                "`date_of_birth` , `sex` , `phone` , `email` , `address`," .
+                "`city` , `state` , `zip` , `username` , `password` ," .
+                "`userlevel` )	VALUES (" .
+                "CURDATE(), CURDATE() , '" . $payment_data['first_name'] .
+                "', '" . $payment_data['last_name'] . "', '', '', '', '', '00000000', " .
+				"'na', '" . $payment_data['phone'] . "', '" . $payment_data['email'] . 
+				"', '" . $payment_data['address'] . " " . $payment_data['address2'] . 
+				"', '" . $payment_data['city'] . "', '" . $payment_data['state'] . 
+				"', '" . $payment_data['zip'] . "', '" . $username . 
+				"', '" . 
+				$db->escape_string($password_hashed) . 
+				"', '1' );";
+*/
+
+
 		
 	$db->connect();
 	$db->query($sql1);
@@ -24,7 +48,7 @@ function update_LMS($payment_data, $dir_usercourselist) {
 		register_student($payment_data['payment_date'],$payment_data['first_name'],$payment_data['last_name'],
 						$payment_data['phone'],$payment_data['email'],$payment_data['address'],
 						$payment_data['address2'],$payment_data['city'],$payment_data['state'],
-						$payment_data['zip'],$password);
+						$payment_data['zip'],$db->escape_string($password_hashed));
 		$db->connect();
 		$db->query($sql1); // re-run query to grab newly-inserted student record
 						// NOTE: this may seem redundant, but we need to grab 
@@ -32,9 +56,13 @@ function update_LMS($payment_data, $dir_usercourselist) {
 		$db->getRows();
 	
 	}
-	
+	else{ //student already exists
+    	//do not re-send password, as it is now hashed
+    	$password = "<password not displayed>";
+	}
+
 	$lms_userID = $db->row('ID');
-	$password = $db->row('password');
+	//$password = $db->row('password');
 	$db->close();
 	
 	//$lms_userID = 13;
@@ -168,33 +196,33 @@ function register_student_in_course($studentid,$courseid){
 }
 
 function send_pass_email($email, $password, $ac_message) {
-	$admin_email = "admin@safetytrainingsystem.com";	
+    $admin_email = $default_email; // from conf.php
 	$subject = 'Course Account information';
-	
+    
 	//override email for debugging
 	//$email = "ryan@rammons.net";
-	
+	$domain_in_caps = toupper($domain_name);
 	$to = $email;    //  user/purchaser/student email
-	$body = "Thank you very much for your purchase! You may now log in at any time " .
-	"to see the course(s) you have purchased, as well as any other previously " .
-	"purchased courses, by visiting: \n" .
-	"http://safetytrainingsystem.com/courses/index.php?section=login.\n\n\n";
-	
-	$body .= "To log in to your account, you'll need your username and password. \n\n" .
-	"Your username is simply your email address: " . $to . "\n" .
-	"Your randomly generated password is: " . $password . " \n\n\n";
-	
+    $body = "Thank you very much for your purchase! You may now log in at any time " .
+			"to see the course(s) you have purchased, as well as any other previously " .
+			"purchased courses, by visiting: \n" .
+			"$lms_url_fq/index.php?section=login.\n\n\n";
+			
+    $body .= "To log in to your account, you'll need your username and password. \n\n" .
+			 "Your username is simply your email address: " . $to . "\n" .
+			 "Your randomly generated password is: " . $password . " \n\n\n";
+			 
 	$body .= $ac_message . "\n\n";
 	
 	$body .= "If you have any questions, concerns or comments, please contact us at " .
-	$admin_email . ".\n\n\n";
-	
-	$body .= "THIS IS AN AUTOMATED MESSAGE FROM SAFETYTRAININGSYSTEM.COM\n\n\n" .
-	"\n" . date('m/d/Y');
-	
+				$admin_email . ".\n\n\n";
+    
+	$body .= "THIS IS AN AUTOMATED MESSAGE FROM $domain_in_caps\n\n\n" .
+    			"\n" . date('m/d/Y');
+    
 	$headers = "From: " . $admin_email . "\r\n";
-	
-	mail($to, $subject, $body, $headers);
+
+    mail($to, $subject, $body, $headers);
 }
 
 function generatePassword($length=9, $strength=0) {
