@@ -18,40 +18,19 @@ require_once("../conf.php");
 
 if($_REQUEST['action']=="student_details" && $_REQUEST['formAction']=="UPDATE")
 {
+	$data = get_regform_data($_POST);
   //assemble SQL String here;
+  $first = true;
+  $sql = 'UPDATE students SET ';
+  foreach($data as $column=>$value) 
+		$sql = "$column=$value, ";
+  $sql .= "userlevel=" . intval($_POST['userlevel']) . "  WHERE ID=$ID";
+
   $db = new db;
   $db->connect();
-  $rtypes = $db->get_column_types('students');
-  $db->query("SELECT field_name FROM reg_form WHERE forder>=1 AND status='on' AND stored='y'");
-  $nx=0;
-  $sqla="UPDATE students set ";
-  while($db->getRows()) { 
-	$rname=$db->row("field_name");
-	$len = strpos($rtypes[$rname], '(');
-	if ($len !== false)
-	  $rtype = substr($rtypes[$rname], 0, $len);
-	else
-	  $rtype = $rtypes[$rname];
-	switch (strtolower($rtype)){
-		case 'char':
-		case 'varchar':
-		case 'binary':
-		case 'varbinary':
-		case 'blob':	
-		case 'text':
-			$rvalue = "'".$db->escape_string($_POST[$rname])."'";
-			break;
-		default:
-			$rvalue = $_POST[$rname];
-	}
-	$sqlb .= "$rname=$rvalue, ";
-//  	$sqlb.=$rname."='".$_POST[$rname]."',";
-  	$nx++;
-  }
-  
-  $sql = $sqla.$sqlb."userlevel=" . intval($_POST['userlevel']) . "  WHERE ID=$ID";
+  $db->query($sql);
   //echo $sql;
-  insertAction($sql);
+//  insertAction($sql);
 
 echo "<SCRIPT>top.rmain.student_list.location.reload();</SCRIPT>";
 }
