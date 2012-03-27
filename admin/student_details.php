@@ -38,30 +38,7 @@ top.top1.topicItemSelect=3;
 	$db->query("SELECT * FROM students WHERE ID=$ID");
 	$nx=0;
 	while($db->getRows())
-	{ 
-	$date_of_reg = $db->row("date_of_reg");
-	$date_of_mod = $db->row("date_of_mod");
-	$date_of_hire = $db->row("date_of_hire");
-	$fname = $db->row("fname");
-	$lname = $db->row("lname");
-	$mname = $db->row("mname");
-	$org_ID = $db->row("org_ID");
-	$user_group = $db->row("user_group");
-	$user_subgroup = $db->row("user_subgroup");
-	$date_of_birth = $db->row("date_of_birth");
-	$sex = $db->row("sex");
-	$phone = $db->row("phone");
-	$email = $db->row("email");
-	$address = $db->row("address");
-	$city = $db->row("city");
-	$state = $db->row("state");
-	$zip = $db->row("zip");
-	$username = $db->row("username");
-	$password = $db->row("password");
-	$userlevel = $db->row("userlevel");
-	$provider_number = $db->row('provider_number');
-	$ID = $db->row("ID");	
-	}
+		$data = $db->rowdata();
 ?>
 	<INPUT TYPE="HIDDEN" NAME="ID" VALUE="<?php echo $ID;?>">
 <?php
@@ -79,7 +56,7 @@ top.top1.topicItemSelect=3;
 		<TR>
 		  <TD><SPAN CLASS="ttl"><?php echo $db->row("display");?></SPAN></TD>
 		  <TD>
-		  	<?php makeFieldEdit($db->row("field_name"), $$nvalue); ?>
+		  	<?php makeFieldEdit($nvalue, $data[$nvalue]); ?>
 		  </TD>
 		</TR>
 	<?php
