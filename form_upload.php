@@ -35,7 +35,7 @@ if($_POST['nla'] == 'edit'){
 			   VALUES('".mysql_escape_string($_POST['sid'])."','".mysql_escape_string($_POST['fu_title'])."','".mysql_escape_string($_POST['fu_content'])."','".mysql_escape_string($_SESSION['lms_userID'])."',NOW())"; 
 																				
 		   $result = mysql_query($query);
-		   $userID = mysql_insert_id($db);
+		   $userID = mysql_insert_id($database);
 		   
 		   if(!$result){
 				print mysql_error();

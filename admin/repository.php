@@ -1,4 +1,8 @@
-<?php require_once("conn.php"); ?>
+<?php 
+require_once('../conn.php');
+//$db = mysql_connect("safetytraindemo.db.8609376.hostedresource.com", "safetytraindemo", "RZ8Lk55auNQv1e") or die(mysql_error());
+//$dbName = mysql_select_db("safetytraindemo") or die(mysql_error());
+ ?>
 <style>
 	.library-content{
 		font-family:Verdana, Arial, Helvetica, sans-serif;
@@ -50,8 +54,8 @@ if($_GET['lib'] == '1'){
 		<div class="style1">Repository</div>
 		<div style="border:1px solid #eeeeee;">
 			<ul>
-				<li <?=$lbg_1?>><a HREF="repository.php?section=library&sid=<?php echo $sid; ?>&lib=1";>Links</a></li>
-				<li <?=$lbg_2?>><a HREF="repository.php?section=library&sid=<?php echo $sid; ?>&lib=2";>Documents</a></li>
+				<li <?php echo $lbg_1;?>><a HREF="repository.php?section=library&sid=<?php echo $sid; ?>&lib=1";>Links</a></li>
+				<li <?php echo $lbg_2;?>><a HREF="repository.php?section=library&sid=<?php echo $sid; ?>&lib=2";>Documents</a></li>
 			</ul>
 		</div>
 	</div>

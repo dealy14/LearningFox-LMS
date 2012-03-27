@@ -35,7 +35,7 @@ top.top1.topicItemSelect=3;
     $ID = $_GET['ID'];
 	$db = new db;
 	$db->connect();
-	$db->query("SELECT * FROM students WHERE ID='$ID'");
+	$db->query("SELECT * FROM students WHERE ID=$ID");
 	$nx=0;
 	while($db->getRows())
 	{ 
@@ -59,6 +59,7 @@ top.top1.topicItemSelect=3;
 	$username = $db->row("username");
 	$password = $db->row("password");
 	$userlevel = $db->row("userlevel");
+	$provider_number = $db->row('provider_number');
 	$ID = $db->row("ID");	
 	}
 ?>
@@ -66,38 +67,43 @@ top.top1.topicItemSelect=3;
 <?php
 	$db = new db;
 	$db->connect();
-	 $db->query("SELECT * FROM reg_form WHERE stored = 'y' AND forder>=1 AND status='on' ORDER BY forder ASC");
-	 
+	$db->query("SELECT * FROM reg_form WHERE stored = 'y' AND forder>=1 AND status='on' ORDER BY forder ASC");
+
 	$nx=0;
 	
 	while($db->getRows())
 	{ 
-	$nvalue = $db->row("field_name");
-	
-	?>
-	<TR>
-	  <TD><SPAN CLASS="ttl"><?php echo $db->row("display");?></SPAN></TD>
-	  <TD><?php makeFieldEdit($db->row("field_name"),$$nvalue);?></TD>
-	</TR>
+		$nvalue = $db->row("field_name");
+		
+		?>
+		<TR>
+		  <TD><SPAN CLASS="ttl"><?php echo $db->row("display");?></SPAN></TD>
+		  <TD>
+		  	<?php makeFieldEdit($db->row("field_name"), $$nvalue); ?>
+		  </TD>
+		</TR>
 	<?php
-	$nx++;
-	
-	}
-	?>
+		$nx++;
+	}?>
 	<TR>
 	  <TD><SPAN CLASS="ttl">User Level</SPAN></TD>
-	  <TD><?php input_list("userlevel","0,1,2,3,4",0,$userlevel,"CLASS=input");?></TD>
+	  <TD><?php generate_dropdown_control("userlevel",$user_levels,$userlevel,"class='input'");?></TD>
 	</TR>
+	<TR>
+	  <TD><SPAN CLASS="ttl">User ID</SPAN></TD>
+	  <td><?php echo $ID;?></td>
+	</tr>
 	</TABLE>
 
 	</TD>
 	<TD BACKGROUND="images/bev_right.gif" WIDTH="8"></TD>	
-	  </TR>
-	  <TR>
-	    <TD><IMG SRC="images/bev_left_b_corner.gif"></TD>	
-	    <TD BACKGROUND="images/bev_bottom.gif" HEIGHT="8"></TD>	
-	    <TD><IMG SRC="images/bev_right_b_corner.gif"></TD>	
-	  </TR>		
-	</TABLE>
+  </TR>
+  <TR>
+    <TD><IMG SRC="images/bev_left_b_corner.gif"></TD>	
+    <TD BACKGROUND="images/bev_bottom.gif" HEIGHT="8"></TD>	
+    <TD><IMG SRC="images/bev_right_b_corner.gif"></TD>	
+  </TR>		
+</TABLE>
 </FORM>
 </BODY>
+</html>

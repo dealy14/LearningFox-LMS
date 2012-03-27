@@ -2,7 +2,7 @@
 ####################################################################################
 # Action to add to the user's course list
 ####################################################################################
-if( isset( $_GET['survey_ID'] ) && !empty( $_GET['survey_ID'] ) && !ereg('[^0-9]',  $_GET['survey_ID']  ) )
+if( isset( $_GET['survey_ID'] ) && !empty( $_GET['survey_ID'] ) && !preg_match('[^0-9]',  $_GET['survey_ID']  ) )
 {
 	$survey_ID= $_GET['survey_ID'];
 	if($_GET['addcourse']=="yes")
@@ -72,7 +72,7 @@ if( isset( $_GET['survey_ID'] ) && !empty( $_GET['survey_ID'] ) && !ereg('[^0-9]
 <P>
 <A HREF="index.php?section=courselist&sid=<?php echo $sid; ?>">Back to Course List.</A>
 <P>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="800"><TR><TD BGCOLOR="#CCCCCC">
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="550"><TR><TD BGCOLOR="#CCCCCC">
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="4" WIDTH="100%">
   <TR BGCOLOR="#FFFFFF">
     <TD COLSPAN="2" ALIGN="RIGHT">

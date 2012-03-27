@@ -1,10 +1,11 @@
-<SCRIPT language="javascript1.2">
-function launchCourse(cnum)
-{
-//newWin=window.open('../'+cnum+'/index.php?user_ID=<?php echo $lms_userID;?>','LT_COURSE','WIDTH=<?php echo $hw[0];?>,height=<?php echo $hw[1];?>');
-window.open('LMSMain.php?ref='+cnum+'&user_id=<?php echo $lms_userID;?>');
-}
-</SCRIPT>
+<script type="text/javascript">
+	<!--
+	function launchCourse(cnum){
+		window.open('LMSMain.php?ref='+cnum+'&user_id=<?php echo $lms_userID;?>');
+	}
+	-->
+</script>
+
 <div style="width:800px;">
 <h2 align="center">Your Transcript</h2>
 <div align="center"><?php include($dir_components."enrollment_toolbar.php"); ?></div>
@@ -12,6 +13,8 @@ window.open('LMSMain.php?ref='+cnum+'&user_id=<?php echo $lms_userID;?>');
   <?php
 $sfile=$dir_usercourselist.$lms_userID;
 $gfile=$dir_groupfiles.$lms_usergroup_file.".grp";
+$mycourses = array();
+$mygcourses = array();
 
 if(file_exists($sfile)||file_exists($gfile))
 {
@@ -20,11 +23,12 @@ if(file_exists($sfile)||file_exists($gfile))
    $mycourses=file($sfile);
    $mycourses=explode("|",$mycourses[0]);  
   }
+  	
   if(file_exists($gfile))
   {
    $mygcourses=file($gfile);
    $mygcourses=explode("|",$mygcourses[0]);  
-  }  
+  } 
   
   if(count($mycourses)>=1||count($mygcourses)>=1)
   {
@@ -57,11 +61,10 @@ if(file_exists($sfile)||file_exists($gfile))
   }  
 }
 
-if($mycourses[0]!="" || $mygcourses[0]!="")
+if((count($mycourses) > 0 && $mycourses[0]!="") || (count($mygcourses) >0 && $mygcourses[0]!=""))
 {
    ?>
   
-
 <p>Courses </p>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="4" width="100%">
     <TR  class="descriptor_row">
@@ -82,7 +85,7 @@ if($mycourses[0]!="")
      $x=0;
      while($x<count($mycourses))
      {
-	   if(@!in_array($mycourses[$x],$mygcourses))
+	   if(!in_array($mycourses[$x],$mygcourses))
 	   {
 			 if($start_date[$mycourses[$x]]=="")
 			 {

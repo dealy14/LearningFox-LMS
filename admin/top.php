@@ -117,7 +117,7 @@ function toggle_manager()
 	}
 	else
 	{//there is no first item to select
-		top.rmain.location = 'blanks.php';
+		top.rmain.location = 'blank.php';
 		window.location.reload;
 	}
 	//parent.object_top.pushDatatop('testing');

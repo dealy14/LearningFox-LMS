@@ -4,6 +4,8 @@
 <?php
 $sfile=$dir_usercourselist.$lms_userID;
 $gfile=$dir_groupfiles.$lms_usergroup_file.".grp";
+$mycourses = array();
+$mygcourses = array();
 
 if(file_exists($sfile)||file_exists($gfile))
 {

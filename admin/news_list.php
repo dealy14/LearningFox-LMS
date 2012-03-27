@@ -59,8 +59,8 @@
 						print '<a href="news.php?section=news&sid='.$_GET['sid'].'&nc=nlist&news='.$userNews['id'].'">'.$i++.'. '.$userNews['title'].'</a>';
 				?>
 				</div>
-				<div class="news_edit"><a href="news.php?section=news&sid=<?=$_GET['sid']?>&news=<?=$userNews['id']?>&nla=edit">Edit</a></div>
-				<div class="news_delete"><a href="news.php?section=news&sid=<?=$_GET['sid']?>&news=<?=$userNews['id']?>&nla=delete&nname=<?=$userNews['title']?>">Delete</a></div>
+				<div class="news_edit"><a href="news.php?section=news&sid=<?php echo $_GET['sid'];?>&news=<?php echo $userNews['id'];?>&nla=edit">Edit</a></div>
+				<div class="news_delete"><a href="news.php?section=news&sid=<?php echo $_GET['sid'];?>&news=<?php echo $userNews['id'];?>&nla=delete&nname=<?php echo $userNews['title'];?>">Delete</a></div>
 			<div><br />
 				<?php
 				}

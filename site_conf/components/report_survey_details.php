@@ -1,6 +1,6 @@
 <table width="100%">
 <?php
-if( isset( $_GET['survey_ID']) &&  !  ereg('[^0-9]',  $_GET['survey_ID']) && isset($_GET['student_ID']) &&  !  ereg('[^0-9]',  $_GET['student_ID'])   )
+if( isset( $_GET['survey_ID']) &&  !  preg_match('/[^0-9]/',  $_GET['survey_ID']) && isset($_GET['student_ID']) &&  !  preg_match('[^0-9]',  $_GET['student_ID'])   )
 {
 	$survey_ID = $_GET['survey_ID'];
 	$student_ID = $_GET[ 'student_ID'];
@@ -39,7 +39,7 @@ if( isset( $_GET['survey_ID']) &&  !  ereg('[^0-9]',  $_GET['survey_ID']) && iss
 			?>
 			<tr><td colspan="5"><br />test taken on <?php echo $dbsurvey2->row('fecha');?></td></tr>
 			<TR class="descriptor_row">
-				<TD><FONT FACE=VERDANA SIZE=2><B>&nbsp;</B></FONT></TD>
+				<!--<TD><FONT FACE=VERDANA SIZE=2><B>&nbsp;</B></FONT></TD>-->
 				<TD><FONT FACE=VERDANA SIZE=2><B>#</B></FONT></TD>
 				<TD><FONT FACE=VERDANA SIZE=2><B>Question</B></FONT></TD>
 				<TD><FONT FACE=VERDANA SIZE=2><B>Your Answer</B></FONT></TD>
@@ -49,17 +49,17 @@ if( isset( $_GET['survey_ID']) &&  !  ereg('[^0-9]',  $_GET['survey_ID']) && iss
 		}
 		if($dbsurvey2->row('correct_ans') == $dbsurvey2->row('actual_ans'))
 		{
-			$correct_incorrect_ans = "<img src='../images/check.gif'>";
+			//$correct_incorrect_ans = "<img src='../images/check.gif'>";
 			$bg = " BGCOLOR=#FFFFFF ";
 		}
 		else
 		{
-			$correct_incorrect_ans = "<img src='../images/x.gif'>";
+			//$correct_incorrect_ans = "<img src='../images/x.gif'>";
 			$bg = " bgcolor='#FF8484' ";
 		}
 		?>
 		<tr>
-			<td <?php echo $bg; ?> ><?php echo  $correct_incorrect_ans; ?></td>
+			<!--<td <?php //echo $bg; ?> ><?php //echo  $correct_incorrect_ans; ?></td>-->
 			<td <?php echo $bg; ?> ><?php echo  $q_number++ ;?></td>
 			<td <?php echo $bg; ?> ><?php echo  $dbsurvey2->row('question');?></td>
 			<td <?php echo $bg; ?> ><?php echo  $dbsurvey2->row('actual_ans');?></td>

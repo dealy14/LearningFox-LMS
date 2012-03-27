@@ -1,67 +1,80 @@
 <?php
-
-require_once($_SERVER['DOCUMENT_ROOT'] . '/LMS/conf.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/cosmos-content/courses/conf.php');
 
 function update_LMS($payment_data, $dir_usercourselist) {
-    // Format date value from 'MM/DD/YYYY' to 'YYYY-MM-DD' for MySQL insert
-    /* // this correction is only for the CEC 3dcart XML file date format
-     * $temp_date = date_parse($payment_data['payment_date']);
-     * $payment_date = $temp_date['year']."-".$temp_date['month']."-".$temp_date['day'];
-	 */
+	
 	$payment_date = $payment_data['payment_date'];
 	$course_array = $payment_data['course_info'];
-
-    $password = generatePassword(5, 4);
-    $sql1 = "SELECT * FROM `students` WHERE `username` = '" . $payment_data['email'] . "'";
-
-    $db = new db;
-    $db->connect();
-    $db->query($sql1);
-    if (!$db->getRows()) {
-       register_student($payment_date,$payment_data['first_name'],$payment_data['last_name'],
+	/*
+	$body .=  "\n\n".$sql;
+	$body .=  "\n\n".$ac_message;
+	$fp=fopen("log.txt",'a');
+	fwrite($fp, $body . "\n\n");
+	fclose($fp);
+	*/
+	
+	$password = generatePassword(5, 4);
+	$sql1 = "SELECT * FROM `students` WHERE `username` = '" . $payment_data['email'] . "'";
+	
+	$db = new db;
+		
+	$db->connect();
+	$db->query($sql1);
+	if (!$db->getRows()) {  // if no student in DB with given email, insert the new student
+		register_student($payment_data['payment_date'],$payment_data['first_name'],$payment_data['last_name'],
 						$payment_data['phone'],$payment_data['email'],$payment_data['address'],
 						$payment_data['address2'],$payment_data['city'],$payment_data['state'],
 						$payment_data['zip'],$password);
-        $db->connect();
-        $db->query($sql1); // re-run query to grab newly-inserted student record
+		$db->connect();
+		$db->query($sql1); // re-run query to grab newly-inserted student record
 						// NOTE: this may seem redundant, but we need to grab 
 						//       the autonumber ID of the new record
-        $db->getRows();
-    }
-
-    $lms_userID = $db->row('ID');
-    $password = $db->row('password');
-    $db->close();
-
-    //$lms_userID = 13;
-    //$course_ID = 54;
-
-    $userfile = $dir_usercourselist . $lms_userID;
-
-    //echo "lms_userID =".$lms_userID."<br>";
-    //echo "userfile =".$userfile."<br>";
-
+		$db->getRows();
+	
+	}
+	
+	$lms_userID = $db->row('ID');
+	$password = $db->row('password');
+	$db->close();
+	
+	//$lms_userID = 13;
+	//$course_ID = 54;
+	
+	$userfile = $dir_usercourselist . $lms_userID;
+	
+	//echo "lms_userID =".$lms_userID."<br>";
+	//echo "userfile =".$userfile."<br>";
+	
 	$ac_message = "";
-
-    if (file_exists($userfile)) {
-        $userfile = file($userfile);
-        $userdata = explode("|", $userfile[0]);
-        
+	
+	if (file_exists($userfile)) {
+		$userfile = file($userfile);
+		$userdata = explode("|", $userfile[0]);
+		
+		$db->connect();
+		
 		foreach ($course_array as $course){
 			$course_ID = $course['courseid'];
 			
+			insertAction("INSERT INTO course_history ".
+			"(user_ID,course_status,start_date,course_id) ".
+			"VALUES ('" . $lms_userID . "','Not Attempted',CURDATE()," . $course_ID . ")");
+			
+			register_student_in_course($lms_userID,'course-'.$course_ID);
+			
 			if (!in_array($course_ID, $userdata)) {
-	            $newfile = implode("|", $userdata);
-	            to_file($dir_usercourselist . $lms_userID, "$newfile|$course_ID", "w+");
-	            $ac_message .= $course['coursename']." has been added to your enrollment list.\n";
-	        } else {
-	            $ac_message .= $course['coursename']." is already in your enrollment list.\n";
-	        }
+				$newfile = implode("|", $userdata);
+				to_file($dir_usercourselist . $lms_userID, "$newfile|$course_ID", "w+");
+				$ac_message .= $course['coursename']." has been added to your enrollment list.\n";
+				} else {
+				$ac_message .= $course['coursename']." is already in your enrollment list.\n";
+			}
 		}
 		
-		
-    } else {
-      /* echo "<pre>";
+		$db->close();
+
+		} else {
+		/* echo "<pre>";
 		print_r($course_array);
 		echo "</pre>";
 		*/
@@ -73,11 +86,11 @@ function update_LMS($payment_data, $dir_usercourselist) {
 		$course_list = implode(", ",$course_names);
 		
 		to_file($dir_usercourselist . $lms_userID, $newfile, "w+");
-    	$ac_message.= "The following course(s) were added to your enrollment list: \n\t".$course_list;
-	
-    }
-    send_pass_email($payment_data['email'], $password, $ac_message);
-    //echo $ac_message;
+		$ac_message.= "The following course(s) were added to your enrollment list: \n\t".$course_list;
+		
+	}
+	send_pass_email($payment_data['email'], $password, $ac_message);
+	//echo $ac_message;
 }
 
 /* -------------end of function update_LMS-------------------------- */
@@ -104,69 +117,119 @@ function register_student($dateofreg,$firstname,$lastname,$phone,$email,$address
 		$db->close();
 }
 
+function register_student_in_course($studentid,$courseid){
+	
+	/* 
+	  SUMMARY: 
+			This function uses existing SCORM course data, along with
+			student/user identification, to enable a given student
+			access to specified course.
+			
+	  TABLES: 
+			item_info			Contains SCORM course data
+			user_sco_info		Contains student-course correlation records
+	*/
+	
+	$db = new db;
+	
+	$sql="select * from item_info where course_id='".$courseid."'";
+	$db->connect();
+	$db->query($sql);
+	$db->getRows();
+	
+	$sco_identifier = $db->row("identifier");
+	$course_launch_file = $db->row("launch");
+	$data_from_lms = $db->row("data_from_lms");
+	$prerequisites = $db->row("prerequisites");
+	$masteryscore = $db->row("masteryscore");
+	$maximumtime = $db->row("maximumtime");
+	$timelimitaction = $db->row("timelimitaction");
+	$sequence = $db->row("sequence");
+	$type = $db->row("type");
+	$cmi_credit = $db->row("cmi_credit");
+	
+	$db->connect();
+	
+	if($db->getRows()){
+			$insrt="insert into user_sco_info set user_id=" . $studentid . ",course_id='".
+						$courseid ."',sco_id='". $sco_identifier ."',launch='". 
+						$course_launch_file . "',data_from_lms='" . $data_from_lms .
+						"',lesson_status='not attempted',prerequisite='" . $prerequisites . "',".
+						"sco_exit='',sco_entry='ab-initio',masteryscore='" . $masteryscore . 
+						"',maximumtime='" . $maximumtime . "',timelimitaction='" . $timelimitaction .
+						"',sequence=" . $sequence . ",type='" . $type . "',cmi_credit='" . $cmi_credit ."'";
+			
+			insertAction($insrt);
+
+		}
+	
+	$db->close();
+	
+}
+
 function send_pass_email($email, $password, $ac_message) {
-    $admin_email = "admin@cosmosconsultingllc.com";
+	$admin_email = "admin@safetytrainingsystem.com";	
 	$subject = 'Course Account information';
-    
+	
 	//override email for debugging
 	//$email = "ryan@rammons.net";
-		
+	
 	$to = $email;    //  user/purchaser/student email
-    $body = "Thank you very much for your purchase! You may now log in at any time " .
-			"to see the course(s) you have purchased, as well as any other previously " .
-			"purchased courses, by visiting: \n" .
-			"http://cosmosconsultingllc.com/LMS/index.php?section=login.\n\n\n";
-			
-    $body .= "To log in to your account, you'll need your username and password. \n\n" .
-			 "Your username is simply your email address: " . $to . "\n" .
-			 "Your randomly generated password is: " . $password . " \n\n\n";
-			 
+	$body = "Thank you very much for your purchase! You may now log in at any time " .
+	"to see the course(s) you have purchased, as well as any other previously " .
+	"purchased courses, by visiting: \n" .
+	"http://safetytrainingsystem.com/courses/index.php?section=login.\n\n\n";
+	
+	$body .= "To log in to your account, you'll need your username and password. \n\n" .
+	"Your username is simply your email address: " . $to . "\n" .
+	"Your randomly generated password is: " . $password . " \n\n\n";
+	
 	$body .= $ac_message . "\n\n";
 	
 	$body .= "If you have any questions, concerns or comments, please contact us at " .
-				$admin_email . ".\n\n\n";
-    
-	$body .= "THIS IS AN AUTOMATED MESSAGE FROM COSMOSCONSULTINGLLC.COM\n\n\n" .
-    			"\n" . date('m/d/Y');
-    
+	$admin_email . ".\n\n\n";
+	
+	$body .= "THIS IS AN AUTOMATED MESSAGE FROM SAFETYTRAININGSYSTEM.COM\n\n\n" .
+	"\n" . date('m/d/Y');
+	
 	$headers = "From: " . $admin_email . "\r\n";
-
-    mail($to, $subject, $body, $headers);
+	
+	mail($to, $subject, $body, $headers);
 }
 
 function generatePassword($length=9, $strength=0) {
-    $vowels = 'aeuy';
-    $consonants = 'bdghjmnpqrstvz';
-
-    if ($strength & 1) {
-        $consonants .= 'BDGHJLMNPQRSTVWXZ';
-    }
-
-    if ($strength & 2) {
-        $vowels .= "AEUY";
-    }
-
-    if ($strength & 4) {
-        $consonants .= '23456789';
-    }
-
-    if ($strength & 8) {
-        $consonants .= '@#$%';
-    }
-
-    $password = '';
-    $alt = time() % 2;
-
-    for ($i = 0; $i < $length; $i++) {
-        if ($alt == 1) {
-            $password .= $consonants[(rand() % strlen($consonants))];
-            $alt = 0;
-        } else {
-            $password .= $vowels[(rand() % strlen($vowels))];
-            $alt = 1;
-        }
-    }
-
-    return $password;
+	$vowels = 'aeuy';
+	$consonants = 'bdghjmnpqrstvz';
+	
+	if ($strength & 1) {
+		$consonants .= 'BDGHJLMNPQRSTVWXZ';
+	}
+	
+	if ($strength & 2) {
+		$vowels .= "AEUY";
+	}
+	
+	if ($strength & 4) {
+		$consonants .= '23456789';
+	}
+	
+	if ($strength & 8) {
+		$consonants .= '@#$%';
+	}
+	
+	$password = '';
+	$alt = time() % 2;
+	
+	for ($i = 0; $i < $length; $i++) {
+		if ($alt == 1) {
+			$password .= $consonants[(rand() % strlen($consonants))];
+			$alt = 0;
+			} else {
+			$password .= $vowels[(rand() % strlen($vowels))];
+			$alt = 1;
+		}
+	}
+	
+	return $password;
 }
 ?>

@@ -32,7 +32,7 @@ window.open('changepassword.php','ChangePassword','resizable=0,width=650,height=
 			 	<td width="186">&nbsp;</td>
 			 </tr>
 			  <tr> 
-                <td width="186" ><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><B>Global Navigation</B></font></td>
+                <td width="186" ><font size="2" face="Verdana, Arial, Helvetica, sans-serif"><B>&nbsp;&nbsp;Global Navigation</B></font></td>
               </tr>
 			  <?php
 			  if($lms_userlevel!=1){
@@ -49,30 +49,30 @@ window.open('changepassword.php','ChangePassword','resizable=0,width=650,height=
 			  	}
 			?>
 			   <tr > 
-                <td width="186" ><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><A HREF="index.php?section=landing&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;">Main</A> </font></td>
+                <td width="186" ><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><A HREF="index.php?section=landing&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;">&nbsp;&nbsp;Main</A> </font></td>
               </tr>			
               <tr > 
-                <td width="186"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><A HREF="index.php?section=enrollment&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;">Your Transcript</A> </font></td>
+                <td width="186"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><A HREF="index.php?section=enrollment&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;">&nbsp;&nbsp;Your Enrollment</A> </font></td>
               </tr>		
               <tr > 
-                <td width="186" ><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><A HREF="index.php?section=courselist&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;">Courses </A> </font></td>
+                <td width="186" ><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><A HREF="index.php?section=courselist&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;">&nbsp;&nbsp;Courses </A> </font></td>
               </tr>		  
 			  
 			 <?php $status="no"; if($lms_userlevel>=2){ $status="yes"?>
 			  <tr > 
-                <td width="186" ><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><A HREF="index.php?section=reports&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;">Reports</A> </font></td>
+                <td width="186" ><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><A HREF="index.php?section=reports&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;">&nbsp;&nbsp;Reports</A> </font></td>
               </tr>		
 			    <?php }?>
               <tr > 
-                <td width="186"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><A HREF="index.php?section=news&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;">News</A> </font></td>
+                <td width="186"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><A HREF="index.php?section=news&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;">&nbsp;&nbsp;News</A> </font></td>
               </tr>		
 			
 			  <tr > 
-                <td width="186"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><A HREF="index.php?section=messageboard&sid=<?php echo $sid; ?>" ; STYLE="text-decoration:none;COLOR:#3E3E3E;">Message Board</A> </font></td>
+                <td width="186"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><A HREF="index.php?section=messageboard&sid=<?php echo $sid; ?>" ; STYLE="text-decoration:none;COLOR:#3E3E3E;">&nbsp;&nbsp;Message Board</A> </font></td>
               </tr>		
 			  
 			   <tr > 
-                <td width="186" ><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><A HREF="index.php?section=library&sid=<?php echo $sid; ?>"; STYLE="text-decoration:none;COLOR:#3E3E3E;">Repository</A> </font></td>
+                <td width="186" ><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><A HREF="index.php?section=library&sid=<?php echo $sid; ?>"; STYLE="text-decoration:none;COLOR:#3E3E3E;">&nbsp;&nbsp;Repository</A> </font></td>
               </tr>		
 			  
 <!--	
@@ -101,7 +101,7 @@ window.open('changepassword.php','ChangePassword','resizable=0,width=650,height=
             
 		
               <tr > 
-                <td width="186"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><A HREF="#" onClick="window.open('admin/admin.php?sid=<?php echo $sid; ?>','ADMIN','fullscreen,scrollbars=yes')"; STYLE="text-decoration:none;COLOR:#3E3E3E;"><strong>Admin Interface</strong></A> </font></td>
+                <td width="186"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><A HREF="#" onClick="window.open('admin/admin.php?sid=<?php echo $sid; ?>','ADMIN','fullscreen,scrollbars=yes')"; STYLE="text-decoration:none;COLOR:#3E3E3E;"><strong>&nbsp;&nbsp;Admin Interface</strong></A> </font></td>
               </tr>		
 		
 			  <tr>
@@ -111,24 +111,26 @@ window.open('changepassword.php','ChangePassword','resizable=0,width=650,height=
 	  <?php }?>	
 <table width="186"  border="0" cellspacing="0" cellpadding="0">
    <tr>
-	   <td width="auto"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><strong>Public Documents</strong></font></td>
+	   <td width="auto"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><strong>&nbsp;&nbsp;Public Documents</strong></font></td>
    </tr>
    <tr>
-	   <td width="auto"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><a href="index.php?section=faqs&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;"> FAQs</a></font></td>
+	   <td width="auto"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><a href="index.php?section=faqs&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;"> &nbsp;&nbsp;FAQs</a></font></td>
    </tr>
    <tr>
-	   <td width="auto"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><a href="index.php?section=newsletter&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;"> Newsletters</a></font></td>
+	   <td width="auto"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><a href="index.php?section=newsletter&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;"> &nbsp;&nbsp;Newsletters</a></font></td>
    </tr>
    <tr>
-	   <td width="auto"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><a href="index.php?section=business_requirements&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;"> Business Requirements</a></font></td>
-   </tr>
-   <tr>
-	   <td width="auto"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><a href="index.php?section=additional_resources&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;"> Additional Resources</a></font></td>
+	   <td width="auto"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><a href="index.php?section=additional_resources&sid=<?php echo $sid; ?>" STYLE="text-decoration:none;COLOR:#3E3E3E;"> &nbsp;&nbsp;Additional Resources</a></font></td>
    </tr>
 </table>
 <table width="186"  border="0" cellspacing="0" cellpadding="0">
    <tr>
-	   <td width="auto"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><a href="javascript:changePassword();" STYLE="text-decoration:none;COLOR:#3E3E3E;"> Change Password</a></font></td>
+	   <td width="auto"><font size="2" face="Verdana, Arial, Helvetica, sans-serif" color="#3E3E3E"><a href="javascript:changePassword();" STYLE="text-decoration:none;COLOR:#3E3E3E;">&nbsp;&nbsp;Change Password</a></font></td>
+   </tr>
+    <tr>
+	   <td width="auto" rowspan="3">&nbsp;</td>
+	    <td width="auto" rowspan="3">&nbsp;</td>
+		 <td width="auto" rowspan="3">&nbsp;</td>	   
    </tr>
 </table>
 

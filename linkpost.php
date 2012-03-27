@@ -15,7 +15,7 @@ if($_POST['links'] != ''){
 		   VALUES('".mysql_escape_string($_SESSION['lms_userID'])."','".$user_link."',NOW())"; 
 																			
 	   $result = mysql_query($query);
-	   $userID = mysql_insert_id($db);
+	   $userID = mysql_insert_id($database);
 	   
 	   if(!$result){
 			print mysql_error();

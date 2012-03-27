@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>Untitled Document</title>
+<title>Change Password</title>
 <script language="JavaScript1.2">
 function validFrm(frm1)
 {
@@ -35,42 +35,56 @@ function validFrm(frm1)
 </script>
 </head>
 <?php  
-include("conf.php");
-//require_once("conf.php");
-  if(isset($_POST['Submit1']))
-     {
+//include("conf.php");
+require_once("conf.php");
+session_start();
+
+if(isset($_POST['Submit1'])){
 	    $pwd = $_POST["oldpassword"];
 		$db = new db();
 		$db->connect();
 		
-        $sql="select * from students where password ='".addslashes($_POST["oldpassword"])."'";
-	    
+        $sql="select * from students where ID=".$_SESSION['lms_userID']; //get current user
 		
-		  $result = $db->query($sql);
-		  echo "rows = ".mysql_num_rows($result)."<br/>";
-		  while($db->getrows())
-		  {             
+		//password ='".
+		//		$db->escape_string(sha1($_POST["oldpassword"]))."'";
+
+		$result = $db->query($sql);
+		//echo "rows = ".mysql_num_rows($result)."<br/>";
+		if($db->getrows()){
 		    $pass = $db->row("password");
-			  }   
-			 // echo $pass; 
-			  $db = new db();
-		$db->connect();  
-		 $sql="UPDATE students set password ='".addslashes($_POST["password"])."' where password ='".$pass."'";
-		  $db->query($sql);          
-		  echo "<script>alert('Your password has been changed.'); window.close();</script>";
-/*          $result=mysql_query($sql) or die(mysql_error());
-		  echo "row =".mysql_num_rows($result);
-	      while($row = mysql_fetch_array($result))
-	          {
-			  echo $pass = $row['oldpassword'];
-			   }
-*/    }			   
+			$user = $db->row("username");
+			$salt = $user;
+			
+			if(sha1($user.$_POST["oldpassword"])==$pass){
+			
+				$db = new db();
+				$db->connect();  
+				$sql="UPDATE students set password ='".
+						$db->escape_string(sha1($salt.$_POST["password"])).
+						"' where password ='".$pass."'";
+				$db->query($sql);          
+				//echo "password changed...";			
+				echo "<script>alert('Your password has been changed.'); window.close();</script>";
+			}
+			else
+				echo "<center><font color='#FF0000'>Incorrect password. Please try again.</font></center>";
+		}
+		else{
+			echo "<center><font color='#FF0000'>An error has occurred while trying to locate your user information.</font></center>";
+			//todo: log error
+		}
+			
+			
+		//echo $pass . " | " . $_POST["oldpassword"] . " | " ; 		
+		//echo $_POST["password"];
+}			   
 ?>
 <body>
 <form action="changepassword.php" method="post" onsubmit="return validFrm(this);" name="passwordFrm">
 <table align="center" width="70%" border="0" cellpadding="0" cellspacing="0">
  <tr>
-    <td colspan="2" align="left" style="background-color:#213442; color:#FFFFFF;" ><strong>Kindly enter the following information:-</strong> </td>
+    <td colspan="2" align="left" style="background-color:#213442; color:#FFFFFF;" ><strong>Please enter the following information:-</strong> </td>
   </tr>
   <tr><td></td> </tr>
   <tr>

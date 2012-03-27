@@ -1,4 +1,9 @@
-<?php session_start(); require_once("conn.php"); ?>
+<?php 
+session_start(); 
+require_once('../conn.php');
+//$db = mysql_connect("safetytraindemo.db.8609376.hostedresource.com", "safetytraindemo", "RZ8Lk55auNQv1e") or die(mysql_error());
+//$dbName = mysql_select_db("safetytraindemo") or die(mysql_error());
+ ?>
 <style>
 #news-content{
 	overflow:auto;
@@ -122,8 +127,8 @@
 				
 				<div style="border:1px solid #eeeeee;">
 					<ul>
-						<li <?=$lbg_l?>><a HREF="news.php?section=news&nc=nlist&sid=<?php print $_GET['sid']; ?>";>News List</a></li>
-						<li <?=$lbg_c?>><a HREF="news.php?section=news&nc=ncreate&sid=<?php print $_GET['sid']; ?>";>Create News</a></li>
+						<li <?php echo $lbg_l?>><a HREF="news.php?section=news&nc=nlist&sid=<?php print $_GET['sid']; ?>";>News List</a></li>
+						<li <?php echo $lbg_c?>><a HREF="news.php?section=news&nc=ncreate&sid=<?php print $_GET['sid']; ?>";>Create News</a></li>
 					</ul>
 				</div>
 			

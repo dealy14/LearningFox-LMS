@@ -17,23 +17,37 @@ require_once("../conf.php");
 	<title>Create User</title>	
 <script language="javascript" type="text/javascript">
 function valFrm(objFrm){
+var regex = /^([a-z0-9_\-\.]+)@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/;
 	if(objFrm.email.value == ""){
-		alert("Kindly Specify the email address");
+		alert("Please specify the email address");
 		objFrm.email.focus();
 		return false;
 	}
-	
+	if(!(regex.test(objFrm.email.value)))
+	{
+		alert("Please specify a valid email address");
+		objFrm.email.focus();
+		return false;
+	}
 	if(objFrm.username.value == ""){
-		alert("Kindly Specify the username");
+		alert("Please specify the username");
 		objFrm.username.focus();
 		return false;
 	}
 	
 	if(objFrm.password.value == ""){
-		alert("Kindly Specify the password");
+		alert("Please specify the password");
 		objFrm.password.focus();
 		return false;
 	}
+	
+	if(objFrm.password.value != objFrm.password_confirmation.value){
+		alert("The passwords you have entered do not match.");
+		objFrm.password.focus();
+		return false;
+	}
+	
+	
 return true;	
 }
 </script>	
@@ -73,34 +87,31 @@ $db = new db;
 $db->connect();
 $db->query("SELECT * FROM reg_form WHERE stored = 'y' AND forder>=1 AND status='on' ORDER BY forder ASC");
 $nx=0;
-while($db->getRows())
-{ 
-$mvals = $db->row("field_name");
-?>
-<TR>
-  <TD><FONT FACE="VERDANA" SIZE="2"><B><?php echo$db->row("display");?>:</FONT></TD>
-  <TD><?php makeField($db->row("field_name"),$$mvals);?></TD>
-</TR>
-<?php
-$nx++;
-
+while($db->getRows()) { 
+  $mvals = $db->row("field_name");
+  ?>
+	<TR>
+	  <TD><FONT FACE="VERDANA" SIZE="2"><B><?php echo$db->row("display");?>:</B></FONT></TD>
+	  <TD><?php makeField($db->row("field_name"),$$mvals);?></TD>
+	</TR>
+		<?php if ("password" == strtolower($mvals)) {  //add non-stored pass confirmation field
+		?> 
+		<tr>
+			<TD><FONT FACE="VERDANA" SIZE="2"><B>Confirm password:</B></FONT></TD>
+			<TD><?php makeField("password_confirmation",""); ?></TD>
+		</tr>
+  <?php 	}
+  $nx++;
 }
 ?>
 <tr>
-	<td><font face="verdana" size="2"><strong>Select User Level :</strong></font></td>
+	<td><font face="verdana" size="2"><strong>Select User Level:</strong></font></td>
 	<td>
-		<select name="user_level">
-			<?php 
-				for($i=0;$i<=4;$i++){
-			?>
-				<option value="<?php echo $i; ?>"><?php echo $i; ?></option>
-			<?php
-				}
-			?>
-		</select>
+		<?php generate_dropdown_control("user_level",$user_levels,1,"class='input'"); ?>
+	</td>
 </tr>
 <TR>
-  <TD COLSPAN="2" ALIGN="center"><INPUT TYPE="IMAGE" SRC="images/submit.gif" BORDER="0"></TD>
+  <TD COLSPAN="2" ALIGN="center"><br><br><INPUT TYPE="IMAGE" SRC="images/submit.gif" BORDER="0"></TD>
 </TR>
 </TABLE>
 </FORM>
@@ -108,22 +119,23 @@ $nx++;
 <?php
 }
 else {
-require_once("../includes/class_db_mysql.php");
-$obj1 = new db();
-$obj1->connect();
+	$db = new db();
+	$db->connect();
 
 	$fname = ucwords($_POST["fname"]);
 	$lname = ucwords($_POST["lname"]);
-	$user_group = $_POST["user_group"];
+//	$user_group = $_POST["user_group"];	Not in form
 	$email = $_POST["email"];
 	$username = $_POST["username"];
-	$password = $_POST["password"];
-	$orgID = $_POST["orgID"];
-	$ssn = $_POST["ssn"];
+	$provider_number = $_POST['provider_number'];
+	$password = sha1($username.$_POST["password"]);
+	$phone = $_POST['phone'];
+//	$orgID = $_POST["orgID"];  			Not in form
+//	$ssn = $_POST["ssn"];  				Not in form
 	$user_level = $_POST["user_level"];
-	$ip = str_replace(".","",$_SERVER['REMOTE_ADDR']);
+	$ip = ip2long($_SERVER['REMOTE_ADDR']);
 	
-	$qry = "insert into students set
+/*	$qry = "insert into students set
 		date_of_reg = '".date("Y-m-d")."',
 		fname = '".$fname."',
 		lname = '". $lname."',
@@ -134,18 +146,26 @@ $obj1->connect();
 		password = '".$password."',
 		userlevel = ".$user_level.",
 		ssn = '".$ssn."',
-		ip = $ip";
+		ip = $ip"; */
 		
+		
+	$qry = sprintf("INSERT INTO students (date_of_reg, fname, lname, email, username, provider_number, `password`, phone, userlevel, ip) " .
+				  "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, %u)", 	
+				  date('Y-m-d'), $db->escape_string($fname), $db->escape_string($lname), $db->escape_string($email),
+				  $db->escape_string($username), $db->escape_string($provider_number), $db->escape_string($password), 
+				  $db->escape_string($phone), $user_level, $ip);
+	$db->query($qry);
+	$db->close();
 	//echo $qry;
-	$rsltSet = mysql_query($qry);
-	$cnt = mysql_affected_rows();
+	//$rsltSet = $db->query($qry);
+	//$cnt = mysql_affected_rows();
 	//$cnt = 1;
 	//echo $cnt;
-	if($cnt > 0){
+	//if($cnt > 0){
 		echo "<script> alert('User Added'); window.close();</script>";
 		/*echo "<script>top.window.opener.objReload('course');window.close()</script>";*/
 		/*echo "<script> alert(opener.parent.location.href);</script>";*/
-	}
+	//}
 }
 ?>
 <!--

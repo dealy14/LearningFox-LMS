@@ -30,8 +30,8 @@ $pagesource="blank.php";
 
 <FRAMESET ROWS="0,60,*" COLS="*" FRAMEBORDER="YES" BORDER="0" FRAMESPACING=0">
 	<FRAME NAME="edit_post" SCROLLING="NO" SRC="blank.php" FRAMEBORDER="NO" BORDER="0" FRAMESPACING="0">
-	<FRAME NAME="edit_top" SCROLLING="NO" SRC="question_details_top.php?ID=<?= $ID ?>&test_name=<?= $psname ?>&sel_item=<?= $sel_item ?>" FRAMEBORDER="NO" BORDER="0" FRAMESPACING="0">
-	<FRAME NAME="edit_main" noresize SRC="<?= $pagesource ?>" FRAMEBORDER="NO" BORDER="0" BORDERCOLOR="0" FRAMESPACING="0">
+	<FRAME NAME="edit_top" SCROLLING="NO" SRC="question_details_top.php?ID=<?php echo  $ID; ?>&test_name=<?php echo $psname; ?>&sel_item=<?php echo $sel_item ?>" FRAMEBORDER="NO" BORDER="0" FRAMESPACING="0">
+	<FRAME NAME="edit_main" noresize SRC="<?php echo  $pagesource; ?>" FRAMEBORDER="NO" BORDER="0" BORDERCOLOR="0" FRAMESPACING="0">
 </FRAMESET>	
 
 <NOFRAMES><BODY BGCOLOR="#FFFFFF"  TOPMARGIN="0" LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0"></NOFRAMES>

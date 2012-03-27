@@ -33,7 +33,7 @@ if($lms_orgID!="on")
 		$course_result = mysql_query("SELECT created,name,ID,type,category_id FROM course WHERE status='active' AND category_id=$category_id");
         if(mysql_num_rows($course_result) > 0)
 		{
-			echo '<h5>'.getCourseCategory($category_id).'</h5>';
+			echo '<h4>'.getCourseCategory($category_id).'</h4>';
 			echo '<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="4" width="100%">';
 			
 			while ($course_row = mysql_fetch_array($course_result, MYSQL_ASSOC))
@@ -49,10 +49,10 @@ if($lms_orgID!="on")
 				{
 				?>
 				   <tr class="descriptor_row">
-					   <td><FONT FACE="VERDANA" SIZE="2">Name&nbsp;</FONT></td>
-                       <td><FONT FACE="VERDANA" SIZE="2">Register&nbsp;</FONT></td>
-					   <td><FONT FACE="VERDANA" SIZE="2">Creation Date&nbsp;</FONT></td>
-					   <td><FONT FACE="VERDANA" SIZE="2">View Details&nbsp;</FONT></td>
+					   <td id="mainContainer1" align="left"><FONT FACE="VERDANA" SIZE="2" style="text-align:center">Course Title&nbsp;</FONT></td>
+                       <td style="size:150px;" align="center"><FONT FACE="VERDANA" SIZE="2">Register</FONT></td>
+					   <td style="size:150px;" align="center"><FONT FACE="VERDANA" SIZE="2">Creation Date&nbsp;</FONT></td>
+					   <td style="size:150px;" align="center"><FONT FACE="VERDANA" SIZE="2">View Details&nbsp;</FONT></td>
 				   </tr>
 				<?php
 				}		 
@@ -67,11 +67,11 @@ if($lms_orgID!="on")
 				 $color_cnt=1;	 
 				 }
 				 ?>
-				 <TR BGCOLOR="<?php echo $bgcol;?>">
-					<TD><FONT FACE="VERDANA" SIZE="2"><B><?php echo $course_name;?></B></FONT></TD>
-                    <TD><FONT FACE="VERDANA" SIZE="2">[<A HREF="index.php?section=coursedetails&sid=<?php echo $sid; ?>&course_ID=<?php echo $course_ID;?>">Register</A>]</FONT></TD>
-					<TD><FONT FACE="VERDANA" SIZE="2"><?php echo $created;?>&nbsp;</FONT></TD>                    
-					<TD><FONT FACE="VERDANA" SIZE="2">[<A HREF="index.php?section=coursedetails&sid=<?php echo $sid; ?>&course_ID=<?php echo $course_ID;?>">Details</A>]</FONT></TD>
+				 <TR BGCOLOR="<?php echo $bgcol;?>" >
+					<TD id="mainContainer1"><FONT FACE="VERDANA" SIZE="2"><B><?php echo $course_name;?></B></FONT></TD>
+                    <TD align="center"><FONT FACE="VERDANA" SIZE="2">[<A HREF="index.php?section=coursedetails&sid=<?php echo $sid; ?>&course_ID=<?php echo $course_ID;?>">Register</A>]</FONT></TD>
+					<TD align="center"><FONT FACE="VERDANA" SIZE="2"><?php echo $created;?>&nbsp;</FONT></TD>                    
+					<TD align="center"><FONT FACE="VERDANA" SIZE="2">[<A HREF="index.php?section=coursedetails&sid=<?php echo $sid; ?>&course_ID=<?php echo $course_ID;?>">Details</A>]</FONT></TD>
 				 </TR>
 	     <?php  
 	      }
@@ -159,7 +159,7 @@ else
 ?>	
    <br />
 
-	    <p>Surveys&nbsp;</p>
+	    <p>Survey&nbsp;</p>
 
 	<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="4" width="100%">
 	<?php
@@ -196,10 +196,10 @@ else
 		}
 		
 		?>
-		  <TR BGCOLOR="<?=$bgcol;?>">
-		    <TD><FONT FACE="VERDANA" SIZE="2"><B><?php echo $survey_name;?>&nbsp;</B></FONT></TD>
+		  <TR BGCOLOR="<?php echo $bgcol; ?>">
+		    <TD><FONT FACE="VERDANA" SIZE="2"><B><?php echo $survey_name; ?>&nbsp;</B></FONT></TD>
 		    <TD><FONT FACE="VERDANA" SIZE="2"><?php echo $type;?>&nbsp;</FONT></TD>
-		    <TD><FONT FACE="VERDANA" SIZE="2">[<A HREF="index.php?section=surveydetails&sid=<?php echo $sid; ?>&survey_ID=<?php echo $survey_ID;?>">Details</A>]</FONT></TD>
+		    <TD><FONT FACE="VERDANA" SIZE="2">[<A HREF="index.php?section=surveydetails&sid=<?php echo $sid; ?>&survey_ID=<?php echo $survey_ID; ?>">Details</A>]</FONT></TD>
 		  </TR>
 		<?php  
 		
