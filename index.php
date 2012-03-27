@@ -54,7 +54,7 @@ scrolling="no" width="95%" height="500"></iframe>
 		</tr>
 		<tr>
 	 	<td class="navbar">
-			<?php require_once($dir_components.'top_menu.php'); ?>
+			<?php if ($show_top_menu) { require_once($dir_components.'top_menu.php'); } ?>
 	 	</td>
 		</tr>
 		<tr>
@@ -72,13 +72,13 @@ scrolling="no" width="95%" height="500"></iframe>
 align="center" cellpadding="0" border="0">
 	<tr>
 	<?php /* Left navigation menu (navbar2.php) */
-	if((!is_null($sid) && $session_error=="none"))
+	if((!is_null($sid) && $session_error=="none" && $show_left_navbar))
 	{
 		?>
 		<td id="ldcLCPageLeftNavTD">
 		<?php include($dir_components."navbar2.php"); ?>
 		</td>
-		<?php } ?>
+	<?php } ?>
 	<td id="ldcLCPageContentTD" valign="top" align="left">
 	<div id="ldcLCPageContent">
 		<?php include_once($mysection); ?>

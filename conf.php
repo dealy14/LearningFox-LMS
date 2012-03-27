@@ -7,6 +7,23 @@
 $lms_version = "demo_site";
 //$lms_version = "content_site";
 
+if ("demo_site"==$lms_version) then{
+	$show_top_menu = true;
+	$show_left_navbar = true;
+	$post_login_redirect_section = "landing";
+
+}
+elseif ("content_site"==$lms_version) then{
+	$show_top_menu = false;
+	$show_left_navbar = false;
+	$post_login_redirect_section = "enrollment";	
+}
+else{
+	$show_top_menu = true;
+	$show_left_navbar = true;
+	$post_login_redirect_section = "landing";
+}
+
 $default_email = "admin@safetytrainingsystem.com";
 
 // Site-specific configuration file found under /site_config/<$lms_version>.php

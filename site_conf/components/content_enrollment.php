@@ -1,10 +1,11 @@
-<SCRIPT language="javascript1.2">
-function launchCourse(cnum)
-{
-//newWin=window.open('../'+cnum+'/index.php?user_ID=<?php echo $lms_userID;?>','LT_COURSE','WIDTH=<?php echo $hw[0];?>,height=<?php echo $hw[1];?>');
-window.open('LMSMain.php?ref='+cnum+'&user_id=<?php echo $lms_userID;?>');
-}
-</SCRIPT>
+<script type="text/javascript">
+	<!--
+	function launchCourse(cnum){
+		window.open('LMSMain.php?ref='+cnum+'&user_id=<?php echo $lms_userID;?>');
+	}
+	-->
+</script>
+
 <div style="width:800px;">
 <h2 align="center">Your Transcript</h2>
 <div align="center"><?php include($dir_components."enrollment_toolbar.php"); ?></div>

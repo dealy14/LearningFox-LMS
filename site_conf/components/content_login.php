@@ -86,7 +86,7 @@ if($submit=="yes" && !is_null($uname) && !is_null($pwd) && !is_null($org_id)) /*
 
 	// Redirect to the LANDING content page via javascript
    ?><script type="text/javascript">
-		window.location.href="<?php echo "index.php?section=landing&sid=$sid";?>";
+		window.location.href="<?php echo "index.php?section=$post_login_redirect_section&sid=$sid";?>";
 	</script>
 
    	<?php  } /* end IF_C2 */
