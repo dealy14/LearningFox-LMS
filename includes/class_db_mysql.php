@@ -12,10 +12,10 @@ class db {
 	var $mydb = "rammons_lms";
 */
 
-	var $user = "safetytraindemo";
-	var $pass = "RZ8Lk55auNQv1e";
-	var $host = "safetytraindemo.db.8609376.hostedresource.com";
-	var $mydb = "safetytraindemo";
+	var $user = "safetytraining";
+	var $pass = "K3RgmwVqh6";
+	var $host = "safetytraining.db.8609376.hostedresource.com";
+	var $mydb = "safetytraining";
 
 	function connect() {
 		if($this->persistent==1) {

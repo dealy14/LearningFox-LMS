@@ -42,7 +42,7 @@ error_reporting($error_level);
 
 // Domain name and related info
 $domain_name = "safetytrainingsystem.com/";
-$lms_url = "LMS/";
+$lms_url = "courses/";
 $lms_url_fq = $domain_name . $lms_url;
 /*
 $domain_name = "hosting.ammonsdatasolutions.com/";
