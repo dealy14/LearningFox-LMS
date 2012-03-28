@@ -771,10 +771,9 @@ function get_regform_data($input) {
 		if ($field_name == 'fname' || $field_name == 'lname')
 			$field_value = ucwords($field_value);  // Upper case first and last name first character
 		elseif ($field_name == 'password')
-			if (isset($input['username']))
+			if (isset($input['password']) && isset($input['username']))
 				$field_value = sha1($input['username'].$field_value); 		// Encrypt the password
 			else {
-				echo "<script>alert('Unable to change password - user name not specified');</script>";
 				continue;							// Cannot set password if username not specified
 			}
 		$len = strpos($coltypes[$field_name], '(');
