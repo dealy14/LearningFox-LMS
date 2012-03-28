@@ -1,4 +1,5 @@
 <?php
+
 require_once("../conf.php");
 //if($type=="")
 //{
@@ -119,21 +120,18 @@ while($db->getRows()) {
 <?php
 }
 else {
-	$db = new db();
-	$db->connect();
 
-	$fname = ucwords($_POST["fname"]);
-	$lname = ucwords($_POST["lname"]);
 //	$user_group = $_POST["user_group"];	Not in form
-	$email = $_POST["email"];
-	$username = $_POST["username"];
-	$provider_number = $_POST['provider_number'];
-	$password = sha1($username.$_POST["password"]);
-	$phone = $_POST['phone'];
+//	$email = $_POST["email"];
+//	$username = $_POST["username"];
+//	$provider_number = $_POST['provider_number'];
+//	$password = sha1($username.$_POST["password"]);
+//	$phone = $_POST['phone'];
 //	$orgID = $_POST["orgID"];  			Not in form
 //	$ssn = $_POST["ssn"];  				Not in form
-	$user_level = $_POST["user_level"];
-	$ip = ip2long($_SERVER['REMOTE_ADDR']);
+//	$user_level = $_POST["user_level"];
+//	$ip = ip2long($_SERVER['REMOTE_ADDR']);
+	
 	
 /*	$qry = "insert into students set
 		date_of_reg = '".date("Y-m-d")."',
@@ -146,14 +144,25 @@ else {
 		password = '".$password."',
 		userlevel = ".$user_level.",
 		ssn = '".$ssn."',
-		ip = $ip"; */
-		
-		
+		ip = $ip"; */		
+	
+	$data = get_regform_data($_POST);
+	$data['`date_of_reg`'] = "'" . date("Y-m-d") . "'";
+	$data['`ip`'] = ip2long($_SERVER['REMOTE_ADDR']);
+	$data['`userlevel`'] = intval($_POST['user_level']);
+	$cols = implode(', ', array_keys($data));
+	$values = implode(', ', $data);
+	$qry = "INSERT INTO STUDENTS ($cols) VALUES ($values)";
+
+/*			
 	$qry = sprintf("INSERT INTO students (date_of_reg, fname, lname, email, username, provider_number, `password`, phone, userlevel, ip) " .
 				  "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, %u)", 	
 				  date('Y-m-d'), $db->escape_string($fname), $db->escape_string($lname), $db->escape_string($email),
 				  $db->escape_string($username), $db->escape_string($provider_number), $db->escape_string($password), 
 				  $db->escape_string($phone), $user_level, $ip);
+*/
+	$db = new db;
+	$db->connect();
 	$db->query($qry);
 	$db->close();
 	//echo $qry;

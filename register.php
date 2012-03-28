@@ -511,10 +511,17 @@ if($_GET['avail'] == 0 && $_GET['action']!='wait' && $_POST['action']!='register
 
 }else{
 	if($_POST['Submit']=='Submit'){
+		$db=new db();
+		$db->connect();
 	
-	$fname=htmlentities(addslashes($_POST["fname"]),ENT_QUOTES);
-	$lname=htmlentities(addslashes($_POST["lname"]),ENT_QUOTES);
-	$email=htmlentities(addslashes($_POST["email"]),ENT_QUOTES);
+		$data = array();
+		if (isset($_POST['fname']))
+			$data['fname'] = "'" . $db->escape_string(trim($_POST['fname'])) . "'";
+		if (isset($_POST['lname']))
+			$data['lname'] = "'" . $db->escape_string(trim($_POST['lname'])) . "'";
+		if (isset($_POST['email']))
+			$data['lname'] = "'" . $db->escape_string(trim($_POST['email'])) . "'";
+			
 	$ph1=htmlentities(addslashes($_POST["ph1"]),ENT_QUOTES);
 	$ph2=htmlentities(addslashes($_POST["ph2"]),ENT_QUOTES);
 	$ph3=htmlentities(addslashes($_POST["ph3"]),ENT_QUOTES);
@@ -547,8 +554,6 @@ if($_GET['avail'] == 0 && $_GET['action']!='wait' && $_POST['action']!='register
 	if($_POST['avail']<=0 && $_POST['classid']!='' && $_POST['classid']!=0){
 	
 	 // echo "if 1 <br/>";
-		$db=new db();
-		$db->connect();
 		//$selSeat="select max(waiting) 'waitNo' from class_students"; 
 		$selMaxWait="select max(waiting) 'wait' from class_students where class_id=".$_POST['classid'];
 		$rowWait=mysql_fetch_assoc(mysql_query($selMaxWait));

@@ -750,4 +750,61 @@ function makeFieldEdit($field_name,$value)
 		echo "<INPUT TYPE='TEXT' NAME='$field_name' VALUE='$value' CLASS='input'>";
 	}
 }
+
+/*******************************************************/
+/* Gets data from the associative input array (usually */
+/* $_GET or $_POST) and formats it for insertion into  */
+/* the database.  Which data is used is based on input */
+/* from the reg_form table.                            */
+/* Used to create or modify a student's information    */
+/*******************************************************/
+
+function get_regform_data($input) {	
+	$data = array();
+	$db = new db();
+	$db->connect();
+	$coltypes = $db->get_column_types('students');
+	$db->query("SELECT field_name FROM reg_form WHERE forder>=1 AND status='on' AND stored='y'");
+	while ($db->getRows()) {
+		$field_name = $db->row("field_name");
+		$field_value = isset($input[$field_name]) ? trim($input[$field_name]) : '';		
+		if ($field_name == 'fname' || $field_name == 'lname')
+			$field_value = ucwords($field_value);  // Upper case first and last name first character
+		elseif ($field_name == 'password')
+			if (isset($input['username']))
+				$field_value = sha1($input['username'].$field_value); 		// Encrypt the password
+			else {
+				echo "<script>alert('Unable to change password - user name not specified');</script>";
+				continue;							// Cannot set password if username not specified
+			}
+		$len = strpos($coltypes[$field_name], '(');
+		
+		if ($len !== false)
+		  $ctype = substr($coltypes[$field_name], 0, $len);
+		else
+			$ctype = $coltypes[$field_name];
+			
+		switch (strtolower($ctype)){
+			case 'char':
+			case 'varchar':
+			case 'binary':
+			case 'varbinary':
+			case 'text':
+			case 'enum':
+				$field_value = "'".$db->escape_string(trim($field_value))."'";
+				break;
+			case 'blob':	
+				$field_value = "'".$db->escape_string($field_value)."'";
+			case 'date':
+			case 'time':
+			case 'datetime':
+			case 'timestamp':
+				$field_value = "'" . trim($field_value) . "'";
+			default:
+		}
+		$data["`$field_name`"] = $field_value;
+	}
+	return $data;
+}
+
 ?>
