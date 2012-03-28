@@ -745,6 +745,11 @@ function makeFieldEdit($field_name,$value)
 		echo "*cannot be edited*";
 		echo "<INPUT TYPE='HIDDEN' NAME='$field_name' VALUE='$value'>";//still required by form processor
 	}
+	elseif (strtolower($field_name)=="username")
+	{
+		echo $value;
+		echo "<INPUT TYPE='HIDDEN' NAME='$field_name' VALUE='$value'>";//still required by form processor
+	}
 	else
 	{
 		echo "<INPUT TYPE='TEXT' NAME='$field_name' VALUE='$value' CLASS='input'>";
