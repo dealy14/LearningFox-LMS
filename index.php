@@ -52,15 +52,22 @@ scrolling="no" width="95%" height="500"></iframe>
 		<tr>
 			<td valign="top"><img src="<?php echo PATH_LOGO_FILE; ?>" align="default" border="0" hspace="0" vspace="0"  alt="" /></td>
 		</tr>
+		<?php if ($show_top_menu) { ?>
 		<tr>
 	 	<td class="navbar">
-			<?php if ($show_top_menu) { require_once($dir_components.'top_menu.php'); } ?>
+			<?php require_once($dir_components.'top_menu.php'); ?>
 	 	</td>
 		</tr>
+		<?php } ?>
 		<tr>
-		 <td align="right" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px;">
+		 <td align="right" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px; background-color:#ffffff">
 			<?php if(!is_null($sid) && $session_error=="none"){ ?>
-				Logged in as: <b><?php echo $lms_username; ?></b>
+				Logged in as: <?php 
+					echo "<b>".$lms_username."</b>"; 
+					if (!$show_top_menu) {
+						echo " (<a href='index.php?section=landing&logout=YES&sid=$sid'>Logout</a>)";
+					}
+					?>
 			<?php } ?>
 		 </td>
 		</tr>
