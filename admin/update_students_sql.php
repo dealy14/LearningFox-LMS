@@ -19,15 +19,15 @@ require_once("../conf.php");
 if($_REQUEST['action']=="student_details" && $_REQUEST['formAction']=="UPDATE")
 {
 	$data = get_regform_data($_POST);
-	if (isset($data['username']))	// Don't update user name
-		unset($data['username']);
-	if (isset($data['password']))	// Or password
-		unset($data['password']);
+	if (isset($data['`username`']))	// Don't update user name
+		unset($data['`username`']);
+	if (isset($data['`password`']))	// Or password
+		unset($data['`password`']);
   //assemble SQL String here;
   $first = true;
   $sql = 'UPDATE students SET ';
   foreach($data as $column=>$value) 
-		$sql = "$column=$value, ";
+		$sql .= "$column=$value, ";
   $sql .= "userlevel=" . intval($_POST['userlevel']) . "  WHERE ID=$ID";
 
   $db = new db;
