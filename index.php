@@ -58,7 +58,7 @@ scrolling="no" width="95%" height="500"></iframe>
 	 	</td>
 		</tr>
 		<tr>
-		 <td align="right" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px;">
+		 <td align="right" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px; background-color:#ffffff;">
 			<?php if(!is_null($sid) && $session_error=="none"){ ?>
 				Logged in as: <b><?php echo $lms_username; ?></b>
 			<?php } ?>
