@@ -47,6 +47,7 @@ function validChk(frm){
 	if ("" == errors){
 		frm.submit.value='Uploading...';
 		frm.submit.disabled=true;
+		document.getElementById("ulmsg").style.display ="";
 		return true;
 	}
 	else{
@@ -148,8 +149,11 @@ if($_POST['status']!=1){
 	<td colspan="4">&nbsp;</td>
 	</tr>
 	<tr>
-	<td align="right">&nbsp;</td>
-	<td colspan="4"><input id="submit" name="submit" type="submit" value="Submit"/>&nbsp;</td>
+		<td align="right">&nbsp;</td>
+		<td colspan="4"><input id="submit" name="submit" type="submit" value="Submit"/>&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan="5" align="left"><span id="ulmsg" style="display:none;"><b>Please be patient while your file is being uploaded. This may take several minutes.</b></span></td>
 	</tr>
 	</table>
 	</form>
