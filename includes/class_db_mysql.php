@@ -3,20 +3,21 @@ class db {
 	var $persistent=0;
 	var $query;
 	var $rowCount=0;
+	var $validSelectResult=false;
 	private $rlink;
 
-/*		
+		
 	var $user = "rammons_lms";
 	var $pass = "brwahp95";
 	var $host = "localhost";
 	var $mydb = "rammons_lms";
-*/
 
+/*
 	var $user = "safetytraindemo";
 	var $pass = "RZ8Lk55auNQv1e";
 	var $host = "safetytraindemo.db.8609376.hostedresource.com";
 	var $mydb = "safetytraindemo";
-
+*/
 	function connect() {
 		if($this->persistent==1) {
 			$this->rlink = mysql_connect($this->host,$this->user,$this->pass);
@@ -29,24 +30,38 @@ class db {
 	
 	function query($SQL) {
 		$this->query=mysql_query($SQL);// or die( "error with query: ".mysql_error() );
-		if ("resource"==gettype($this->query))
+		if ("resource"==gettype($this->query)){
 			$this->rowCount = mysql_num_rows($this->query);
+			$this->validSelectResult = true;
+		}
+		else
+			$this->validSelectResult = false;
+			
 //		if ($this->query === false)
 //			throw new Exception ( $SQL . ": " . mysql_error());
 	}
 	
 	function getRowCount(){
-		return $this->rowCount;
+		if ($this->validSelectResult)
+			return $this->rowCount;
+		else
+			return 0;
 	}
-	
+
 	function getRows() {
-		$this->moreRows=mysql_fetch_array($this->query);
-		/*	if($this->moreRows<1) {
+		if ($this->validSelectResult){	
+			$this->moreRows=mysql_fetch_array($this->query);
+			return $this->moreRows;
+		}
+		else{
+			return false;
+		}
+
+		/*if($this->moreRows<1) {
 				@mysql_close($this->rlink);
 			}*/
-		return $this->moreRows;
 	}
-	
+
 	function row($column) {
 		return $this->moreRows[$column];
 	}
