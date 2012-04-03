@@ -40,7 +40,8 @@ $userfile = $dir_usercourselist.$lms_userID;
 		//echo $array["$row->identifier"]."<br><br><br>";
 		$i++;
 	} 
-	
+	$dbi = new db;		// instance for the insert
+	$dbi->connect();	
 	asort($array);
 	foreach($array as $key=>$val)
 	{
@@ -64,7 +65,7 @@ $userfile = $dir_usercourselist.$lms_userID;
 														$db->escape_string($db->row('masteryscore')), $db->escape_string($db->row('maximumtime')),
 														$db->escape_string($db->row('timelimitaction')), $db->escape_string($db->row('sequence')),
 														$db->escape_string($db->row('type')),$db->escape_string($db->row('cmi_credit')), '');
-					$db->query($insrt1);
+					$dbi->query($insrt1);
 			}
 		
 		} 
@@ -106,6 +107,7 @@ $userfile = $dir_usercourselist.$lms_userID;
 	} 
 	
 	asort($array);
+	$dbi = new db;
 	foreach($array as $key=>$val)
 	{
 		$str1="select * from item_info where identifier='".$key."' and course_id='".$courseid."'";
@@ -128,7 +130,7 @@ $userfile = $dir_usercourselist.$lms_userID;
 														$db->escape_string($db->row('masteryscore')), $db->escape_string($db->row('maximumtime')),
 														$db->escape_string($db->row('timelimitaction')), $db->escape_string($db->row('sequence')),
 														$db->escape_string($db->row('type')), $db->escape_string($db->row('cmi_credit')), '');
-					$db->query($insrt1);
+					$dbi->query($insrt1);
 			}
 		
 		} 

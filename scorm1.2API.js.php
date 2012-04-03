@@ -283,7 +283,7 @@ function LMSInitialize(param){
 					if(!initialize){
 					
 										initialize=true;
-										sco_id="<?php echo $_SESSION['sco_id'];?>";
+										sco_id=top.glbSCOID;
 										errorCode="0";																			
 										cmi_objectives_n_id='';
 										cmi_objectives_n_score_raw='';

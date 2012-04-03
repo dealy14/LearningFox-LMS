@@ -148,7 +148,7 @@ else {
 	
 	$data = get_regform_data($_POST);
 	$data['`date_of_reg`'] = "'" . date("Y-m-d") . "'";
-	$data['`ip`'] = ip2long($_SERVER['REMOTE_ADDR']);
+	$data['`ip`'] = sprintf('%u', ip2long($_SERVER['REMOTE_ADDR']));
 	$data['`userlevel`'] = intval($_POST['user_level']);
 	$cols = implode(', ', array_keys($data));
 	$values = implode(', ', $data);

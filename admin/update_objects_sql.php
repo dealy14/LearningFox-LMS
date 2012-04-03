@@ -1,5 +1,6 @@
 <?php
 require_once("../conf.php");
+$ID = isset($_REQUEST['ID']) ? $_REQUEST['ID'] : null;
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
