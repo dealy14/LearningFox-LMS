@@ -5,6 +5,7 @@ function update_LMS($payment_data, $dir_usercourselist) {
 	
 	$payment_date = $payment_data['payment_date'];
 	$course_array = $payment_data['course_info'];
+	
 	/*
 	$body .=  "\n\n".$sql;
 	$body .=  "\n\n".$ac_message;
@@ -12,7 +13,6 @@ function update_LMS($payment_data, $dir_usercourselist) {
 	fwrite($fp, $body . "\n\n");
 	fclose($fp);
 	*/
-	
 	
 	$username = $payment_data['email'];
     $password = generatePassword(5, 4);
@@ -81,6 +81,8 @@ function update_LMS($payment_data, $dir_usercourselist) {
 		
 		$db->connect();
 		
+		//mail("ryan@rammons.net","debug - course_array",$course_array, "From: ryan@ammonsdatasolutions.com\r\n");
+
 		foreach ($course_array as $course){
 			$course_ID = $course['courseid'];
 			
@@ -88,11 +90,18 @@ function update_LMS($payment_data, $dir_usercourselist) {
 			"(user_ID,course_status,start_date,course_id) ".
 			"VALUES ('" . $lms_userID . "','Not Attempted',CURDATE()," . $course_ID . ")");
 			
+		/*	$debug_query = "INSERT INTO course_history ".
+			"(user_ID,course_status,start_date,course_id) ".
+			"VALUES ('" . $lms_userID . "','Not Attempted',CURDATE()," . $course_ID . ")";
+			
+			mail("ryan@rammons.net","debug - debug_query", $debug_query, "From: ryan@ammonsdatasolutions.com\r\n");
+		*/	
 			register_student_in_course($lms_userID,'course-'.$course_ID);
 			
 			if (!in_array($course_ID, $userdata)) {
 				$newfile = implode("|", $userdata);
 				to_file($dir_usercourselist . $lms_userID, "$newfile|$course_ID", "w+");
+				$userdata[] = $course_ID; //append the current course id - necessary for multi-course registration, writing to courses/student file
 				$ac_message .= $course['coursename']." has been added to your enrollment list.\n";
 				} else {
 				$ac_message .= $course['coursename']." is already in your enrollment list.\n";
@@ -163,31 +172,28 @@ function register_student_in_course($studentid,$courseid){
 	$sql="select * from item_info where course_id='".$courseid."'";
 	$db->connect();
 	$db->query($sql);
-	$db->getRows();
-	
-	$sco_identifier = $db->row("identifier");
-	$course_launch_file = $db->row("launch");
-	$data_from_lms = $db->row("data_from_lms");
-	$prerequisites = $db->row("prerequisites");
-	$masteryscore = $db->row("masteryscore");
-	$maximumtime = $db->row("maximumtime");
-	$timelimitaction = $db->row("timelimitaction");
-	$sequence = $db->row("sequence");
-	$type = $db->row("type");
-	$cmi_credit = $db->row("cmi_credit");
-	
-	$db->connect();
-	
 	if($db->getRows()){
-			$insrt="insert into user_sco_info set user_id=" . $studentid . ",course_id='".
-						$courseid ."',sco_id='". $sco_identifier ."',launch='". 
-						$course_launch_file . "',data_from_lms='" . $data_from_lms .
-						"',lesson_status='not attempted',prerequisite='" . $prerequisites . "',".
-						"sco_exit='',sco_entry='ab-initio',masteryscore='" . $masteryscore . 
-						"',maximumtime='" . $maximumtime . "',timelimitaction='" . $timelimitaction .
-						"',sequence=" . $sequence . ",type='" . $type . "',cmi_credit='" . $cmi_credit ."'";
-			
-			insertAction($insrt);
+		
+		$sco_identifier = $db->row("identifier");
+		$course_launch_file = $db->row("launch");
+		$data_from_lms = $db->row("data_from_lms");
+		$prerequisites = $db->row("prerequisites");
+		$masteryscore = $db->row("masteryscore");
+		$maximumtime = $db->row("maximumtime");
+		$timelimitaction = $db->row("timelimitaction");
+		$sequence = $db->row("sequence");
+		$type = $db->row("type");
+		$cmi_credit = $db->row("cmi_credit");
+		
+		$insrt="insert into user_sco_info set user_id=" . $studentid . ",course_id='".
+					$courseid ."',sco_id='". $sco_identifier ."',launch='". 
+					$course_launch_file . "',data_from_lms='" . $data_from_lms .
+					"',lesson_status='not attempted',prerequisite='" . $prerequisites . "',".
+					"sco_exit='',sco_entry='ab-initio',masteryscore='" . $masteryscore . 
+					"',maximumtime='" . $maximumtime . "',timelimitaction='" . $timelimitaction .
+					"',sequence=" . $sequence . ",type='" . $type . "',cmi_credit='" . $cmi_credit ."'";
+		
+		insertAction($insrt);
 
 		}
 	
