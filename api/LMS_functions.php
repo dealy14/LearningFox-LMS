@@ -196,17 +196,17 @@ function register_student_in_course($studentid,$courseid){
 }
 
 function send_pass_email($email, $password, $ac_message) {
-    $admin_email = $default_email; // from conf.php
+    $admin_email = DEFAULT_EMAIL; // from conf.php
 	$subject = 'Course Account information';
     
 	//override email for debugging
 	//$email = "ryan@rammons.net";
-	$domain_in_caps = toupper($domain_name);
+	$domain_in_caps = strtoupper(BASE_DOMAIN_NAME);
 	$to = $email;    //  user/purchaser/student email
     $body = "Thank you very much for your purchase! You may now log in at any time " .
 			"to see the course(s) you have purchased, as well as any other previously " .
 			"purchased courses, by visiting: \n" .
-			"$lms_url_fq/index.php?section=login.\n\n\n";
+			"http://".LMS_URL_FQ."index.php?section=login.\n\n\n";
 			
     $body .= "To log in to your account, you'll need your username and password. \n\n" .
 			 "Your username is simply your email address: " . $to . "\n" .

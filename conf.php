@@ -4,8 +4,8 @@
 # Set the LMS version--either:
 #		1. Company/Demonstration or
 #		2. Customer-facing/Content-provider
-$lms_version = "demo_site";
-//$lms_version = "content_site";
+//$lms_version = "demo_site";
+$lms_version = "content_site";
 
 if ("demo_site"==$lms_version) {
 	$show_top_menu = true;
@@ -25,13 +25,14 @@ else{
 }
 
 $default_email = "admin@safetytrainingsystem.com";
+define(DEFAULT_EMAIL, $default_email);
 
 // Site-specific configuration file found under /site_config/<$lms_version>.php
 
 #####################################################################
 #Configure error handling options
 #####################################################################
-$error_level =  E_ALL & ~E_NOTICE;
+$error_level =  E_ALL & ~E_NOTICE & ~E_WARNING;
 //$error_level =  E_ALL; // for development or detailed debugging
 error_reporting($error_level); 
 
@@ -42,7 +43,7 @@ error_reporting($error_level);
 
 // Domain name and related info
 $domain_name = "safetytrainingsystem.com/";
-$lms_url = "LMS/";
+$lms_url = "courses/";
 $lms_url_fq = $domain_name . $lms_url;
 /*
 $domain_name = "hosting.ammonsdatasolutions.com/";
@@ -104,10 +105,14 @@ require_once($dir_includes."isdefined.php");
 #####################################################################
 #Site Branding Configuration
 
-define(TEXT_SITE_TITLE, "Cosmos Consulting LearnCenter");
+define(TEXT_SITE_TITLE, "Safety Training System");
 define(PATH_LOGO_FILE, $dir_images."logo.png");
-define(TEXT_COMPANY_NAME, "Cosmos");
+define(TEXT_COMPANY_NAME, "Safety Training System");
 define(TEXT_LMS_FULL_SYSTEM_NAME, "Learning Safety Management System (LSMS)");
+define(BASE_DOMAIN_NAME, $domain_name);
+define(LMS_URL, $lms_url);
+define(LMS_URL_FQ, $domain_name . $lms_url);
+
 
 require_once($dir_siteconf.$lms_version.'.php');
 
