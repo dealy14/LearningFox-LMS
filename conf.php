@@ -25,13 +25,14 @@ else{
 }
 
 $default_email = "admin@compliancefactors.biz";
+define(DEFAULT_EMAIL, $default_email);
 
 // Site-specific configuration file found under /site_config/<$lms_version>.php
 
 #####################################################################
 #Configure error handling options
 #####################################################################
-$error_level =  E_ALL & ~E_NOTICE;
+$error_level =  E_ALL & ~E_NOTICE & ~E_WARNING;
 //$error_level =  E_ALL; // for development or detailed debugging
 error_reporting($error_level); 
 
@@ -45,7 +46,7 @@ $domain_name = "compliancefactors.biz/";
 $lms_url = "LMS/";
 $lms_url_fq = $domain_name . $lms_url;
 /*
-$domain_name = "hosting.ammonsdatasolutions.com/";
+$domain_name = "compliancefactors.biz/";
 
 $lms_url = "cosmos/";
 $lms_url_fq = $domain_name . $lms_url;
@@ -104,10 +105,13 @@ require_once($dir_includes."isdefined.php");
 #####################################################################
 #Site Branding Configuration
 
-define(TEXT_SITE_TITLE, "Compliance Factors");
+define(TEXT_SITE_TITLE, "ComplianceFactors");
 define(PATH_LOGO_FILE, $dir_images."logo.png");
-define(TEXT_COMPANY_NAME, "Compliance Factors");
-define(TEXT_LMS_FULL_SYSTEM_NAME, "Compliance Factors Learning Management System");
+define(TEXT_COMPANY_NAME, "ComplianceFactors");
+define(TEXT_LMS_FULL_SYSTEM_NAME, "ComplianceFactors Learning Management System");
+define(BASE_DOMAIN_NAME, $domain_name);
+define(LMS_URL, $lms_url);
+define(LMS_URL_FQ, $domain_name . $lms_url);
 
 require_once($dir_siteconf.$lms_version.'.php');
 

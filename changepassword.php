@@ -1,3 +1,7 @@
+<?php
+require_once("conf.php");
+session_start();
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -35,10 +39,6 @@ function validFrm(frm1)
 </script>
 </head>
 <?php  
-//include("conf.php");
-require_once("conf.php");
-session_start();
-
 if(isset($_POST['Submit1'])){
 	    $pwd = $_POST["oldpassword"];
 		$db = new db();

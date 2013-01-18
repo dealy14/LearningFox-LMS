@@ -2,47 +2,7 @@
 require_once($main_dir."conn.php");
 ?>
 	<style>
-		.librarydoc-content{
-			float:left;
-			width:600px;
-			margin-left:10px;
-		}
-		.librarydoc-content ul li{
-			list-style-type:decimal;
-		}
-		.librarydoc-content ul li a{
-			border:0;
-		}
-		#newslist{
-			margin-top:20px;
-			height:62px;
-			overflow-y:scroll;
 
-		}
-		.news_ul{
-			float:left;
-			width:420px;
-			padding:2px;
-			margin-bottom:2px;
-			background-color:#CCCCCC;
-		}
-		.news_ul a{
-			text-decoration:none;
-		}
-		.news_edit{
-			float:left;
-			width:90px;
-			padding:2px;
-			margin-bottom:2px;
-			background-color:#CCCCCC;
-		}
-		.news_delete{
-			float:left;
-			width:90px;
-			padding:2px;
-			margin-bottom:2px;
-			background-color:#CCCCCC;
-		}
 	</style>
 	<div id="newslist" align="center">
 			<?php
