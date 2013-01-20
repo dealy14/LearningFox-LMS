@@ -251,7 +251,7 @@ body {
 	width:420px;
 	padding:2px;
 	margin-bottom:2px;
-	background-color:#666;
+	background-color:#333;
 	color: #FFF;
 }
 .news_ul a{
@@ -262,7 +262,7 @@ body {
 	width:90px;
 	padding:2px;
 	margin-bottom:2px;
-	background-color:#666;
+	background-color:#333;
 	color: #FFF;
 }
 .news_delete{
@@ -270,7 +270,7 @@ body {
 	width:90px;
 	padding:2px;
 	margin-bottom:2px;
-	background-color:#666;
+	background-color:#333;
 	color: #FFF;
 }
 /* END - News Styles */

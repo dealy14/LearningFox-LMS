@@ -1,9 +1,6 @@
 <?php  
 require_once($main_dir."conn.php");
 ?>
-	<style>
-
-	</style>
 	<div id="newslist" align="center">
 			<?php
 				$qryNews = "SELECT * FROM news";		
@@ -24,5 +21,3 @@ require_once($main_dir."conn.php");
 				}
 			?>
 	</div>
-			
-	
