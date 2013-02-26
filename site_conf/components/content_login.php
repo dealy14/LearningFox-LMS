@@ -142,7 +142,7 @@ if($submit=="yes" && !is_null($uname) && !is_null($pwd) && !is_null($org_id)) /*
 	  <tr><td height="25px" style="padding-left:15px;"><li style="list-style:disc">         Take online courses</li></td></tr>
 	  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         Access custom reports</li></td></tr>
 	  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         Store and share documents</li></td></tr>
-	  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         Create messages and share messages/li></td></tr>
+	  <tr><td height="25px" style="padding-left:15px;"> <li style="list-style:disc">         Create messages and share messages</li></td></tr>
   </table>
   </div>
 
