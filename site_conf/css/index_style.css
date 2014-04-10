@@ -21,10 +21,25 @@
 #mainContainer1 {
 	width:500px;
 }
+
 .descriptor_row	{
 	background: #87BE4B;
 	font-size: x-small;
 	color: #fff;
 	border: #fff;
 	size:10px;
+}
+.descriptor_row th, td {
+    font-family: Verdana;
+    font-size: small;
+}
+.disabled-link{
+    font-style: italic;
+    color: grey;
+}
+.large{
+    font-size: medium;
+}
+.bold{
+    font-weight: bold;
 }

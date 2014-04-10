@@ -87,9 +87,9 @@ function update_LMS($payment_data, $dir_usercourselist) {
 			$course_ID = $course['courseid'];
 			
 			insertAction("INSERT INTO course_history ".
-			"(user_ID,course_status,start_date,course_id) ".
-			"VALUES ('" . $lms_userID . "','Not Attempted',CURDATE()," . $course_ID . ")");
-			
+			"(user_ID, course_status, start_date, enroll_date, course_id) ".
+			"VALUES ('" . $lms_userID . "','Not Attempted', CURDATE(), NOW()," . $course_ID . ")");
+
 		/*	$debug_query = "INSERT INTO course_history ".
 			"(user_ID,course_status,start_date,course_id) ".
 			"VALUES ('" . $lms_userID . "','Not Attempted',CURDATE()," . $course_ID . ")";
@@ -132,7 +132,8 @@ function update_LMS($payment_data, $dir_usercourselist) {
 
 /* -------------end of function update_LMS-------------------------- */
 
-function register_student($dateofreg,$firstname,$lastname,$phone,$email,$address,$address2,$city,$state,$zip,$password){
+function register_student($dateofreg,$first_name,$last_name,$phone,$email,$address,$address2,$city,$state,$zip,
+                          $password){
 
 		 $sql = "INSERT INTO students (
 		`date_of_reg` ,	`date_of_mod`  , `fname` ,
