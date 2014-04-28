@@ -19,7 +19,12 @@ $logout = $_REQUEST['logout'];
 	}
 	</style>
 	<![endif]-->    
-	<script type="text/javascript">
+	<style>
+        .white{
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript">
 	function openWindow(winName){
 		window.open(winName,"FAQs", "width=950,height=650,resizable=no,scrollbars=no,toolbar=no,status=no,menubar=no,copyhistory=no,left=100,top=100,screenX=100,location=no,screenY=100");
 	}
@@ -50,7 +55,10 @@ scrolling="no" width="95%" height="500"></iframe>
 	<table class="pageheader" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tbody>
 		<tr>
-			<td valign="top"><img src="<?php echo PATH_LOGO_FILE; ?>" align="default" border="0" hspace="0" vspace="0"  alt="" /></td>
+			<td valign="top" class="white">
+                <img src="<?php echo PATH_LOGO_FILE; ?>" align="default"
+                                border="0" hspace="0" vspace="0"  alt="" />
+            </td>
 		</tr>
 		<?php if ($show_top_menu) { ?>
 		<tr>

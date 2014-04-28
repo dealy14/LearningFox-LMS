@@ -4,24 +4,27 @@
 # Set the LMS version--either:
 #		1. Company/Demonstration or
 #		2. Customer-facing/Content-provider
-$lms_version = "demo_site";
-//$lms_version = "content_site";
+//$lms_version = "demo_site";
+$lms_version = "content_site";
 
 if ("demo_site"==$lms_version) {
 	$show_top_menu = true;
 	$show_left_navbar = true;
 	$post_login_redirect_section = "landing";
+    $lms_url = "LMS/";
 
 }
 elseif ("content_site"==$lms_version) {
 	$show_top_menu = false;
 	$show_left_navbar = false;
-	$post_login_redirect_section = "enrollment";	
+	$post_login_redirect_section = "enrollment";
+    $lms_url = "courses/";
 }
 else{
 	$show_top_menu = true;
 	$show_left_navbar = true;
 	$post_login_redirect_section = "landing";
+    $lms_url = "LMS/";
 }
 
 $default_email = "admin@compliancefactors.biz";
@@ -43,7 +46,6 @@ error_reporting($error_level);
 
 // Domain name and related info
 $domain_name = "compliancefactors.biz/";
-$lms_url = "LMS/";
 $lms_url_fq = $domain_name . $lms_url;
 /*
 $domain_name = "compliancefactors.biz/";
@@ -141,6 +143,7 @@ require_once($dir_includes."class_fdb.php");
 require_once($dir_includes."functions.php");
 require_once($dir_includes."stored_sql.php");
 require_once($dir_includes."clear_cache.php");
+require_once($dir_includes."LMS_Utility.php");
 
 //include($dir_lms_conf);
 ?>

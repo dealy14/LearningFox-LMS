@@ -46,7 +46,8 @@ if(file_exists($sfile) || file_exists($gfile))
 		while($db->getRows())
 		{
 			$ecourse_ID=$db->row("course_ID");
-			$start_date[$ecourse_ID]=$db->row("start_date");	 
+			$start_date[$ecourse_ID]=$db->row("start_date");
+            $enroll_date[$ecourse_ID]=$db->row("enroll_date");
 			$last_usage[$ecourse_ID]=$db->row("last_usage");
 			$course_status[$ecourse_ID]=$db->row("course_status");
 			$elesson[$ecourse_ID]=$db->row("lesson");		 
@@ -80,7 +81,8 @@ if ($mycourses[0] != "") /* start IF_A1 */ {
 			if($start_date[$mycourses[$x]]=="")
 			{
 				$start_date[$mycourses[$x]]="NA";
-				$last_usage[$mycourses[$x]]="NA";
+				$enroll_date[$mygcourses[$x]]="NA";
+                $last_usage[$mycourses[$x]]="NA";
 				$course_status[$mycourses[$x]]="Not Started";
 			}
 			if(!$color_cnt||$color_cnt==1)
@@ -99,24 +101,37 @@ if ($mycourses[0] != "") /* start IF_A1 */ {
                     <a href="#" style="text-decoration:none;color:#000000;" >
                     <b><?php echo $cname[$mycourses[$x]]; ?></b>
                     </a>
-				</td>	
+				</td>
                 <td>
-                    <?=$start_date[$cID[$mycourses[$x]]]; ?>
+                    <?=$enroll_date[$cID[$mycourses[$x]]]; ?>
                 </td>
 				<td>
-                    <?="[expire date]";?>
-                </td>
+                    <?php
+                    $expiration_date = LMS_Utility::get_expiration_date($enroll_date[$cID[$mycourses[$x]]]);
+                    $days_remaining = LMS_Utility::date_diff(date('Y-m-d'),$expiration_date);
+                    ?>
+                    <?=$expiration_date." (".$days_remaining ." days)";?>
+                </td>r
                 <td>
                     <?=ucfirst(($course_status[$mycourses[$x]]));?>
                 </td>
                 <td>
-                    <a href='#' onClick='launchCourse(<?php echo $cID[$mycourses[$x]]; ?>);return false;'> Launch Course </a>
-				</td>
+                    <?php if (LMS_Utility::is_enrollment_expired_by_expire_date($expiration_date)) {?>
+                        <a href='#' title="You must re-purchase this course to gain access."> Expired </a>
+                    <?php }else { ?>
+                        <a href='#' onClick='launchCourse(<?php echo $cID[$mycourses[$x]]; ?>);return false;'> Launch Course </a>
+                    <?php } ?>
+                </td>
                 <td>
                     <?php // Certificate generation link
                        $cert_text = "Certificate";
-                       if (strtolower(trim($course_status[$mycourses[$x]])) == "complete"){ ?>
-                        <a href="#" title="Click to generate your completion certificate."><?=$cert_text;?></a>
+                       if($course_status[$mycourses[$x]]=="completed" or
+                           $course_status[$mycourses[$x]]=="passed" or
+                           $course_status[$mycourses[$x]]=="failed"){ ?>
+                        <a href="certificate.php?ref=<?=$cID[$mycourses[$x]];?>&userid=<?=$lms_userID;?>"
+                           target="_blank" title="Click to generate your completion certificate.">
+                            <?=$cert_text;?>
+                        </a>
                     <?php } else { ?>
                         <a href="#" title="Certificate available after completion."
                            class="disabled-link"><?=$cert_text;?></a>

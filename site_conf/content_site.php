@@ -22,8 +22,8 @@ switch($section)
 	break;
 
   case 'enrollment':
-  	$mysection=$dir_components."content_enrollment.usercourses.php"
-  
+  	$mysection=$dir_components."content_enrollment.usercourses.php";
+        break;
   case 'get_started':
 	$mysection=$dir_components."content_getstarted.php";
 	break;  
