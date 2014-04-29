@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-
+require_once("includes/mpdf/mpdf.php");
 require_once("conf.php");
 
 $course_info = array();
@@ -30,7 +30,7 @@ while($db->getRows()) {
 $db->close();
 $db = null;
 
-?><!DOCTYPE html>
+$html ='<!DOCTYPE html>
 <html>
 <head>
     <title>Certificate of Completion</title>
@@ -44,15 +44,21 @@ $db = null;
         <br><br>
         <span style="font-size:25px"><i>This is to certify that</i></span>
         <br><br>
-        <span style="font-size:30px"><b><?=$course_info['first_name'];?> <?=$course_info['last_name'];?></b></span><br/><br/>
+        <span style="font-size:30px"><b>'.$course_info["first_name"].' '.$course_info["last_name"];
+?></b></span><br/><br/>
         <span style="font-size:25px"><i>has completed the course</i></span> <br/><br/>
-        <span style="font-size:30px"><?=$course_info['course_name'];?></span>
+        <span style="font-size:30px"><?=$course_info["course_name"];?></span>
         <br/><br/>
-        <span style="font-size:20px">with a score of <b><?=$course_info['score_raw'];?>%</b></span>
+        <span style="font-size:20px">with a score of <b><?=$course_info["score_raw"];?>%</b></span>
         <br/><br/><br/>
         <span style="font-size:22px"><i>dated</i></span><br>
-        <span style="font-size:25px"><?=$course_info['completion_date'];?></span>
+        <span style="font-size:25px"><?=$course_info["completion_date"];?></span>
     </div>
 </div>
 </body>
-</html>
+</html>';
+
+$mpdf=new mPDF();
+$mpdf->WriteHTML($html);
+$mpdf->Output();
+exit;

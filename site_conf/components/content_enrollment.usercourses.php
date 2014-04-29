@@ -111,7 +111,7 @@ if ($mycourses[0] != "") /* start IF_A1 */ {
                     $days_remaining = LMS_Utility::date_diff(date('Y-m-d'),$expiration_date);
                     ?>
                     <?=$expiration_date." (".$days_remaining ." days)";?>
-                </td>r
+                </td>
                 <td>
                     <?=ucfirst(($course_status[$mycourses[$x]]));?>
                 </td>
