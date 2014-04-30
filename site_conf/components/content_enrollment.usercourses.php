@@ -132,6 +132,8 @@ if ($mycourses[0] != "") /* start IF_A1 */ {
                            target="_blank" title="Click to generate your completion certificate.">
                             <?=$cert_text;?>
                         </a>
+                        (<a href="certificate.pdf.php?ref=<?=$cID[$mycourses[$x]];?>&userid=<?=$lms_userID;?>"
+                           target="_blank" title="Click to generate your completion certificate.">PDF</a>)
                     <?php } else { ?>
                         <a href="#" title="Certificate available after completion."
                            class="disabled-link"><?=$cert_text;?></a>
