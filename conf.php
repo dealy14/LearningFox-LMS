@@ -111,6 +111,11 @@ define(TEXT_SITE_TITLE, "ComplianceFactors");
 define(PATH_LOGO_FILE, $dir_images."logo.png");
 define(TEXT_COMPANY_NAME, "ComplianceFactors");
 define(TEXT_LMS_FULL_SYSTEM_NAME, "ComplianceFactors Learning Management System");
+define(TEXT_CONDITIONS_OF_USE, "<br><font size='small'><b>CONDITIONS OF USE</b> <br><br>".
+    "conditions of use .. .asdf lkjhasdf; ;klajsdf l;kjasfa;jlksdkf;j a;lskjdf;lkjas;dlkfj ;l;lajhsdgsdfbkljavsdbnj;".
+    "lko hj;lkjhasdf;l j;lkj ;klj;lkajsdfj;lk <br><br>asd;lka l;kjasdf ;lkj ;lkja sd;kfj;lkj al;kfsd;kljasdf j jlk;".
+    "kl;jasdf ;lkj fjkl;a sfjla;skldf;lkj ;lkjasfdlkja sl;kjasdf".
+    "</font>"); // get from database config table (once created...)
 define(BASE_DOMAIN_NAME, $domain_name);
 define(LMS_URL, $lms_url);
 define(LMS_URL_FQ, $domain_name . $lms_url);
@@ -146,4 +151,8 @@ require_once($dir_includes."clear_cache.php");
 require_once($dir_includes."LMS_Utility.php");
 
 //include($dir_lms_conf);
+
+/* Get configuration from database table, single-row storage */
+
+
 ?>

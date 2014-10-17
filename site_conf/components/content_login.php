@@ -225,6 +225,8 @@ else /* start ELSE_C1 */ { ?>
 
 <?php } /* end ELSE_C1 */ ?>
 
+<?php echo TEXT_CONDITIONS_OF_USE; ?>
+
 <!-- Set initial focus in first form field (Depends on org setting) -->
 
 <?php if($lms_orgID=="on") { ?>
