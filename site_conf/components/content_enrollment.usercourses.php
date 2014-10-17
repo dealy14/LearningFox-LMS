@@ -117,10 +117,18 @@ if ($mycourses[0] != "") /* start IF_A1 */ {
                 </td>
                 <td>
                     <?php if (LMS_Utility::is_enrollment_expired_by_expire_date($expiration_date)) {?>
-                        <a href='#' title="You must re-purchase this course to gain access."> Expired </a>
+                        <a target="_blank" title="You must re-purchase this course to gain access."
+                           href="http://<?=BASE_DOMAIN_NAME;?>index.php?main_page=product_info&products_id=<?php echo
+                           $cID[$mycourses[$x]]; ?>">Expired</a>
                     <?php }else { ?>
                         <a href='#' onClick='launchCourse(<?php echo $cID[$mycourses[$x]]; ?>);return false;'> Launch Course </a>
                     <?php } ?>
+<!--
+                    <br>
+                    [[<a target="_blank" title="You must re-purchase this course to gain access."
+                       href="http://<?=BASE_DOMAIN_NAME;?>index.php?main_page=product_info&products_id=<?php echo
+                       $cID[$mycourses[$x]]; ?>"><i>Expired (test)</i></a>]]
+-->
                 </td>
                 <td>
                     <?php // Certificate generation link
@@ -146,14 +154,13 @@ if ($mycourses[0] != "") /* start IF_A1 */ {
 				echo $course_status[$mycourses[$x]];?>&nbsp;</font>
 				</td>
 				<td Valign="TOP">
-				<?php if($course_status[$mycourses[$x]]=="completed" or 
+
+				<?php if($course_status[$mycourses[$x]]=="completed" or
 				$course_status[$mycourses[$x]]=="passed" or 
 				$course_status[$mycourses[$x]]=="failed")
 				{
 					?>
-					[<a href="index.php?section=courselaunch&action=restart&sid=<?php
-					echo $sid; ?>&course_ID=<?php echo $cID[$mycourses[$x]]; ?>">Reset
-					</a>]
+					[<a target="_blank" href="<?=BASE_DOMAIN_NAME;?>/index.php?main_page=product_info&products_id==<?php echo $cID[$mycourses[$x]]; ?>">Reset</a>]
 					<?php } else{ ?>
 					[<a href="index.php?section=courselaunch&sid=<?php echo $sid;?>&course_ID=<?=$cID[$mycourses[$x]];?>">Details</a>]
 					<?php }  /* end IF_B3 */ ?>
@@ -176,7 +183,9 @@ if ($mycourses[0] != "") /* start IF_A1 */ {
 </div>
 <br/>
 <div id="export_data" class="large bold">
-    <a href="#" title="Download a copy as an Excel spreadsheet">Export to Excel</a>
+    <a href="course_enrollment_list_export_xls.php?uid=<?=$lms_userID;?>"
+       title="Download a copy as an Excel spreadsheet">Export to Excel</a>
     &nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="#" title="Download a copy as a PDF">Print to PDF</a>
+    <a href="course_enrollment_list_export.pdf.php?uid=<?=$lms_userID;?>"
+       title="Download a copy as a PDF">Print to PDF</a>
 </div>
