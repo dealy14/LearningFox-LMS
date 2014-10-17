@@ -51,7 +51,7 @@ function update_LMS($payment_data, $dir_usercourselist) {
 						$payment_data['zip'],$db->escape_string($password_hashed));
 		$db->connect();
 		$db->query($sql1); // re-run query to grab newly-inserted student record
-						// NOTE: this may seem redundant, but we need to grab 
+						// NOTE: this may seem redundant , but we need to grab
 						//       the autonumber ID of the new record
 		$db->getRows();
 	
@@ -64,7 +64,8 @@ function update_LMS($payment_data, $dir_usercourselist) {
 	$lms_userID = $db->row('ID');
 	//$password = $db->row('password');
 	$db->close();
-	
+	//echo $lms_userID;
+
 	//$lms_userID = 13;
 	//$course_ID = 54;
 	
@@ -79,16 +80,15 @@ function update_LMS($payment_data, $dir_usercourselist) {
 		$userfile = file($userfile);
 		$userdata = explode("|", $userfile[0]);
 		
-		$db->connect();
-		
+
 		//mail("ryan@rammons.net","debug - course_array",$course_array, "From: ryan@ammonsdatasolutions.com\r\n");
 
 		foreach ($course_array as $course){
 			$course_ID = $course['courseid'];
-			
-			insertAction("INSERT INTO course_history ".
-			"(user_ID, course_status, start_date, enroll_date, course_id) ".
-			"VALUES ('" . $lms_userID . "','Not Attempted', CURDATE(), NOW()," . $course_ID . ")");
+            $course_name = $course['coursename'];
+            echo "course: $course_ID<br>";
+            echo "course: $course_name<br>";
+
 
 		/*	$debug_query = "INSERT INTO course_history ".
 			"(user_ID,course_status,start_date,course_id) ".
@@ -96,36 +96,62 @@ function update_LMS($payment_data, $dir_usercourselist) {
 			
 			mail("ryan@rammons.net","debug - debug_query", $debug_query, "From: ryan@ammonsdatasolutions.com\r\n");
 		*/	
-			register_student_in_course($lms_userID,'course-'.$course_ID);
-			
+
 			if (!in_array($course_ID, $userdata)) {
+                register_student_in_course($lms_userID,'course-'.$course_ID);
+                insertAction("INSERT INTO course_history ".
+                    "(user_ID, course_status, start_date, enroll_date, course_id) ".
+                    "VALUES ('" . $lms_userID . "','Not Attempted', CURDATE(), NOW()," . $course_ID . ")");
+                echo "new enrollment";
+
 				$newfile = implode("|", $userdata);
 				to_file($dir_usercourselist . $lms_userID, "$newfile|$course_ID", "w+");
 				$userdata[] = $course_ID; //append the current course id - necessary for multi-course registration, writing to courses/student file
 				$ac_message .= $course['coursename']." has been added to your enrollment list.\n";
-				} else {
-				$ac_message .= $course['coursename']." is already in your enrollment list.\n";
+			} else {
+                /* Course reset code  */
+                register_student_in_course($lms_userID,'course-'.$course_ID,$reset=true);
+                echo "reset enrollment";
+                /*$reset_course_qry = "update user_sco_info set lesson_status='not attempted', " .
+                "sco_exit='', sco_entry='ab-initio', total_time='00:00:00.00', " .
+                "score=0, lesson_location=''"
+                ." where user_id = " . $lms_userID . " and course_id='course-" . $course_ID . "'";
+			    */
+                $reset_course_qry="update course_history set course_status='Not Attempted',start_date='0000-00-00',".
+                    "last_usage='0000-00-00',enroll_date=CURDATE(),total_time='00:00:00.00',total_score=0,".
+                    "score_raw=0,core_exit='',lesson_location='' ".
+                    " where user_id=$lms_userID AND course_ID=$course_ID";
+                $db = new db;
+			    $db->connect();
+			    $db->query($reset_course_qry);
+                $db->close();
+                echo "<br>query: $reset_course_qry";
+
+                $ac_message .= $course['coursename']." has been reset. You can now take the course again.\n";
 			}
 		}
 		
-		$db->close();
-
 		} else {
-		/* echo "<pre>";
-		print_r($course_array);
-		echo "</pre>";
-		*/
-		foreach ($course_array as $course){
-			$course_id_array[] = $course['courseid'];
-			$course_names[] = $course['coursename'];
-		}
-		$newfile = implode("|",$course_id_array);
-		$course_list = implode(", ",$course_names);
-		
-		to_file($dir_usercourselist . $lms_userID, $newfile, "w+");
-		$ac_message.= "The following course(s) were added to your enrollment list: \n\t".$course_list;
-		
-	}
+            /* echo "<pre>";
+            print_r($course_array);
+            echo "</pre>";
+            */
+            foreach ($course_array as $course){
+                $course_id_array[] = $course['courseid'];
+                $course_names[] = $course['coursename'];
+                register_student_in_course($lms_userID,'course-'.$course['courseid']);
+                insertAction("INSERT INTO course_history ".
+                    "(user_ID, course_status, start_date, enroll_date, course_id) ".
+                    "VALUES ('" . $lms_userID . "','Not Attempted', CURDATE(), NOW()," . $course['courseid'] . ")");
+
+            }
+            $newfile = implode("|",$course_id_array);
+            $course_list = implode(", ",$course_names);
+
+            to_file($dir_usercourselist . $lms_userID, $newfile, "w+");
+            $ac_message.= "The following course(s) were added to your enrollment list: \n\t".$course_list;
+
+	    }
 	send_pass_email($payment_data['email'], $password, $ac_message);
 	//echo $ac_message;
 }
@@ -155,7 +181,7 @@ function register_student($dateofreg,$first_name,$last_name,$phone,$email,$addre
 		$db->close();
 }
 
-function register_student_in_course($studentid,$courseid){
+function register_student_in_course($studentid,$courseid,$reset=false){
 	
 	/* 
 	  SUMMARY: 
@@ -185,16 +211,33 @@ function register_student_in_course($studentid,$courseid){
 		$sequence = $db->row("sequence");
 		$type = $db->row("type");
 		$cmi_credit = $db->row("cmi_credit");
-		
-		$insrt="insert into user_sco_info set user_id=" . $studentid . ",course_id='".
+
+        echo "<p>register student in course()</p>";
+
+        if (!$reset){
+            $insrt="insert into user_sco_info set user_id=" . $studentid . ",course_id='".
 					$courseid ."',sco_id='". $sco_identifier ."',launch='". 
 					$course_launch_file . "',data_from_lms='" . $data_from_lms .
 					"',lesson_status='not attempted',prerequisite='" . $prerequisites . "',".
 					"sco_exit='',sco_entry='ab-initio',masteryscore='" . $masteryscore . 
 					"',maximumtime='" . $maximumtime . "',timelimitaction='" . $timelimitaction .
 					"',sequence=" . $sequence . ",type='" . $type . "',cmi_credit='" . $cmi_credit ."'";
-		
-		insertAction($insrt);
+            echo "<p> --new course</p>";
+		    insertAction($insrt);
+        }
+        else{//reset by UPDATEing
+            $updb = new db;
+            $updb->connect();
+            $update_qry = "update user_sco_info set lesson_status='not attempted', " .
+                "sco_exit='', sco_entry='ab-initio', total_time='00:00:00.00', " .
+                "score=0, lesson_location=''";
+            $update_qry .= " where user_id = " . $studentid . " and course_id='course-" . $courseid . "'";
+
+            echo "<p> --reset course</p>";
+
+            $updb->query($update_qry);
+            $updb->close();
+        }
 
 		}
 	
