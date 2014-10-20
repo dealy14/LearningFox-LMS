@@ -99,10 +99,11 @@ function update_LMS($payment_data, $dir_usercourselist) {
 
 			if (!in_array($course_ID, $userdata)) {
                 register_student_in_course($lms_userID,'course-'.$course_ID);
-                insertAction("INSERT INTO course_history ".
+                $insrt = "INSERT INTO course_history ".
                     "(user_ID, course_status, start_date, enroll_date, course_id) ".
-                    "VALUES ('" . $lms_userID . "','Not Attempted', CURDATE(), NOW()," . $course_ID . ")");
-                echo "new enrollment";
+                    "VALUES ('" . $lms_userID . "','Not Attempted', CURDATE(), NOW()," . $course_ID . ")";
+                insertAction($insrt);
+                echo "<p>new enrollment [$insrt]</p>";
 
 				$newfile = implode("|", $userdata);
 				to_file($dir_usercourselist . $lms_userID, "$newfile|$course_ID", "w+");
@@ -111,7 +112,7 @@ function update_LMS($payment_data, $dir_usercourselist) {
 			} else {
                 /* Course reset code  */
                 register_student_in_course($lms_userID,'course-'.$course_ID,$reset=true);
-                echo "reset enrollment";
+
                 /*$reset_course_qry = "update user_sco_info set lesson_status='not attempted', " .
                 "sco_exit='', sco_entry='ab-initio', total_time='00:00:00.00', " .
                 "score=0, lesson_location=''"
@@ -125,7 +126,7 @@ function update_LMS($payment_data, $dir_usercourselist) {
 			    $db->connect();
 			    $db->query($reset_course_qry);
                 $db->close();
-                echo "<br>query: $reset_course_qry";
+                echo "<p>reset enrollment [$reset_course_qry]</p>";
 
                 $ac_message .= $course['coursename']." has been reset. You can now take the course again.\n";
 			}
@@ -222,7 +223,7 @@ function register_student_in_course($studentid,$courseid,$reset=false){
 					"sco_exit='',sco_entry='ab-initio',masteryscore='" . $masteryscore . 
 					"',maximumtime='" . $maximumtime . "',timelimitaction='" . $timelimitaction .
 					"',sequence=" . $sequence . ",type='" . $type . "',cmi_credit='" . $cmi_credit ."'";
-            echo "<p> --new course</p>";
+            echo "<p> --new course [$insrt]</p>";
 		    insertAction($insrt);
         }
         else{//reset by UPDATEing
@@ -233,7 +234,7 @@ function register_student_in_course($studentid,$courseid,$reset=false){
                 "score=0, lesson_location=''";
             $update_qry .= " where user_id = " . $studentid . " and course_id='course-" . $courseid . "'";
 
-            echo "<p> --reset course</p>";
+            echo "<p> --reset course [$update_qry]</p>";
 
             $updb->query($update_qry);
             $updb->close();
