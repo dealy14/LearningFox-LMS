@@ -112,8 +112,11 @@ if ($mycourses[0] != "") /* start IF_A1 */ {
                     ?>
                     <?=$expiration_date." (".$days_remaining ." days)";?>
                 </td>
-                <td>
-                    <?=ucfirst(($course_status[$mycourses[$x]]));?>
+                <td<?php
+                    $status = $course_status[$mycourses[$x]];
+                    if (strtolower($status) == 'failed') echo ' style="color: red;"';
+                    ?>>
+                    <?=ucfirst($status);?>
                 </td>
                 <td>
                     <?php if (LMS_Utility::is_enrollment_expired_by_expire_date($expiration_date)) {?>
