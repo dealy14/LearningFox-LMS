@@ -122,7 +122,7 @@ if ($mycourses[0] != "") /* start IF_A1 */ {
                     <?php if (LMS_Utility::is_enrollment_expired_by_expire_date($expiration_date)) {?>
                         <a target="_blank" title="You must re-purchase this course to gain access."
                            href="http://<?=BASE_DOMAIN_NAME;?>index.php?main_page=product_info&products_id=<?php echo
-                           $cID[$mycourses[$x]]; ?>">Expired</a>
+                           $cID[$mycourses[$x]]; ?>" style="color: red;">Expired</a>
                     <?php }else { ?>
                         <a href='#' onClick='launchCourse(<?php echo $cID[$mycourses[$x]]; ?>);return false;'> Launch Course </a>
                     <?php } ?>
