@@ -13,13 +13,14 @@ $rsCrseNm = mysql_query($qryCrseNm);
 $rowCrseNm = mysql_fetch_object($rsCrseNm);
 $totalCnt = mysql_result( mysql_query( "select count(*) from user_sco_info " .
 							"where course_id = '" . $rowCrseNm->course_id . "' and " .
-							"user_id = " . $_SESSION['student_id'] . " and " .
-							"lesson_status not like('%completed%') and " .
-							"(sco_entry='ab-initio' or sco_entry='resume') order by sequence"), 0);
+							"user_id = " . $_SESSION['student_id']), 0);
+                            //. " and " .
+							//"lesson_status not like('%completed%') and " .
+							//"(sco_entry='ab-initio' or sco_entry='resume') order by sequence"), 0);
 
 $qryScoNm = "select * from user_sco_info where course_id = '" . $rowCrseNm->course_id . "' and user_id = " . 
- 				$_SESSION['student_id'] . " and lesson_status not like('%completed%') and " .
-				"(sco_entry='ab-initio' or sco_entry='resume') order by sequence";
+ 				$_SESSION['student_id']; //. " and lesson_status not like('%completed%') and " .
+				//"(sco_entry='ab-initio' or sco_entry='resume') order by sequence";
 
 //die($qryScoNm);
 

@@ -53,13 +53,17 @@ $rsCrseNm = mysql_query($qryCrseNm);
 $rowCrseNm = mysql_fetch_object($rsCrseNm);
 $_SESSION["course_identifier"] = $rowCrseNm->course_id;
 $totalCnt = mysql_result(mysql_query( "select count(*) from user_sco_info where course_id = '" . 
-				$rowCrseNm->course_id . "' and user_id=" . $_SESSION['student_id'] . " and lesson_status not like('%completed%') " .
-				"and (sco_entry='ab-initio' or sco_entry='resume') order by sequence"),0);
-				
+				$rowCrseNm->course_id . "' and user_id=" . $_SESSION['student_id']),0);
+//. " and lesson_status not like ('%completed%') " ."and (sco_entry='ab-initio' or sco_entry='resume') order by
+// sequence"),0);
+
 $qryScoNm = "select launch from user_sco_info " .
-				"where course_id = '" . $rowCrseNm->course_id . "' and user_id=" . $_SESSION['student_id'] . " and " .
-				"lesson_status not like('%completed%') and (sco_entry='ab-initio' or sco_entry='resume') order by sequence";
-				
+				"where course_id = '" . $rowCrseNm->course_id . "' and user_id=" . $_SESSION['student_id'] ;
+//. " and " .
+//"lesson_status not like('%completed%') and (sco_entry='ab-initio' or sco_entry='resume') order by sequence";
+?>
+<script>console.log("Count: <?=$totalCnt;?>\nQuery: <?=$qryScoNm;?>");</script>
+<?php
 $rsScoNm = mysql_query($qryScoNm);
 //if($totalCnt > 1){
 ?>
@@ -86,6 +90,9 @@ $rsScoNm = mysql_query($qryScoNm);
 			$itrCnt ++;
 		}
 		//echo "top.Content.location= arrLnks[0];\n";
+		echo "console.log('Total count: ' + $totalCnt );\n";
+		echo "console.log('Launch file: uploadfiles/$rowCrseNm->course_id/$datScoNm->launch');\n";
+
 		echo "</script>\n";
 		//}
 		
